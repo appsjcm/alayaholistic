@@ -1,0 +1,22 @@
+<svg width="900" height="650" viewBox="0 0 900 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="g" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(450 300) rotate(90) scale(330 410)">
+      <stop stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="650" fill="url(#g)"/>
+  <g opacity="0.38" stroke="#fff" stroke-width="1">
+    <circle cx="130" cy="120" r="2"/>
+    <circle cx="240" cy="80" r="1.5"/>
+    <circle cx="370" cy="140" r="2"/>
+    <circle cx="760" cy="110" r="2"/>
+    <circle cx="700" cy="270" r="1.5"/>
+    <circle cx="500" cy="70" r="1.5"/>
+    <circle cx="115" cy="430" r="2"/>
+    <circle cx="810" cy="480" r="2"/>
+    <path d="M445 210C490 250 510 310 480 365C450 420 380 430 330 395C375 402 420 382 445 338C470 294 463 247 445 210Z"/>
+    <path d="M167 240L184 274L221 280L194 306L201 342L167 325L134 342L141 306L114 280L151 274L167 240Z"/>
+    <path d="M710 360L721 383L746 386L728 404L732 429L710 417L687 429L692 404L674 386L699 383L710 360Z"/>
+  </g>
+</svg>

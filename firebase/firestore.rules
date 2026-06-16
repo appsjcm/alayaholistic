@@ -1,0 +1,91 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ALAYA HOLISTICS v3.3 MULTI-ADMIN
+    //
+    // Cambia estos emails por los reales.
+    // Deben coincidir con los usuarios creados en Firebase Authentication.
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in [
+          "admin@alayaholistics.com"
+        ];
+    }
+
+    function isEditor() {
+      return request.auth != null
+        && request.auth.token.email in [
+          "admin@alayaholistics.com",
+          "editor@alayaholistics.com"
+        ];
+    }
+
+    function isViewer() {
+      return request.auth != null
+        && request.auth.token.email in [
+          "admin@alayaholistics.com",
+          "editor@alayaholistics.com",
+          "viewer@alayaholistics.com"
+        ];
+    }
+
+    function validReserva() {
+      return request.resource.data.nombre is string
+        && request.resource.data.telefono is string
+        && request.resource.data.eventoTitulo is string;
+    }
+
+    match /alaya_reservas/{reservaId} {
+      // El público puede crear reservas.
+      allow create: if validReserva();
+
+      // Viewer puede leer. Editor/admin puede editar.
+      allow read: if isViewer();
+      allow update: if isEditor();
+      allow delete: if isEditor();
+    }
+
+    match /alaya_eventos/{eventoId} {
+      allow read: if true;
+      allow write: if isEditor();
+    }
+
+    match /alaya_services/{serviceId} {
+      allow read: if true;
+      allow write: if isEditor();
+    }
+
+    match /alaya_productos/{productoId} {
+      allow read: if true;
+      allow write: if isEditor();
+    }
+
+    match /alaya_settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /alaya_audit_log/{auditId} {
+      // Solo admin puede gestionar auditoría online.
+      allow read: if isAdmin();
+      allow create: if isAdmin();
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    match /alaya_agenda_blocks/{blockId} {
+      // Viewer lee bloqueos; editor/admin los gestiona.
+      allow read: if isViewer();
+      allow create, update, delete: if isEditor();
+    }
+
+    match /alaya_notifications/{notificationId} {
+      // Centro de notificaciones online.
+      allow read: if isViewer();
+      allow create, update, delete: if isEditor();
+    }
+  }
+}

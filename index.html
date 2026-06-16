@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#180b25">
+  <meta name="description" content="Alaya Holistics: tarot, reiki, lectura de cartas, herbolario, talleres y reservas con cita previa.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Alaya Holistics">
+  <meta property="og:description" content="Tarot, Reiki, Herbolario, talleres y reservas con cita previa.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/icon-512.png">
+  <title>Alaya Holistics · Tarot, Reiki y Herbolario</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="modern-ui">
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Ir al inicio">
+        <img src="assets/icon-192.png" alt="" class="brand-icon">
+        <span>
+          <strong>Alaya</strong>
+          <small>Holistics</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#servicios">Servicios</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#eventos">Talleres</a>
+        <a href="#herbolario">Alaya Herbolario</a>
+        <a href="#contacto">Contacto</a>
+        <button class="admin-mini-btn" id="openAdminBtnTop">Admin</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-kicker-row">
+          <p class="eyebrow">Tarot · Reiki · Herbolario · Energía</p>
+          <span class="live-pill">Agenda abierta</span>
+        </div>
+        <h1>Un espacio para reconectar contigo</h1>
+        <p class="hero-text">
+          En Alaya Holistics encontrarás lectura de cartas, tarot, reiki, consultas energéticas,
+          herbolario y talleres para acompañarte con calma, intuición y cuidado.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#reservas" class="btn btn-primary">Reservar cita</a>
+          <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+          <button class="btn btn-secondary hidden" id="installPwaBtn">Instalar app</button>
+        </div>
+
+        <div class="hero-badges">
+          <span>Horas concertadas</span>
+          <span>Atención personalizada</span>
+          <span>Talleres y cursos</span>
+        </div>
+
+        <div class="hero-stats">
+          <div><strong>6+</strong><small>servicios</small></div>
+          <div><strong>24h</strong><small>respuesta</small></div>
+          <div><strong>100%</strong><small>con intención</small></div>
+        </div>
+      </div>
+
+      <div class="hero-card modern-oracle-card">
+        <div class="orbital-ring ring-one"></div>
+        <div class="orbital-ring ring-two"></div>
+        <div class="moon"></div>
+        <span class="card-label">Reserva premium</span>
+        <h2>Tu momento empieza aquí</h2>
+        <p>Reserva por WhatsApp o email. Elige servicio, horario preferido y deja tu mensaje.</p>
+        <a href="#reservas" class="btn btn-glass">Quiero reservar</a>
+      </div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="intro-grid">
+        <article class="glass-card">
+          <span class="card-icon">✦</span>
+          <h2>Alaya Holistics</h2>
+          <p>
+            Un proyecto pensado para consultas, rituales, bienestar energético,
+            lectura intuitiva y acompañamiento espiritual desde una estética cálida y moderna.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <span class="card-icon">☾</span>
+          <h2>Citas con intención</h2>
+          <p>
+            Cada reserva se prepara de forma personalizada. Puedes pedir consulta,
+            preguntar por disponibilidad o solicitar una actividad a medida.
+          </p>
+        </article>
+
+        <article class="glass-card">
+          <span class="card-icon">♢</span>
+          <h2>Experiencia premium</h2>
+          <p>
+            Diseño elegante, panel de administración básico, reservas guardadas
+            y estructura lista para subir a GitHub Pages como PWA.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="cosmic-divider" aria-hidden="true"></div>
+
+    <section class="section holistics-services-section" id="servicios">
+      <div class="section-header">
+        <p class="eyebrow">Alaya Holistics</p>
+        <h2>Consultas, terapias y acompañamiento</h2>
+        <p>
+          Tarot, lectura de cartas, reiki, cuantim y talleres quedan organizados como área principal de Alaya Holistics.
+          Filtra por tipo de experiencia y abre cada ficha para ver más detalle.
+        </p>
+      </div>
+
+      <div class="holistics-experience-strip" id="holisticsExperienceStrip">
+        <article><strong>Intuición</strong><span>Lecturas simbólicas y orientación personal.</span></article>
+        <article><strong>Energía</strong><span>Sesiones de calma, equilibrio y reconexión.</span></article>
+        <article><strong>Aprendizaje</strong><span>Talleres, cursos y encuentros en agenda.</span></article>
+      </div>
+
+      <div class="services-toolbar">
+        <input id="serviceSearch" type="search" placeholder="Buscar servicio, intención o palabra clave">
+        <div class="service-filters" id="serviceCategoryFilters"></div>
+      </div>
+
+      <div class="service-highlights" id="serviceHighlights"></div>
+      <div class="featured-service" id="featuredService"></div>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <section class="section split-section" id="reservas">
+      <div class="split-copy">
+        <p class="eyebrow">Reservas</p>
+        <h2>Reserva con hora concertada</h2>
+        <p>
+          Rellena el formulario y envía la solicitud por WhatsApp o email. La reserva
+          también quedará guardada en el panel de administrador de este navegador.
+        </p>
+
+        <ul class="check-list">
+          <li>Consulta de tarot o lectura de cartas</li>
+          <li>Sesión de reiki o energética</li>
+          <li>Asesoramiento de herbolario</li>
+          <li>Talleres, cursos y actividades</li>
+        </ul>
+      </div>
+
+      <form class="booking-card" id="bookingForm">
+        <h3>Formulario de reserva</h3>
+
+        <label>
+          Nombre
+          <input id="bookingName" type="text" placeholder="Tu nombre" required>
+        </label>
+
+        <label>
+          Teléfono
+          <input id="bookingPhone" type="tel" placeholder="Tu teléfono" required>
+        </label>
+
+        <label>
+          Email opcional
+          <input id="bookingEmail" type="email" placeholder="tu@email.com">
+        </label>
+
+        <label>
+          Servicio
+          <select id="bookingService" required></select>
+        </label>
+
+        <div class="form-row">
+          <label>
+            Fecha preferida
+            <input id="bookingDate" type="date">
+          </label>
+
+          <label>
+            Hora preferida
+            <input id="bookingTime" type="time">
+          </label>
+        </div>
+
+        <div class="availability-hint" id="availabilityHint">
+          Selecciona fecha y hora para comprobar disponibilidad.
+        </div>
+
+        <div class="availability-slots" id="availabilitySlots"></div>
+        <div class="blocked-slot-hint" id="blockedSlotHint"></div>
+
+        <label>
+          Mensaje
+          <textarea id="bookingMessage" placeholder="Cuéntanos qué necesitas o qué disponibilidad tienes"></textarea>
+        </label>
+
+        <label class="consent-check">
+          <input id="bookingConsent" type="checkbox">
+          <span>Acepto que Alaya Holistics use estos datos para contactar y gestionar mi reserva.</span>
+        </label>
+
+        <div class="booking-actions">
+          <button type="button" class="btn btn-primary" id="sendBookingWhatsapp">Enviar por WhatsApp</button>
+          <button type="button" class="btn btn-secondary" id="sendBookingEmail">Enviar por email</button>
+        </div>
+
+        <p class="form-note">El administrador confirmará la cita lo antes posible.</p>
+      </form>
+    </section>
+
+    <section class="section eventos-section" id="eventos">
+      <div class="section-header">
+        <p class="eyebrow">Agenda Alaya</p>
+        <h2>Talleres, cursos y encuentros</h2>
+        <p>
+          Actividades de tarot, reiki, astrología, lectura de cartas, herbolario
+          y crecimiento personal.
+        </p>
+      </div>
+
+      <div class="events-toolbar eventos-pro-toolbar">
+        <input id="eventSearch" type="search" placeholder="Buscar taller, curso, tema o etiqueta">
+
+        <select id="eventLevelFilter" aria-label="Filtrar por nivel">
+          <option value="">Todos los niveles</option>
+          <option value="Iniciación">Iniciación</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+          <option value="Todos">Todos los niveles</option>
+        </select>
+
+        <select id="eventStatusFilter" aria-label="Filtrar por plazas">
+          <option value="">Todos</option>
+          <option value="disponible">Con plazas</option>
+          <option value="completo">Completo</option>
+        </select>
+
+        <button class="btn btn-secondary" id="clearEventFiltersBtn" type="button">Limpiar filtros</button>
+        <button class="btn btn-secondary" id="openAdminBtn">Acceso administrador</button>
+
+        <div class="event-filters" id="eventCategoryFilters"></div>
+      </div>
+
+      <div class="event-highlights" id="eventHighlights"></div>
+      <div class="featured-event" id="featuredEvent"></div>
+      <div class="eventos-grid" id="eventosGrid"></div>
+    </section>
+
+    <section class="section herbolario-section" id="herbolario">
+      <div class="herbolario-hero">
+        <div>
+          <p class="eyebrow">Alaya Herbolario</p>
+          <h2>Herbolario natural, energético y cercano</h2>
+          <p>
+            Una sección propia para productos de bienestar: plantas, infusiones, aromas,
+            minerales, velas, packs rituales y complementos seleccionados con mimo.
+          </p>
+
+          <div class="herbolario-actions">
+            <a class="btn btn-primary" href="#herbolario-productos">Ver productos</a>
+            <a class="btn btn-secondary" id="herbolarioWhatsappBtn" href="#">Consultar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="herbolario-orbit-card">
+          <span>♧</span>
+          <strong>Alaya Herbolario</strong>
+          <p>Bienestar natural · rituales · autocuidado</p>
+        </div>
+      </div>
+
+      <div class="herbolario-benefits">
+        <article>
+          <strong>🌿 Natural</strong>
+          <span>Selección de productos para bienestar diario.</span>
+        </article>
+        <article>
+          <strong>✨ Energético</strong>
+          <span>Velas, minerales, aromas y packs rituales.</span>
+        </article>
+        <article>
+          <strong>🧺 Cercano</strong>
+          <span>Consulta disponibilidad antes de comprar.</span>
+        </article>
+      </div>
+
+      <div class="section-header" id="herbolario-productos">
+        <p class="eyebrow">Catálogo Alaya Herbolario</p>
+        <h2>Productos destacados</h2>
+        <p>
+          Filtra por categoría o busca por nombre, etiqueta o descripción.
+        </p>
+      </div>
+
+      <div class="herbolario-toolbar catalogo-pro-toolbar">
+        <input id="herbSearch" type="search" placeholder="Buscar producto, planta, ritual o etiqueta">
+
+        <select id="herbStockFilter" aria-label="Filtrar por stock">
+          <option value="">Todo el stock</option>
+          <option value="Disponible">Disponible</option>
+          <option value="Consultar">Consultar</option>
+          <option value="Bajo pedido">Bajo pedido</option>
+          <option value="Agotado">Agotado</option>
+        </select>
+
+        <button id="clearHerbFiltersBtn" class="btn btn-secondary" type="button">Limpiar filtros</button>
+        <div class="herbolario-filters" id="herbCategoryFilters"></div>
+      </div>
+
+      <div class="herbolario-highlights" id="herbolarioHighlights"></div>
+      <div id="featuredHerbProduct" class="featured-herb-product"></div>
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section class="section testimonials-section">
+      <div class="section-header">
+        <p class="eyebrow">Ambiente</p>
+        <h2>Un lugar de calma</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <article>
+          <p>“Lecturas con mimo, claridad y mucha sensibilidad.”</p>
+          <span>Consulta intuitiva</span>
+        </article>
+        <article>
+          <p>“Ideal para reconectar, respirar y ordenar energía.”</p>
+          <span>Sesiones holísticas</span>
+        </article>
+        <article>
+          <p>“Talleres cercanos, bonitos y fáciles de seguir.”</p>
+          <span>Formaciones Alaya</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="contact-card">
+        <p class="eyebrow">Contacto</p>
+        <h2>¿Hablamos?</h2>
+        <p>
+          Escríbenos para reservar, preguntar por talleres o consultar disponibilidad.
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" id="contactWhatsapp" href="#">WhatsApp</a>
+          <a class="btn btn-secondary" id="contactEmail" href="#">Email</a>
+        </div>
+
+        <div class="contact-info">
+          <p><strong>Horario:</strong> Horas concertadas</p>
+          <p><strong>Servicios:</strong> Tarot, Reiki, Lectura de cartas, talleres y sección independiente Alaya Herbolario</p>
+        </div>
+      </div>
+    </section>
+  
+  <a href="#reservas" class="floating-reserve-btn" aria-label="Reservar cita">Reservar</a>
+
+    <div class="modal hidden" id="eventDetailModal" aria-hidden="true">
+      <div class="modal-card event-detail-card">
+        <button class="modal-close" id="closeEventDetailModal" aria-label="Cerrar ficha">×</button>
+        <div id="eventDetailContent"></div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="serviceDetailModal" aria-hidden="true">
+      <div class="modal-card service-detail-card">
+        <button class="modal-close" id="closeServiceDetailModal" aria-label="Cerrar ficha">×</button>
+        <div id="serviceDetailContent"></div>
+      </div>
+    </div>
+
+    <div class="modal hidden" id="productDetailModal" aria-hidden="true">
+      <div class="modal-card product-detail-card">
+        <button class="modal-close" id="closeProductDetailModal" aria-label="Cerrar ficha">×</button>
+        <div id="productDetailContent"></div>
+      </div>
+    </div>
+
+</main>
+
+  <section class="section legal-section" id="legal">
+    <div class="section-header">
+      <p class="eyebrow">Información</p>
+      <h2>Aviso y privacidad</h2>
+      <p>Textos básicos para una primera versión. Revisa y adapta esta parte antes de publicar oficialmente.</p>
+    </div>
+
+    <div class="legal-grid">
+      <article class="legal-card">
+        <h3>Aviso</h3>
+        <p>
+          Las consultas y actividades de Alaya Holistics son de acompañamiento, bienestar
+          y orientación personal. No sustituyen asesoramiento médico, psicológico, legal o financiero profesional.
+        </p>
+      </article>
+
+      <article class="legal-card">
+        <h3>Reservas</h3>
+        <p>
+          Los datos enviados en reservas se usan únicamente para contactar y gestionar la cita.
+          En esta versión local, las reservas se guardan en el navegador del dispositivo.
+        </p>
+      </article>
+
+      <article class="legal-card">
+        <h3>Cookies</h3>
+        <p>
+          Esta web no instala cookies publicitarias. Usa almacenamiento local para guardar eventos,
+          productos, servicios y reservas en el propio navegador.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Alaya Holistics · Diseño web premium moderno.</p>
+    <a href="#legal" class="footer-link">Legal</a>
+    <button class="footer-admin" id="openAdminBtnFooter">Panel admin</button>
+  </footer>
+
+  <!-- Modal reserva de evento -->
+  <div id="reservaModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="reservaTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="closeReservaBtn" aria-label="Cerrar">×</button>
+
+      <h3 id="reservaTitle">Reservar plaza</h3>
+      <p id="reservaEventoInfo" class="reserva-evento-info"></p>
+
+      <div class="reserva-form">
+        <input id="reservaNombre" type="text" placeholder="Tu nombre">
+        <input id="reservaTelefono" type="tel" placeholder="Tu teléfono">
+        <input id="reservaEmail" type="email" placeholder="Tu email opcional">
+        <textarea id="reservaMensaje" placeholder="Mensaje opcional"></textarea>
+
+        <label class="consent-check">
+          <input id="reservaConsent" type="checkbox">
+          <span>Acepto que Alaya Holistics use estos datos para contactar y gestionar mi reserva.</span>
+        </label>
+
+        <button id="enviarReservaWhatsappBtn" class="btn btn-primary">Enviar por WhatsApp</button>
+        <button id="enviarReservaEmailBtn" class="btn btn-secondary">Enviar por email</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal admin -->
+  <div id="adminModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-content admin-modal">
+      <button class="modal-close" id="closeAdminBtn" aria-label="Cerrar">×</button>
+
+      <div id="adminLoginBox">
+        <h3 id="adminTitle">Panel de administrador</h3>
+        <p>Acceso privado para gestionar talleres, productos y reservas.</p>
+        <p class="form-note">
+          En modo Firebase, escribe aquí el email y contraseña del usuario admin de Firebase Authentication.
+        </p>
+
+        <div class="admin-login-grid">
+          <input id="adminUser" type="text" placeholder="Usuario">
+          <input id="adminPass" type="password" placeholder="Contraseña">
+          <button id="loginAdminBtn" class="btn btn-primary">Entrar</button>
+          <button id="resetFirebasePasswordBtn" class="btn btn-secondary" type="button">Recuperar contraseña Firebase</button>
+        </div>
+
+        <p id="adminLoginError" class="error-text"></p>
+        <p class="form-note">
+          Usuario inicial: <strong>admin</strong> · Contraseña inicial: <strong>alaya2026</strong>
+        </p>
+      </div>
+
+      <div id="adminPanel" class="hidden">
+        <div class="admin-panel-header">
+          <div>
+            <p class="eyebrow">Zona privada</p>
+            <h3>Gestionar Alaya</h3>
+            <div class="admin-session-row">
+              <span id="adminSessionBadge" class="admin-session-badge">Sesión local</span>
+              <span id="adminRoleBadge" class="admin-role-badge">Rol admin</span>
+              <button id="adminNotificationBadge" class="admin-notification-badge" type="button" data-admin-tab-target="notificaciones">
+                🔔 0
+              </button>
+              <small id="adminSessionTimer">Auto-bloqueo activo</small>
+            </div>
+          </div>
+          <div class="admin-header-actions">
+            <button id="lockAdminBtn" class="btn btn-secondary">Bloquear panel</button>
+            <button id="logoutAdminBtn" class="btn btn-secondary">Cerrar sesión</button>
+          </div>
+        </div>
+
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-admin-tab="dashboard">Resumen</button>
+          <button class="admin-tab" data-admin-tab="notificaciones">Notificaciones</button>
+          <button class="admin-tab" data-admin-tab="servicios">Servicios</button>
+          <button class="admin-tab" data-admin-tab="eventos">Eventos</button>
+          <button class="admin-tab" data-admin-tab="reservas">Reservas</button>
+          <button class="admin-tab" data-admin-tab="calendario">Calendario</button>
+          <button class="admin-tab" data-admin-tab="productos">Productos</button>
+          <button class="admin-tab" data-admin-tab="ajustes">Ajustes</button>
+          <button class="admin-tab" data-admin-tab="online">Online</button>
+          <button class="admin-tab" data-admin-tab="auditoria">Auditoría</button>
+        </div>
+
+        <section class="admin-tab-panel active" id="adminTab-dashboard">
+          <h4>Resumen rápido</h4>
+          <div class="dashboard-grid" id="adminDashboard"></div>
+          <div class="admin-tools">
+            <h4>Acciones rápidas</h4>
+            <div class="admin-actions">
+              <button class="btn btn-secondary" onclick="switchAdminTab('reservas')">Ver reservas</button>
+              <button class="btn btn-secondary" onclick="switchAdminTab('eventos')">Crear taller</button>
+              <button class="btn btn-secondary" onclick="switchAdminTab('servicios')">Editar servicios</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-tab-panel" id="adminTab-servicios">
+          <h4>Alaya Holistics / servicios</h4>
+          <p class="form-note">
+            Gestiona tarot, cartas, reiki, cuantim, talleres y cualquier experiencia holística de la web.
+          </p>
+
+          <div class="admin-form services-pro-admin-form">
+            <div class="form-row">
+              <input id="servicioTitulo" type="text" placeholder="Nombre del servicio">
+              <input id="servicioIcono" type="text" placeholder="Icono o símbolo, por ejemplo ✦">
+            </div>
+
+            <div class="form-row">
+              <select id="servicioCategoria">
+                <option value="lecturas">Lecturas</option>
+                <option value="energia">Energía</option>
+                <option value="bienestar">Bienestar</option>
+                <option value="aprendizaje">Talleres / aprendizaje</option>
+                <option value="personalizado">Personalizado</option>
+              </select>
+
+              <input id="servicioDuracion" type="text" placeholder="Duración / tipo">
+            </div>
+
+            <div class="form-row">
+              <input id="servicioPrecio" type="text" placeholder="Precio / aportación">
+              <label class="inline-check">
+                <input id="servicioDestacado" type="checkbox">
+                <span>Servicio destacado</span>
+              </label>
+            </div>
+
+            <input id="servicioEtiquetas" type="text" placeholder="Etiquetas separadas por coma">
+            <textarea id="servicioDescripcion" placeholder="Descripción"></textarea>
+            <textarea id="servicioBeneficios" placeholder="Qué incluye / beneficios / enfoque de la sesión"></textarea>
+            <textarea id="servicioPreparacion" placeholder="Preparación recomendada antes de la sesión"></textarea>
+
+            <button id="guardarServicioBtn" class="btn btn-primary">Guardar servicio</button>
+          </div>
+
+          <div class="admin-tools services-admin-help">
+            <h4>Consejo de comunicación</h4>
+            <p>
+              Para mantener un tono profesional, presenta tarot, reiki y lecturas como orientación,
+              bienestar y acompañamiento, evitando promesas absolutas.
+            </p>
+          </div>
+
+          <div id="adminServiciosList" class="admin-list"></div>
+        </section>
+
+        <section class="admin-tab-panel" id="adminTab-eventos">
+          <h4>Talleres y cursos Pro</h4>
+          <p class="form-note">
+            Gestiona talleres, cursos, encuentros y actividades con plazas, nivel, modalidad y ficha completa.
+          </p>
+
+          <div class="admin-form eventos-pro-admin-form">
+            <div class="form-row">
+              <input id="eventoTitulo" type="text" placeholder="Título del taller">
+              <input id="eventoIcono" type="text" placeholder="Icono, ej: ✦">
+            </div>
+
+            <div class="form-row">
+              <input id="eventoFecha" type="date">
+              <input id="eventoHora" type="time">
+            </div>
+
+            <div class="form-row">
+              <select id="eventoCategoria">
+                <option value="tarot">Tarot</option>
+                <option value="reiki">Reiki</option>
+                <option value="astrologia">Astrología</option>
+                <option value="herbolario">Herbolario</option>
+                <option value="rituales">Rituales</option>
+                <option value="bienestar">Bienestar</option>
+                <option value="otros">Otros</option>
+              </select>
+
+              <select id="eventoNivel">
+                <option value="Iniciación">Iniciación</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+                <option value="Todos">Todos los niveles</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <input id="eventoPrecio" type="text" placeholder="Precio / aportación">
+              <input id="eventoPlazas" type="number" min="0" placeholder="Plazas disponibles">
+            </div>
+
+            <div class="form-row">
+              <input id="eventoFormato" type="text" placeholder="Formato, ej: presencial / online">
+              <input id="eventoUbicacion" type="text" placeholder="Ubicación o sala">
+            </div>
+
+            <div class="form-row">
+              <input id="eventoEtiquetas" type="text" placeholder="Etiquetas separadas por coma">
+              <label class="inline-check">
+                <input id="eventoDestacado" type="checkbox">
+                <span>Actividad destacada</span>
+              </label>
+            </div>
+
+            <textarea id="eventoDescripcion" placeholder="Descripción"></textarea>
+            <textarea id="eventoTemario" placeholder="Temario, contenido o qué se trabajará"></textarea>
+            <textarea id="eventoMaterial" placeholder="Material necesario o incluido"></textarea>
+            <textarea id="eventoNotas" placeholder="Notas de reserva, llegada, cancelación o recomendaciones"></textarea>
+
+            <button id="guardarEventoBtn" class="btn btn-primary">Guardar evento</button>
+          </div>
+
+          <div class="admin-tools eventos-admin-help">
+            <h4>Agenda profesional</h4>
+            <p>
+              Usa plazas reales, nivel y modalidad para que el cliente entienda mejor cada taller antes de reservar.
+            </p>
+          </div>
+
+          <div id="adminEventosList" class="admin-list"></div>
+        </section>
+
+        <section class="admin-tab-panel" id="adminTab-reservas">
+          <h4>Reservas recibidas</h4>
+          <div class="admin-filter-row">
+            <input id="reservationSearch" type="search" placeholder="Buscar por nombre, teléfono, servicio o estado">
+            <select id="reservationStatusFilter">
+              <option value="">Todos los estados</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Confirmada">Confirmada</option>
+              <option value="Cancelada">Cancelada</option>
+            </select>
+          </div>
+          <div class="admin-tools reservation-pro-tools" id="reservationProTools">
+            <h4>Reservas Pro</h4>
+            <p>Gestiona notas internas, historial de estado y mensajes rápidos para clientes.</p>
+            <div class="reservation-pro-summary" id="reservationProSummary"></div>
+          </div>
+
+          <div id="adminReservasList" class="admin-list"></div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-calendario">
+          <h4>Calendario Pro</h4>
+          <p class="form-note">
+            Vista mensual de reservas. Selecciona un día para ver sus citas y acciones rápidas.
+          </p>
+
+          <div class="calendar-pro-card">
+            <div class="calendar-toolbar">
+              <button class="btn btn-secondary" onclick="changeCalendarMonth(-1)">← Mes anterior</button>
+              <strong id="calendarMonthTitle">Calendario</strong>
+              <button class="btn btn-secondary" onclick="changeCalendarMonth(1)">Mes siguiente →</button>
+              <button class="btn btn-secondary" onclick="goCalendarToday()">Hoy</button>
+            </div>
+
+            <div class="calendar-weekdays">
+              <span>Lun</span>
+              <span>Mar</span>
+              <span>Mié</span>
+              <span>Jue</span>
+              <span>Vie</span>
+              <span>Sáb</span>
+              <span>Dom</span>
+            </div>
+
+            <div id="calendarGrid" class="calendar-grid"></div>
+          </div>
+
+
+          <div class="admin-tools calendar-block-panel">
+            <h4>Bloqueos de agenda</h4>
+            <p>Bloquea días completos o franjas concretas sin cambiar el horario general.</p>
+
+            <div class="admin-form">
+              <div class="form-row">
+                <label>
+                  Fecha
+                  <input id="blockDate" type="date">
+                </label>
+
+                <label>
+                  Hora concreta
+                  <input id="blockTime" type="time">
+                  <small>Déjalo vacío para bloquear todo el día.</small>
+                </label>
+              </div>
+
+              <label>
+                Motivo
+                <input id="blockReason" type="text" placeholder="Ej: formación, descanso, cita externa">
+              </label>
+
+              <button id="saveBlockBtn" class="btn btn-secondary" type="button">Guardar bloqueo</button>
+            </div>
+
+            <div class="admin-actions">
+              <button class="btn btn-secondary" onclick="syncBlocksOnline()">Subir bloqueos online</button>
+              <button class="btn btn-secondary" onclick="loadBlocksOnline()">Cargar bloqueos online</button>
+              <button class="btn btn-secondary" onclick="testBlocksOnline()">Probar bloqueos online</button>
+            </div>
+
+            <div class="sync-log" id="blockOnlineStatus">
+              Bloqueos online: pendiente de comprobar.
+            </div>
+
+            <div id="blocksList" class="admin-list blocks-list"></div>
+          </div>
+
+          <div class="calendar-day-panel admin-tools">
+            <h4 id="calendarDayTitle">Día seleccionado</h4>
+            <div id="calendarDaySummary" class="calendar-day-summary"></div>
+            <div id="calendarDayList" class="admin-list calendar-day-list"></div>
+          </div>
+        </section>
+
+        <section class="admin-tab-panel" id="adminTab-productos">
+          <h4>Alaya Herbolario / productos</h4>
+          <p class="form-note">
+            Gestiona productos del herbolario como sección propia: categoría, stock, etiquetas, uso recomendado e icono.
+          </p>
+
+          <div class="admin-form herbolario-admin-form">
+            <div class="form-row">
+              <input id="productoNombre" type="text" placeholder="Nombre del producto">
+              <input id="productoPrecio" type="text" placeholder="Precio">
+            </div>
+
+            <div class="form-row">
+              <select id="productoCategoria">
+                <option value="infusiones">Infusiones</option>
+                <option value="plantas">Plantas</option>
+                <option value="aromas">Aromas</option>
+                <option value="minerales">Minerales</option>
+                <option value="velas">Velas</option>
+                <option value="packs">Packs</option>
+                <option value="complementos">Complementos</option>
+              </select>
+
+              <select id="productoStock">
+                <option value="Disponible">Disponible</option>
+                <option value="Consultar">Consultar</option>
+                <option value="Bajo pedido">Bajo pedido</option>
+                <option value="Agotado">Agotado</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <input id="productoIcono" type="text" placeholder="Icono emoji, ej: 🌿">
+              <input id="productoFormato" type="text" placeholder="Formato, ej: 50g, unidad, pack">
+            </div>
+
+            <div class="form-row">
+              <input id="productoEtiquetas" type="text" placeholder="Etiquetas separadas por coma">
+              <label class="inline-check">
+                <input id="productoDestacado" type="checkbox">
+                <span>Producto destacado</span>
+              </label>
+            </div>
+
+            <textarea id="productoDescripcion" placeholder="Descripción"></textarea>
+            <textarea id="productoUso" placeholder="Uso recomendado, preparación o consejo de consulta"></textarea>
+            <textarea id="productoIngredientes" placeholder="Ingredientes, composición o contenido del pack"></textarea>
+            <textarea id="productoNotas" placeholder="Notas de seguridad, conservación o consulta"></textarea>
+
+            <button id="guardarProductoBtn" class="btn btn-primary">Guardar producto</button>
+          </div>
+
+          <div class="admin-tools herbolario-admin-help">
+            <h4>Consejo de catálogo</h4>
+            <p>
+              Para productos sensibles, evita prometer curaciones. Usa textos de bienestar, autocuidado
+              y consulta personalizada.
+            </p>
+          </div>
+
+          <div id="adminProductosList" class="admin-list"></div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-ajustes">
+          <h4>Ajustes de la web</h4>
+          <div class="admin-form">
+            <input id="settingBusinessName" type="text" placeholder="Nombre del negocio">
+            <input id="settingTagline" type="text" placeholder="Frase principal">
+            <input id="settingWhatsapp" type="text" placeholder="WhatsApp con prefijo, sin +">
+            <input id="settingEmail" type="email" placeholder="Email de reservas">
+            <input id="settingAdminUser" type="text" placeholder="Usuario admin">
+            <input id="settingAdminPass" type="text" placeholder="Contraseña admin">
+            <button id="guardarAjustesBtn" class="btn btn-primary">Guardar ajustes</button>
+          </div>
+
+
+
+
+          <div class="admin-tools branding-pro-panel">
+            <h4>Branding Pro</h4>
+            <p>
+              Personaliza la portada, textos principales, llamadas a la acción y colores de marca sin tocar código.
+            </p>
+
+            <div class="admin-form">
+              <div class="form-row">
+                <label>
+                  Estilo visual
+                  <select id="settingBrandPreset">
+                    <option value="cosmic">Cosmic premium</option>
+                    <option value="herbal">Herbal natural</option>
+                    <option value="sunrise">Sunrise cálido</option>
+                    <option value="ocean">Ocean calm</option>
+                    <option value="custom">Personalizado</option>
+                  </select>
+                </label>
+
+                <label>
+                  Color principal
+                  <input id="settingBrandAccent" type="color" value="#c77dff">
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Color secundario
+                  <input id="settingBrandAccent2" type="color" value="#ffb3ec">
+                </label>
+
+                <label>
+                  Color luz
+                  <input id="settingBrandAccent3" type="color" value="#b7f7e7">
+                </label>
+              </div>
+
+              <label>
+                Texto superior del hero
+                <input id="settingHeroEyebrow" type="text" placeholder="Tarot · Reiki · Herbolario · Energía">
+              </label>
+
+              <label>
+                Etiqueta de agenda
+                <input id="settingHeroPill" type="text" placeholder="Agenda abierta">
+              </label>
+
+              <label>
+                Descripción principal
+                <textarea id="settingHeroDescription" rows="4"></textarea>
+              </label>
+
+              <div class="form-row">
+                <label>
+                  Botón principal
+                  <input id="settingPrimaryCta" type="text" placeholder="Reservar cita">
+                </label>
+
+                <label>
+                  Botón secundario
+                  <input id="settingSecondaryCta" type="text" placeholder="Ver servicios">
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Badge 1
+                  <input id="settingHeroBadge1" type="text" placeholder="Horas concertadas">
+                </label>
+
+                <label>
+                  Badge 2
+                  <input id="settingHeroBadge2" type="text" placeholder="Atención personalizada">
+                </label>
+              </div>
+
+              <label>
+                Badge 3
+                <input id="settingHeroBadge3" type="text" placeholder="Talleres y cursos">
+              </label>
+
+              <label>
+                Tarjeta hero · título
+                <input id="settingCardTitle" type="text" placeholder="Tu momento empieza aquí">
+              </label>
+
+              <label>
+                Tarjeta hero · texto
+                <textarea id="settingCardText" rows="3"></textarea>
+              </label>
+            </div>
+
+            <div class="admin-actions">
+              <button id="previewBrandingBtn" class="btn btn-secondary" type="button">Aplicar vista previa</button>
+              <button id="resetBrandingBtn" class="btn btn-danger" type="button">Restaurar branding</button>
+            </div>
+
+            <div class="branding-preview-card" id="brandingPreviewCard">
+              <span>Vista previa activa</span>
+              <strong>Tu marca se actualiza en portada al instante.</strong>
+            </div>
+          </div>
+
+          <div class="admin-tools message-template-panel">
+            <h4>Plantillas de mensajes</h4>
+            <p>
+              Edita los textos que se copian para clientes y el aviso de nueva reserva al administrador.
+              Puedes usar variables como <code>{nombre}</code>, <code>{codigo}</code>, <code>{servicio}</code>, <code>{fecha}</code>, <code>{hora}</code> y <code>{negocio}</code>.
+            </p>
+
+            <div class="admin-form">
+              <label>
+                Confirmación
+                <textarea id="settingTplConfirmacion" rows="7"></textarea>
+              </label>
+
+              <label>
+                Cancelación
+                <textarea id="settingTplCancelacion" rows="7"></textarea>
+              </label>
+
+              <label>
+                Recordatorio
+                <textarea id="settingTplRecordatorio" rows="7"></textarea>
+              </label>
+
+              <label>
+                Nueva reserva para admin
+                <textarea id="settingTplAdminReserva" rows="9"></textarea>
+              </label>
+            </div>
+
+            <div class="admin-actions">
+              <button class="btn btn-secondary" type="button" onclick="previewMessageTemplate('confirmacion')">Vista confirmación</button>
+              <button class="btn btn-secondary" type="button" onclick="previewMessageTemplate('cancelacion')">Vista cancelación</button>
+              <button class="btn btn-secondary" type="button" onclick="previewMessageTemplate('recordatorio')">Vista recordatorio</button>
+              <button class="btn btn-secondary" type="button" onclick="previewMessageTemplate('adminReserva')">Vista admin</button>
+              <button id="resetMessageTemplatesBtn" class="btn btn-danger" type="button">Restaurar plantillas</button>
+            </div>
+
+            <pre id="messageTemplatePreview" class="message-template-preview">Pulsa una vista previa para comprobar el texto.</pre>
+          </div>
+
+
+          <div class="admin-tools service-template-panel">
+            <h4>Plantillas por servicio</h4>
+            <p>
+              Crea mensajes diferentes para tarot, reiki, talleres, herbolario u otros servicios.
+              Si un campo queda vacío, se usará la plantilla general.
+            </p>
+
+            <div class="admin-form">
+              <label>
+                Servicio
+                <select id="serviceTemplateSelect"></select>
+              </label>
+
+              <label>
+                Confirmación específica
+                <textarea id="serviceTplConfirmacion" rows="6" placeholder="Vacío = usa la confirmación general"></textarea>
+              </label>
+
+              <label>
+                Cancelación específica
+                <textarea id="serviceTplCancelacion" rows="6" placeholder="Vacío = usa la cancelación general"></textarea>
+              </label>
+
+              <label>
+                Recordatorio específico
+                <textarea id="serviceTplRecordatorio" rows="6" placeholder="Vacío = usa el recordatorio general"></textarea>
+              </label>
+            </div>
+
+            <div class="admin-actions">
+              <button id="saveServiceTemplateBtn" class="btn btn-secondary" type="button">Guardar plantilla del servicio</button>
+              <button id="previewServiceTemplateBtn" class="btn btn-secondary" type="button">Vista previa servicio</button>
+              <button id="resetServiceTemplateBtn" class="btn btn-danger" type="button">Borrar plantilla del servicio</button>
+            </div>
+
+            <pre id="serviceTemplatePreview" class="message-template-preview">Elige un servicio para ver o editar sus plantillas.</pre>
+          </div>
+
+          <div class="admin-tools availability-admin-panel">
+            <h4>Disponibilidad de reservas</h4>
+            <p>Configura días abiertos, horario y fechas cerradas para bloquear reservas fuera de agenda.</p>
+
+            <div class="admin-form">
+              <label>
+                Días abiertos
+                <input id="settingOpenDays" type="text" placeholder="1,2,3,4,5">
+                <small>Lunes=1, Martes=2, Miércoles=3, Jueves=4, Viernes=5, Sábado=6, Domingo=0</small>
+              </label>
+
+              <div class="form-row">
+                <label>
+                  Hora inicio
+                  <input id="settingOpenStart" type="time">
+                </label>
+
+                <label>
+                  Hora fin
+                  <input id="settingOpenEnd" type="time">
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Duración de cita
+                  <select id="settingSlotMinutes">
+                    <option value="30">30 minutos</option>
+                    <option value="45">45 minutos</option>
+                    <option value="60">60 minutos</option>
+                    <option value="90">90 minutos</option>
+                    <option value="120">120 minutos</option>
+                  </select>
+                </label>
+
+                <label>
+                  Reservas por franja
+                  <input id="settingMaxPerSlot" type="number" min="1" max="10" value="1">
+                </label>
+              </div>
+
+              <label>
+                Fechas cerradas
+                <textarea id="settingClosedDates" placeholder="2026-08-15&#10;2026-12-25"></textarea>
+                <small>Una fecha por línea en formato AAAA-MM-DD.</small>
+              </label>
+            </div>
+
+            <div class="availability-preview" id="availabilityPreview"></div>
+          </div>
+
+          <div class="admin-tools">
+            <h4>Copias de seguridad</h4>
+            <p>Exporta los datos antes de hacer cambios grandes. Puedes importar el archivo después.</p>
+            <div class="admin-actions">
+              <button id="exportDataBtn" class="btn btn-secondary">Exportar datos JSON</button>
+              <button id="downloadReservasCsvBtn" class="btn btn-secondary">Descargar reservas CSV</button>
+              <label class="btn btn-secondary file-label">
+                Importar JSON
+                <input id="importDataInput" type="file" accept="application/json">
+              </label>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-online">
+          <h4>Modo online</h4>
+
+          <div class="online-status-card">
+            <span class="online-dot" id="onlineStatusDot"></span>
+            <div>
+              <strong id="onlineStatusTitle">Modo local activo</strong>
+              <p id="onlineStatusText">
+                La web funciona con localStorage. Si configuras Firebase, podrás sincronizar datos online.
+              </p>
+              <small id="onlineLastSync">Última sincronización: nunca</small>
+            </div>
+          </div>
+
+          <div class="admin-tools">
+            <h4>Preparado para Firebase</h4>
+            <p>
+              Esta versión incluye archivos de ejemplo para conectar Firebase/Firestore más adelante.
+              Hasta que no pongas tus claves reales, la web seguirá funcionando en modo local.
+            </p>
+
+            <div class="admin-actions">
+              <button class="btn btn-secondary" onclick="exportarDatosJson()">Exportar datos actuales</button>
+              <button class="btn btn-secondary" onclick="sincronizarOnline()">Sincronizar ahora</button>
+              <button class="btn btn-secondary" onclick="subirDatosLocalesOnline()">Subir datos locales</button>
+              <button class="btn btn-secondary" onclick="cargarDatosDesdeOnline()">Cargar datos online</button>
+              <button class="btn btn-secondary" onclick="mostrarGuiaOnline()">Ver guía rápida</button>
+              <button class="btn btn-secondary" onclick="probarModoOnline()">Probar estado online</button>
+            </div>
+          </div>
+
+
+          <div class="admin-tools firebase-checker">
+            <h4>Comprobador Firebase</h4>
+            <p>
+              Revisa si la web está lista para trabajar online. Este comprobador no sustituye las reglas de seguridad,
+              pero ayuda a detectar lo más importante antes de publicar.
+            </p>
+
+            <div class="checker-grid" id="firebaseCheckerGrid"></div>
+
+            <div class="admin-actions">
+              <button class="btn btn-secondary" onclick="renderFirebaseChecklist()">Revisar configuración</button>
+              <button class="btn btn-secondary" onclick="testFirebaseConnection()">Probar conexión</button>
+              <button class="btn btn-secondary" onclick="testFirebasePermissions()">Probar permisos admin</button>
+              <button class="btn btn-secondary" onclick="copyFirebaseSummary()">Copiar resumen</button>
+            </div>
+
+            <div class="sync-log" id="firebaseCheckerLog">
+              Pulsa “Revisar configuración” para empezar.
+            </div>
+          </div>
+
+          <div class="admin-tools">
+            <h4>Firebase Authentication</h4>
+            <p>
+              En modo Firebase, el panel usa email/contraseña de Firebase Authentication.
+              El email debe estar en la lista admin de <code>js/backend-config.js</code>.
+            </p>
+
+            <div class="online-status-card auth-status-card">
+              <span class="online-dot" id="authStatusDot"></span>
+              <div>
+                <strong id="authStatusTitle">Auth sin iniciar</strong>
+                <p id="authStatusText">Configura Firebase Authentication para usar login real.</p>
+              </div>
+            </div>
+
+            <div class="admin-actions" id="authQuickActions">
+              <button class="btn btn-secondary" onclick="cerrarSesionFirebase()">Cerrar sesión Firebase</button>
+              <button class="btn btn-secondary" onclick="renderAuthStatus()">Actualizar estado Auth</button>
+              <button class="btn btn-secondary" onclick="enviarResetPasswordFirebase()">Enviar reset contraseña</button>
+              <button class="btn btn-secondary" onclick="testReservaPublicaFirebase()">Probar reserva pública</button>
+            </div>
+          </div>
+
+
+          <div class="admin-tools multi-admin-panel">
+            <h4>Multi-admin y roles</h4>
+            <p>
+              Configura quién puede administrar, editar o solo consultar el panel.
+              En Firebase, los roles se asignan por email en <code>js/backend-config.js</code> y <code>firebase/firestore.rules</code>.
+            </p>
+
+            <div class="role-grid">
+              <div>
+                <strong>Admin</strong>
+                <span>Control total: ajustes, Firebase, auditoría, reservas, servicios y bloqueos.</span>
+              </div>
+              <div>
+                <strong>Editor</strong>
+                <span>Puede gestionar contenido, reservas, calendario y bloqueos, pero no configuración crítica.</span>
+              </div>
+              <div>
+                <strong>Solo lectura</strong>
+                <span>Puede consultar dashboard, reservas y calendario, pero no modificar datos.</span>
+              </div>
+            </div>
+
+            <div class="sync-log" id="roleStatusLog">
+              Rol actual: pendiente de comprobar.
+            </div>
+
+            <div class="admin-actions">
+              <button class="btn btn-secondary" onclick="renderRoleStatus()">Actualizar rol</button>
+              <button class="btn btn-secondary" onclick="copyRoleSummary()">Copiar resumen de roles</button>
+            </div>
+          </div>
+
+
+          <div class="admin-tools role-guard-panel">
+            <h4>Role Guard UX</h4>
+            <p>
+              El panel adapta visualmente los botones según el rol actual.
+              Las acciones sin permiso aparecen bloqueadas antes de pulsarlas.
+            </p>
+
+            <div id="roleGuardMatrix" class="role-guard-matrix"></div>
+
+            <div class="sync-log" id="roleGuardStatus">
+              Role Guard: pendiente de comprobar.
+            </div>
+          </div>
+
+          <div class="admin-tools security-guard-panel" id="securityGuardPanel">
+            <h4>Admin Security Guard</h4>
+            <p>
+              El panel comprueba la sesión antes de acciones sensibles y se bloquea automáticamente por inactividad.
+            </p>
+            <div class="guard-grid">
+              <div><strong>Guard</strong><span id="guardModeText">Comprobando...</span></div>
+              <div><strong>Auto-lock</strong><span>30 minutos de inactividad</span></div>
+              <div><strong>Local</strong><span>Útil para pruebas, no seguridad real</span></div>
+              <div><strong>Firebase</strong><span>Protección real mediante Auth + Rules</span></div>
+            </div>
+          </div>
+
+          <div class="admin-tools auth-security-tips">
+            <h4>Checklist de seguridad Auth</h4>
+            <div class="auth-tip-grid">
+              <div><strong>1</strong><span>Activar Email/Password en Firebase Authentication.</span></div>
+              <div><strong>2</strong><span>Crear usuario admin real.</span></div>
+              <div><strong>3</strong><span>Poner el email admin en backend-config.js.</span></div>
+              <div><strong>4</strong><span>Poner el mismo email en firestore.rules.</span></div>
+              <div><strong>5</strong><span>Publicar reglas Firestore.</span></div>
+              <div><strong>6</strong><span>Probar permisos desde este panel.</span></div>
+            </div>
+          </div>
+
+          <div class="admin-tools">
+            <h4>Archivos incluidos</h4>
+            <ul class="admin-file-list">
+              <li><code>js/backend-config.js</code> — configuración local/online y roles multi-admin</li>
+              <li><code>js/cloud-adapter.js</code> — adaptador preparado para sincronización</li>
+              <li><code>firebase/firestore.rules</code> — reglas de ejemplo</li>
+              <li><code>alaya_audit_log</code> — colección online para auditoría</li>
+              <li><code>alaya_agenda_blocks</code> — colección online para bloqueos de agenda</li>
+              <li><code>alaya_notifications</code> — colección online para notificaciones internas</li>
+              <li><code>firebase/firebase.json</code> — hosting de ejemplo</li>
+              <li><code>docs/FIREBASE-PASO-A-PASO.md</code> — guía de conexión</li>
+            </ul>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-auditoria">
+          <h4>Auditoría del panel</h4>
+          <p class="form-note">
+            Registro local de accesos, bloqueos, cambios y acciones sensibles del panel admin.
+          </p>
+
+          <div class="audit-summary-grid" id="auditSummaryGrid"></div>
+
+          <div class="admin-filter-row">
+            <input id="auditSearch" type="search" placeholder="Buscar acción, usuario, modo o detalle">
+            <select id="auditTypeFilter">
+              <option value="">Todos los tipos</option>
+              <option value="auth">Auth</option>
+              <option value="guard">Guard</option>
+              <option value="data">Datos</option>
+              <option value="firebase">Firebase</option>
+              <option value="system">Sistema</option>
+            </select>
+          </div>
+
+          <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="downloadAuditCsv()">Descargar auditoría CSV</button>
+            <button class="btn btn-secondary" onclick="exportAuditJson()">Exportar auditoría JSON</button>
+            <button class="btn btn-secondary" id="syncAuditOnlineBtn" onclick="syncAuditLogOnline()">Subir auditoría online</button>
+            <button class="btn btn-secondary" onclick="loadAuditLogOnline()">Cargar auditoría online</button>
+            <button class="btn btn-secondary" onclick="testAuditOnline()">Probar auditoría online</button>
+            <button class="btn btn-danger" onclick="clearAuditLog()">Vaciar auditoría</button>
+          </div>
+
+          <div class="sync-log" id="auditOnlineStatus">
+            Auditoría online: pendiente de comprobar.
+          </div>
+
+          <div id="auditLogList" class="admin-list audit-log-list"></div>
+        </section>
+
+        <div class="admin-warning">
+          <strong>Nota:</strong> esta versión guarda datos en el navegador con localStorage.
+          Para una web real con reservas compartidas entre dispositivos, usa Firebase, Supabase o backend.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="js/backend-config.js"></script>
+  <script src="js/cloud-adapter.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

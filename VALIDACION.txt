@@ -1,0 +1,5 @@
+app.js: OK
+
+cloud-adapter.js: OK
+
+backend-config.js: OK
