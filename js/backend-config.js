@@ -31,7 +31,8 @@ window.ALAYA_BACKEND = {
     reservas: "alaya_reservas",
     audit: "alaya_audit_log",
     blocks: "alaya_agenda_blocks",
-    notifications: "alaya_notifications"
+    notifications: "alaya_notifications",
+    astralCharts: "alaya_astral_charts"
   },
 
   auth: {

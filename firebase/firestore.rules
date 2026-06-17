@@ -87,5 +87,11 @@ service cloud.firestore {
       allow read: if isViewer();
       allow create, update, delete: if isEditor();
     }
+
+    match /alaya_astral_charts/{chartId} {
+      // Cartas astrales, datos natales y notas internas.
+      // Por privacidad, solo admin puede leer y escribir.
+      allow read, create, update, delete: if isAdmin();
+    }
   }
 }

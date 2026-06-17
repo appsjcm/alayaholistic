@@ -21,10 +21,10 @@ let appSettings = JSON.parse(localStorage.getItem("alaya_settings")) || {
   },
   serviceTemplates: {},
   branding: {
-    preset: "cosmic",
-    accent: "#c77dff",
-    accent2: "#ffb3ec",
-    accent3: "#b7f7e7"
+    preset: "astral",
+    accent: "#9b72ff",
+    accent2: "#ffd78a",
+    accent3: "#86ecff"
   }
 };
 
@@ -95,10 +95,10 @@ function getMessageTemplates() {
 
 
 const DEFAULT_BRANDING = {
-  preset: "cosmic",
-  accent: "#c77dff",
-  accent2: "#ffb3ec",
-  accent3: "#b7f7e7",
+  preset: "astral",
+  accent: "#9b72ff",
+  accent2: "#ffd78a",
+  accent3: "#86ecff",
   heroEyebrow: "Tarot · Reiki · Herbolario · Energía",
   heroPill: "Agenda abierta",
   heroDescription: "En Alaya Holistics encontrarás lectura de cartas, tarot, reiki, consultas energéticas, herbolario y talleres para acompañarte con calma, intuición y cuidado.",
@@ -113,6 +113,24 @@ const DEFAULT_BRANDING = {
   cardCta: "Quiero reservar"
 };
 
+
+const DEFAULT_PUBLIC_PROFILE = {
+  address: "Atención con cita previa",
+  hours: "Horas concertadas",
+  mapLink: "",
+  instagram: "",
+  tiktok: "",
+  youtube: "",
+  publicNotice: "Atención con cita previa. La disponibilidad final se confirma por mensaje."
+};
+
+function getPublicProfile() {
+  return {
+    ...DEFAULT_PUBLIC_PROFILE,
+    ...(appSettings.publicProfile || {})
+  };
+}
+
 function getBrandingSettings() {
   return {
     ...DEFAULT_BRANDING,
@@ -122,6 +140,11 @@ function getBrandingSettings() {
 
 function getPresetColors(preset) {
   return {
+    astral: {
+      accent: "#9b72ff",
+      accent2: "#ffd78a",
+      accent3: "#86ecff"
+    },
     cosmic: {
       accent: "#c77dff",
       accent2: "#ffb3ec",
@@ -166,85 +189,22 @@ function getAdminEmail() {
 // ======================================================
 
 let defaultServices = JSON.parse(localStorage.getItem("alaya_services")) || [
-  {
-    id: "tarot",
-    icon: "☾",
-    title: "Tarot",
-    category: "lecturas",
-    duration: "Consulta personalizada",
-    price: "Consultar",
-    featured: true,
-    tags: ["orientación", "intuición", "decisiones"],
-    description: "Lectura simbólica e intuitiva para revisar energía, decisiones, bloqueos y caminos posibles.",
-    benefits: "Aporta claridad, orden interno y una mirada simbólica sobre el momento actual.",
-    preparation: "Ven con una pregunta o tema principal. No hace falta experiencia previa."
-  },
-  {
-    id: "cartas",
-    icon: "✦",
-    title: "Lectura de cartas",
-    category: "lecturas",
-    duration: "Sesión con hora concertada",
-    price: "Consultar",
-    featured: false,
-    tags: ["cartas", "emocional", "laboral"],
-    description: "Interpretación cercana de cartas para orientación personal, emocional, laboral o espiritual.",
-    benefits: "Ideal para enfocar situaciones concretas y recibir una lectura cercana y práctica.",
-    preparation: "Piensa el tema que quieres trabajar y reserva un espacio tranquilo."
-  },
-  {
-    id: "reiki",
-    icon: "✧",
-    title: "Reiki",
-    category: "energia",
-    duration: "Sesión energética",
-    price: "Consultar",
-    featured: true,
-    tags: ["calma", "energía", "equilibrio"],
-    description: "Espacio de calma y equilibrio para liberar tensión, armonizar energía y reconectar contigo.",
-    benefits: "Favorece relajación, escucha interior y sensación de bienestar.",
-    preparation: "Acude con ropa cómoda y evita prisas antes y después de la sesión."
-  },
-  {
-    id: "cuantim",
-    icon: "∞",
-    title: "Cuantim",
-    category: "energia",
-    duration: "Consulta energética",
-    price: "Consultar",
-    featured: false,
-    tags: ["vibracional", "energía", "acompañamiento"],
-    description: "Acompañamiento holístico enfocado en energía, bienestar interior y lectura vibracional.",
-    benefits: "Acompaña procesos personales desde una mirada energética y simbólica.",
-    preparation: "Trae una intención clara o el área de vida que quieras revisar."
-  },
-  {
-    id: "acompanamiento",
-    icon: "✺",
-    title: "Acompañamiento holístico",
-    category: "bienestar",
-    duration: "Sesión personalizada",
-    price: "Consultar",
-    featured: false,
-    tags: ["bienestar", "autocuidado", "proceso"],
-    description: "Sesión flexible para combinar orientación, escucha, energía y herramientas de autocuidado.",
-    benefits: "Útil cuando no sabes qué servicio elegir y necesitas una sesión adaptada.",
-    preparation: "Explica tu situación al reservar para adaptar mejor la experiencia."
-  },
-  {
-    id: "talleres",
-    icon: "♢",
-    title: "Talleres y cursos",
-    category: "aprendizaje",
-    duration: "Agenda mensual",
-    price: "Según actividad",
-    featured: false,
-    tags: ["formación", "grupo", "aprendizaje"],
-    description: "Formaciones de tarot, reiki, astrología, herbolario, rituales y crecimiento personal.",
-    benefits: "Aprendizaje práctico, acompañamiento grupal y herramientas para tu camino.",
-    preparation: "Consulta agenda, plazas disponibles y material necesario."
-  }
+  { id:"tarot", icon:"☾", title:"Tarot intuitivo", category:"lecturas", duration:"45-60 min", price:"Consultar", featured:true, tags:["orientación","intuición","decisiones"], description:"Lectura simbólica e intuitiva para revisar energía, decisiones, bloqueos y caminos posibles.", benefits:"Aporta claridad, orden interno y una mirada simbólica sobre el momento actual.", preparation:"Ven con una pregunta o tema principal. No hace falta experiencia previa." },
+  { id:"cartas", icon:"✦", title:"Lectura de cartas personalizada", category:"lecturas", duration:"30-45 min", price:"Consultar", featured:false, tags:["cartas","emocional","laboral"], description:"Interpretación cercana de cartas para orientación personal, emocional, laboral o espiritual.", benefits:"Ideal para enfocar situaciones concretas y recibir una lectura cercana y práctica.", preparation:"Piensa el tema que quieres trabajar y reserva un espacio tranquilo." },
+  { id:"cafe", icon:"☕", title:"Lectura de posos de café", category:"lecturas", duration:"30 min", price:"Consultar", featured:true, tags:["café","símbolos","intuición"], description:"Lectura simbólica de formas y señales del poso de café para orientación y reflexión personal.", benefits:"Una experiencia cercana, visual y diferente para explorar mensajes simbólicos.", preparation:"Ideal para una consulta tranquila. Puedes traer una pregunta o dejar que salga el mensaje." },
+  { id:"numerologia", icon:"🔢", title:"Numerología del nombre", category:"lecturas", duration:"30-40 min", price:"Consultar", featured:false, tags:["nombre","números","energía"], description:"Análisis numerológico del nombre, marca o proyecto para descubrir vibración, tendencia y enfoque.", benefits:"Útil para nombres personales, marcas, proyectos o cambios de etapa.", preparation:"Indica el nombre exacto que quieres analizar y el objetivo de la consulta." },
+  { id:"astrologia-basica", icon:"♈", title:"Carta astral básica", category:"lecturas", duration:"60 min", price:"Consultar", featured:false, tags:["astrología","carta astral","autoconocimiento"], description:"Introducción a tu carta astral con foco en energía personal, talentos y áreas principales.", benefits:"Ayuda a comprender patrones, fortalezas y temas importantes de tu camino.", preparation:"Necesitarás fecha, hora y lugar de nacimiento." },
+  { id:"reiki", icon:"✧", title:"Reiki", category:"energia", duration:"50-60 min", price:"Consultar", featured:true, tags:["calma","energía","equilibrio"], description:"Espacio de calma y equilibrio para liberar tensión, armonizar energía y reconectar contigo.", benefits:"Favorece relajación, escucha interior y sensación de bienestar.", preparation:"Acude con ropa cómoda y evita prisas antes y después de la sesión." },
+  { id:"limpieza-energetica", icon:"🕯️", title:"Limpieza energética", category:"energia", duration:"45 min", price:"Consultar", featured:false, tags:["limpieza","protección","ambiente"], description:"Sesión enfocada en renovar energía personal o de espacios mediante intención, símbolos y ritual suave.", benefits:"Acompaña momentos de cambio, cierre de etapas o sensación de carga energética.", preparation:"Explica si buscas trabajar energía personal, hogar, negocio o proyecto." },
+  { id:"cuantim", icon:"∞", title:"Cuantim", category:"energia", duration:"Consulta energética", price:"Consultar", featured:false, tags:["vibracional","energía","acompañamiento"], description:"Acompañamiento holístico enfocado en energía, bienestar interior y lectura vibracional.", benefits:"Acompaña procesos personales desde una mirada energética y simbólica.", preparation:"Trae una intención clara o el área de vida que quieras revisar." },
+  { id:"meditacion-guiada", icon:"🌀", title:"Meditación guiada", category:"bienestar", duration:"30-45 min", price:"Consultar", featured:false, tags:["calma","respiración","relajación"], description:"Sesión guiada para bajar ritmo, respirar, enfocar la mente y conectar con el cuerpo.", benefits:"Ideal para crear un espacio de pausa, presencia y autocuidado.", preparation:"Ropa cómoda, agua y un momento tranquilo antes de empezar." },
+  { id:"acompanamiento", icon:"✺", title:"Acompañamiento holístico", category:"bienestar", duration:"Sesión personalizada", price:"Consultar", featured:false, tags:["bienestar","autocuidado","proceso"], description:"Sesión flexible para combinar orientación, escucha, energía y herramientas de autocuidado.", benefits:"Útil cuando no sabes qué servicio elegir y necesitas una sesión adaptada.", preparation:"Explica tu situación al reservar para adaptar mejor la experiencia." },
+  { id:"ritual-lunar", icon:"🌙", title:"Ritual lunar personalizado", category:"bienestar", duration:"45 min", price:"Consultar", featured:false, tags:["luna","ritual","intención"], description:"Ritual simbólico para enfocar intención, cerrar ciclo o abrir una nueva etapa.", benefits:"Aporta un momento consciente para ordenar deseos, emociones y objetivos.", preparation:"Piensa qué quieres soltar, agradecer o activar." },
+  { id:"lectura-emocional", icon:"🌱", title:"Lectura emocional simbólica", category:"bienestar", duration:"45 min", price:"Consultar", featured:false, tags:["emociones","símbolos","autoconocimiento"], description:"Espacio de reflexión sobre emociones, señales personales y patrones desde una mirada simbólica.", benefits:"Ayuda a poner palabras a lo que sientes y encontrar un enfoque más amable.", preparation:"No sustituye ayuda médica ni psicológica; es un acompañamiento simbólico." },
+  { id:"talleres", icon:"♢", title:"Talleres y cursos", category:"aprendizaje", duration:"Agenda mensual", price:"Según actividad", featured:false, tags:["formación","grupo","aprendizaje"], description:"Formaciones de tarot, reiki, astrología, herbolario, rituales y crecimiento personal.", benefits:"Aprendizaje práctico, acompañamiento grupal y herramientas para tu camino.", preparation:"Consulta agenda, plazas disponibles y material necesario." }
 ];
+
+const ALAYA_SERVICE_EXAMPLES = defaultServices.map(service => ({ ...service, tags: [...(service.tags || [])] }));
 
 let eventos = JSON.parse(localStorage.getItem("alaya_eventos")) || [
   {
@@ -366,6 +326,7 @@ const serviceSearch = $("#serviceSearch");
 const serviceCategoryFilters = $("#serviceCategoryFilters");
 const serviceHighlights = $("#serviceHighlights");
 const featuredService = $("#featuredService");
+const serviceExamplePacks = $("#serviceExamplePacks");
 const serviceDetailModal = $("#serviceDetailModal");
 const serviceDetailContent = $("#serviceDetailContent");
 const closeServiceDetailModal = $("#closeServiceDetailModal");
@@ -418,7 +379,82 @@ const servicioDescripcion = $("#servicioDescripcion");
 const servicioBeneficios = $("#servicioBeneficios");
 const servicioPreparacion = $("#servicioPreparacion");
 const guardarServicioBtn = $("#guardarServicioBtn");
+const loadServiceExamplesBtn = $("#loadServiceExamplesBtn");
+const resetServicesExamplesBtn = $("#resetServicesExamplesBtn");
 const adminServiciosList = $("#adminServiciosList");
+
+const astralNombre = $("#astralNombre");
+const astralCodigo = $("#astralCodigo");
+const astralEmail = $("#astralEmail");
+const astralTelefono = $("#astralTelefono");
+const astralFechaNacimiento = $("#astralFechaNacimiento");
+const astralHoraNacimiento = $("#astralHoraNacimiento");
+const astralLugarNacimiento = $("#astralLugarNacimiento");
+const astralPaisNacimiento = $("#astralPaisNacimiento");
+const astralZonaHoraria = $("#astralZonaHoraria");
+const astralEstado = $("#astralEstado");
+const astralTemaConsulta = $("#astralTemaConsulta");
+const astralSol = $("#astralSol");
+const astralLuna = $("#astralLuna");
+const astralAscendente = $("#astralAscendente");
+const astralMedioCielo = $("#astralMedioCielo");
+const astralPlanetas = $("#astralPlanetas");
+const astralCasas = $("#astralCasas");
+const astralAspectos = $("#astralAspectos");
+const astralInterpretacion = $("#astralInterpretacion");
+const astralReportTitle = $("#astralReportTitle");
+const astralReportSummary = $("#astralReportSummary");
+const astralClientMessage = $("#astralClientMessage");
+const astralFortalezas = $("#astralFortalezas");
+const astralRetos = $("#astralRetos");
+const astralRecomendaciones = $("#astralRecomendaciones");
+const astralObjetivo = $("#astralObjetivo");
+const astralNotasPrivadas = $("#astralNotasPrivadas");
+const astralSeguimiento = $("#astralSeguimiento");
+const astralConsentDate = $("#astralConsentDate");
+const astralConsentSource = $("#astralConsentSource");
+const astralRetentionReview = $("#astralRetentionReview");
+const astralNextSessionDate = $("#astralNextSessionDate");
+const astralPriority = $("#astralPriority");
+const astralNextAction = $("#astralNextAction");
+const astralDataTags = $("#astralDataTags");
+const astralConsentNotes = $("#astralConsentNotes");
+const astralConsentimiento = $("#astralConsentimiento");
+const guardarCartaAstralBtn = $("#guardarCartaAstralBtn");
+const limpiarCartaAstralBtn = $("#limpiarCartaAstralBtn");
+const exportarCartasAstralesBtn = $("#exportarCartasAstralesBtn");
+const exportarCartasAstralesCsvBtn = $("#exportarCartasAstralesCsvBtn");
+const generarPromptCartaAstralBtn = $("#generarPromptCartaAstralBtn");
+const imprimirBorradorCartaAstralBtn = $("#imprimirBorradorCartaAstralBtn");
+const previewInternalReportDraftBtn = $("#previewInternalReportDraftBtn");
+const insertClientReportTemplateBtn = $("#insertClientReportTemplateBtn");
+const previewClientReportDraftBtn = $("#previewClientReportDraftBtn");
+const copyAstralReportChecklistBtn = $("#copyAstralReportChecklistBtn");
+const crearPlantillaInterpretacionBtn = $("#crearPlantillaInterpretacionBtn");
+const astralSessionDate = $("#astralSessionDate");
+const astralSessionTitle = $("#astralSessionTitle");
+const astralSessionNote = $("#astralSessionNote");
+const astralSessionNext = $("#astralSessionNext");
+const addAstralSessionBtn = $("#addAstralSessionBtn");
+const astralSessionDraftList = $("#astralSessionDraftList");
+const astralSearch = $("#astralSearch");
+const astralStatusFilter = $("#astralStatusFilter");
+const astralClientSearch = $("#astralClientSearch");
+const astralClientHub = $("#astralClientHub");
+const astralFollowupFilter = $("#astralFollowupFilter");
+const astralFollowupList = $("#astralFollowupList");
+const astralOnlineStatus = $("#astralOnlineStatus");
+const syncAstralChartsOnlineBtn = $("#syncAstralChartsOnlineBtn");
+const loadAstralChartsOnlineBtn = $("#loadAstralChartsOnlineBtn");
+const testAstralChartsOnlineBtn = $("#testAstralChartsOnlineBtn");
+const markAstralChartsLocalBtn = $("#markAstralChartsLocalBtn");
+const astralPrivacyModeToggle = $("#astralPrivacyModeToggle");
+const toggleAstralPrivacyBtn = $("#toggleAstralPrivacyBtn");
+const copyAstralConsentTemplateBtn = $("#copyAstralConsentTemplateBtn");
+const copyAstralPrivacyChecklistBtn = $("#copyAstralPrivacyChecklistBtn");
+const astralAdminSummary = $("#astralAdminSummary");
+const adminAstralChartsList = $("#adminAstralChartsList");
+
 
 const eventoTitulo = $("#eventoTitulo");
 const eventoIcono = $("#eventoIcono");
@@ -466,6 +502,13 @@ const settingBusinessName = $("#settingBusinessName");
 const settingTagline = $("#settingTagline");
 const settingWhatsapp = $("#settingWhatsapp");
 const settingEmail = $("#settingEmail");
+const settingPublicAddress = $("#settingPublicAddress");
+const settingPublicHours = $("#settingPublicHours");
+const settingMapLink = $("#settingMapLink");
+const settingInstagram = $("#settingInstagram");
+const settingTikTok = $("#settingTikTok");
+const settingYoutube = $("#settingYoutube");
+const settingPublicNotice = $("#settingPublicNotice");
 const settingAdminUser = $("#settingAdminUser");
 const settingAdminPass = $("#settingAdminPass");
 const settingOpenDays = $("#settingOpenDays");
@@ -1399,6 +1442,9 @@ function ensureReservationMeta(reserva) {
           }
         ],
     internalNote: reserva.internalNote || "",
+    confirmacionAdmin: reserva.confirmacionAdmin ?? (reserva.estado === "Confirmada"),
+    fechaConfirmacionAdmin: reserva.fechaConfirmacionAdmin || "",
+    confirmadoPorAdmin: reserva.confirmadoPorAdmin || "",
     consent: reserva.consent ?? true,
     ...reserva
   };
@@ -1435,6 +1481,10 @@ function buildClientMessage(reserva, type = "confirmacion") {
   const templates = getTemplatesForReservation(reserva);
   const template = templates[type] || getMessageTemplates()[type] || getMessageTemplates().confirmacion;
   return applyMessageTemplate(template, buildReservationTemplateData(reserva));
+}
+
+function copyText(text) {
+  return copyTextToClipboard(text);
 }
 
 async function copyTextToClipboard(text, successMessage = "Texto copiado.") {
@@ -1516,6 +1566,8 @@ function applySettingsToPage() {
 
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute("content", `${businessName}: tarot, reiki, lectura de cartas, Alaya Herbolario, talleres y reservas con cita previa.`);
+
+  applyPublicProfileToPage?.();
 }
 
 function fillBrandingForm() {
@@ -1576,6 +1628,7 @@ function resetBrandingDefaults() {
 
   appSettings.branding = { ...DEFAULT_BRANDING };
   fillBrandingForm();
+  fillPublicProfileForm();
   applySettingsToPage();
   addAuditLog("data", "Restaurar branding", "Branding restaurado por defecto.");
   showToast("Branding restaurado.");
@@ -1650,6 +1703,7 @@ function normalizeService(service = {}) {
 function normalizeServices() {
   defaultServices = defaultServices.map(normalizeService);
   saveServices();
+      saveAstralCharts();
 }
 
 function getServiceCategoryLabel(id) {
@@ -1694,7 +1748,9 @@ function renderServiceFilters() {
 
 function setServiceCategory(categoryId) {
   selectedServiceCategory = categoryId;
-  renderServices();
+  renderAstralSessionDraft();
+renderAstralAdmin();
+renderServices();
 }
 
 function filterServiceByTag(tag) {
@@ -1706,7 +1762,8 @@ function filterServiceByTag(tag) {
 function renderServiceHighlights() {
   if (!serviceHighlights) return;
 
-  normalizeServices();
+  normalizeAstralCharts();
+normalizeServices();
 
   const total = defaultServices.length;
   const lecturas = defaultServices.filter(item => normalizeService(item).category === "lecturas").length;
@@ -1719,6 +1776,50 @@ function renderServiceHighlights() {
     <article><strong>${energia}</strong><span>Sesiones energéticas</span></article>
     <article><strong>${destacados}</strong><span>Destacados</span></article>
   `;
+}
+
+function renderServiceExamplePacks() {
+  if (!serviceExamplePacks) return;
+  serviceExamplePacks.innerHTML = `
+    <article class="service-example-pack">
+      <span class="service-example-badge">Ejemplo</span><strong>Pack Lecturas</strong>
+      <p>Orientación simbólica para consultas personales.</p>
+      <ul><li>Tarot intuitivo</li><li>Lectura de cartas</li><li>Posos de café</li><li>Numerología</li></ul>
+      <button class="btn btn-secondary" onclick="setServiceCategory('lecturas')">Ver lecturas</button>
+    </article>
+    <article class="service-example-pack">
+      <span class="service-example-badge">Ejemplo</span><strong>Pack Energía</strong>
+      <p>Sesiones de calma, armonía y acompañamiento energético.</p>
+      <ul><li>Reiki</li><li>Limpieza energética</li><li>Cuantim</li><li>Ritual lunar</li></ul>
+      <button class="btn btn-secondary" onclick="setServiceCategory('energia')">Ver energía</button>
+    </article>
+    <article class="service-example-pack">
+      <span class="service-example-badge">Ejemplo</span><strong>Pack Bienestar</strong>
+      <p>Autocuidado, meditación y procesos personales.</p>
+      <ul><li>Meditación guiada</li><li>Acompañamiento holístico</li><li>Lectura emocional simbólica</li><li>Talleres y cursos</li></ul>
+      <button class="btn btn-secondary" onclick="setServiceCategory('bienestar')">Ver bienestar</button>
+    </article>`;
+}
+
+function mergeServiceExamples() {
+  if (!requireAdminAccess("guardar servicios")) return;
+  const existingIds = new Set(defaultServices.map(service => service.id));
+  const missing = ALAYA_SERVICE_EXAMPLES.filter(service => !existingIds.has(service.id));
+  if (!missing.length) { showToast("Los ejemplos ya están cargados."); return; }
+  defaultServices = [...defaultServices, ...missing].map(normalizeService);
+  saveServices(); renderServices(); renderAstralAdmin();
+  renderAdminServicios(); renderServiceTemplateOptions?.();
+  addAuditLog("data", "Cargar ejemplos servicios", `${missing.length} servicios añadidos.`);
+  showToast(`${missing.length} ejemplos añadidos.`);
+}
+
+function resetServicesToExamples() {
+  if (!requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Restaurar todos los servicios con los ejemplos de Alaya? Se reemplazará la lista actual.")) return;
+  defaultServices = ALAYA_SERVICE_EXAMPLES.map(service => normalizeService({ ...service, tags: [...(service.tags || [])] }));
+  saveServices(); renderServices(); renderAdminServicios(); renderServiceTemplateOptions?.();
+  addAuditLog("data", "Restaurar servicios ejemplo", `${defaultServices.length} servicios restaurados.`);
+  showToast("Servicios ejemplo restaurados.");
 }
 
 function renderFeaturedService() {
@@ -1759,6 +1860,7 @@ function renderServices() {
   normalizeServices();
   renderServiceFilters();
   renderServiceHighlights();
+  renderServiceExamplePacks();
   renderFeaturedService();
 
   const filtered = getFilteredServices();
@@ -2384,6 +2486,9 @@ function getBookingData() {
     mensaje,
     fechaReserva: new Date().toISOString(),
     estado: "Pendiente",
+    confirmacionAdmin: false,
+    fechaConfirmacionAdmin: "",
+    confirmadoPorAdmin: "",
     consent: true,
     internalNote: "",
     statusHistory: [
@@ -2409,7 +2514,7 @@ function submitBooking(method) {
   saveReservas();
   notifyNewReservation(data.reserva);
   renderAdminReservas();
-  showToast("Reserva guardada.");
+  showToast("Solicitud guardada. Queda pendiente de confirmación del administrador.");
 
   if (method === "whatsapp") {
     window.open(buildWhatsappUrl(data.texto), "_blank");
@@ -2600,6 +2705,9 @@ function crearTextoReservaEvento() {
     mensaje: mensajeExtra,
     fechaReserva: new Date().toISOString(),
     estado: "Pendiente",
+    confirmacionAdmin: false,
+    fechaConfirmacionAdmin: "",
+    confirmadoPorAdmin: "",
     consent: true,
     internalNote: "",
     statusHistory: [
@@ -2627,7 +2735,7 @@ function enviarReservaPorWhatsapp() {
   if (!data) return;
   window.open(buildWhatsappUrl(data.texto), "_blank");
   cerrarReservaModal();
-  showToast("Reserva enviada.");
+  showToast("Solicitud enviada. Queda pendiente de confirmación del administrador.");
 }
 
 function enviarReservaPorEmail() {
@@ -2635,7 +2743,7 @@ function enviarReservaPorEmail() {
   if (!data) return;
   window.location.href = buildEmailUrl(`Nueva reserva: ${data.evento.titulo}`, data.texto);
   cerrarReservaModal();
-  showToast("Reserva enviada.");
+  showToast("Solicitud enviada. Queda pendiente de confirmación del administrador.");
 }
 
 // ======================================================
@@ -3625,6 +3733,1563 @@ function switchAdminTab(tabName) {
   });
 }
 
+
+// Cartas astrales admin
+function saveAstralCharts() {
+  localStorage.setItem("alaya_astral_charts", JSON.stringify(astralCharts));
+  renderAstralOnlineStatus?.();
+}
+
+function generateAstralCode() {
+  const next = String(astralCharts.length + 1).padStart(3, "0");
+  return `ALAYA-ASTRAL-${next}`;
+}
+
+function normalizeAstralChart(chart = {}) {
+  return {
+    id: chart.id || crypto.randomUUID(),
+    codigo: chart.codigo || generateAstralCode(),
+    nombre: chart.nombre || "",
+    email: chart.email || "",
+    telefono: chart.telefono || "",
+    fechaNacimiento: chart.fechaNacimiento || "",
+    horaNacimiento: chart.horaNacimiento || "",
+    lugarNacimiento: chart.lugarNacimiento || "",
+    paisNacimiento: chart.paisNacimiento || "",
+    zonaHoraria: chart.zonaHoraria || "",
+    estado: chart.estado || "Borrador",
+    temaConsulta: chart.temaConsulta || "",
+    sol: chart.sol || "",
+    luna: chart.luna || "",
+    ascendente: chart.ascendente || "",
+    medioCielo: chart.medioCielo || "",
+    planetas: chart.planetas || "",
+    casas: chart.casas || "",
+    aspectos: chart.aspectos || "",
+    interpretacion: chart.interpretacion || "",
+    reportTitle: chart.reportTitle || "",
+    reportSummary: chart.reportSummary || "",
+    clientMessage: chart.clientMessage || "",
+    fortalezas: chart.fortalezas || "",
+    retos: chart.retos || "",
+    recomendaciones: chart.recomendaciones || "",
+    objetivo: chart.objetivo || "",
+    notasPrivadas: chart.notasPrivadas || "",
+    seguimiento: chart.seguimiento || "",
+    sesiones: Array.isArray(chart.sesiones) ? chart.sesiones : [],
+    consentimiento: Boolean(chart.consentimiento),
+    consentDate: chart.consentDate || "",
+    consentSource: chart.consentSource || "",
+    consentNotes: chart.consentNotes || "",
+    retentionReview: chart.retentionReview || "",
+    nextSessionDate: chart.nextSessionDate || "",
+    priority: chart.priority || "Normal",
+    nextAction: chart.nextAction || "",
+    followupDoneAt: chart.followupDoneAt || "",
+    dataTags: Array.isArray(chart.dataTags)
+      ? chart.dataTags
+      : String(chart.dataTags || "").split(",").map(item => item.trim()).filter(Boolean),
+    anonymized: Boolean(chart.anonymized),
+    onlineSynced: Boolean(chart.onlineSynced),
+    onlineUpdatedAt: chart.onlineUpdatedAt || "",
+    createdAt: chart.createdAt || new Date().toISOString(),
+    updatedAt: chart.updatedAt || new Date().toISOString()
+  };
+}
+
+function normalizeAstralCharts() {
+  astralCharts = astralCharts.map(normalizeAstralChart);
+  saveAstralCharts();
+}
+
+function limpiarFormularioCartaAstral() {
+  [
+    astralNombre, astralCodigo, astralEmail, astralTelefono,
+    astralFechaNacimiento, astralHoraNacimiento, astralLugarNacimiento,
+    astralPaisNacimiento, astralZonaHoraria, astralTemaConsulta,
+    astralSol, astralLuna, astralAscendente, astralMedioCielo,
+    astralPlanetas, astralCasas, astralAspectos, astralInterpretacion,
+    astralReportTitle, astralReportSummary, astralClientMessage,
+    astralFortalezas, astralRetos, astralRecomendaciones, astralObjetivo,
+    astralNotasPrivadas, astralSeguimiento,
+    astralConsentDate, astralRetentionReview, astralNextSessionDate, astralNextAction, astralDataTags, astralConsentNotes,
+    astralSessionDate, astralSessionTitle, astralSessionNote, astralSessionNext
+  ].forEach(input => {
+    if (input) input.value = "";
+  });
+
+  if (astralEstado) astralEstado.value = "Borrador";
+  if (astralConsentSource) astralConsentSource.value = "";
+  if (astralPriority) astralPriority.value = "Normal";
+  if (astralConsentimiento) astralConsentimiento.checked = false;
+
+  editingAstralChartId = null;
+  astralSessionDraft = [];
+  renderAstralSessionDraft();
+  if (guardarCartaAstralBtn) guardarCartaAstralBtn.textContent = "Guardar carta astral";
+  if (astralCodigo) astralCodigo.value = generateAstralCode();
+}
+
+function collectAstralChartFromForm() {
+  return normalizeAstralChart({
+    id: editingAstralChartId || crypto.randomUUID(),
+    codigo: astralCodigo?.value.trim() || generateAstralCode(),
+    nombre: astralNombre?.value.trim(),
+    email: astralEmail?.value.trim(),
+    telefono: astralTelefono?.value.trim(),
+    fechaNacimiento: astralFechaNacimiento?.value,
+    horaNacimiento: astralHoraNacimiento?.value,
+    lugarNacimiento: astralLugarNacimiento?.value.trim(),
+    paisNacimiento: astralPaisNacimiento?.value.trim(),
+    zonaHoraria: astralZonaHoraria?.value.trim(),
+    estado: astralEstado?.value || "Borrador",
+    temaConsulta: astralTemaConsulta?.value.trim(),
+    sol: astralSol?.value.trim(),
+    luna: astralLuna?.value.trim(),
+    ascendente: astralAscendente?.value.trim(),
+    medioCielo: astralMedioCielo?.value.trim(),
+    planetas: astralPlanetas?.value.trim(),
+    casas: astralCasas?.value.trim(),
+    aspectos: astralAspectos?.value.trim(),
+    interpretacion: astralInterpretacion?.value.trim(),
+    reportTitle: astralReportTitle?.value.trim() || "Informe astral personalizado",
+    reportSummary: astralReportSummary?.value.trim() || "",
+    clientMessage: astralClientMessage?.value.trim() || "",
+    fortalezas: astralFortalezas?.value.trim(),
+    retos: astralRetos?.value.trim(),
+    recomendaciones: astralRecomendaciones?.value.trim(),
+    objetivo: astralObjetivo?.value.trim(),
+    notasPrivadas: astralNotasPrivadas?.value.trim(),
+    seguimiento: astralSeguimiento?.value.trim(),
+    sesiones: astralSessionDraft,
+    consentimiento: Boolean(astralConsentimiento?.checked),
+    consentDate: astralConsentDate?.value || "",
+    consentSource: astralConsentSource?.value || "",
+    consentNotes: astralConsentNotes?.value.trim() || "",
+    retentionReview: astralRetentionReview?.value || "",
+    nextSessionDate: astralNextSessionDate?.value || "",
+    priority: astralPriority?.value || "Normal",
+    nextAction: astralNextAction?.value.trim() || "",
+    dataTags: astralDataTags?.value || "",
+    anonymized: false,
+    createdAt: editingAstralChartId
+      ? (astralCharts.find(item => item.id === editingAstralChartId)?.createdAt || new Date().toISOString())
+      : new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  });
+}
+
+function guardarCartaAstralDesdeAdmin() {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+
+  const chart = collectAstralChartFromForm();
+
+  if (!chart.nombre || !chart.fechaNacimiento || !chart.lugarNacimiento) {
+    showToast("Añade nombre, fecha y lugar de nacimiento.");
+    return;
+  }
+
+  if (!chart.consentimiento) {
+    showToast("Marca el consentimiento para guardar datos.");
+    return;
+  }
+
+  if (editingAstralChartId) {
+    astralCharts = astralCharts.map(item => item.id === editingAstralChartId ? chart : item);
+  } else {
+    astralCharts.unshift(chart);
+  }
+
+  saveAstralCharts();
+  syncSingleAstralChartOnline(chart);
+  renderAstralAdmin();
+  limpiarFormularioCartaAstral();
+  addAuditLog("data", "Guardar carta astral", `${chart.codigo} · ${chart.nombre}`);
+  showToast("Carta astral guardada.");
+}
+
+function getFilteredAstralCharts() {
+  const query = (astralSearch?.value || "").toLowerCase().trim();
+  const status = astralStatusFilter?.value || "";
+
+  return astralCharts.map(normalizeAstralChart).filter(chart => {
+    const matchesStatus = !status || chart.estado === status;
+    const haystack = [
+      chart.codigo,
+      chart.nombre,
+      chart.email,
+      chart.telefono,
+      chart.fechaNacimiento,
+      chart.horaNacimiento,
+      chart.lugarNacimiento,
+      chart.paisNacimiento,
+      chart.zonaHoraria,
+      chart.estado,
+      chart.temaConsulta,
+      chart.sol,
+      chart.luna,
+      chart.ascendente,
+      chart.medioCielo,
+      chart.planetas,
+      chart.casas,
+      chart.aspectos,
+      chart.interpretacion,
+      chart.reportTitle,
+      chart.reportSummary,
+      chart.clientMessage,
+      chart.fortalezas,
+      chart.retos,
+      chart.recomendaciones,
+      chart.objetivo,
+      chart.notasPrivadas,
+      chart.seguimiento,
+      chart.consentDate,
+      chart.consentSource,
+      chart.consentNotes,
+      chart.retentionReview,
+      chart.nextSessionDate,
+      chart.priority,
+      chart.nextAction,
+      ...(chart.dataTags || []),
+      ...(chart.sesiones || []).map(session => [session.date, session.title, session.note, session.next].join(" "))
+    ].join(" ").toLowerCase();
+
+    return matchesStatus && (!query || haystack.includes(query));
+  });
+}
+
+
+function escapeReportHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function getAstralClientKey(chart) {
+  const normalized = normalizeAstralChart(chart);
+  return (normalized.email || normalized.telefono || `${normalized.nombre}-${normalized.fechaNacimiento}-${normalized.lugarNacimiento}`)
+    .toLowerCase()
+    .trim();
+}
+
+function getAstralClients() {
+  const map = new Map();
+
+  astralCharts.map(normalizeAstralChart).forEach(chart => {
+    const key = getAstralClientKey(chart);
+    if (!key) return;
+
+    if (!map.has(key)) {
+      map.set(key, {
+        key,
+        nombre: chart.nombre || "Cliente sin nombre",
+        email: chart.email || "",
+        telefono: chart.telefono || "",
+        lugar: chart.lugarNacimiento || "",
+        charts: [],
+        sesiones: []
+      });
+    }
+
+    const client = map.get(key);
+    client.charts.push(chart);
+    client.sesiones.push(...(chart.sesiones || []).map(session => ({ ...session, chartId: chart.id, chartCode: chart.codigo })));
+  });
+
+  return [...map.values()].map(client => {
+    client.charts.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)));
+    client.sesiones.sort((a, b) => String(b.date || b.createdAt || "").localeCompare(String(a.date || a.createdAt || "")));
+    client.lastChart = client.charts[0];
+    client.lastSession = client.sesiones[0] || null;
+    client.statuses = [...new Set(client.charts.map(chart => chart.estado).filter(Boolean))];
+    return client;
+  }).sort((a, b) => String(b.lastChart?.updatedAt || "").localeCompare(String(a.lastChart?.updatedAt || "")));
+}
+
+
+function getDaysDiffFromToday(dateString) {
+  if (!dateString) return null;
+  const today = new Date();
+  const base = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const target = new Date(`${dateString}T00:00:00`);
+  if (Number.isNaN(target.getTime())) return null;
+  return Math.round((target - base) / 86400000);
+}
+
+function getAstralFollowups() {
+  return astralCharts
+    .map(normalizeAstralChart)
+    .filter(chart => chart.nextSessionDate || chart.nextAction || chart.seguimiento)
+    .map(chart => {
+      const date = chart.nextSessionDate || chart.retentionReview || "";
+      const days = getDaysDiffFromToday(date);
+      return {
+        chart,
+        date,
+        days,
+        status: days === null ? "sin fecha" : days < 0 ? "vencido" : days === 0 ? "hoy" : days <= 7 ? "semana" : "futuro"
+      };
+    })
+    .sort((a, b) => {
+      if (a.days === null) return 1;
+      if (b.days === null) return -1;
+      return a.days - b.days;
+    });
+}
+
+function renderAstralFollowups() {
+  if (!astralFollowupList) return;
+
+  const filter = astralFollowupFilter?.value || "all";
+  let followups = getAstralFollowups();
+
+  if (filter === "overdue") followups = followups.filter(item => item.days !== null && item.days < 0);
+  if (filter === "today") followups = followups.filter(item => item.days === 0);
+  if (filter === "week") followups = followups.filter(item => item.days !== null && item.days >= 0 && item.days <= 7);
+  if (filter === "high") followups = followups.filter(item => item.chart.priority === "Alta");
+
+  if (!followups.length) {
+    astralFollowupList.innerHTML = "<p>No hay seguimientos con este filtro.</p>";
+    return;
+  }
+
+  astralFollowupList.innerHTML = followups.slice(0, 16).map(item => {
+    const chart = item.chart;
+    const cls = item.days < 0 ? "overdue" : item.days === 0 ? "today" : "";
+    const label = item.days === null
+      ? "Sin fecha"
+      : item.days < 0
+        ? `Vencido hace ${Math.abs(item.days)} día(s)`
+        : item.days === 0
+          ? "Hoy"
+          : `En ${item.days} día(s)`;
+
+    return `
+      <article class="astral-followup-card ${cls}">
+        <div class="astral-followup-top">
+          <div>
+            <strong>${chart.nombre}</strong>
+            <small>${chart.codigo} · ${chart.estado}</small>
+          </div>
+          <span class="astral-priority-pill ${String(chart.priority).toLowerCase()}">${chart.priority}</span>
+        </div>
+
+        <div class="astral-followup-date">
+          <span>${item.date || "Sin fecha"}</span>
+          <span>${label}</span>
+          ${chart.sol ? `<span>${chart.sol}</span>` : ""}
+          ${chart.ascendente ? `<span>Asc: ${chart.ascendente}</span>` : ""}
+        </div>
+
+        <div class="astral-followup-action">
+          ${chart.nextAction || chart.seguimiento || "Revisar ficha y preparar próximo contacto."}
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn-secondary" onclick="editarCartaAstral('${chart.id}')">Abrir ficha</button>
+          <button class="btn btn-secondary" onclick="copiarMensajeSeguimientoAstral('${chart.id}')">Copiar mensaje</button>
+          <button class="btn btn-secondary" onclick="marcarSeguimientoAstralHecho('${chart.id}')">Marcar hecho</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function copiarMensajeSeguimientoAstral(id) {
+  if (!requireAdminAccess("consultar panel")) return;
+  const chart = astralCharts.map(normalizeAstralChart).find(item => item.id === id);
+  if (!chart) return;
+
+  const text = `
+Hola ${chart.nombre}, soy Alaya.
+
+Te escribo por el seguimiento de tu consulta/carta astral.
+Próximo paso previsto:
+${chart.nextAction || chart.seguimiento || "Revisar cómo te encuentras y si necesitas una nueva orientación."}
+
+Si te va bien, podemos concretar una hora para continuar.
+  `.trim();
+
+  copyText(text);
+  showToast("Mensaje de seguimiento copiado.");
+}
+
+function marcarSeguimientoAstralHecho(id) {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+
+  astralCharts = astralCharts.map(item => {
+    if (item.id !== id) return item;
+    const chart = normalizeAstralChart(item);
+    return {
+      ...chart,
+      followupDoneAt: new Date().toISOString(),
+      nextSessionDate: "",
+      nextAction: "",
+      updatedAt: new Date().toISOString()
+    };
+  });
+
+  saveAstralCharts();
+  const chart = astralCharts.find(item => item.id === id);
+  if (chart) syncSingleAstralChartOnline?.(chart);
+  renderAstralAdmin();
+  renderAstralFollowups();
+  renderAstralClientHub?.();
+  addAuditLog("data", "Marcar seguimiento astral hecho", id);
+  showToast("Seguimiento marcado como hecho.");
+}
+
+
+function renderAstralClientHub() {
+  if (!astralClientHub) return;
+
+  const query = (astralClientSearch?.value || "").toLowerCase().trim();
+
+  const clients = getAstralClients().filter(client => {
+    const haystack = [
+      client.nombre,
+      client.email,
+      client.telefono,
+      client.lugar,
+      client.statuses.join(" "),
+      client.charts.map(chart => [chart.codigo, chart.sol, chart.luna, chart.ascendente, chart.temaConsulta, chart.notasPrivadas, chart.seguimiento].join(" ")).join(" ")
+    ].join(" ").toLowerCase();
+
+    return !query || haystack.includes(query);
+  });
+
+  if (!clients.length) {
+    astralClientHub.innerHTML = "<p>No hay clientes/pacientes en el hub astral.</p>";
+    return;
+  }
+
+  astralClientHub.innerHTML = clients.slice(0, 12).map(client => {
+    const next = client.charts.find(chart => chart.nextAction)?.nextAction
+      || client.charts.find(chart => chart.seguimiento)?.seguimiento
+      || client.lastSession?.next
+      || "Sin próximo paso indicado";
+    const last = client.lastChart || {};
+
+    return `
+      <article class="astral-client-card">
+        <div class="astral-client-top">
+          <div>
+            <strong>${client.nombre}</strong>
+            <small>${client.email || client.telefono || client.lugar || "Sin contacto"}</small>
+          </div>
+          <span class="service-template-label">${client.statuses[0] || "Sin estado"}</span>
+        </div>
+
+        <div class="astral-client-metrics">
+          <span><b>${client.charts.length}</b>cartas</span>
+          <span><b>${client.sesiones.length}</b>sesiones</span>
+          <span><b>${last.sol ? "Sí" : "No"}</b>sol</span>
+          <span><b>${last.ascendente ? "Sí" : "No"}</b>asc.</span>
+        </div>
+
+        <div class="astral-chart-tags">
+          ${last.sol ? `<span>${last.sol}</span>` : ""}
+          ${last.luna ? `<span>${last.luna}</span>` : ""}
+          ${last.ascendente ? `<span>Asc: ${last.ascendente}</span>` : ""}
+          ${last.codigo ? `<span>${last.codigo}</span>` : ""}
+        </div>
+
+        <div class="astral-client-latest">
+          <b>Último seguimiento:</b><br>${next}
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn-secondary" onclick="filtrarAstralPorCliente('${client.key.replace(/'/g, "\\'")}')">Ver cartas</button>
+          <button class="btn btn-secondary" onclick="copiarResumenClienteAstral('${client.key.replace(/'/g, "\\'")}')">Copiar ficha</button>
+          <button class="btn btn-secondary" onclick="imprimirClienteAstral('${client.key.replace(/'/g, "\\'")}')">Imprimir ficha</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function getAstralClientByKey(key) {
+  return getAstralClients().find(client => client.key === key);
+}
+
+function filtrarAstralPorCliente(key) {
+  const client = getAstralClientByKey(key);
+  if (!client) return;
+
+  if (astralSearch) astralSearch.value = client.nombre;
+  if (astralStatusFilter) astralStatusFilter.value = "";
+  renderAstralAdmin();
+  document.querySelector("#adminTab-astral")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function buildAstralClientSummary(client) {
+  return `
+Ficha astral de cliente/paciente
+
+Nombre:
+${client.nombre}
+
+Contacto:
+Email: ${client.email || "No indicado"}
+Teléfono: ${client.telefono || "No indicado"}
+Lugar: ${client.lugar || "No indicado"}
+
+Resumen:
+Cartas guardadas: ${client.charts.length}
+Sesiones registradas: ${client.sesiones.length}
+Estados: ${client.statuses.join(", ") || "Sin estados"}
+
+Última carta:
+${client.lastChart ? buildAstralChartSummary(client.lastChart) : "Sin carta"}
+
+Sesiones:
+${client.sesiones.map(session => `- ${session.date || "Sin fecha"} · ${session.title || "Sesión"} · ${session.chartCode || ""}: ${session.note || ""} ${session.next ? `| Próximo: ${session.next}` : ""}`).join("\n") || "Sin sesiones"}
+  `.trim();
+}
+
+function copiarResumenClienteAstral(key) {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const client = getAstralClientByKey(key);
+  if (!client) return;
+
+  copyText(buildAstralClientSummary(client));
+  showToast("Ficha de cliente copiada.");
+}
+
+function printAstralHtml(title, bodyHtml) {
+  const win = window.open("", "_blank");
+  if (!win) {
+    showToast("Permite ventanas emergentes para imprimir.");
+    return;
+  }
+
+  win.document.write(`
+    <!doctype html>
+    <html lang="es">
+      <head>
+        <meta charset="utf-8">
+        <title>${escapeReportHtml(title)}</title>
+        <style>
+          body { margin: 0; background: #fffaf2; }
+          .astral-print-report { color: #1f1430; background: #fffaf2; font-family: Inter, Arial, sans-serif; padding: 34px; }
+          h1, h2, h3 { color: #21102f; }
+          section { border: 1px solid #eadfcf; border-radius: 18px; padding: 18px; margin: 14px 0; }
+          .meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+          .meta div { background: #f7efe4; border-radius: 12px; padding: 10px; }
+          pre { white-space: pre-wrap; font-family: inherit; line-height: 1.55; }
+          .print-actions { margin-bottom: 18px; }
+          button { border: 0; border-radius: 999px; padding: 10px 14px; background: #21102f; color: white; cursor: pointer; }
+          @media print { .print-actions { display: none; } .astral-print-report { padding: 0; } }
+        </style>
+      </head>
+      <body>
+        <main class="astral-print-report">
+          <div class="print-actions"><button onclick="window.print()">Imprimir / guardar PDF</button></div>
+          ${bodyHtml}
+        </main>
+      </body>
+    </html>
+  `);
+  win.document.close();
+  win.focus();
+}
+
+function buildAstralReportHtml(chart) {
+  const sessions = (chart.sesiones || []).map(session => `
+    <section>
+      <h3>${escapeReportHtml(session.title || "Sesión astral")}</h3>
+      <p><strong>Fecha:</strong> ${escapeReportHtml(session.date || "Sin fecha")}</p>
+      <pre>${escapeReportHtml(session.note || "")}</pre>
+      ${session.next ? `<pre><strong>Próximo paso:</strong> ${escapeReportHtml(session.next)}</pre>` : ""}
+    </section>
+  `).join("");
+
+  return `
+    <h1>Informe astral · ${escapeReportHtml(chart.codigo || "")}</h1>
+    <section>
+      <h2>${escapeReportHtml(chart.nombre || "Cliente/paciente")}</h2>
+      <div class="meta">
+        <div><strong>Fecha nacimiento</strong><br>${escapeReportHtml(chart.fechaNacimiento || "No indicada")}</div>
+        <div><strong>Hora</strong><br>${escapeReportHtml(chart.horaNacimiento || "No indicada")}</div>
+        <div><strong>Lugar</strong><br>${escapeReportHtml(chart.lugarNacimiento || "No indicado")}</div>
+        <div><strong>Estado</strong><br>${escapeReportHtml(chart.estado || "Sin estado")}</div>
+        <div><strong>Consentimiento</strong><br>${chart.consentimiento ? "Sí" : "No"} ${escapeReportHtml(chart.consentDate || "")}</div>
+      </div>
+    </section>
+    <section>
+      <h2>Claves astrológicas</h2>
+      <div class="meta">
+        <div><strong>Sol</strong><br>${escapeReportHtml(chart.sol || "No indicado")}</div>
+        <div><strong>Luna</strong><br>${escapeReportHtml(chart.luna || "No indicada")}</div>
+        <div><strong>Ascendente</strong><br>${escapeReportHtml(chart.ascendente || "No indicado")}</div>
+        <div><strong>Medio Cielo</strong><br>${escapeReportHtml(chart.medioCielo || "No indicado")}</div>
+      </div>
+    </section>
+    <section><h2>Tema de consulta</h2><pre>${escapeReportHtml(chart.temaConsulta || "Sin tema")}</pre></section>
+    <section><h2>Interpretación</h2><pre>${escapeReportHtml(chart.interpretacion || "Sin interpretación")}</pre></section>
+    <section><h2>Objetivo</h2><pre>${escapeReportHtml(chart.objetivo || "Sin objetivo")}</pre></section>
+    <section><h2>Fortalezas</h2><pre>${escapeReportHtml(chart.fortalezas || "Sin fortalezas")}</pre></section>
+    <section><h2>Retos</h2><pre>${escapeReportHtml(chart.retos || "Sin retos")}</pre></section>
+    <section><h2>Recomendaciones</h2><pre>${escapeReportHtml(chart.recomendaciones || "Sin recomendaciones")}</pre></section>
+    <section><h2>Seguimiento interno</h2><pre>${escapeReportHtml(chart.seguimiento || "Sin seguimiento")}</pre></section>
+    <section><h2>Próximo paso</h2><pre>${escapeReportHtml(chart.nextAction || "Sin próximo paso")}</pre><p><strong>Fecha:</strong> ${escapeReportHtml(chart.nextSessionDate || "Sin fecha")} · <strong>Prioridad:</strong> ${escapeReportHtml(chart.priority || "Normal")}</p></section>
+    ${sessions ? `<h2>Sesiones</h2>${sessions}` : ""}
+  `;
+}
+
+
+function buildAstralClientReportHtml(chart) {
+  const logoPath = "assets/logos/alaya-astrologia-logo.png";
+  const title = chart.reportTitle || "Informe astral personalizado";
+  const summary = chart.reportSummary || chart.interpretacion || "Informe preparado por Alaya Astrología.";
+
+  return `
+    <div class="cover">
+      <img src="${logoPath}" alt="Alaya Astrología">
+      <h1>${escapeReportHtml(title)}</h1>
+      <p>${escapeReportHtml(chart.nombre || "Cliente/paciente")}</p>
+      <p class="soft-note">Alaya Astrología · Informe simbólico de orientación y autoconocimiento.</p>
+    </div>
+
+    <section>
+      <h2>Datos de la carta</h2>
+      <div class="meta">
+        <div><strong>Nombre</strong><br>${escapeReportHtml(chart.nombre || "No indicado")}</div>
+        <div><strong>Fecha nacimiento</strong><br>${escapeReportHtml(chart.fechaNacimiento || "No indicada")}</div>
+        <div><strong>Hora</strong><br>${escapeReportHtml(chart.horaNacimiento || "No indicada")}</div>
+        <div><strong>Lugar</strong><br>${escapeReportHtml(chart.lugarNacimiento || "No indicado")}</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Claves principales</h2>
+      <div class="meta">
+        <div><strong>Sol</strong><br>${escapeReportHtml(chart.sol || "No indicado")}</div>
+        <div><strong>Luna</strong><br>${escapeReportHtml(chart.luna || "No indicada")}</div>
+        <div><strong>Ascendente</strong><br>${escapeReportHtml(chart.ascendente || "No indicado")}</div>
+        <div><strong>Medio Cielo</strong><br>${escapeReportHtml(chart.medioCielo || "No indicado")}</div>
+      </div>
+    </section>
+
+    <section><h2>Resumen inicial</h2><pre>${escapeReportHtml(summary)}</pre></section>
+    <section><h2>Tema de consulta</h2><pre>${escapeReportHtml(chart.temaConsulta || "Sin tema indicado")}</pre></section>
+    <section><h2>Interpretación general</h2><pre>${escapeReportHtml(chart.interpretacion || "Sin interpretación")}</pre></section>
+    <section><h2>Fortalezas</h2><pre>${escapeReportHtml(chart.fortalezas || "Sin fortalezas indicadas")}</pre></section>
+    <section><h2>Retos y aprendizajes</h2><pre>${escapeReportHtml(chart.retos || "Sin retos indicados")}</pre></section>
+    <section><h2>Recomendaciones</h2><pre>${escapeReportHtml(chart.recomendaciones || "Sin recomendaciones indicadas")}</pre></section>
+    <section><h2>Mensaje final de Alaya</h2><pre>${escapeReportHtml(chart.clientMessage || "Gracias por confiar en Alaya. Este informe es una herramienta de reflexión, orientación y autoconocimiento.")}</pre></section>
+
+    <section>
+      <h2>Nota importante</h2>
+      <p class="soft-note">
+        Este informe se ofrece como herramienta simbólica de orientación y autoconocimiento.
+        No sustituye atención médica, psicológica, legal ni financiera.
+      </p>
+    </section>
+  `;
+}
+
+function printAstralClientHtml(title, bodyHtml) {
+  const win = window.open("", "_blank");
+  if (!win) {
+    showToast("Permite ventanas emergentes para imprimir.");
+    return;
+  }
+
+  win.document.write(`
+    <!doctype html>
+    <html lang="es">
+      <head>
+        <meta charset="utf-8">
+        <title>${escapeReportHtml(title)}</title>
+        <style>
+          body { margin: 0; background: #fffaf2; }
+          .astral-client-report-preview { color: #21102f; background: #fffaf2; font-family: Inter, Arial, sans-serif; padding: 42px; }
+          .cover { text-align: center; border: 2px solid #e9d7b5; border-radius: 28px; padding: 34px; background: radial-gradient(circle at 50% 0%, rgba(255,215,138,.35), transparent 38%), #fffaf2; }
+          .cover img { width: 160px; height: 160px; object-fit: contain; border-radius: 28px; background: #fffaf2; margin-bottom: 18px; }
+          h1 { font-size: 2.6rem; margin: 0; color: #21102f; }
+          h2 { color: #32184a; margin-top: 0; }
+          section { border: 1px solid #eadfcf; border-radius: 20px; padding: 20px; margin: 16px 0; background: #fffdf8; }
+          .meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+          .meta div { background: #f7efe4; border-radius: 13px; padding: 11px; }
+          pre { white-space: pre-wrap; font-family: inherit; line-height: 1.6; }
+          .soft-note { color: #6a5c72; font-size: .92rem; line-height: 1.55; }
+          .print-actions { margin-bottom: 18px; }
+          button { border: 0; border-radius: 999px; padding: 10px 14px; background: #21102f; color: white; cursor: pointer; }
+          @media print { .print-actions { display: none; } .astral-client-report-preview { padding: 0; } }
+          @media (max-width: 800px) { .meta { grid-template-columns: 1fr; } }
+        </style>
+      </head>
+      <body>
+        <main class="astral-client-report-preview">
+          <div class="print-actions"><button onclick="window.print()">Imprimir / guardar PDF</button></div>
+          ${bodyHtml}
+        </main>
+      </body>
+    </html>
+  `);
+  win.document.close();
+  win.focus();
+}
+
+function imprimirInformeClienteAstral(id) {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const chart = astralCharts.map(normalizeAstralChart).find(item => item.id === id);
+  if (!chart) return;
+
+  printAstralClientHtml(`Informe cliente ${chart.codigo}`, buildAstralClientReportHtml(chart));
+}
+
+function previewClientReportDraft() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const chart = collectAstralChartFromForm();
+  printAstralClientHtml(`Informe cliente ${chart.codigo}`, buildAstralClientReportHtml(chart));
+}
+
+function insertarPlantillaInformeCliente() {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+
+  if (astralReportTitle && !astralReportTitle.value.trim()) {
+    astralReportTitle.value = "Informe astral personalizado";
+  }
+
+  if (astralReportSummary && !astralReportSummary.value.trim()) {
+    astralReportSummary.value = `Este informe recoge una lectura simbólica de tu carta astral para acompañar tu proceso de autoconocimiento.`;
+  }
+
+  if (astralClientMessage && !astralClientMessage.value.trim()) {
+    astralClientMessage.value = `Gracias por confiar en Alaya. Quédate con aquello que resuene contigo y úsalo como una guía amable para observarte, cuidarte y avanzar con más claridad.`;
+  }
+
+  showToast("Plantilla de informe cliente insertada.");
+}
+
+function copyAstralReportChecklist() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist informe cliente · Alaya
+
+Antes de entregar:
+[ ] Revisar nombre y datos natales.
+[ ] Confirmar que el informe NO incluye notas privadas.
+[ ] Revisar tono: claro, cálido y no fatalista.
+[ ] Evitar diagnósticos o promesas absolutas.
+[ ] Incluir mensaje final de acompañamiento.
+[ ] Guardar copia interna si procede.
+[ ] Entregar solo al destinatario correcto.
+  `.trim();
+
+  copyText(text);
+  showToast("Checklist de informe copiado.");
+}
+
+
+function imprimirInformeCartaAstral(id) {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const chart = astralCharts.map(normalizeAstralChart).find(item => item.id === id);
+  if (!chart) return;
+
+  printAstralHtml(`Informe ${chart.codigo}`, buildAstralReportHtml(chart));
+}
+
+function imprimirBorradorCartaAstral() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const chart = collectAstralChartFromForm();
+  printAstralHtml(`Borrador ${chart.codigo}`, buildAstralReportHtml(chart));
+}
+
+function imprimirClienteAstral(key) {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const client = getAstralClientByKey(key);
+  if (!client) return;
+
+  const chartsHtml = client.charts.map(chart => buildAstralReportHtml(chart)).join("<hr>");
+  const header = `
+    <h1>Ficha completa de cliente/paciente</h1>
+    <section>
+      <h2>${escapeReportHtml(client.nombre)}</h2>
+      <div class="meta">
+        <div><strong>Email</strong><br>${escapeReportHtml(client.email || "No indicado")}</div>
+        <div><strong>Teléfono</strong><br>${escapeReportHtml(client.telefono || "No indicado")}</div>
+        <div><strong>Cartas</strong><br>${client.charts.length}</div>
+        <div><strong>Sesiones</strong><br>${client.sesiones.length}</div>
+      </div>
+    </section>
+  `;
+
+  printAstralHtml(`Ficha ${client.nombre}`, header + chartsHtml);
+}
+
+
+
+
+function renderAstralOnlineStatus(message = "") {
+  if (!astralOnlineStatus) return;
+
+  const status = window.AlayaCloud?.getStatus?.();
+  const synced = astralCharts.filter(item => item.onlineSynced).length;
+  const pending = astralCharts.length - synced;
+
+  if (!status?.ready) {
+    astralOnlineStatus.textContent = "Astral Cloud: Firebase no configurado.";
+    return;
+  }
+
+  if (!status.authenticated || !status.admin) {
+    astralOnlineStatus.textContent = `Astral Cloud: inicia sesión admin. Pendientes locales: ${pending}.`;
+    return;
+  }
+
+  astralOnlineStatus.textContent = message || `Astral Cloud listo. Online: ${synced}. Pendientes: ${pending}.`;
+}
+
+async function syncSingleAstralChartOnline(chart) {
+  const status = window.AlayaCloud?.getStatus?.();
+
+  if (!status?.ready || !status?.authenticated || !status?.admin) {
+    renderAstralOnlineStatus?.();
+    return { ok: false, reason: "Astral Cloud requiere sesión admin Firebase." };
+  }
+
+  const cleanChart = normalizeAstralChart({
+    ...chart,
+    onlineSynced: true,
+    onlineUpdatedAt: new Date().toISOString()
+  });
+
+  const result = await window.AlayaCloud?.saveCollection?.("astralCharts", [cleanChart]);
+
+  if (result?.ok) {
+    astralCharts = astralCharts.map(item => item.id === cleanChart.id
+      ? { ...cleanChart, onlineSynced: true, onlineUpdatedAt: new Date().toISOString() }
+      : item
+    );
+    localStorage.setItem("alaya_astral_charts", JSON.stringify(astralCharts));
+    renderAstralOnlineStatus("Última carta enviada a Firestore.");
+  }
+
+  return result || { ok: false, reason: "saveCollection no disponible." };
+}
+
+async function syncAstralChartsOnline() {
+  if (!requireAdminAccess("subir cartas astrales online")) return;
+
+  const status = window.AlayaCloud?.getStatus?.();
+
+  if (!status?.ready || !status.authenticated || !status.admin) {
+    renderAstralOnlineStatus();
+    showToast("Necesitas Firebase admin.");
+    return;
+  }
+
+  const payload = astralCharts.map(chart => normalizeAstralChart({
+    ...chart,
+    onlineSynced: true,
+    onlineUpdatedAt: new Date().toISOString()
+  }));
+
+  const result = await window.AlayaCloud?.saveCollection?.("astralCharts", payload);
+
+  if (result?.ok) {
+    astralCharts = payload.map(chart => ({ ...chart, onlineSynced: true }));
+    saveAstralCharts();
+    renderAstralAdmin();
+    renderAstralClientHub?.();
+    renderAstralOnlineStatus(`${result.count || astralCharts.length} cartas astrales enviadas a Firestore.`);
+    addAuditLog("firebase", "Subir cartas astrales online", `${result.count || astralCharts.length} cartas enviadas.`);
+    showToast("Cartas astrales subidas online.");
+  } else {
+    renderAstralOnlineStatus(`Error subiendo cartas: ${result?.reason || "No especificado"}`);
+    showToast("No se pudieron subir cartas.");
+  }
+}
+
+async function loadAstralChartsOnline() {
+  if (!requireAdminAccess("cargar cartas astrales online")) return;
+
+  const status = window.AlayaCloud?.getStatus?.();
+
+  if (!status?.ready || !status.authenticated || !status.admin) {
+    renderAstralOnlineStatus();
+    showToast("Necesitas Firebase admin.");
+    return;
+  }
+
+  const result = await window.AlayaCloud?.loadCollection?.("astralCharts");
+
+  if (result?.ok && Array.isArray(result.data)) {
+    const merged = [...result.data, ...astralCharts];
+    const map = new Map();
+
+    merged.forEach(item => {
+      const normalized = normalizeAstralChart({
+        ...item,
+        onlineSynced: Boolean(item.onlineSynced || item.onlineUpdatedAt),
+        onlineUpdatedAt: item.onlineUpdatedAt || item.updatedAt || ""
+      });
+      map.set(normalized.id, normalized);
+    });
+
+    astralCharts = Array.from(map.values()).sort((a, b) => {
+      return new Date(b.updatedAt || b.onlineUpdatedAt || 0) - new Date(a.updatedAt || a.onlineUpdatedAt || 0);
+    }).slice(0, 1200);
+
+    saveAstralCharts();
+    renderAstralAdmin();
+    renderAstralClientHub?.();
+    renderAstralOnlineStatus(`${result.data.length} cartas cargadas desde Firestore.`);
+    addAuditLog("firebase", "Cargar cartas astrales online", `${result.data.length} cartas cargadas.`);
+    showToast("Cartas astrales online cargadas.");
+  } else {
+    renderAstralOnlineStatus(`Error cargando cartas: ${result?.reason || "No especificado"}`);
+    showToast("No se pudieron cargar cartas.");
+  }
+}
+
+async function deleteAstralChartOnline(id) {
+  const status = window.AlayaCloud?.getStatus?.();
+
+  if (!status?.ready || !status?.authenticated || !status?.admin || !id) {
+    return { ok: false, reason: "Borrado online requiere sesión admin." };
+  }
+
+  const result = await window.AlayaCloud?.deleteItem?.("astralCharts", id);
+  if (result?.ok) {
+    renderAstralOnlineStatus("Carta borrada de Firestore.");
+  }
+  return result;
+}
+
+async function testAstralChartsOnline() {
+  if (!requireAdminAccess("probar cartas astrales online")) return;
+
+  const status = window.AlayaCloud?.getStatus?.();
+
+  if (!status?.ready || !status.authenticated || !status.admin) {
+    renderAstralOnlineStatus();
+    showToast("Necesitas Firebase admin.");
+    return;
+  }
+
+  const testId = "astral_test_" + Date.now();
+  const testChart = normalizeAstralChart({
+    id: testId,
+    codigo: "ALAYA-ASTRAL-TEST",
+    nombre: "Prueba Astral Cloud",
+    fechaNacimiento: "2000-01-01",
+    lugarNacimiento: "Prueba",
+    estado: "Borrador",
+    consentimiento: true,
+    consentDate: new Date().toISOString().slice(0, 10),
+    consentSource: "Formulario",
+    temaConsulta: "Prueba técnica de escritura y borrado online.",
+    onlineSynced: true,
+    onlineUpdatedAt: new Date().toISOString()
+  });
+
+  const saveResult = await window.AlayaCloud?.saveCollection?.("astralCharts", [testChart]);
+  if (!saveResult?.ok) {
+    renderAstralOnlineStatus(`Error en prueba: ${saveResult?.reason || "No especificado"}`);
+    showToast("Prueba Astral Cloud fallida.");
+    return;
+  }
+
+  const deleteResult = await window.AlayaCloud?.deleteItem?.("astralCharts", testId);
+  if (!deleteResult?.ok) {
+    renderAstralOnlineStatus(`Prueba escrita, pero no borrada: ${deleteResult?.reason || "No especificado"}`);
+    showToast("Revisa permisos de borrado.");
+    return;
+  }
+
+  renderAstralOnlineStatus("Prueba Astral Cloud correcta.");
+  addAuditLog("firebase", "Probar Astral Cloud", "Escritura y borrado correctos.");
+  showToast("Astral Cloud funciona.");
+}
+
+function markAstralChartsAsLocal() {
+  if (!requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Marcar todas las cartas como pendientes locales? No borra datos online.")) return;
+
+  astralCharts = astralCharts.map(chart => ({ ...chart, onlineSynced: false }));
+  saveAstralCharts();
+  renderAstralAdmin();
+  renderAstralOnlineStatus("Cartas marcadas como pendientes locales.");
+  addAuditLog("data", "Marcar cartas astrales como local", `${astralCharts.length} cartas actualizadas.`);
+  showToast("Cartas marcadas como local.");
+}
+
+
+function applyAstralPrivacyMode() {
+  document.body.classList.toggle("astral-privacy-active", Boolean(astralPrivacyMode));
+  if (astralPrivacyModeToggle) astralPrivacyModeToggle.checked = Boolean(astralPrivacyMode);
+  localStorage.setItem("alaya_astral_privacy_mode", JSON.stringify(Boolean(astralPrivacyMode)));
+}
+
+function toggleAstralPrivacyMode() {
+  astralPrivacyMode = !astralPrivacyMode;
+  applyAstralPrivacyMode();
+  showToast(astralPrivacyMode ? "Modo privacidad activado." : "Modo privacidad desactivado.");
+}
+
+function copyAstralConsentTemplate() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Consentimiento informado · Alaya Astrología
+
+Autorizo a Alaya a guardar mis datos natales necesarios para elaborar mi carta astral:
+- nombre
+- fecha de nacimiento
+- hora de nacimiento
+- lugar de nacimiento
+- datos de contacto facilitados
+
+También autorizo a guardar notas internas de seguimiento relacionadas con la consulta.
+
+Entiendo que:
+- la carta astral se usa como herramienta simbólica, de orientación y autoconocimiento;
+- no sustituye atención médica, psicológica, legal ni financiera;
+- puedo solicitar revisión, rectificación o eliminación de mis datos;
+- mis datos deben tratarse con privacidad y solo para el seguimiento acordado.
+
+Nombre:
+Fecha:
+Firma / confirmación:
+  `.trim();
+
+  copyText(text);
+  showToast("Plantilla de consentimiento copiada.");
+}
+
+function copyAstralPrivacyChecklist() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist privacidad · Alaya Astral Admin
+
+Antes de guardar:
+[ ] Nombre y datos natales revisados.
+[ ] Consentimiento marcado.
+[ ] Fecha de consentimiento indicada.
+[ ] Origen del consentimiento indicado.
+[ ] Notas privadas solo si son necesarias.
+[ ] Próxima revisión de datos indicada si procede.
+
+Antes de imprimir/enviar:
+[ ] Revisar que el informe no incluya notas privadas innecesarias.
+[ ] Confirmar destinatario.
+[ ] No compartir datos sensibles por error.
+
+Mantenimiento:
+[ ] Revisar fichas antiguas.
+[ ] Borrar o anonimizar datos que ya no hagan falta.
+[ ] Exportar copias solo si es necesario.
+  `.trim();
+
+  copyText(text);
+  showToast("Checklist copiado.");
+}
+
+function anonymizeAstralChart(id) {
+  if (!requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Anonimizar esta carta? Se borrarán nombre, contacto y notas privadas identificables.")) return;
+
+  astralCharts = astralCharts.map(item => {
+    if (item.id !== id) return item;
+    const chart = normalizeAstralChart(item);
+    return {
+      ...chart,
+      nombre: `Cliente anonimizado ${chart.codigo}`,
+      email: "",
+      telefono: "",
+      notasPrivadas: "",
+      consentNotes: "",
+      seguimiento: chart.seguimiento ? "Seguimiento anonimizado." : "",
+      anonymized: true,
+      updatedAt: new Date().toISOString()
+    };
+  });
+
+  saveAstralCharts();
+  const anonymizedChart = astralCharts.find(item => item.id === id);
+  if (anonymizedChart) syncSingleAstralChartOnline(anonymizedChart);
+  renderAstralAdmin();
+  addAuditLog("data", "Anonimizar carta astral", id);
+  showToast("Carta anonimizada.");
+}
+
+
+function renderAstralAdminSummary() {
+  if (!astralAdminSummary) return;
+
+  const total = astralCharts.length;
+  const borrador = astralCharts.filter(item => item.estado === "Borrador").length;
+  const estudio = astralCharts.filter(item => item.estado === "En estudio").length;
+  const completada = astralCharts.filter(item => item.estado === "Completada").length;
+  const seguimiento = astralCharts.filter(item => item.estado === "Seguimiento").length;
+  const sesiones = astralCharts.reduce((total, chart) => total + (normalizeAstralChart(chart).sesiones?.length || 0), 0);
+
+  astralAdminSummary.innerHTML = `
+    <article><strong>${total}</strong><span>Total cartas</span></article>
+    <article><strong>${borrador}</strong><span>Borrador</span></article>
+    <article><strong>${estudio}</strong><span>En estudio</span></article>
+    <article><strong>${completada}</strong><span>Completadas</span></article>
+    <article><strong>${seguimiento}</strong><span>Seguimiento</span></article>
+    <article><strong>${sesiones}</strong><span>Sesiones</span></article>
+  `;
+}
+
+function renderAstralAdmin() {
+  if (!adminAstralChartsList) return;
+
+  normalizeAstralCharts();
+  renderAstralAdminSummary();
+  renderAstralClientHub();
+
+  const filtered = getFilteredAstralCharts();
+
+  if (!filtered.length) {
+    adminAstralChartsList.innerHTML = "<p>No hay cartas astrales con estos filtros.</p>";
+    return;
+  }
+
+  adminAstralChartsList.innerHTML = filtered.map(chart => `
+    <div class="admin-item astral-chart-card">
+      <div class="chart-head">
+        <strong>${chart.codigo} · ${chart.nombre}</strong>
+        <span class="service-template-label">${chart.estado}</span>
+      </div>
+
+      <div class="astral-chart-meta">
+        <span class="${chart.onlineSynced ? "astral-online-mark" : "astral-local-mark"}">${chart.onlineSynced ? "Online" : "Local"}</span>
+        <span class="astral-consent-pill ${chart.consentimiento ? "" : "warning"}">${chart.consentimiento ? "Consentimiento OK" : "Sin consentimiento"}</span>
+        ${chart.consentDate ? `<span>Consentimiento: ${chart.consentDate}</span>` : ""}
+        ${chart.retentionReview ? `<span>Revisión: ${chart.retentionReview}</span>` : ""}
+        ${chart.nextSessionDate ? `<span>Seguimiento: ${chart.nextSessionDate}</span>` : ""}
+        <span class="astral-priority-pill ${String(chart.priority).toLowerCase()}">${chart.priority}</span>
+        <span>${chart.fechaNacimiento || "Sin fecha"} ${chart.horaNacimiento || ""}</span>
+        <span>${chart.lugarNacimiento || "Sin lugar"}</span>
+        ${chart.sol ? `<span>${chart.sol}</span>` : ""}
+        ${chart.luna ? `<span>${chart.luna}</span>` : ""}
+        ${chart.ascendente ? `<span>Asc: ${chart.ascendente}</span>` : ""}
+      </div>
+
+      <p><b>Tema:</b> ${chart.temaConsulta || "Sin tema indicado"}</p>
+      ${chart.reportSummary || chart.clientMessage ? `<span class="astral-report-ready-pill">Informe cliente preparado</span>` : `<span class="astral-report-ready-pill">Informe pendiente</span>`}
+      ${chart.reportSummary ? `<div class="astral-chart-section-mini"><b>Resumen cliente</b>${chart.reportSummary.slice(0, 220)}${chart.reportSummary.length > 220 ? "..." : ""}</div>` : ""}
+      ${chart.dataTags?.length ? `<div class="astral-data-tags">${chart.dataTags.map(tag => `<span>${tag}</span>`).join("")}</div>` : ""}
+      ${chart.consentNotes ? `<div class="astral-chart-section-mini"><b>Privacidad / consentimiento</b>${chart.consentNotes}</div>` : ""}
+      ${chart.nextAction ? `<div class="astral-chart-section-mini"><b>Próximo paso</b>${chart.nextAction}</div>` : ""}
+
+      ${chart.interpretacion ? `<div class="astral-chart-notes"><b>Interpretación:</b><br>${chart.interpretacion.slice(0, 420)}${chart.interpretacion.length > 420 ? "..." : ""}</div>` : ""}
+
+      ${(chart.fortalezas || chart.retos || chart.recomendaciones || chart.objetivo) ? `
+        <div class="astral-chart-sections">
+          ${chart.objetivo ? `<div class="astral-chart-section-mini"><b>Objetivo</b>${chart.objetivo}</div>` : ""}
+          ${chart.fortalezas ? `<div class="astral-chart-section-mini"><b>Fortalezas</b>${chart.fortalezas}</div>` : ""}
+          ${chart.retos ? `<div class="astral-chart-section-mini"><b>Retos</b>${chart.retos}</div>` : ""}
+          ${chart.recomendaciones ? `<div class="astral-chart-section-mini"><b>Recomendaciones</b>${chart.recomendaciones}</div>` : ""}
+        </div>
+      ` : ""}
+
+      ${chart.sesiones?.length ? `
+        <div class="astral-session-timeline">
+          ${chart.sesiones.slice(0, 3).map(session => `
+            <article>
+              <strong>${session.title || "Sesión"}</strong>
+              <small>${session.date || "Sin fecha"}</small>
+              <p>${session.note || ""}</p>
+              ${session.next ? `<p><b>Próximo paso:</b> ${session.next}</p>` : ""}
+            </article>
+          `).join("")}
+        </div>
+      ` : ""}
+
+      ${chart.notasPrivadas ? `<div class="astral-chart-notes"><b>Notas privadas:</b><br>${chart.notasPrivadas.slice(0, 360)}${chart.notasPrivadas.length > 360 ? "..." : ""}</div>` : ""}
+      ${chart.seguimiento ? `<div class="astral-chart-notes"><b>Seguimiento:</b><br>${chart.seguimiento.slice(0, 280)}${chart.seguimiento.length > 280 ? "..." : ""}</div>` : ""}
+
+      <p class="astral-privacy-note">
+        Datos internos guardados con consentimiento: ${chart.consentimiento ? "sí" : "no"}.
+        Última actualización: ${formatNotificationDate?.(chart.updatedAt) || chart.updatedAt}
+      </p>
+
+      <div class="admin-actions">
+        <button class="btn btn-secondary" onclick="editarCartaAstral('${chart.id}')">Editar</button>
+        <button class="btn btn-secondary" onclick="copiarResumenCartaAstral('${chart.id}')">Copiar resumen</button>
+        <button class="btn btn-secondary" onclick="imprimirInformeCartaAstral('${chart.id}')">Informe interno</button>
+        <button class="btn btn-secondary" onclick="imprimirInformeClienteAstral('${chart.id}')">Informe cliente</button>
+        <button class="btn btn-secondary" onclick="anonymizeAstralChart('${chart.id}')">Anonimizar</button>
+        <button class="btn btn-danger" onclick="borrarCartaAstral('${chart.id}')">Borrar</button>
+      </div>
+    </div>
+  `).join("");
+
+  applyRoleGuardUx?.();
+}
+
+function editarCartaAstral(id) {
+  if (!requireAdminAccess("editar cartas astrales")) return;
+
+  const chart = astralCharts.map(normalizeAstralChart).find(item => item.id === id);
+  if (!chart) return;
+
+  editingAstralChartId = id;
+
+  if (astralNombre) astralNombre.value = chart.nombre;
+  if (astralCodigo) astralCodigo.value = chart.codigo;
+  if (astralEmail) astralEmail.value = chart.email;
+  if (astralTelefono) astralTelefono.value = chart.telefono;
+  if (astralFechaNacimiento) astralFechaNacimiento.value = chart.fechaNacimiento;
+  if (astralHoraNacimiento) astralHoraNacimiento.value = chart.horaNacimiento;
+  if (astralLugarNacimiento) astralLugarNacimiento.value = chart.lugarNacimiento;
+  if (astralPaisNacimiento) astralPaisNacimiento.value = chart.paisNacimiento;
+  if (astralZonaHoraria) astralZonaHoraria.value = chart.zonaHoraria;
+  if (astralEstado) astralEstado.value = chart.estado;
+  if (astralTemaConsulta) astralTemaConsulta.value = chart.temaConsulta;
+  if (astralSol) astralSol.value = chart.sol;
+  if (astralLuna) astralLuna.value = chart.luna;
+  if (astralAscendente) astralAscendente.value = chart.ascendente;
+  if (astralMedioCielo) astralMedioCielo.value = chart.medioCielo;
+  if (astralPlanetas) astralPlanetas.value = chart.planetas;
+  if (astralCasas) astralCasas.value = chart.casas;
+  if (astralAspectos) astralAspectos.value = chart.aspectos;
+  if (astralInterpretacion) astralInterpretacion.value = chart.interpretacion;
+  if (astralReportTitle) astralReportTitle.value = chart.reportTitle;
+  if (astralReportSummary) astralReportSummary.value = chart.reportSummary;
+  if (astralClientMessage) astralClientMessage.value = chart.clientMessage;
+  if (astralFortalezas) astralFortalezas.value = chart.fortalezas;
+  if (astralRetos) astralRetos.value = chart.retos;
+  if (astralRecomendaciones) astralRecomendaciones.value = chart.recomendaciones;
+  if (astralObjetivo) astralObjetivo.value = chart.objetivo;
+  if (astralNotasPrivadas) astralNotasPrivadas.value = chart.notasPrivadas;
+  if (astralSeguimiento) astralSeguimiento.value = chart.seguimiento;
+  if (astralConsentDate) astralConsentDate.value = chart.consentDate;
+  if (astralConsentSource) astralConsentSource.value = chart.consentSource;
+  if (astralRetentionReview) astralRetentionReview.value = chart.retentionReview;
+  if (astralNextSessionDate) astralNextSessionDate.value = chart.nextSessionDate;
+  if (astralPriority) astralPriority.value = chart.priority;
+  if (astralNextAction) astralNextAction.value = chart.nextAction;
+  if (astralDataTags) astralDataTags.value = (chart.dataTags || []).join(", ");
+  if (astralConsentNotes) astralConsentNotes.value = chart.consentNotes;
+  if (astralConsentimiento) astralConsentimiento.checked = chart.consentimiento;
+  astralSessionDraft = [...(chart.sesiones || [])];
+  renderAstralSessionDraft();
+
+  if (guardarCartaAstralBtn) guardarCartaAstralBtn.textContent = "Actualizar carta astral";
+  switchAdminTab("astral");
+}
+
+function borrarCartaAstral(id) {
+  if (!requireAdminAccess("borrar cartas astrales")) return;
+  if (!confirm("¿Seguro que quieres borrar esta carta astral y sus notas?")) return;
+
+  const chart = astralCharts.find(item => item.id === id);
+  astralCharts = astralCharts.filter(item => item.id !== id);
+  deleteAstralChartOnline(id);
+  saveAstralCharts();
+  renderAstralAdmin();
+  addAuditLog("data", "Borrar carta astral", chart ? `${chart.codigo} · ${chart.nombre}` : id);
+  showToast("Carta astral borrada.");
+}
+
+function buildAstralChartSummary(chart) {
+  return `
+Carta astral · ${chart.codigo}
+
+Cliente/paciente:
+${chart.nombre}
+
+Nacimiento:
+Fecha: ${chart.fechaNacimiento}
+Hora: ${chart.horaNacimiento || "No indicada"}
+Lugar: ${chart.lugarNacimiento}, ${chart.paisNacimiento || ""}
+Zona horaria: ${chart.zonaHoraria || "No indicada"}
+
+Tema:
+${chart.temaConsulta || "Sin tema"}
+
+Claves:
+Sol: ${chart.sol || "No indicado"}
+Luna: ${chart.luna || "No indicada"}
+Ascendente: ${chart.ascendente || "No indicado"}
+Medio Cielo: ${chart.medioCielo || "No indicado"}
+
+Planetas:
+${chart.planetas || "Sin datos"}
+
+Casas:
+${chart.casas || "Sin datos"}
+
+Aspectos:
+${chart.aspectos || "Sin datos"}
+
+Interpretación:
+${chart.interpretacion || "Sin interpretación"}
+
+Informe cliente:
+Título: ${chart.reportTitle || "Sin título"}
+Resumen: ${chart.reportSummary || "Sin resumen"}
+Mensaje final: ${chart.clientMessage || "Sin mensaje final"}
+
+Objetivo:
+${chart.objetivo || "Sin objetivo"}
+
+Fortalezas:
+${chart.fortalezas || "Sin fortalezas"}
+
+Retos:
+${chart.retos || "Sin retos"}
+
+Recomendaciones:
+${chart.recomendaciones || "Sin recomendaciones"}
+
+Sesiones:
+${(chart.sesiones || []).map(session => `- ${session.date || "Sin fecha"} · ${session.title || "Sesión"}: ${session.note || ""} ${session.next ? `| Próximo: ${session.next}` : ""}`).join("\n") || "Sin sesiones"}
+
+Notas privadas:
+${chart.notasPrivadas || "Sin notas"}
+
+Seguimiento:
+${chart.seguimiento || "Sin seguimiento"}
+
+Privacidad:
+Consentimiento: ${chart.consentimiento ? "Sí" : "No"}
+Fecha consentimiento: ${chart.consentDate || "No indicada"}
+Origen consentimiento: ${chart.consentSource || "No indicado"}
+Revisión de datos: ${chart.retentionReview || "No indicada"}
+Próxima sesión/seguimiento: ${chart.nextSessionDate || "No indicada"}
+Prioridad: ${chart.priority || "Normal"}
+Próximo paso: ${chart.nextAction || "Sin próximo paso"}
+Notas consentimiento: ${chart.consentNotes || "Sin notas"}
+  `.trim();
+}
+
+function copiarResumenCartaAstral(id) {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const chart = astralCharts.map(normalizeAstralChart).find(item => item.id === id);
+  if (!chart) return;
+
+  copyText(buildAstralChartSummary(chart));
+  showToast("Resumen de carta copiado.");
+}
+
+function renderAstralSessionDraft() {
+  if (!astralSessionDraftList) return;
+
+  if (!astralSessionDraft.length) {
+    astralSessionDraftList.innerHTML = "<p>No hay sesiones añadidas en este borrador.</p>";
+    return;
+  }
+
+  astralSessionDraftList.innerHTML = astralSessionDraft.map((session, index) => `
+    <div class="astral-session-draft">
+      <strong>${session.title || "Sesión"} · ${session.date || "Sin fecha"}</strong>
+      <p>${session.note || ""}</p>
+      ${session.next ? `<p><b>Próximo paso:</b> ${session.next}</p>` : ""}
+      <button class="btn btn-danger" type="button" onclick="removeAstralSessionDraft(${index})">Quitar sesión</button>
+    </div>
+  `).join("");
+}
+
+function addAstralSessionToDraft() {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+
+  const session = {
+    id: crypto.randomUUID(),
+    date: astralSessionDate?.value || new Date().toISOString().slice(0, 10),
+    title: astralSessionTitle?.value.trim() || "Sesión astral",
+    note: astralSessionNote?.value.trim() || "",
+    next: astralSessionNext?.value.trim() || "",
+    createdAt: new Date().toISOString()
+  };
+
+  if (!session.note && !session.next) {
+    showToast("Añade una nota o próximo paso.");
+    return;
+  }
+
+  astralSessionDraft.unshift(session);
+
+  if (astralSessionDate) astralSessionDate.value = "";
+  if (astralSessionTitle) astralSessionTitle.value = "";
+  if (astralSessionNote) astralSessionNote.value = "";
+  if (astralSessionNext) astralSessionNext.value = "";
+
+  renderAstralSessionDraft();
+  showToast("Sesión añadida al borrador.");
+}
+
+function removeAstralSessionDraft(index) {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+  astralSessionDraft.splice(index, 1);
+  renderAstralSessionDraft();
+}
+
+function insertarPlantillaInterpretacionAstral() {
+  if (!requireAdminAccess("guardar cartas astrales")) return;
+
+  const plantilla = `
+Resumen general:
+- Energía principal:
+- Tono emocional:
+- Camino de crecimiento:
+
+Sol:
+- Identidad:
+- Talento principal:
+- Cuidado recomendado:
+
+Luna:
+- Mundo emocional:
+- Necesidad interna:
+- Patrón a observar:
+
+Ascendente:
+- Cómo se presenta:
+- Primer impulso:
+- Aprendizaje visible:
+
+Casas y áreas de vida:
+- Trabajo / vocación:
+- Relaciones:
+- Hogar / raíces:
+- Espiritualidad / sentido:
+
+Aspectos importantes:
+- Aspecto 1:
+- Aspecto 2:
+- Aspecto 3:
+
+Cierre de sesión:
+- Mensaje clave:
+- Recomendación:
+- Próximo paso:
+  `.trim();
+
+  if (astralInterpretacion && !astralInterpretacion.value.trim()) {
+    astralInterpretacion.value = plantilla;
+  } else if (astralInterpretacion) {
+    astralInterpretacion.value += "\\n\\n" + plantilla;
+  }
+
+  showToast("Plantilla insertada.");
+}
+
+function buildAstralIaPromptFromForm() {
+  const chart = collectAstralChartFromForm();
+
+  return `
+Actúa como asistente de apoyo para una consulta astrológica holística de Alaya.
+Quiero una interpretación clara, cuidada y no fatalista. No hagas diagnósticos médicos ni promesas absolutas.
+
+Datos de la persona:
+- Nombre: ${chart.nombre || "No indicado"}
+- Fecha de nacimiento: ${chart.fechaNacimiento || "No indicada"}
+- Hora de nacimiento: ${chart.horaNacimiento || "No indicada"}
+- Lugar de nacimiento: ${chart.lugarNacimiento || "No indicado"}
+- País: ${chart.paisNacimiento || "No indicado"}
+- Zona horaria: ${chart.zonaHoraria || "No indicada"}
+
+Tema de consulta:
+${chart.temaConsulta || "No indicado"}
+
+Datos astrológicos ya calculados:
+- Sol: ${chart.sol || "No indicado"}
+- Luna: ${chart.luna || "No indicada"}
+- Ascendente: ${chart.ascendente || "No indicado"}
+- Medio Cielo: ${chart.medioCielo || "No indicado"}
+
+Planetas:
+${chart.planetas || "Sin datos"}
+
+Casas:
+${chart.casas || "Sin datos"}
+
+Aspectos:
+${chart.aspectos || "Sin datos"}
+
+Necesito que generes:
+1. Resumen general de la carta.
+2. Fortalezas principales.
+3. Retos o aprendizajes.
+4. Recomendaciones de acompañamiento.
+5. Preguntas útiles para una sesión.
+6. Próximo paso recomendado.
+
+Tono: profesional, cálido, espiritual, claro, respetuoso y orientado al bienestar.
+  `.trim();
+}
+
+function copiarPromptCartaAstralIa() {
+  if (!requireAdminAccess("consultar panel")) return;
+  copyText(buildAstralIaPromptFromForm());
+  showToast("Prompt IA copiado.");
+}
+
+function exportarCartasAstralesJson() {
+  if (!requireAdminAccess("configuración crítica")) return;
+
+  const data = {
+    version: "4.9",
+    exportedAt: new Date().toISOString(),
+    astralCharts
+  };
+
+  downloadTextFile("alaya-cartas-astrales.json", JSON.stringify(data, null, 2));
+  addAuditLog("data", "Exportar cartas astrales JSON", `${astralCharts.length} cartas exportadas.`);
+  showToast("Cartas astrales exportadas en JSON.");
+}
+
+function exportarCartasAstralesCsv() {
+  if (!requireAdminAccess("configuración crítica")) return;
+
+  const headers = [
+    "codigo", "nombre", "email", "telefono", "fechaNacimiento", "horaNacimiento",
+    "lugarNacimiento", "paisNacimiento", "zonaHoraria", "estado", "temaConsulta",
+    "sol", "luna", "ascendente", "medioCielo", "planetas", "casas", "aspectos",
+    "interpretacion", "reportTitle", "reportSummary", "clientMessage", "fortalezas", "retos", "recomendaciones", "objetivo", "notasPrivadas", "seguimiento", "sesiones", "consentimiento", "consentDate", "consentSource", "consentNotes", "retentionReview", "nextSessionDate", "priority", "nextAction", "followupDoneAt", "dataTags", "anonymized", "onlineSynced", "onlineUpdatedAt", "createdAt", "updatedAt"
+  ];
+
+  const rows = astralCharts.map(chart => {
+    const normalized = normalizeAstralChart(chart);
+    return headers.map(header => {
+      const value = String(normalized[header] ?? "").replace(/"/g, '""');
+      return `"${value}"`;
+    }).join(",");
+  });
+
+  downloadTextFile("alaya-cartas-astrales.csv", [headers.join(","), ...rows].join("\\n"));
+  addAuditLog("data", "Exportar cartas astrales CSV", `${astralCharts.length} cartas exportadas.`);
+  showToast("Cartas astrales exportadas en CSV.");
+}
+
+function copyAstralAdminSummary() {
+  if (!requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Alaya Astral Admin
+
+- App Astral IA disponible solo desde admin.
+- Cartas astrales guardadas: ${astralCharts.length}
+- Permite fichas de cliente/paciente.
+- Guarda datos natales, interpretación, notas privadas y seguimiento.
+- Exportación JSON/CSV disponible.
+  `.trim();
+
+  copyText(text);
+  showToast("Resumen del módulo copiado.");
+}
+
 // Servicios admin
 function limpiarFormularioServicio() {
   if (servicioTitulo) servicioTitulo.value = "";
@@ -4034,7 +5699,7 @@ function renderCalendarSelectedDay() {
         <p><b>Servicio / evento:</b> ${reserva.eventoTitulo}</p>
         <p><b>Teléfono:</b> ${reserva.telefono}</p>
         <p><b>Email:</b> ${reserva.email || "No indicado"}</p>
-        <span class="status ${statusClass}">${reserva.estado}</span>
+        <span class="status ${statusClass}">${getReservationPublicStatusLabel(reserva)}</span>\n      <span class="confirmation-admin-pill ${reserva.confirmacionAdmin ? "confirmed" : ""}">${reserva.confirmacionAdmin ? "Confirmada por admin" : "Pendiente de confirmación admin"}</span>
         <div class="admin-item-actions">
           <button class="btn btn-secondary" onclick="contactarReserva('${reserva.id}')">Contactar</button>
           <button class="btn btn-secondary" onclick="copiarMensajeConfirmacion('${reserva.id}')">Confirmación</button>
@@ -4125,7 +5790,7 @@ function renderAdminReservas() {
       <span class="status ${statusClass}">${reserva.estado}</span>
 
       <div class="admin-actions">
-        <button class="btn btn-secondary" onclick="cambiarEstadoReserva('${reserva.id}', 'Confirmada')">Confirmar</button>
+        <button class="btn btn-primary" onclick="confirmarReservaAdmin('${reserva.id}')">Confirmar reserva</button>
         <button class="btn btn-secondary" onclick="cambiarEstadoReserva('${reserva.id}', 'Cancelada')">Cancelar</button>
         <button class="btn btn-secondary" onclick="contactarReserva('${reserva.id}')">Contactar</button>
         <button class="btn btn-danger" onclick="borrarReserva('${reserva.id}')">Borrar</button>
@@ -4136,14 +5801,56 @@ function renderAdminReservas() {
   });
 }
 
+
+function getReservationPublicStatusLabel(reserva) {
+  const estado = reserva?.estado || "Pendiente";
+  if (estado === "Pendiente") return "Pendiente de confirmación";
+  if (estado === "Confirmada") return "Confirmada por Alaya";
+  if (estado === "Cancelada") return "Cancelada";
+  return estado;
+}
+
+function marcarConfirmacionAdminMeta(id, confirmado = true) {
+  reservas = reservas.map(reserva => {
+    if (reserva.id !== id) return reserva;
+    return {
+      ...reserva,
+      confirmacionAdmin: confirmado,
+      fechaConfirmacionAdmin: confirmado ? new Date().toISOString() : "",
+      confirmadoPorAdmin: confirmado ? (getAuditActor ? getAuditActor() : "admin") : ""
+    };
+  });
+}
+
+async function confirmarReservaAdmin(id) {
+  if (!requireAdminAccess("confirmar reservas")) return;
+
+  marcarConfirmacionAdminMeta(id, true);
+  addReservationHistory(id, "Confirmada", "Reserva confirmada manualmente por el administrador");
+  saveReservas();
+  renderAdminReservas();
+  renderAdminCalendar();
+  renderAdminDashboard();
+  addAuditLog("data", "Confirmar reserva", `${id} → Confirmada por admin`);
+
+  const reserva = reservas.find(item => item.id === id);
+  if (reserva) {
+    await copyTextToClipboard(buildClientMessage(reserva, "confirmacion"), "Reserva confirmada. Mensaje de confirmación copiado.");
+  } else {
+    showToast("Reserva confirmada.");
+  }
+}
+
+
 function cambiarEstadoReserva(id, estado) {
-  addReservationHistory(id, estado, "Estado cambiado desde panel admin");
+  marcarConfirmacionAdminMeta(id, estado === "Confirmada");
+  addReservationHistory(id, estado, estado === "Confirmada" ? "Reserva confirmada manualmente por el administrador" : "Estado cambiado desde panel admin");
   saveReservas();
   renderAdminReservas();
   renderAdminCalendar();
   renderAdminDashboard();
   addAuditLog("data", "Cambiar estado reserva", `${id} → ${estado}`);
-  showToast(`Reserva ${estado.toLowerCase()}.`);
+  showToast(estado === "Confirmada" ? "Reserva confirmada por administrador." : `Reserva ${estado.toLowerCase()}.`);
 }
 
 function marcarReservaConfirmada(id) {
@@ -5089,7 +6796,8 @@ function guardarAjustesDesdeAdmin() {
       adminReserva: settingTplAdminReserva?.value || DEFAULT_MESSAGE_TEMPLATES.adminReserva
     },
     serviceTemplates: appSettings.serviceTemplates || {},
-    branding: collectBrandingFromForm()
+    branding: collectBrandingFromForm(),
+    publicProfile: collectPublicProfileFromForm()
   };
 
   saveSettings();
@@ -5116,6 +6824,7 @@ function exportarDatosJson() {
     exportedAt: new Date().toISOString(),
     settings: appSettings,
     services: defaultServices,
+    astralCharts,
     eventos,
     productos,
     reservas
@@ -5173,6 +6882,7 @@ function importarDatosJson(file) {
       }
 
       if (Array.isArray(data.services)) defaultServices = data.services;
+      if (Array.isArray(data.astralCharts)) astralCharts = data.astralCharts;
       if (Array.isArray(data.eventos)) eventos = data.eventos;
       if (Array.isArray(data.productos)) productos = data.productos;
       if (Array.isArray(data.reservas)) reservas = data.reservas;
@@ -5237,6 +6947,35 @@ function protectAdminGlobals() {
     ["openServiceDetail", "consultar panel"],
     ["closeServiceDetail", "consultar panel"],
     ["consultarServicio", "consultar panel"],
+    ["copyAstralAdminSummary", "consultar panel"],
+    ["editarCartaAstral", "editar cartas astrales"],
+    ["borrarCartaAstral", "borrar cartas astrales"],
+    ["copiarResumenCartaAstral", "consultar panel"],
+    ["exportarCartasAstralesJson", "configuración crítica"],
+    ["exportarCartasAstralesCsv", "configuración crítica"],
+    ["removeAstralSessionDraft", "guardar cartas astrales"],
+    ["copiarPromptCartaAstralIa", "consultar panel"],
+    ["filtrarAstralPorCliente", "consultar panel"],
+    ["copiarResumenClienteAstral", "consultar panel"],
+    ["imprimirClienteAstral", "consultar panel"],
+    ["imprimirInformeCartaAstral", "consultar panel"],
+    ["imprimirInformeClienteAstral", "consultar panel"],
+    ["previewClientReportDraft", "consultar panel"],
+    ["insertarPlantillaInformeCliente", "guardar cartas astrales"],
+    ["copyAstralReportChecklist", "consultar panel"],
+    ["imprimirBorradorCartaAstral", "consultar panel"],
+    ["anonymizeAstralChart", "configuración crítica"],
+    ["copiarMensajeSeguimientoAstral", "consultar panel"],
+    ["marcarSeguimientoAstralHecho", "guardar cartas astrales"],
+    ["syncAstralChartsOnline", "subir cartas astrales online"],
+    ["loadAstralChartsOnline", "cargar cartas astrales online"],
+    ["testAstralChartsOnline", "probar cartas astrales online"],
+    ["markAstralChartsAsLocal", "configuración crítica"],
+    ["copyLaunchReport", "consultar panel"],
+    ["resetLaunchChecklist", "configuración crítica"],
+    ["insertarPlantillaInterpretacionAstral", "guardar cartas astrales"],
+    ["mergeServiceExamples", "guardar servicios"],
+    ["resetServicesToExamples", "configuración crítica"],
     ["editarServicio", "editar servicios"],
     ["borrarServicio", "borrar servicios"],
     ["setEventCategory", "consultar panel"],
@@ -5394,7 +7133,36 @@ loginAdminBtn.addEventListener("click", loginAdmin);
 resetFirebasePasswordBtn?.addEventListener("click", enviarResetPasswordFirebase);
 lockAdminBtn?.addEventListener("click", () => bloquearPanelAdmin("Panel bloqueado manualmente."));
 logoutAdminBtn.addEventListener("click", logoutAdmin);
+guardarCartaAstralBtn?.addEventListener("click", guardarCartaAstralDesdeAdmin);
+limpiarCartaAstralBtn?.addEventListener("click", limpiarFormularioCartaAstral);
+exportarCartasAstralesBtn?.addEventListener("click", exportarCartasAstralesJson);
+exportarCartasAstralesCsvBtn?.addEventListener("click", exportarCartasAstralesCsv);
+generarPromptCartaAstralBtn?.addEventListener("click", copiarPromptCartaAstralIa);
+imprimirBorradorCartaAstralBtn?.addEventListener("click", imprimirBorradorCartaAstral);
+previewInternalReportDraftBtn?.addEventListener("click", imprimirBorradorCartaAstral);
+insertClientReportTemplateBtn?.addEventListener("click", insertarPlantillaInformeCliente);
+previewClientReportDraftBtn?.addEventListener("click", previewClientReportDraft);
+copyAstralReportChecklistBtn?.addEventListener("click", copyAstralReportChecklist);
+crearPlantillaInterpretacionBtn?.addEventListener("click", insertarPlantillaInterpretacionAstral);
+addAstralSessionBtn?.addEventListener("click", addAstralSessionToDraft);
+astralSearch?.addEventListener("input", renderAstralAdmin);
+astralStatusFilter?.addEventListener("change", renderAstralAdmin);
+astralClientSearch?.addEventListener("input", renderAstralClientHub);
+astralFollowupFilter?.addEventListener("change", renderAstralFollowups);
+syncAstralChartsOnlineBtn?.addEventListener("click", syncAstralChartsOnline);
+loadAstralChartsOnlineBtn?.addEventListener("click", loadAstralChartsOnline);
+testAstralChartsOnlineBtn?.addEventListener("click", testAstralChartsOnline);
+markAstralChartsLocalBtn?.addEventListener("click", markAstralChartsAsLocal);
+astralPrivacyModeToggle?.addEventListener("change", event => {
+  astralPrivacyMode = Boolean(event.target.checked);
+  applyAstralPrivacyMode();
+});
+toggleAstralPrivacyBtn?.addEventListener("click", toggleAstralPrivacyMode);
+copyAstralConsentTemplateBtn?.addEventListener("click", copyAstralConsentTemplate);
+copyAstralPrivacyChecklistBtn?.addEventListener("click", copyAstralPrivacyChecklist);
 guardarServicioBtn?.addEventListener("click", guardarServicioDesdeAdmin);
+loadServiceExamplesBtn?.addEventListener("click", mergeServiceExamples);
+resetServicesExamplesBtn?.addEventListener("click", resetServicesToExamples);
 saveBlockBtn?.addEventListener("click", saveAgendaBlockFromAdmin);
 previewBrandingBtn?.addEventListener("click", previewBrandingFromForm);
 resetBrandingBtn?.addEventListener("click", resetBrandingDefaults);
@@ -5493,3 +7261,4566 @@ renderNotifications();
 applyRoleGuardUx();
 renderAuditLog();
 updateAdminSessionUI();
+
+
+// v5.6 Web Pública Pro
+function updatePublicQuickDockVisibility() {
+  const dock = document.querySelector("#publicQuickDock");
+  if (!dock) return;
+
+  const adminOpen = document.querySelector("#adminModal:not(.hidden)");
+  const anyModalOpen = document.querySelector(".modal:not(.hidden)");
+  dock.style.display = (adminOpen || anyModalOpen) ? "none" : "";
+}
+
+document.addEventListener("click", () => setTimeout(updatePublicQuickDockVisibility, 80));
+document.addEventListener("keydown", () => setTimeout(updatePublicQuickDockVisibility, 80));
+updatePublicQuickDockVisibility();
+
+
+
+// v5.7 Centro de Lanzamiento Pro
+const launchScoreValue = document.querySelector("#launchScoreValue");
+const launchScoreText = document.querySelector("#launchScoreText");
+const launchScoreRing = document.querySelector("#launchScoreRing");
+const launchPublicChecklist = document.querySelector("#launchPublicChecklist");
+const launchAdminChecklist = document.querySelector("#launchAdminChecklist");
+const launchQuickTests = document.querySelector("#launchQuickTests");
+const runLaunchCheckBtn = document.querySelector("#runLaunchCheckBtn");
+const copyLaunchReportBtn = document.querySelector("#copyLaunchReportBtn");
+const resetLaunchChecklistBtn = document.querySelector("#resetLaunchChecklistBtn");
+const launchNotes = document.querySelector("#launchNotes");
+const saveLaunchNotesBtn = document.querySelector("#saveLaunchNotesBtn");
+
+const LAUNCH_CHECKLIST = {
+  public: [
+    { id: "logos", label: "Logos revisados en header, secciones y favicon." },
+    { id: "texts", label: "Textos principales revisados: servicios, herbolario, astrología y reservas." },
+    { id: "contact", label: "WhatsApp/email de contacto configurados." },
+    { id: "seo", label: "SEO básico, sitemap y robots incluidos." },
+    { id: "mobile", label: "Web revisada en móvil." },
+    { id: "offline", label: "PWA/offline revisado." }
+  ],
+  admin: [
+    { id: "login", label: "Acceso admin probado." },
+    { id: "roles", label: "Roles admin/editor/viewer revisados." },
+    { id: "reservations", label: "Reserva de prueba creada y gestionada." },
+    { id: "firebase", label: "Firebase configurado o decidido usar solo local." },
+    { id: "privacy", label: "Privacidad y consentimiento revisados." },
+    { id: "backup", label: "Backup exportado antes de publicar." }
+  ]
+};
+
+function getLaunchState() {
+  return JSON.parse(localStorage.getItem("alaya_launch_checklist") || "{}");
+}
+
+function saveLaunchState(state) {
+  localStorage.setItem("alaya_launch_checklist", JSON.stringify(state));
+}
+
+function renderLaunchChecklist() {
+  const state = getLaunchState();
+
+  const renderGroup = (target, group) => {
+    if (!target) return;
+    target.innerHTML = LAUNCH_CHECKLIST[group].map(item => `
+      <label class="launch-check-item">
+        <input type="checkbox" data-launch-check="${item.id}" ${state[item.id] ? "checked" : ""}>
+        <span>${item.label}</span>
+      </label>
+    `).join("");
+  };
+
+  renderGroup(launchPublicChecklist, "public");
+  renderGroup(launchAdminChecklist, "admin");
+
+  document.querySelectorAll("[data-launch-check]").forEach(input => {
+    input.addEventListener("change", event => {
+      const current = getLaunchState();
+      current[event.target.dataset.launchCheck] = event.target.checked;
+      saveLaunchState(current);
+      renderLaunchStatus();
+    });
+  });
+}
+
+function getLaunchTests() {
+  const requiredSelectors = [
+    ["Logo principal", ".brand-logo-img"],
+    ["Sección reservas", "#reservas"],
+    ["Servicios", "#servicios"],
+    ["Herbolario", "#herbolario"],
+    ["Astrología", "#astral-ia"],
+    ["Accesos rápidos", "#publicQuickDock"],
+    ["Panel admin", "#adminModal"],
+    ["Manifest PWA", "link[rel='manifest']"],
+    ["SEO descripción", "meta[name='description']"],
+    ["Datos estructurados", "#alayaStructuredData"]
+  ];
+
+  return requiredSelectors.map(([label, selector]) => ({
+    label,
+    ok: Boolean(document.querySelector(selector)),
+    detail: selector
+  }));
+}
+
+function renderLaunchTests() {
+  if (!launchQuickTests) return;
+
+  const tests = getLaunchTests();
+  launchQuickTests.innerHTML = tests.map(test => `
+    <div class="launch-test-item ${test.ok ? "launch-test-ok" : "launch-test-warning"}">
+      <b>${test.ok ? "OK" : "!"}</b>
+      <span>${test.label}<br><small>${test.detail}</small></span>
+    </div>
+  `).join("");
+}
+
+function calculateLaunchScore() {
+  const state = getLaunchState();
+  const checks = [...LAUNCH_CHECKLIST.public, ...LAUNCH_CHECKLIST.admin];
+  const checked = checks.filter(item => state[item.id]).length;
+  const tests = getLaunchTests();
+  const testsOk = tests.filter(test => test.ok).length;
+
+  const checklistScore = checks.length ? checked / checks.length : 0;
+  const testsScore = tests.length ? testsOk / tests.length : 0;
+
+  return Math.round(((checklistScore * 0.65) + (testsScore * 0.35)) * 100);
+}
+
+function renderLaunchStatus() {
+  renderLaunchTests();
+
+  const score = calculateLaunchScore();
+  if (launchScoreValue) launchScoreValue.textContent = `${score}%`;
+  if (launchScoreRing) launchScoreRing.style.setProperty("--launch-score", `${score}%`);
+
+  if (launchScoreText) {
+    if (score >= 90) {
+      launchScoreText.textContent = "La web está prácticamente lista para publicar.";
+    } else if (score >= 70) {
+      launchScoreText.textContent = "La web está avanzada, pero quedan revisiones importantes.";
+    } else {
+      launchScoreText.textContent = "Todavía quedan puntos por revisar antes del lanzamiento.";
+    }
+  }
+
+  if (launchNotes) {
+    launchNotes.value = localStorage.getItem("alaya_launch_notes") || "";
+  }
+}
+
+function copyLaunchReport() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const state = getLaunchState();
+  const tests = getLaunchTests();
+  const score = calculateLaunchScore();
+
+  const checklistLines = [...LAUNCH_CHECKLIST.public, ...LAUNCH_CHECKLIST.admin]
+    .map(item => `${state[item.id] ? "[x]" : "[ ]"} ${item.label}`)
+    .join("\n");
+
+  const testLines = tests
+    .map(test => `${test.ok ? "OK" : "REVISAR"} · ${test.label} (${test.detail})`)
+    .join("\n");
+
+  const report = `
+Alaya Holistics · Informe de lanzamiento
+
+Preparación: ${score}%
+
+Checklist:
+${checklistLines}
+
+Pruebas rápidas:
+${testLines}
+
+Notas:
+${localStorage.getItem("alaya_launch_notes") || "Sin notas"}
+
+Recomendación:
+${score >= 90 ? "Lista para publicar con revisión final." : "Revisar puntos pendientes antes de publicar."}
+  `.trim();
+
+  if (typeof copyText === "function") copyText(report);
+  else navigator.clipboard?.writeText(report);
+
+  if (typeof showToast === "function") showToast("Informe de lanzamiento copiado.");
+}
+
+function resetLaunchChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Reiniciar checklist de lanzamiento?")) return;
+
+  localStorage.removeItem("alaya_launch_checklist");
+  renderLaunchChecklist();
+  renderLaunchStatus();
+
+  if (typeof showToast === "function") showToast("Checklist reiniciado.");
+}
+
+function saveLaunchNotes() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  localStorage.setItem("alaya_launch_notes", launchNotes?.value || "");
+  if (typeof showToast === "function") showToast("Notas de lanzamiento guardadas.");
+}
+
+runLaunchCheckBtn?.addEventListener("click", () => {
+  renderLaunchChecklist();
+  renderLaunchStatus();
+});
+copyLaunchReportBtn?.addEventListener("click", copyLaunchReport);
+resetLaunchChecklistBtn?.addEventListener("click", resetLaunchChecklist);
+saveLaunchNotesBtn?.addEventListener("click", saveLaunchNotes);
+
+renderLaunchChecklist();
+renderLaunchStatus();
+
+
+
+// v5.8 Banner básico de cookies y almacenamiento local
+const cookieBanner = document.querySelector("#cookieBanner");
+const acceptCookiesBtn = document.querySelector("#acceptCookiesBtn");
+const rejectCookiesBtn = document.querySelector("#rejectCookiesBtn");
+
+function showCookieBannerIfNeeded() {
+  if (!cookieBanner) return;
+  const choice = localStorage.getItem("alaya_cookie_choice");
+  cookieBanner.classList.toggle("hidden", Boolean(choice));
+}
+
+function setCookieChoice(choice) {
+  localStorage.setItem("alaya_cookie_choice", choice);
+  localStorage.setItem("alaya_cookie_choice_at", new Date().toISOString());
+  cookieBanner?.classList.add("hidden");
+  if (typeof showToast === "function") {
+    showToast(choice === "accepted" ? "Preferencias aceptadas." : "Solo cookies/almacenamiento necesario.");
+  }
+}
+
+acceptCookiesBtn?.addEventListener("click", () => setCookieChoice("accepted"));
+rejectCookiesBtn?.addEventListener("click", () => setCookieChoice("necessary"));
+showCookieBannerIfNeeded();
+
+
+
+// v5.9 Contacto y Conversión Pro
+const publicContactReason = document.querySelector("#publicContactReason");
+const publicContactName = document.querySelector("#publicContactName");
+const publicContactMessagePreview = document.querySelector("#publicContactMessagePreview");
+const copyPublicContactMessageBtn = document.querySelector("#copyPublicContactMessageBtn");
+const backToTopBtn = document.querySelector("#backToTopBtn");
+
+function buildPublicContactMessage() {
+  const reason = publicContactReason?.value || "una consulta holística";
+  const name = publicContactName?.value?.trim();
+  return `Hola Alaya${name ? `, soy ${name}` : ""}. Me gustaría pedir información para ${reason}. ¿Me podéis indicar disponibilidad y cómo reservar?`;
+}
+
+function updatePublicContactPreview() {
+  if (!publicContactMessagePreview) return;
+  publicContactMessagePreview.textContent = buildPublicContactMessage();
+}
+
+function copyPublicContactMessage() {
+  const message = buildPublicContactMessage();
+  if (typeof copyText === "function") {
+    copyText(message);
+  } else {
+    navigator.clipboard?.writeText(message);
+  }
+  if (typeof showToast === "function") showToast("Mensaje de contacto copiado.");
+}
+
+publicContactReason?.addEventListener("change", updatePublicContactPreview);
+publicContactName?.addEventListener("input", updatePublicContactPreview);
+copyPublicContactMessageBtn?.addEventListener("click", copyPublicContactMessage);
+updatePublicContactPreview();
+
+function updateBackToTopButton() {
+  if (!backToTopBtn) return;
+  backToTopBtn.classList.toggle("visible", window.scrollY > 520);
+}
+
+backToTopBtn?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+window.addEventListener("scroll", updateBackToTopButton, { passive: true });
+updateBackToTopButton();
+
+
+
+// v6.0 Canales y Redes Pro
+const openPublicWhatsappBtn = document.querySelector("#openPublicWhatsappBtn");
+const openPublicEmailBtn = document.querySelector("#openPublicEmailBtn");
+const publicWhatsappLabel = document.querySelector("#publicWhatsappLabel");
+const publicWhatsappLink = document.querySelector("#publicWhatsappLink");
+const publicEmailLabel = document.querySelector("#publicEmailLabel");
+const publicEmailLink = document.querySelector("#publicEmailLink");
+const publicAddressLabel = document.querySelector("#publicAddressLabel");
+const publicMapLink = document.querySelector("#publicMapLink");
+const publicHoursLabel = document.querySelector("#publicHoursLabel");
+const publicInstagramLink = document.querySelector("#publicInstagramLink");
+const publicTikTokLink = document.querySelector("#publicTikTokLink");
+const publicYoutubeLink = document.querySelector("#publicYoutubeLink");
+const publicNoticeText = document.querySelector("#publicNoticeText");
+
+function collectPublicProfileFromForm() {
+  return {
+    address: settingPublicAddress?.value.trim() || DEFAULT_PUBLIC_PROFILE.address,
+    hours: settingPublicHours?.value.trim() || DEFAULT_PUBLIC_PROFILE.hours,
+    mapLink: settingMapLink?.value.trim() || "",
+    instagram: settingInstagram?.value.trim() || "",
+    tiktok: settingTikTok?.value.trim() || "",
+    youtube: settingYoutube?.value.trim() || "",
+    publicNotice: settingPublicNotice?.value.trim() || DEFAULT_PUBLIC_PROFILE.publicNotice
+  };
+}
+
+function fillPublicProfileForm() {
+  const profile = getPublicProfile();
+  if (settingPublicAddress) settingPublicAddress.value = profile.address || "";
+  if (settingPublicHours) settingPublicHours.value = profile.hours || "";
+  if (settingMapLink) settingMapLink.value = profile.mapLink || "";
+  if (settingInstagram) settingInstagram.value = profile.instagram || "";
+  if (settingTikTok) settingTikTok.value = profile.tiktok || "";
+  if (settingYoutube) settingYoutube.value = profile.youtube || "";
+  if (settingPublicNotice) settingPublicNotice.value = profile.publicNotice || "";
+}
+
+function setOptionalLink(link, url, fallback = "#contacto-alaya") {
+  if (!link) return;
+  if (url) {
+    link.href = url;
+    link.classList.remove("is-empty");
+  } else {
+    link.href = fallback;
+    link.classList.add("is-empty");
+  }
+}
+
+function applyPublicProfileToPage() {
+  const profile = getPublicProfile();
+  const whatsapp = getAdminWhatsapp();
+  const email = getAdminEmail();
+  const message = typeof buildPublicContactMessage === "function"
+    ? buildPublicContactMessage()
+    : `Hola Alaya. Me gustaría pedir información.`;
+
+  if (publicWhatsappLabel) publicWhatsappLabel.textContent = whatsapp ? `+${whatsapp}` : "Configurar WhatsApp";
+  if (publicEmailLabel) publicEmailLabel.textContent = email || "Configurar email";
+  if (publicAddressLabel) publicAddressLabel.textContent = profile.address || DEFAULT_PUBLIC_PROFILE.address;
+  if (publicHoursLabel) publicHoursLabel.textContent = profile.hours || DEFAULT_PUBLIC_PROFILE.hours;
+  if (publicNoticeText) publicNoticeText.textContent = profile.publicNotice || DEFAULT_PUBLIC_PROFILE.publicNotice;
+
+  if (publicWhatsappLink) {
+    publicWhatsappLink.href = whatsapp ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}` : "#reservas";
+    publicWhatsappLink.target = whatsapp ? "_blank" : "";
+    publicWhatsappLink.rel = whatsapp ? "noopener" : "";
+  }
+
+  if (publicEmailLink) {
+    publicEmailLink.href = email ? `mailto:${email}?subject=${encodeURIComponent("Consulta Alaya")}&body=${encodeURIComponent(message)}` : "#reservas";
+  }
+
+  if (publicMapLink) {
+    publicMapLink.href = profile.mapLink || "#contacto-alaya";
+    publicMapLink.target = profile.mapLink ? "_blank" : "";
+    publicMapLink.rel = profile.mapLink ? "noopener" : "";
+    publicMapLink.textContent = profile.mapLink ? "Abrir mapa" : "Sin mapa";
+  }
+
+  setOptionalLink(publicInstagramLink, profile.instagram);
+  setOptionalLink(publicTikTokLink, profile.tiktok);
+  setOptionalLink(publicYoutubeLink, profile.youtube);
+}
+
+function openPublicWhatsapp() {
+  const whatsapp = getAdminWhatsapp();
+  if (!whatsapp) {
+    if (typeof showToast === "function") showToast("Configura el WhatsApp en admin.");
+    return;
+  }
+  window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(buildPublicContactMessage())}`, "_blank", "noopener");
+}
+
+function openPublicEmail() {
+  const email = getAdminEmail();
+  if (!email) {
+    if (typeof showToast === "function") showToast("Configura el email en admin.");
+    return;
+  }
+  window.location.href = `mailto:${email}?subject=${encodeURIComponent("Consulta Alaya")}&body=${encodeURIComponent(buildPublicContactMessage())}`;
+}
+
+openPublicWhatsappBtn?.addEventListener("click", openPublicWhatsapp);
+openPublicEmailBtn?.addEventListener("click", openPublicEmail);
+
+publicContactReason?.addEventListener("change", applyPublicProfileToPage);
+publicContactName?.addEventListener("input", applyPublicProfileToPage);
+applyPublicProfileToPage();
+
+
+
+// v6.1 Contenido Público Pro
+const contentTestimonialName = document.querySelector("#contentTestimonialName");
+const contentTestimonialContext = document.querySelector("#contentTestimonialContext");
+const contentTestimonialText = document.querySelector("#contentTestimonialText");
+const addPublicTestimonialBtn = document.querySelector("#addPublicTestimonialBtn");
+const loadDefaultTestimonialsBtn = document.querySelector("#loadDefaultTestimonialsBtn");
+const adminPublicTestimonialsList = document.querySelector("#adminPublicTestimonialsList");
+const contentFaqQuestion = document.querySelector("#contentFaqQuestion");
+const contentFaqAnswer = document.querySelector("#contentFaqAnswer");
+const addPublicFaqBtn = document.querySelector("#addPublicFaqBtn");
+const loadDefaultFaqsBtn = document.querySelector("#loadDefaultFaqsBtn");
+const adminPublicFaqList = document.querySelector("#adminPublicFaqList");
+const copyPublicContentBtn = document.querySelector("#copyPublicContentBtn");
+const resetPublicContentBtn = document.querySelector("#resetPublicContentBtn");
+const publicTestimonialsGrid = document.querySelector("#publicTestimonialsGrid");
+const publicFaqList = document.querySelector("#publicFaqList");
+const publicTestimonialsCount = document.querySelector("#publicTestimonialsCount");
+const publicFaqCount = document.querySelector("#publicFaqCount");
+
+const DEFAULT_PUBLIC_CONTENT = {
+  testimonials: [
+    {
+      id: "testimonio_base_1",
+      name: "Consulta de orientación",
+      context: "Alaya Holistics",
+      text: "Me ayudó a ordenar ideas, entender mejor lo que necesitaba y salir con más claridad."
+    },
+    {
+      id: "testimonio_base_2",
+      name: "Taller / curso",
+      context: "Alaya Talleres",
+      text: "La información estaba muy clara y el proceso de reserva fue sencillo."
+    },
+    {
+      id: "testimonio_base_3",
+      name: "Herbolario",
+      context: "Alaya Herbolario",
+      text: "La sección de productos se entiende muy bien y pude consultar por WhatsApp."
+    }
+  ],
+  faqs: [
+    {
+      id: "faq_base_1",
+      question: "¿Las consultas son con cita previa?",
+      answer: "Sí. Alaya trabaja con reservas y horas concertadas para poder atender mejor cada consulta."
+    },
+    {
+      id: "faq_base_2",
+      question: "¿Puedo reservar talleres y cursos?",
+      answer: "Sí. Los talleres pueden tener fecha, hora, nivel, plazas y ficha ampliada."
+    },
+    {
+      id: "faq_base_3",
+      question: "¿El herbolario es una tienda online?",
+      answer: "De momento funciona como catálogo con consulta directa, sin pago online integrado."
+    },
+    {
+      id: "faq_base_4",
+      question: "¿Las cartas astrales se hacen desde la web pública?",
+      answer: "No. La gestión detallada de cartas astrales queda dentro del panel administrador."
+    }
+  ]
+};
+
+function getPublicContent() {
+  try {
+    return {
+      testimonials: [],
+      faqs: [],
+      ...DEFAULT_PUBLIC_CONTENT,
+      ...(JSON.parse(localStorage.getItem("alaya_public_content_v61") || "{}"))
+    };
+  } catch {
+    return { ...DEFAULT_PUBLIC_CONTENT };
+  }
+}
+
+function savePublicContent(content) {
+  localStorage.setItem("alaya_public_content_v61", JSON.stringify(content));
+}
+
+function renderPublicTestimonials() {
+  const content = getPublicContent();
+  const testimonials = content.testimonials || [];
+
+  if (publicTestimonialsCount) {
+    publicTestimonialsCount.textContent = `${testimonials.length} opinión${testimonials.length === 1 ? "" : "es"}`;
+  }
+
+  if (publicTestimonialsGrid) {
+    publicTestimonialsGrid.innerHTML = testimonials.length
+      ? testimonials.map(item => `
+        <article class="public-testimonial-card">
+          <p>“${item.text || ""}”</p>
+          <div>
+            <strong>${item.name || "Opinión"}</strong><br>
+            <span>${item.context || "Alaya Holistics"}</span>
+          </div>
+        </article>
+      `).join("")
+      : "<p>No hay testimonios publicados todavía.</p>";
+  }
+
+  if (adminPublicTestimonialsList) {
+    adminPublicTestimonialsList.innerHTML = testimonials.length
+      ? testimonials.map(item => `
+        <div class="admin-item public-content-admin-item">
+          <strong>${item.name || "Sin nombre"} · ${item.context || "Sin contexto"}</strong>
+          <p>${item.text || ""}</p>
+          <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="editPublicTestimonial('${item.id}')">Editar</button>
+            <button class="btn btn-danger" onclick="deletePublicTestimonial('${item.id}')">Borrar</button>
+          </div>
+        </div>
+      `).join("")
+      : "<p>No hay testimonios añadidos.</p>";
+  }
+}
+
+function renderPublicFaqs() {
+  const content = getPublicContent();
+  const faqs = content.faqs || [];
+
+  if (publicFaqCount) {
+    publicFaqCount.textContent = `${faqs.length} FAQ${faqs.length === 1 ? "" : "s"}`;
+  }
+
+  if (publicFaqList) {
+    publicFaqList.innerHTML = faqs.length
+      ? faqs.map(item => `
+        <details>
+          <summary>${item.question || "Pregunta"}</summary>
+          <p>${item.answer || ""}</p>
+        </details>
+      `).join("")
+      : "<p>No hay preguntas frecuentes publicadas todavía.</p>";
+  }
+
+  if (adminPublicFaqList) {
+    adminPublicFaqList.innerHTML = faqs.length
+      ? faqs.map(item => `
+        <div class="admin-item public-content-admin-item">
+          <strong>${item.question || "Sin pregunta"}</strong>
+          <p>${item.answer || ""}</p>
+          <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="editPublicFaq('${item.id}')">Editar</button>
+            <button class="btn btn-danger" onclick="deletePublicFaq('${item.id}')">Borrar</button>
+          </div>
+        </div>
+      `).join("")
+      : "<p>No hay FAQs añadidas.</p>";
+  }
+}
+
+function renderPublicContentPro() {
+  renderPublicTestimonials();
+  renderPublicFaqs();
+}
+
+function addPublicTestimonial() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const text = contentTestimonialText?.value.trim();
+  if (!text) {
+    if (typeof showToast === "function") showToast("Añade el texto del testimonio.");
+    return;
+  }
+
+  const content = getPublicContent();
+  content.testimonials = [
+    {
+      id: crypto.randomUUID(),
+      name: contentTestimonialName?.value.trim() || "Opinión Alaya",
+      context: contentTestimonialContext?.value.trim() || "Alaya Holistics",
+      text
+    },
+    ...(content.testimonials || [])
+  ];
+
+  savePublicContent(content);
+  if (contentTestimonialName) contentTestimonialName.value = "";
+  if (contentTestimonialContext) contentTestimonialContext.value = "";
+  if (contentTestimonialText) contentTestimonialText.value = "";
+
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("Testimonio añadido.");
+}
+
+function addPublicFaq() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const question = contentFaqQuestion?.value.trim();
+  const answer = contentFaqAnswer?.value.trim();
+
+  if (!question || !answer) {
+    if (typeof showToast === "function") showToast("Añade pregunta y respuesta.");
+    return;
+  }
+
+  const content = getPublicContent();
+  content.faqs = [
+    {
+      id: crypto.randomUUID(),
+      question,
+      answer
+    },
+    ...(content.faqs || [])
+  ];
+
+  savePublicContent(content);
+  if (contentFaqQuestion) contentFaqQuestion.value = "";
+  if (contentFaqAnswer) contentFaqAnswer.value = "";
+
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("FAQ añadida.");
+}
+
+function editPublicTestimonial(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const content = getPublicContent();
+  const item = (content.testimonials || []).find(testimonial => testimonial.id === id);
+  if (!item) return;
+
+  if (contentTestimonialName) contentTestimonialName.value = item.name || "";
+  if (contentTestimonialContext) contentTestimonialContext.value = item.context || "";
+  if (contentTestimonialText) contentTestimonialText.value = item.text || "";
+
+  content.testimonials = (content.testimonials || []).filter(testimonial => testimonial.id !== id);
+  savePublicContent(content);
+  renderPublicContentPro();
+}
+
+function deletePublicTestimonial(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  if (!confirm("¿Borrar este testimonio?")) return;
+
+  const content = getPublicContent();
+  content.testimonials = (content.testimonials || []).filter(item => item.id !== id);
+  savePublicContent(content);
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("Testimonio borrado.");
+}
+
+function editPublicFaq(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const content = getPublicContent();
+  const item = (content.faqs || []).find(faq => faq.id === id);
+  if (!item) return;
+
+  if (contentFaqQuestion) contentFaqQuestion.value = item.question || "";
+  if (contentFaqAnswer) contentFaqAnswer.value = item.answer || "";
+
+  content.faqs = (content.faqs || []).filter(faq => faq.id !== id);
+  savePublicContent(content);
+  renderPublicContentPro();
+}
+
+function deletePublicFaq(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  if (!confirm("¿Borrar esta pregunta frecuente?")) return;
+
+  const content = getPublicContent();
+  content.faqs = (content.faqs || []).filter(item => item.id !== id);
+  savePublicContent(content);
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("FAQ borrada.");
+}
+
+function loadDefaultPublicTestimonials() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  const content = getPublicContent();
+  content.testimonials = [...DEFAULT_PUBLIC_CONTENT.testimonials];
+  savePublicContent(content);
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("Testimonios base cargados.");
+}
+
+function loadDefaultPublicFaqs() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  const content = getPublicContent();
+  content.faqs = [...DEFAULT_PUBLIC_CONTENT.faqs];
+  savePublicContent(content);
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("FAQs base cargadas.");
+}
+
+function copyPublicContentJson() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const text = JSON.stringify(getPublicContent(), null, 2);
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Contenido público copiado.");
+}
+
+function resetPublicContent() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Restaurar contenido público base?")) return;
+  savePublicContent({ ...DEFAULT_PUBLIC_CONTENT });
+  renderPublicContentPro();
+  if (typeof showToast === "function") showToast("Contenido público restaurado.");
+}
+
+addPublicTestimonialBtn?.addEventListener("click", addPublicTestimonial);
+addPublicFaqBtn?.addEventListener("click", addPublicFaq);
+loadDefaultTestimonialsBtn?.addEventListener("click", loadDefaultPublicTestimonials);
+loadDefaultFaqsBtn?.addEventListener("click", loadDefaultPublicFaqs);
+copyPublicContentBtn?.addEventListener("click", copyPublicContentJson);
+resetPublicContentBtn?.addEventListener("click", resetPublicContent);
+
+window.editPublicTestimonial = editPublicTestimonial;
+window.deletePublicTestimonial = deletePublicTestimonial;
+window.editPublicFaq = editPublicFaq;
+window.deletePublicFaq = deletePublicFaq;
+
+renderPublicContentPro();
+
+
+
+// v6.2 Novedades y Blog Pro
+const newsTitle = document.querySelector("#newsTitle");
+const newsCategory = document.querySelector("#newsCategory");
+const newsDate = document.querySelector("#newsDate");
+const newsStatus = document.querySelector("#newsStatus");
+const newsImage = document.querySelector("#newsImage");
+const newsExcerpt = document.querySelector("#newsExcerpt");
+const newsBody = document.querySelector("#newsBody");
+const newsFeatured = document.querySelector("#newsFeatured");
+const saveNewsBtn = document.querySelector("#saveNewsBtn");
+const clearNewsBtn = document.querySelector("#clearNewsBtn");
+const loadDefaultNewsBtn = document.querySelector("#loadDefaultNewsBtn");
+const adminNewsList = document.querySelector("#adminNewsList");
+const publicFeaturedNews = document.querySelector("#publicFeaturedNews");
+const publicNewsGrid = document.querySelector("#publicNewsGrid");
+const newsDetailModal = document.querySelector("#newsDetailModal");
+const closeNewsDetailBtn = document.querySelector("#closeNewsDetailBtn");
+const newsDetailContent = document.querySelector("#newsDetailContent");
+
+let editingNewsId = null;
+let activeNewsFilter = "Todos";
+
+const DEFAULT_NEWS_ITEMS = [
+  {
+    id: "news_base_1",
+    title: "Reservas con cita previa",
+    category: "Novedad",
+    date: new Date().toISOString().slice(0, 10),
+    status: "Publicado",
+    icon: "✦",
+    excerpt: "Alaya trabaja con horas concertadas para ofrecer una atención más personalizada.",
+    body: "La reserva con cita previa permite preparar mejor cada consulta, taller o sesión. Desde la web puedes seleccionar servicio, fecha, hora y enviar tu solicitud para confirmación.",
+    featured: true,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: "news_base_2",
+    title: "Alaya Herbolario como catálogo",
+    category: "Herbolario",
+    date: new Date().toISOString().slice(0, 10),
+    status: "Publicado",
+    icon: "🌿",
+    excerpt: "El herbolario funciona como escaparate visual con consulta por WhatsApp.",
+    body: "La zona de Alaya Herbolario muestra productos, packs, infusiones, velas, minerales y artículos de bienestar. De momento está preparado como catálogo, sin pago online integrado.",
+    featured: false,
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: "news_base_3",
+    title: "Cartas astrales desde admin",
+    category: "Astrología",
+    date: new Date().toISOString().slice(0, 10),
+    status: "Publicado",
+    icon: "♈",
+    excerpt: "La gestión detallada de cartas astrales queda protegida dentro del panel administrador.",
+    body: "Alaya admin puede crear fichas, guardar cartas astrales, añadir notas internas, seguimiento, informes y trabajar con privacidad. La parte pública solo muestra la identidad y permite reservar consulta.",
+    featured: false,
+    createdAt: new Date().toISOString()
+  }
+];
+
+function getNewsItems() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("alaya_news_v62") || "null");
+    return Array.isArray(saved) ? saved : [...DEFAULT_NEWS_ITEMS];
+  } catch {
+    return [...DEFAULT_NEWS_ITEMS];
+  }
+}
+
+function saveNewsItems(items) {
+  localStorage.setItem("alaya_news_v62", JSON.stringify(items));
+}
+
+function normalizeNewsItem(item = {}) {
+  return {
+    id: item.id || crypto.randomUUID(),
+    title: item.title || "Novedad Alaya",
+    category: item.category || "Novedad",
+    date: item.date || new Date().toISOString().slice(0, 10),
+    status: item.status || "Publicado",
+    icon: item.icon || "✦",
+    excerpt: item.excerpt || "",
+    body: item.body || "",
+    featured: Boolean(item.featured),
+    createdAt: item.createdAt || new Date().toISOString(),
+    updatedAt: item.updatedAt || new Date().toISOString()
+  };
+}
+
+function getPublishedNews() {
+  return getNewsItems()
+    .map(normalizeNewsItem)
+    .filter(item => item.status === "Publicado")
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+}
+
+function clearNewsForm() {
+  editingNewsId = null;
+  if (newsTitle) newsTitle.value = "";
+  if (newsCategory) newsCategory.value = "Novedad";
+  if (newsDate) newsDate.value = new Date().toISOString().slice(0, 10);
+  if (newsStatus) newsStatus.value = "Publicado";
+  if (newsImage) newsImage.value = "";
+  if (newsExcerpt) newsExcerpt.value = "";
+  if (newsBody) newsBody.value = "";
+  if (newsFeatured) newsFeatured.checked = false;
+  if (saveNewsBtn) saveNewsBtn.textContent = "Guardar novedad";
+}
+
+function collectNewsForm() {
+  return normalizeNewsItem({
+    id: editingNewsId || crypto.randomUUID(),
+    title: newsTitle?.value.trim(),
+    category: newsCategory?.value || "Novedad",
+    date: newsDate?.value || new Date().toISOString().slice(0, 10),
+    status: newsStatus?.value || "Publicado",
+    icon: newsImage?.value.trim() || "✦",
+    excerpt: newsExcerpt?.value.trim(),
+    body: newsBody?.value.trim(),
+    featured: Boolean(newsFeatured?.checked),
+    createdAt: editingNewsId
+      ? (getNewsItems().find(item => item.id === editingNewsId)?.createdAt || new Date().toISOString())
+      : new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  });
+}
+
+function saveNewsFromAdmin() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const item = collectNewsForm();
+  if (!item.title || !item.excerpt) {
+    if (typeof showToast === "function") showToast("Añade título y resumen.");
+    return;
+  }
+
+  const items = getNewsItems();
+  const updated = editingNewsId
+    ? items.map(news => news.id === editingNewsId ? item : news)
+    : [item, ...items];
+
+  saveNewsItems(updated);
+  clearNewsForm();
+  renderNewsPro();
+  if (typeof showToast === "function") showToast("Novedad guardada.");
+}
+
+function renderAdminNewsList() {
+  if (!adminNewsList) return;
+
+  const items = getNewsItems().map(normalizeNewsItem);
+
+  adminNewsList.innerHTML = items.length
+    ? items.map(item => `
+      <div class="admin-item news-admin-item">
+        <strong>${item.icon} ${item.title}</strong>
+        <div class="public-news-meta">
+          <span>${item.category}</span>
+          <span>${item.date}</span>
+          <span class="news-status-pill">${item.status}</span>
+          ${item.featured ? "<span>Destacada</span>" : ""}
+        </div>
+        <p>${item.excerpt}</p>
+        <div class="admin-actions">
+          <button class="btn btn-secondary" onclick="editNewsItem('${item.id}')">Editar</button>
+          <button class="btn btn-danger" onclick="deleteNewsItem('${item.id}')">Borrar</button>
+        </div>
+      </div>
+    `).join("")
+    : "<p>No hay novedades creadas.</p>";
+}
+
+function renderPublicNews() {
+  const published = getPublishedNews();
+  const filtered = activeNewsFilter === "Todos"
+    ? published
+    : published.filter(item => item.category === activeNewsFilter);
+
+  const featured = filtered.find(item => item.featured) || filtered[0];
+
+  if (publicFeaturedNews) {
+    publicFeaturedNews.innerHTML = featured ? `
+      <article class="featured-news-card">
+        <div class="featured-news-icon">${featured.icon}</div>
+        <div>
+          <div class="public-news-meta">
+            <span>${featured.category}</span>
+            <span>${featured.date}</span>
+            <span>Destacado</span>
+          </div>
+          <h3>${featured.title}</h3>
+          <p>${featured.excerpt}</p>
+        </div>
+        <button class="btn btn-primary" onclick="openNewsDetail('${featured.id}')">Leer más</button>
+      </article>
+    ` : "";
+  }
+
+  const gridItems = filtered.filter(item => item.id !== featured?.id);
+
+  if (publicNewsGrid) {
+    publicNewsGrid.innerHTML = gridItems.length
+      ? gridItems.map(item => `
+        <article class="public-news-card">
+          <div class="public-news-icon">${item.icon}</div>
+          <div class="public-news-meta">
+            <span>${item.category}</span>
+            <span>${item.date}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.excerpt}</p>
+          <button class="btn btn-secondary" onclick="openNewsDetail('${item.id}')">Leer más</button>
+        </article>
+      `).join("")
+      : featured ? "" : "<p>No hay novedades publicadas con este filtro.</p>";
+  }
+}
+
+function renderNewsFilters() {
+  document.querySelectorAll("[data-news-filter]").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.newsFilter === activeNewsFilter);
+    btn.onclick = () => {
+      activeNewsFilter = btn.dataset.newsFilter || "Todos";
+      renderNewsFilters();
+      renderPublicNews();
+    };
+  });
+}
+
+function renderNewsPro() {
+  renderAdminNewsList();
+  renderNewsFilters();
+  renderPublicNews();
+}
+
+function editNewsItem(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const item = getNewsItems().map(normalizeNewsItem).find(news => news.id === id);
+  if (!item) return;
+
+  editingNewsId = id;
+  if (newsTitle) newsTitle.value = item.title;
+  if (newsCategory) newsCategory.value = item.category;
+  if (newsDate) newsDate.value = item.date;
+  if (newsStatus) newsStatus.value = item.status;
+  if (newsImage) newsImage.value = item.icon;
+  if (newsExcerpt) newsExcerpt.value = item.excerpt;
+  if (newsBody) newsBody.value = item.body;
+  if (newsFeatured) newsFeatured.checked = item.featured;
+  if (saveNewsBtn) saveNewsBtn.textContent = "Actualizar novedad";
+}
+
+function deleteNewsItem(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  if (!confirm("¿Borrar esta novedad?")) return;
+
+  const items = getNewsItems().filter(item => item.id !== id);
+  saveNewsItems(items);
+  renderNewsPro();
+  if (typeof showToast === "function") showToast("Novedad borrada.");
+}
+
+function openNewsDetail(id) {
+  const item = getNewsItems().map(normalizeNewsItem).find(news => news.id === id);
+  if (!item || !newsDetailModal || !newsDetailContent) return;
+
+  newsDetailContent.innerHTML = `
+    <div class="news-detail-content">
+      <div class="news-detail-header">
+        <div class="news-detail-icon">${item.icon}</div>
+        <div>
+          <div class="public-news-meta">
+            <span>${item.category}</span>
+            <span>${item.date}</span>
+          </div>
+          <h3>${item.title}</h3>
+        </div>
+      </div>
+      <p>${item.excerpt}</p>
+      <div class="news-detail-body">${item.body || item.excerpt}</div>
+      <div class="admin-actions">
+        <a class="btn btn-primary" href="#reservas" onclick="closeNewsDetail()">Reservar / consultar</a>
+        <button class="btn btn-secondary" type="button" onclick="copyNewsShareText('${item.id}')">Copiar resumen</button>
+      </div>
+    </div>
+  `;
+
+  newsDetailModal.classList.remove("hidden");
+}
+
+function closeNewsDetail() {
+  newsDetailModal?.classList.add("hidden");
+}
+
+function copyNewsShareText(id) {
+  const item = getNewsItems().map(normalizeNewsItem).find(news => news.id === id);
+  if (!item) return;
+
+  const text = `${item.title}\n\n${item.excerpt}\n\n${item.body || ""}`.trim();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Resumen copiado.");
+}
+
+function loadDefaultNewsItems() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  saveNewsItems([...DEFAULT_NEWS_ITEMS]);
+  clearNewsForm();
+  renderNewsPro();
+  if (typeof showToast === "function") showToast("Novedades base cargadas.");
+}
+
+saveNewsBtn?.addEventListener("click", saveNewsFromAdmin);
+clearNewsBtn?.addEventListener("click", clearNewsForm);
+loadDefaultNewsBtn?.addEventListener("click", loadDefaultNewsItems);
+closeNewsDetailBtn?.addEventListener("click", closeNewsDetail);
+newsDetailModal?.addEventListener("click", event => {
+  if (event.target === newsDetailModal) closeNewsDetail();
+});
+
+window.editNewsItem = editNewsItem;
+window.deleteNewsItem = deleteNewsItem;
+window.openNewsDetail = openNewsDetail;
+window.closeNewsDetail = closeNewsDetail;
+window.copyNewsShareText = copyNewsShareText;
+
+clearNewsForm();
+renderNewsPro();
+
+
+
+// v6.3 Buscador Público Pro
+const publicGlobalSearchInput = document.querySelector("#publicGlobalSearchInput");
+const publicGlobalSearchResults = document.querySelector("#publicGlobalSearchResults");
+const publicSearchEmpty = document.querySelector("#publicSearchEmpty");
+const publicSearchChips = document.querySelector("#publicSearchChips");
+
+function safeText(value = "") {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function lowerSearch(value = "") {
+  return safeText(value).toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function getPublicSearchItems() {
+  const items = [];
+
+  try {
+    if (typeof defaultServices !== "undefined" && Array.isArray(defaultServices)) {
+      defaultServices.forEach(service => {
+        items.push({
+          type: "Servicio",
+          title: service.title || service.name || "Servicio Alaya",
+          text: [service.category, service.description, service.benefits, service.tags?.join?.(" "), service.duration, service.price].join(" "),
+          href: "#servicios"
+        });
+      });
+    }
+  } catch {}
+
+  try {
+    if (typeof defaultEvents !== "undefined" && Array.isArray(defaultEvents)) {
+      defaultEvents.forEach(event => {
+        items.push({
+          type: "Taller / curso",
+          title: event.title || "Taller Alaya",
+          text: [event.category, event.description, event.level, event.tags?.join?.(" "), event.date, event.time, event.location].join(" "),
+          href: "#eventos"
+        });
+      });
+    }
+  } catch {}
+
+  try {
+    const productSources = [];
+    if (typeof productos !== "undefined" && Array.isArray(productos)) productSources.push(...productos);
+    if (typeof defaultProducts !== "undefined" && Array.isArray(defaultProducts)) productSources.push(...defaultProducts);
+
+    productSources.forEach(product => {
+      items.push({
+        type: "Herbolario",
+        title: product.name || product.title || "Producto Alaya",
+        text: [product.category, product.description, product.tags?.join?.(" "), product.use, product.format, product.stock].join(" "),
+        href: "#herbolario"
+      });
+    });
+  } catch {}
+
+  try {
+    if (typeof getNewsItems === "function") {
+      getNewsItems().forEach(news => {
+        if (news.status !== "Borrador") {
+          items.push({
+            type: "Novedad",
+            title: news.title || "Novedad Alaya",
+            text: [news.category, news.excerpt, news.body, news.date].join(" "),
+            href: "#novedades-alaya"
+          });
+        }
+      });
+    }
+  } catch {}
+
+  try {
+    if (typeof getPublicContent === "function") {
+      const content = getPublicContent();
+      (content.faqs || []).forEach(faq => {
+        items.push({
+          type: "FAQ",
+          title: faq.question || "Pregunta frecuente",
+          text: faq.answer || "",
+          href: "#opiniones-faq"
+        });
+      });
+
+      (content.testimonials || []).forEach(testimonial => {
+        items.push({
+          type: "Opinión",
+          title: testimonial.name || "Opinión Alaya",
+          text: [testimonial.context, testimonial.text].join(" "),
+          href: "#opiniones-faq"
+        });
+      });
+    }
+  } catch {}
+
+  items.push(
+    {
+      type: "Astrología",
+      title: "Carta astral y acompañamiento astrológico",
+      text: "Alaya Astrología carta astral consulta natal signos sol luna ascendente casas aspectos",
+      href: "#astral-ia"
+    },
+    {
+      type: "Reserva",
+      title: "Reservar cita con Alaya",
+      text: "reserva cita previa horas concertadas consulta servicio taller herbolario astrología",
+      href: "#reservas"
+    },
+    {
+      type: "Contacto",
+      title: "Contactar con Alaya",
+      text: "whatsapp email dirección redes mensaje rápido contacto",
+      href: "#contacto-alaya"
+    }
+  );
+
+  const unique = new Map();
+  items.forEach(item => {
+    const key = `${item.type}-${item.title}-${item.href}`;
+    if (!unique.has(key)) unique.set(key, item);
+  });
+
+  return [...unique.values()];
+}
+
+function renderPublicSearch(query = "") {
+  if (!publicGlobalSearchResults) return;
+
+  const normalized = lowerSearch(query);
+  const items = getPublicSearchItems();
+
+  const results = normalized
+    ? items.filter(item => {
+        const haystack = lowerSearch([item.type, item.title, item.text].join(" "));
+        return haystack.includes(normalized);
+      })
+    : items.slice(0, 6);
+
+  publicGlobalSearchResults.innerHTML = results.slice(0, 12).map(item => `
+    <article class="public-search-result-card">
+      <span class="public-search-type">${item.type}</span>
+      <strong>${safeText(item.title)}</strong>
+      <p>${safeText(item.text).slice(0, 150)}${safeText(item.text).length > 150 ? "..." : ""}</p>
+      <a href="${item.href}">Ver sección</a>
+    </article>
+  `).join("");
+
+  const empty = normalized && !results.length;
+  publicSearchEmpty?.classList.toggle("hidden", !empty);
+}
+
+publicGlobalSearchInput?.addEventListener("input", event => {
+  renderPublicSearch(event.target.value);
+});
+
+publicSearchChips?.addEventListener("click", event => {
+  const button = event.target.closest("[data-search-chip]");
+  if (!button) return;
+
+  const value = button.dataset.searchChip || "";
+  if (publicGlobalSearchInput) publicGlobalSearchInput.value = value;
+  renderPublicSearch(value);
+  publicGlobalSearchInput?.focus();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName || "")) {
+    event.preventDefault();
+    publicGlobalSearchInput?.focus();
+    document.querySelector("#buscar-alaya")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
+
+renderPublicSearch("");
+
+
+
+// v6.4 Métricas Locales Pro
+const metricVisitsValue = document.querySelector("#metricVisitsValue");
+const metricClicksValue = document.querySelector("#metricClicksValue");
+const metricSearchesValue = document.querySelector("#metricSearchesValue");
+const metricLastVisitValue = document.querySelector("#metricLastVisitValue");
+const metricTopSearches = document.querySelector("#metricTopSearches");
+const metricTopClicks = document.querySelector("#metricTopClicks");
+const metricRecentActivity = document.querySelector("#metricRecentActivity");
+const refreshMetricsBtn = document.querySelector("#refreshMetricsBtn");
+const copyMetricsReportBtn = document.querySelector("#copyMetricsReportBtn");
+const exportMetricsCsvBtn = document.querySelector("#exportMetricsCsvBtn");
+const resetMetricsBtn = document.querySelector("#resetMetricsBtn");
+
+const METRICS_KEY = "alaya_local_metrics_v64";
+
+function getLocalMetrics() {
+  try {
+    return {
+      visits: 0,
+      clicks: {},
+      searches: {},
+      activity: [],
+      lastVisit: "",
+      ...JSON.parse(localStorage.getItem(METRICS_KEY) || "{}")
+    };
+  } catch {
+    return { visits: 0, clicks: {}, searches: {}, activity: [], lastVisit: "" };
+  }
+}
+
+function saveLocalMetrics(metrics) {
+  localStorage.setItem(METRICS_KEY, JSON.stringify(metrics));
+}
+
+function addMetricActivity(type, label) {
+  const metrics = getLocalMetrics();
+  metrics.activity = [
+    { type, label, at: new Date().toISOString() },
+    ...(metrics.activity || [])
+  ].slice(0, 80);
+  saveLocalMetrics(metrics);
+}
+
+function trackLocalVisit() {
+  const sessionKey = "alaya_local_metrics_session_v64";
+  const todayKey = new Date().toISOString().slice(0, 10);
+  const currentSession = sessionStorage.getItem(sessionKey);
+
+  if (currentSession !== todayKey) {
+    const metrics = getLocalMetrics();
+    metrics.visits = (metrics.visits || 0) + 1;
+    metrics.lastVisit = new Date().toISOString();
+    metrics.activity = [
+      { type: "visita", label: "Nueva visita pública", at: metrics.lastVisit },
+      ...(metrics.activity || [])
+    ].slice(0, 80);
+    saveLocalMetrics(metrics);
+    sessionStorage.setItem(sessionKey, todayKey);
+  }
+}
+
+function incrementMetricGroup(group, key) {
+  const cleanKey = String(key || "").trim().slice(0, 90);
+  if (!cleanKey) return;
+
+  const metrics = getLocalMetrics();
+  metrics[group] = metrics[group] || {};
+  metrics[group][cleanKey] = (metrics[group][cleanKey] || 0) + 1;
+  metrics.activity = [
+    { type: group === "clicks" ? "clic" : "búsqueda", label: cleanKey, at: new Date().toISOString() },
+    ...(metrics.activity || [])
+  ].slice(0, 80);
+  saveLocalMetrics(metrics);
+  renderLocalMetrics();
+}
+
+function trackPublicClick(event) {
+  const target = event.target.closest("a, button");
+  if (!target) return;
+
+  const href = target.getAttribute("href") || "";
+  const text = (target.textContent || target.getAttribute("aria-label") || target.title || "").trim();
+
+  const isImportant =
+    href.includes("#reservas") ||
+    href.includes("#contacto") ||
+    href.includes("wa.me") ||
+    href.includes("mailto:") ||
+    /reserv|whatsapp|email|contact|copiar|leer más|consultar|abrir/i.test(text);
+
+  if (!isImportant) return;
+
+  const label = text || href || "CTA";
+  incrementMetricGroup("clicks", label);
+}
+
+let searchMetricTimer = null;
+function trackPublicSearchMetric(value) {
+  const clean = String(value || "").trim();
+  if (clean.length < 2) return;
+
+  clearTimeout(searchMetricTimer);
+  searchMetricTimer = setTimeout(() => {
+    incrementMetricGroup("searches", clean.toLowerCase());
+  }, 700);
+}
+
+function topMetricEntries(group, limit = 8) {
+  return Object.entries(group || {})
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit);
+}
+
+function renderMetricList(target, entries, emptyText = "Sin datos todavía.") {
+  if (!target) return;
+
+  target.innerHTML = entries.length
+    ? entries.map(([label, count]) => `
+      <div class="metrics-list-item">
+        <strong>${label}</strong>
+        <span>${count}</span>
+      </div>
+    `).join("")
+    : `<p>${emptyText}</p>`;
+}
+
+function renderActivityList(target, activity = []) {
+  if (!target) return;
+
+  target.innerHTML = activity.length
+    ? activity.slice(0, 12).map(item => `
+      <div class="metrics-list-item">
+        <strong>${item.type}</strong>
+        <span>${new Date(item.at).toLocaleDateString()}</span>
+        <small>${item.label}<br>${new Date(item.at).toLocaleTimeString()}</small>
+      </div>
+    `).join("")
+    : "<p>Sin actividad registrada.</p>";
+}
+
+function renderLocalMetrics() {
+  const metrics = getLocalMetrics();
+  const clicksTotal = Object.values(metrics.clicks || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+  const searchesTotal = Object.values(metrics.searches || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+
+  if (metricVisitsValue) metricVisitsValue.textContent = metrics.visits || 0;
+  if (metricClicksValue) metricClicksValue.textContent = clicksTotal;
+  if (metricSearchesValue) metricSearchesValue.textContent = searchesTotal;
+  if (metricLastVisitValue) {
+    metricLastVisitValue.textContent = metrics.lastVisit
+      ? new Date(metrics.lastVisit).toLocaleDateString()
+      : "—";
+  }
+
+  renderMetricList(metricTopSearches, topMetricEntries(metrics.searches), "Sin búsquedas todavía.");
+  renderMetricList(metricTopClicks, topMetricEntries(metrics.clicks), "Sin clics todavía.");
+  renderActivityList(metricRecentActivity, metrics.activity || []);
+}
+
+function buildMetricsReport() {
+  const metrics = getLocalMetrics();
+  const clicksTotal = Object.values(metrics.clicks || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+  const searchesTotal = Object.values(metrics.searches || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+
+  const searches = topMetricEntries(metrics.searches, 12).map(([k, v]) => `- ${k}: ${v}`).join("\n") || "- Sin búsquedas";
+  const clicks = topMetricEntries(metrics.clicks, 12).map(([k, v]) => `- ${k}: ${v}`).join("\n") || "- Sin clics";
+
+  return `
+Alaya Holistics · Informe de métricas locales
+
+Visitas: ${metrics.visits || 0}
+Clics importantes: ${clicksTotal}
+Búsquedas: ${searchesTotal}
+Última visita: ${metrics.lastVisit ? new Date(metrics.lastVisit).toLocaleString() : "Sin datos"}
+
+Top búsquedas:
+${searches}
+
+Top clics:
+${clicks}
+
+Nota:
+Métricas guardadas solo en este navegador con localStorage.
+  `.trim();
+}
+
+function copyMetricsReport() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const report = buildMetricsReport();
+  if (typeof copyText === "function") copyText(report);
+  else navigator.clipboard?.writeText(report);
+
+  if (typeof showToast === "function") showToast("Informe de métricas copiado.");
+}
+
+function exportMetricsCsv() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const metrics = getLocalMetrics();
+  const rows = [["tipo", "valor", "total"]];
+
+  Object.entries(metrics.searches || {}).forEach(([key, value]) => rows.push(["busqueda", key, value]));
+  Object.entries(metrics.clicks || {}).forEach(([key, value]) => rows.push(["clic", key, value]));
+  (metrics.activity || []).forEach(item => rows.push([item.type, item.label, item.at]));
+
+  const csv = rows.map(row => row.map(cell => `"${String(cell ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `alaya-metricas-locales-${new Date().toISOString().slice(0, 10)}.csv`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function resetLocalMetrics() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Reiniciar todas las métricas locales?")) return;
+
+  localStorage.removeItem(METRICS_KEY);
+  sessionStorage.removeItem("alaya_local_metrics_session_v64");
+  renderLocalMetrics();
+
+  if (typeof showToast === "function") showToast("Métricas reiniciadas.");
+}
+
+document.addEventListener("click", trackPublicClick);
+publicGlobalSearchInput?.addEventListener("input", event => trackPublicSearchMetric(event.target.value));
+
+refreshMetricsBtn?.addEventListener("click", renderLocalMetrics);
+copyMetricsReportBtn?.addEventListener("click", copyMetricsReport);
+exportMetricsCsvBtn?.addEventListener("click", exportMetricsCsv);
+resetMetricsBtn?.addEventListener("click", resetLocalMetrics);
+
+trackLocalVisit();
+renderLocalMetrics();
+
+
+
+// v6.5 Accesibilidad y UX Pro
+const accessibilityFab = document.querySelector("#accessibilityFab");
+const accessibilityPanel = document.querySelector("#accessibilityPanel");
+const closeAccessibilityPanelBtn = document.querySelector("#closeAccessibilityPanelBtn");
+const increaseTextBtn = document.querySelector("#increaseTextBtn");
+const decreaseTextBtn = document.querySelector("#decreaseTextBtn");
+const toggleHighContrastBtn = document.querySelector("#toggleHighContrastBtn");
+const toggleReduceMotionBtn = document.querySelector("#toggleReduceMotionBtn");
+const resetAccessibilityBtn = document.querySelector("#resetAccessibilityBtn");
+const accessibilityStatus = document.querySelector("#accessibilityStatus");
+
+const A11Y_KEY = "alaya_accessibility_v65";
+
+function getA11ySettings() {
+  try {
+    return {
+      textSize: 0,
+      highContrast: false,
+      reduceMotion: false,
+      ...JSON.parse(localStorage.getItem(A11Y_KEY) || "{}")
+    };
+  } catch {
+    return { textSize: 0, highContrast: false, reduceMotion: false };
+  }
+}
+
+function saveA11ySettings(settings) {
+  localStorage.setItem(A11Y_KEY, JSON.stringify(settings));
+}
+
+function applyA11ySettings() {
+  const settings = getA11ySettings();
+
+  document.body.classList.toggle("a11y-large-text", settings.textSize === 1);
+  document.body.classList.toggle("a11y-xl-text", settings.textSize >= 2);
+  document.body.classList.toggle("a11y-high-contrast", Boolean(settings.highContrast));
+  document.body.classList.toggle("a11y-reduce-motion", Boolean(settings.reduceMotion));
+
+  if (accessibilityStatus) {
+    const sizeLabel = settings.textSize === 0 ? "Tamaño normal" : settings.textSize === 1 ? "Texto grande" : "Texto muy grande";
+    const contrastLabel = settings.highContrast ? "Alto contraste" : "Contraste normal";
+    const motionLabel = settings.reduceMotion ? "Movimiento reducido" : "Movimiento activo";
+    accessibilityStatus.textContent = `${sizeLabel} · ${contrastLabel} · ${motionLabel}`;
+  }
+}
+
+function toggleAccessibilityPanel() {
+  accessibilityPanel?.classList.toggle("hidden");
+}
+
+function changeTextSize(delta) {
+  const settings = getA11ySettings();
+  settings.textSize = Math.max(0, Math.min(2, Number(settings.textSize || 0) + delta));
+  saveA11ySettings(settings);
+  applyA11ySettings();
+}
+
+function toggleHighContrast() {
+  const settings = getA11ySettings();
+  settings.highContrast = !settings.highContrast;
+  saveA11ySettings(settings);
+  applyA11ySettings();
+}
+
+function toggleReduceMotion() {
+  const settings = getA11ySettings();
+  settings.reduceMotion = !settings.reduceMotion;
+  saveA11ySettings(settings);
+  applyA11ySettings();
+}
+
+function resetA11ySettings() {
+  localStorage.removeItem(A11Y_KEY);
+  applyA11ySettings();
+  if (typeof showToast === "function") showToast("Accesibilidad restaurada.");
+}
+
+accessibilityFab?.addEventListener("click", toggleAccessibilityPanel);
+closeAccessibilityPanelBtn?.addEventListener("click", () => accessibilityPanel?.classList.add("hidden"));
+increaseTextBtn?.addEventListener("click", () => changeTextSize(1));
+decreaseTextBtn?.addEventListener("click", () => changeTextSize(-1));
+toggleHighContrastBtn?.addEventListener("click", toggleHighContrast);
+toggleReduceMotionBtn?.addEventListener("click", toggleReduceMotion);
+resetAccessibilityBtn?.addEventListener("click", resetA11ySettings);
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") accessibilityPanel?.classList.add("hidden");
+});
+
+applyA11ySettings();
+
+
+
+// v6.6 Asistente Público Pro
+const assistantOptions = document.querySelector("#assistantOptions");
+const assistantResult = document.querySelector("#assistantResult");
+const copyAssistantMessageBtn = document.querySelector("#copyAssistantMessageBtn");
+
+let currentAssistantMessage = "Hola Alaya, me gustaría pedir información para elegir el servicio más adecuado.";
+
+const ASSISTANT_RECOMMENDATIONS = {
+  claridad: {
+    icon: "☾",
+    title: "Lectura de cartas / tarot intuitivo",
+    text: "Puede ayudarte como orientación simbólica para ordenar ideas, mirar opciones y preparar una consulta con más claridad.",
+    href: "#servicios",
+    cta: "Ver servicios",
+    message: "Hola Alaya, me gustaría pedir información sobre una lectura de cartas o tarot intuitivo para tener más claridad."
+  },
+  energia: {
+    icon: "✺",
+    title: "Reiki o acompañamiento energético",
+    text: "Una opción suave para trabajar bienestar, calma y equilibrio desde un enfoque holístico.",
+    href: "#servicios",
+    cta: "Ver servicios",
+    message: "Hola Alaya, me gustaría pedir información sobre Reiki o una sesión energética."
+  },
+  astrologia: {
+    icon: "♈",
+    title: "Consulta de Alaya Astrología",
+    text: "Ideal si quieres explorar carta astral, Sol, Luna, Ascendente y una lectura simbólica personalizada.",
+    href: "#astral-ia",
+    cta: "Ver astrología",
+    message: "Hola Alaya, me gustaría pedir información sobre una consulta de carta astral."
+  },
+  herbolario: {
+    icon: "🌿",
+    title: "Alaya Herbolario",
+    text: "Puedes consultar productos, packs, infusiones, velas, minerales o artículos de bienestar.",
+    href: "#herbolario",
+    cta: "Ver herbolario",
+    message: "Hola Alaya, me gustaría pedir información sobre productos de Alaya Herbolario."
+  },
+  aprender: {
+    icon: "✦",
+    title: "Talleres y cursos",
+    text: "Buena opción si quieres aprender en grupo, asistir a actividades o reservar plaza en próximos eventos.",
+    href: "#eventos",
+    cta: "Ver talleres",
+    message: "Hola Alaya, me gustaría pedir información sobre talleres o cursos disponibles."
+  },
+  personalizado: {
+    icon: "◇",
+    title: "Consulta personalizada",
+    text: "Si no sabes qué elegir, puedes contactar y explicar tu situación para recibir una recomendación adecuada.",
+    href: "#reservas",
+    cta: "Reservar consulta",
+    message: "Hola Alaya, no sé qué servicio elegir. Me gustaría explicar lo que busco y recibir una recomendación."
+  }
+};
+
+function renderAssistantRecommendation(key) {
+  const item = ASSISTANT_RECOMMENDATIONS[key] || ASSISTANT_RECOMMENDATIONS.personalizado;
+  currentAssistantMessage = item.message;
+
+  document.querySelectorAll("[data-assistant-need]").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.assistantNeed === key);
+  });
+
+  if (!assistantResult) return;
+  assistantResult.innerHTML = `
+    <div class="assistant-result-icon">${item.icon}</div>
+    <div>
+      <strong>${item.title}</strong>
+      <p>${item.text}</p>
+      <div class="assistant-result-actions">
+        <a class="btn btn-primary" href="${item.href}">${item.cta}</a>
+        <a class="btn btn-secondary" href="#reservas">Reservar</a>
+        <button id="copyAssistantMessageBtnDynamic" class="btn btn-secondary" type="button">Copiar mensaje</button>
+      </div>
+    </div>
+  `;
+
+  document.querySelector("#copyAssistantMessageBtnDynamic")?.addEventListener("click", copyAssistantMessage);
+}
+
+function copyAssistantMessage() {
+  if (typeof copyText === "function") {
+    copyText(currentAssistantMessage);
+  } else {
+    navigator.clipboard?.writeText(currentAssistantMessage);
+  }
+
+  if (typeof showToast === "function") showToast("Mensaje del asistente copiado.");
+}
+
+assistantOptions?.addEventListener("click", event => {
+  const button = event.target.closest("[data-assistant-need]");
+  if (!button) return;
+  renderAssistantRecommendation(button.dataset.assistantNeed);
+});
+
+copyAssistantMessageBtn?.addEventListener("click", copyAssistantMessage);
+
+
+
+// v6.7 PWA Instalación y Mantenimiento Pro
+const installPwaMainBtn = document.querySelector("#installPwaMainBtn");
+const copyPwaInstructionsBtn = document.querySelector("#copyPwaInstructionsBtn");
+const pwaInstallStatus = document.querySelector("#pwaInstallStatus");
+const pwaInstallHint = document.querySelector("#pwaInstallHint");
+const pwaInstallFab = document.querySelector("#pwaInstallFab");
+const pwaManifestStatus = document.querySelector("#pwaManifestStatus");
+const pwaSwStatus = document.querySelector("#pwaSwStatus");
+const pwaInstallModeStatus = document.querySelector("#pwaInstallModeStatus");
+const pwaCacheStatus = document.querySelector("#pwaCacheStatus");
+const checkPwaStatusBtn = document.querySelector("#checkPwaStatusBtn");
+const clearPwaCachesBtn = document.querySelector("#clearPwaCachesBtn");
+const copyPwaAdminGuideBtn = document.querySelector("#copyPwaAdminGuideBtn");
+
+let deferredPwaPrompt = null;
+
+function isPwaStandalone() {
+  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+}
+
+function updatePwaInstallUi() {
+  const standalone = isPwaStandalone();
+
+  if (pwaInstallStatus) {
+    if (standalone) pwaInstallStatus.textContent = "Alaya ya está abierta como app.";
+    else if (deferredPwaPrompt) pwaInstallStatus.textContent = "Instalación disponible.";
+    else pwaInstallStatus.textContent = "Instalación desde menú del navegador.";
+  }
+
+  if (pwaInstallHint) {
+    pwaInstallHint.textContent = standalone
+      ? "Ya estás usando Alaya en modo app."
+      : deferredPwaPrompt
+        ? "Pulsa “Instalar app” para añadir Alaya a tu dispositivo."
+        : "Si el botón no instala directamente, abre el menú del navegador y elige “Añadir a pantalla de inicio”.";
+  }
+
+  pwaInstallFab?.classList.toggle("hidden", standalone || !deferredPwaPrompt);
+}
+
+async function promptPwaInstall() {
+  if (isPwaStandalone()) {
+    if (typeof showToast === "function") showToast("Alaya ya está instalada como app.");
+    return;
+  }
+
+  if (!deferredPwaPrompt) {
+    if (typeof showToast === "function") showToast("Usa el menú del navegador para añadir a pantalla de inicio.");
+    document.querySelector("#instalar-alaya")?.scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+
+  deferredPwaPrompt.prompt();
+  const choice = await deferredPwaPrompt.userChoice;
+  deferredPwaPrompt = null;
+  updatePwaInstallUi();
+
+  if (typeof showToast === "function") {
+    showToast(choice?.outcome === "accepted" ? "Instalación aceptada." : "Instalación cancelada.");
+  }
+}
+
+function copyPwaInstructions() {
+  const text = `
+Cómo instalar Alaya Holistics como app
+
+En Android / Chrome:
+1. Abre la web.
+2. Toca el menú de tres puntos.
+3. Pulsa “Añadir a pantalla de inicio” o “Instalar app”.
+4. Confirma.
+
+En iPhone / Safari:
+1. Abre la web en Safari.
+2. Toca compartir.
+3. Pulsa “Añadir a pantalla de inicio”.
+4. Confirma.
+
+Si ya está instalada, se abrirá como una app independiente.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Instrucciones de instalación copiadas.");
+}
+
+async function checkPwaStatus() {
+  if (pwaManifestStatus) {
+    pwaManifestStatus.textContent = document.querySelector("link[rel='manifest']") ? "Detectado" : "No detectado";
+  }
+
+  if (pwaSwStatus) {
+    pwaSwStatus.textContent = "serviceWorker" in navigator
+      ? (navigator.serviceWorker.controller ? "Activo" : "Compatible")
+      : "No compatible";
+  }
+
+  if (pwaInstallModeStatus) {
+    pwaInstallModeStatus.textContent = isPwaStandalone()
+      ? "Instalada"
+      : deferredPwaPrompt
+        ? "Instalable"
+        : "Manual";
+  }
+
+  if (pwaCacheStatus) {
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      pwaCacheStatus.textContent = `${keys.length} caché(s)`;
+    } else {
+      pwaCacheStatus.textContent = "No disponible";
+    }
+  }
+
+  updatePwaInstallUi();
+  if (typeof showToast === "function") showToast("Estado PWA actualizado.");
+}
+
+async function clearPwaCaches() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("configuración crítica")) return;
+  if (!confirm("¿Limpiar caché PWA? Puede ayudar a ver los últimos cambios publicados.")) return;
+
+  if ("caches" in window) {
+    const keys = await caches.keys();
+    await Promise.all(keys.map(key => caches.delete(key)));
+  }
+
+  if (typeof showToast === "function") showToast("Caché PWA limpiada. Recarga la web.");
+  checkPwaStatus();
+}
+
+function copyPwaAdminGuide() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Guía rápida PWA · Alaya Holistics
+
+Antes de publicar:
+[ ] Comprobar manifest.webmanifest.
+[ ] Comprobar iconos 192 y 512.
+[ ] Comprobar service worker activo.
+[ ] Abrir offline.html.
+[ ] Probar en móvil.
+[ ] Instalar desde Android/Chrome.
+[ ] Probar en iPhone/Safari con “Añadir a pantalla de inicio”.
+[ ] Si no se ven cambios, limpiar caché PWA y recargar.
+
+Estado actual:
+- Modo app: ${isPwaStandalone() ? "sí" : "no"}
+- Service Worker: ${"serviceWorker" in navigator ? "compatible" : "no compatible"}
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Guía PWA copiada.");
+}
+
+window.addEventListener("beforeinstallprompt", event => {
+  event.preventDefault();
+  deferredPwaPrompt = event;
+  updatePwaInstallUi();
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredPwaPrompt = null;
+  updatePwaInstallUi();
+  if (typeof showToast === "function") showToast("Alaya instalada como app.");
+});
+
+installPwaMainBtn?.addEventListener("click", promptPwaInstall);
+pwaInstallFab?.addEventListener("click", promptPwaInstall);
+copyPwaInstructionsBtn?.addEventListener("click", copyPwaInstructions);
+checkPwaStatusBtn?.addEventListener("click", checkPwaStatus);
+clearPwaCachesBtn?.addEventListener("click", clearPwaCaches);
+copyPwaAdminGuideBtn?.addEventListener("click", copyPwaAdminGuide);
+
+setTimeout(() => {
+  updatePwaInstallUi();
+  checkPwaStatus();
+}, 600);
+
+
+
+// v6.8 Backup Total y Migración Pro
+const backupKeysCount = document.querySelector("#backupKeysCount");
+const backupSizeValue = document.querySelector("#backupSizeValue");
+const backupLastDate = document.querySelector("#backupLastDate");
+const backupStatusValue = document.querySelector("#backupStatusValue");
+const generateFullBackupBtn = document.querySelector("#generateFullBackupBtn");
+const downloadFullBackupBtn = document.querySelector("#downloadFullBackupBtn");
+const copyFullBackupBtn = document.querySelector("#copyFullBackupBtn");
+const fullBackupOutput = document.querySelector("#fullBackupOutput");
+const backupImportFile = document.querySelector("#backupImportFile");
+const fullBackupInput = document.querySelector("#fullBackupInput");
+const restoreFullBackupBtn = document.querySelector("#restoreFullBackupBtn");
+const validateFullBackupBtn = document.querySelector("#validateFullBackupBtn");
+const clearBackupInputBtn = document.querySelector("#clearBackupInputBtn");
+const refreshBackupInventoryBtn = document.querySelector("#refreshBackupInventoryBtn");
+const copyBackupInventoryBtn = document.querySelector("#copyBackupInventoryBtn");
+const downloadBackupInventoryCsvBtn = document.querySelector("#downloadBackupInventoryCsvBtn");
+const backupInventoryList = document.querySelector("#backupInventoryList");
+
+const FULL_BACKUP_PREFIXES = ["alaya_"];
+const FULL_BACKUP_LAST_KEY = "alaya_full_backup_last_date_v68";
+
+function isAlayaStorageKey(key) {
+  return FULL_BACKUP_PREFIXES.some(prefix => key.startsWith(prefix));
+}
+
+function bytesToHuman(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+function getStorageInventory() {
+  const entries = [];
+
+  for (let i = 0; i < localStorage.length; i += 1) {
+    const key = localStorage.key(i);
+    if (!key || !isAlayaStorageKey(key)) continue;
+
+    const value = localStorage.getItem(key) || "";
+    entries.push({
+      key,
+      size: new Blob([value]).size,
+      preview: value.slice(0, 120)
+    });
+  }
+
+  return entries.sort((a, b) => a.key.localeCompare(b.key));
+}
+
+function buildFullBackup() {
+  const data = {};
+  getStorageInventory().forEach(item => {
+    data[item.key] = localStorage.getItem(item.key);
+  });
+
+  return {
+    type: "alaya-holistics-full-backup",
+    version: "6.8",
+    createdAt: new Date().toISOString(),
+    origin: location.href,
+    items: data
+  };
+}
+
+function updateBackupStats() {
+  const inventory = getStorageInventory();
+  const totalBytes = inventory.reduce((sum, item) => sum + item.size, 0);
+  const last = localStorage.getItem(FULL_BACKUP_LAST_KEY);
+
+  if (backupKeysCount) backupKeysCount.textContent = inventory.length;
+  if (backupSizeValue) backupSizeValue.textContent = bytesToHuman(totalBytes);
+  if (backupLastDate) backupLastDate.textContent = last ? new Date(last).toLocaleDateString() : "—";
+  if (backupStatusValue) backupStatusValue.textContent = "Listo";
+
+  renderBackupInventory();
+}
+
+function renderBackupInventory() {
+  if (!backupInventoryList) return;
+
+  const inventory = getStorageInventory();
+
+  backupInventoryList.innerHTML = inventory.length
+    ? inventory.map(item => `
+      <div class="backup-inventory-item">
+        <strong>${item.key}</strong>
+        <span>${bytesToHuman(item.size)}</span>
+        <small>${item.preview ? item.preview.replace(/</g, "&lt;").replace(/>/g, "&gt;") : "Sin contenido visible"}</small>
+      </div>
+    `).join("")
+    : "<p>No hay datos locales de Alaya guardados todavía.</p>";
+}
+
+function generateFullBackup() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const backup = buildFullBackup();
+  const json = JSON.stringify(backup, null, 2);
+  if (fullBackupOutput) fullBackupOutput.value = json;
+
+  localStorage.setItem(FULL_BACKUP_LAST_KEY, backup.createdAt);
+  updateBackupStats();
+
+  if (typeof showToast === "function") showToast("Backup generado.");
+  return json;
+}
+
+function downloadTextFile(filename, content, type = "application/json") {
+  const blob = new Blob([content], { type: `${type};charset=utf-8` });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadFullBackup() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const json = fullBackupOutput?.value.trim() || generateFullBackup();
+  if (!json) return;
+
+  downloadTextFile(`alaya-backup-total-${new Date().toISOString().slice(0, 10)}.json`, json);
+  if (typeof showToast === "function") showToast("Backup descargado.");
+}
+
+function copyFullBackup() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const json = fullBackupOutput?.value.trim() || generateFullBackup();
+  if (!json) return;
+
+  if (typeof copyText === "function") copyText(json);
+  else navigator.clipboard?.writeText(json);
+
+  if (typeof showToast === "function") showToast("Backup copiado.");
+}
+
+function parseBackupInput() {
+  const raw = fullBackupInput?.value.trim();
+  if (!raw) throw new Error("No hay backup pegado.");
+
+  const parsed = JSON.parse(raw);
+  if (!parsed || parsed.type !== "alaya-holistics-full-backup" || !parsed.items || typeof parsed.items !== "object") {
+    throw new Error("El JSON no parece un backup total de Alaya.");
+  }
+
+  return parsed;
+}
+
+function validateFullBackup() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  try {
+    const parsed = parseBackupInput();
+    const count = Object.keys(parsed.items || {}).length;
+    if (backupStatusValue) backupStatusValue.textContent = `Backup válido · ${count} claves`;
+    if (typeof showToast === "function") showToast(`Backup válido: ${count} claves.`);
+    return true;
+  } catch (error) {
+    if (backupStatusValue) backupStatusValue.textContent = "Backup no válido";
+    if (typeof showToast === "function") showToast(error.message || "Backup no válido.");
+    return false;
+  }
+}
+
+function restoreFullBackup() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("configuración crítica")) return;
+
+  let parsed;
+  try {
+    parsed = parseBackupInput();
+  } catch (error) {
+    if (typeof showToast === "function") showToast(error.message || "Backup no válido.");
+    return;
+  }
+
+  const keys = Object.keys(parsed.items || {}).filter(isAlayaStorageKey);
+  if (!keys.length) {
+    if (typeof showToast === "function") showToast("El backup no contiene claves Alaya.");
+    return;
+  }
+
+  if (!confirm(`¿Restaurar ${keys.length} claves? Esto sobrescribirá datos locales de Alaya.`)) return;
+
+  keys.forEach(key => {
+    localStorage.setItem(key, parsed.items[key]);
+  });
+
+  localStorage.setItem(FULL_BACKUP_LAST_KEY, new Date().toISOString());
+  updateBackupStats();
+
+  if (typeof showToast === "function") showToast("Backup restaurado. Recarga la web para ver todos los cambios.");
+
+  setTimeout(() => {
+    if (confirm("¿Recargar ahora para aplicar la restauración?")) location.reload();
+  }, 500);
+}
+
+function clearBackupInput() {
+  if (fullBackupInput) fullBackupInput.value = "";
+  if (backupImportFile) backupImportFile.value = "";
+  if (typeof showToast === "function") showToast("Entrada de backup limpiada.");
+}
+
+function copyBackupInventory() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = getStorageInventory()
+    .map(item => `${item.key} · ${bytesToHuman(item.size)}`)
+    .join("\n") || "Sin datos locales.";
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Inventario copiado.");
+}
+
+function downloadBackupInventoryCsv() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const rows = [["key", "size_bytes", "size_human", "preview"]];
+  getStorageInventory().forEach(item => rows.push([item.key, item.size, bytesToHuman(item.size), item.preview]));
+
+  const csv = rows.map(row => row.map(cell => `"${String(cell ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
+  downloadTextFile(`alaya-inventario-datos-${new Date().toISOString().slice(0, 10)}.csv`, csv, "text/csv");
+
+  if (typeof showToast === "function") showToast("Inventario CSV descargado.");
+}
+
+backupImportFile?.addEventListener("change", async event => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const text = await file.text();
+  if (fullBackupInput) fullBackupInput.value = text;
+  validateFullBackup();
+});
+
+generateFullBackupBtn?.addEventListener("click", generateFullBackup);
+downloadFullBackupBtn?.addEventListener("click", downloadFullBackup);
+copyFullBackupBtn?.addEventListener("click", copyFullBackup);
+restoreFullBackupBtn?.addEventListener("click", restoreFullBackup);
+validateFullBackupBtn?.addEventListener("click", validateFullBackup);
+clearBackupInputBtn?.addEventListener("click", clearBackupInput);
+refreshBackupInventoryBtn?.addEventListener("click", updateBackupStats);
+copyBackupInventoryBtn?.addEventListener("click", copyBackupInventory);
+downloadBackupInventoryCsvBtn?.addEventListener("click", downloadBackupInventoryCsv);
+
+setTimeout(updateBackupStats, 700);
+
+
+
+// v6.9 Publicación GitHub Pages Pro
+const publishProtocolStatus = document.querySelector("#publishProtocolStatus");
+const publishHostStatus = document.querySelector("#publishHostStatus");
+const publishFilesStatus = document.querySelector("#publishFilesStatus");
+const publishReadyStatus = document.querySelector("#publishReadyStatus");
+const checkPublishStatusBtn = document.querySelector("#checkPublishStatusBtn");
+const copyGithubPagesStepsBtn = document.querySelector("#copyGithubPagesStepsBtn");
+const copyPublishChecklistBtn = document.querySelector("#copyPublishChecklistBtn");
+
+async function checkPublishStatus() {
+  const protocol = location.protocol.replace(":", "");
+  const host = location.host || "local";
+  const isSecure = location.protocol === "https:" || location.hostname === "localhost" || location.protocol === "file:";
+  const isGithub = host.includes("github.io");
+
+  if (publishProtocolStatus) {
+    publishProtocolStatus.textContent = isSecure ? `${protocol} OK` : `${protocol} revisar`;
+  }
+
+  if (publishHostStatus) {
+    publishHostStatus.textContent = isGithub ? "GitHub Pages" : host;
+  }
+
+  let filesOk = 0;
+  const files = ["./index.html", "./manifest.webmanifest", "./sw.js", "./sitemap.xml", "./robots.txt", "./404.html"];
+
+  for (const file of files) {
+    try {
+      const res = await fetch(file, { cache: "no-store" });
+      if (res.ok) filesOk += 1;
+    } catch {}
+  }
+
+  if (publishFilesStatus) {
+    publishFilesStatus.textContent = `${filesOk}/${files.length}`;
+  }
+
+  if (publishReadyStatus) {
+    publishReadyStatus.textContent = filesOk >= 5 && isSecure ? "Lista" : "Revisar";
+  }
+
+  if (typeof showToast === "function") showToast("Estado de publicación revisado.");
+}
+
+function copyGithubPagesSteps() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Publicar Alaya Holistics en GitHub Pages
+
+1. Descomprime el ZIP.
+2. Entra en GitHub y abre tu repositorio.
+3. Sube todo el contenido de la carpeta de la web, no solo el ZIP.
+4. Asegúrate de que index.html esté en la raíz.
+5. Mantén también:
+   - assets/
+   - css/
+   - js/
+   - docs/
+   - manifest.webmanifest
+   - sw.js
+   - sitemap.xml
+   - robots.txt
+   - 404.html
+   - .nojekyll
+6. Ve a Settings > Pages.
+7. En Source elige:
+   - Deploy from a branch
+   - Branch: main
+   - Folder: /root
+8. Guarda.
+9. Espera unos minutos.
+10. Abre la URL de GitHub Pages.
+11. En admin > Lanzamiento, pulsa “Comprobar publicación”.
+12. Si no ves cambios, limpia caché PWA o abre en incógnito.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Pasos de GitHub Pages copiados.");
+}
+
+function copyPublishChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist final antes de publicar Alaya
+
+[ ] index.html en la raíz.
+[ ] Carpeta assets subida.
+[ ] Carpeta css subida.
+[ ] Carpeta js subida.
+[ ] manifest.webmanifest subido.
+[ ] sw.js subido.
+[ ] sitemap.xml subido.
+[ ] robots.txt subido.
+[ ] 404.html subido.
+[ ] .nojekyll subido.
+[ ] Logos visibles.
+[ ] Legal/privacidad/cookies revisados.
+[ ] WhatsApp/email configurados.
+[ ] Servicios revisados.
+[ ] Reservas probadas.
+[ ] Backup exportado.
+[ ] PWA probada en móvil.
+[ ] Caché limpiada si no aparecen cambios.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist final copiado.");
+}
+
+checkPublishStatusBtn?.addEventListener("click", checkPublishStatus);
+copyGithubPagesStepsBtn?.addEventListener("click", copyGithubPagesSteps);
+copyPublishChecklistBtn?.addEventListener("click", copyPublishChecklist);
+
+setTimeout(checkPublishStatus, 1000);
+
+
+
+// v7.0 Release Candidate Pro
+const rcVersionValue = document.querySelector("#rcVersionValue");
+const rcBuildDateValue = document.querySelector("#rcBuildDateValue");
+const rcCriticalFilesStatus = document.querySelector("#rcCriticalFilesStatus");
+const rcDocsStatus = document.querySelector("#rcDocsStatus");
+const rcPwaStatus = document.querySelector("#rcPwaStatus");
+const rcPublishStatus = document.querySelector("#rcPublishStatus");
+const rcCheckList = document.querySelector("#rcCheckList");
+const runRcCheckBtn = document.querySelector("#runRcCheckBtn");
+const copyRcNotesBtn = document.querySelector("#copyRcNotesBtn");
+const openChangelogBtn = document.querySelector("#openChangelogBtn");
+const openVersionFileBtn = document.querySelector("#openVersionFileBtn");
+
+const RC_CRITICAL_FILES = [
+  "./index.html",
+  "./css/styles.css",
+  "./js/app.js",
+  "./js/cloud-adapter.js",
+  "./js/backend-config.js",
+  "./manifest.webmanifest",
+  "./sw.js",
+  "./offline.html",
+  "./404.html",
+  "./sitemap.xml",
+  "./robots.txt",
+  "./VERSION.json",
+  "./CHANGELOG.md"
+];
+
+const RC_DOCS = [
+  "./docs/PUBLICACION-GITHUB-PAGES-PRO.md",
+  "./docs/BACKUP-TOTAL-MIGRACION-PRO.md",
+  "./docs/PWA-INSTALACION-MANTENIMIENTO-PRO.md",
+  "./docs/ACCESIBILIDAD-UX-PRO.md",
+  "./docs/BUSCADOR-PUBLICO-PRO.md",
+  "./docs/NOVEDADES-BLOG-PRO.md"
+];
+
+async function fileExistsForRc(path) {
+  try {
+    const response = await fetch(path, { cache: "no-store" });
+    return response.ok;
+  } catch {
+    return location.protocol === "file:";
+  }
+}
+
+async function runRcCheck() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const criticalResults = [];
+  for (const file of RC_CRITICAL_FILES) {
+    criticalResults.push({ file, ok: await fileExistsForRc(file) });
+  }
+
+  const docsResults = [];
+  for (const file of RC_DOCS) {
+    docsResults.push({ file, ok: await fileExistsForRc(file) });
+  }
+
+  let versionData = null;
+  try {
+    const response = await fetch("./VERSION.json", { cache: "no-store" });
+    versionData = await response.json();
+  } catch {
+    versionData = { version: "7.0", codename: "Release Candidate Pro", buildDate: "Local" };
+  }
+
+  if (rcVersionValue) rcVersionValue.textContent = `v${versionData.version || "7.0"}`;
+  if (rcBuildDateValue) rcBuildDateValue.textContent = `${versionData.codename || "Release Candidate Pro"} · ${versionData.buildDate || "Local"}`;
+
+  const criticalOk = criticalResults.filter(item => item.ok).length;
+  const docsOk = docsResults.filter(item => item.ok).length;
+  const pwaOk = Boolean(document.querySelector("link[rel='manifest']")) && ("serviceWorker" in navigator || location.protocol === "file:");
+  const publishOk = criticalOk >= RC_CRITICAL_FILES.length - 1 && docsOk >= Math.min(4, RC_DOCS.length);
+
+  if (rcCriticalFilesStatus) rcCriticalFilesStatus.textContent = `${criticalOk}/${RC_CRITICAL_FILES.length}`;
+  if (rcDocsStatus) rcDocsStatus.textContent = `${docsOk}/${RC_DOCS.length}`;
+  if (rcPwaStatus) rcPwaStatus.textContent = pwaOk ? "OK" : "Revisar";
+  if (rcPublishStatus) rcPublishStatus.textContent = publishOk ? "Lista" : "Revisar";
+
+  if (rcCheckList) {
+    const all = [
+      ...criticalResults.map(item => ({ ...item, label: "Archivo crítico" })),
+      ...docsResults.map(item => ({ ...item, label: "Documento" }))
+    ];
+
+    rcCheckList.innerHTML = all.map(item => `
+      <div class="rc-check-item ${item.ok ? "" : "warning"}">
+        <b>${item.ok ? "OK" : "!"}</b>
+        <span>${item.file}</span>
+        <small>${item.label}</small>
+      </div>
+    `).join("");
+  }
+
+  if (typeof showToast === "function") showToast("Revisión final v7.0 completada.");
+}
+
+function getRcNotes() {
+  return `
+Alaya Holistics Web v7.0 · Release Candidate Pro
+
+Lista para revisión final antes de publicar.
+
+Incluye:
+- Web pública premium con diseño astral.
+- Reservas con cita previa.
+- Agenda inteligente y bloqueos.
+- Admin con roles, auditoría y notificaciones.
+- Alaya Herbolario.
+- Servicios, talleres y cursos.
+- Alaya Astrología pública.
+- Cartas astrales dentro del admin.
+- Informes cliente e internos.
+- Privacidad astral y consentimiento.
+- Seguimiento astral.
+- Contenido público editable.
+- Novedades/blog.
+- Buscador público.
+- Métricas locales sin servicios externos.
+- Accesibilidad.
+- PWA instalable.
+- Backup total y migración.
+- Preparación GitHub Pages.
+- 404, sitemap, robots, VERSION.json y CHANGELOG.md.
+
+Antes de publicar:
+[ ] Configurar WhatsApp/email/redes.
+[ ] Revisar textos legales.
+[ ] Probar reserva real.
+[ ] Exportar backup.
+[ ] Probar en móvil.
+[ ] Probar PWA.
+[ ] Revisar Firebase si se usa modo online.
+  `.trim();
+}
+
+function copyRcNotes() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const notes = getRcNotes();
+  if (typeof copyText === "function") copyText(notes);
+  else navigator.clipboard?.writeText(notes);
+
+  if (typeof showToast === "function") showToast("Notas v7.0 copiadas.");
+}
+
+runRcCheckBtn?.addEventListener("click", runRcCheck);
+copyRcNotesBtn?.addEventListener("click", copyRcNotes);
+openChangelogBtn?.addEventListener("click", () => window.open("./CHANGELOG.md", "_blank", "noopener"));
+openVersionFileBtn?.addEventListener("click", () => window.open("./VERSION.json", "_blank", "noopener"));
+
+setTimeout(runRcCheck, 1200);
+
+
+
+// v7.1 SEO y Compartir Pro
+const seoTitleInput = document.querySelector("#seoTitleInput");
+const seoDescriptionInput = document.querySelector("#seoDescriptionInput");
+const seoKeywordsInput = document.querySelector("#seoKeywordsInput");
+const seoUrlInput = document.querySelector("#seoUrlInput");
+const seoImageInput = document.querySelector("#seoImageInput");
+const saveSeoSettingsBtn = document.querySelector("#saveSeoSettingsBtn");
+const loadDefaultSeoBtn = document.querySelector("#loadDefaultSeoBtn");
+const copySeoMetaBtn = document.querySelector("#copySeoMetaBtn");
+const seoPreviewCard = document.querySelector("#seoPreviewCard");
+const seoPreviewImage = document.querySelector("#seoPreviewImage");
+const seoPreviewTitle = document.querySelector("#seoPreviewTitle");
+const seoPreviewDescription = document.querySelector("#seoPreviewDescription");
+const seoPreviewUrl = document.querySelector("#seoPreviewUrl");
+const seoShareTextOutput = document.querySelector("#seoShareTextOutput");
+const copySeoShareTextBtn = document.querySelector("#copySeoShareTextBtn");
+const copySeoChecklistBtn = document.querySelector("#copySeoChecklistBtn");
+const seoMetaOutput = document.querySelector("#seoMetaOutput");
+const copyPublicPageLinkBtn = document.querySelector("#copyPublicPageLinkBtn");
+const sharePublicPageBtn = document.querySelector("#sharePublicPageBtn");
+
+const SEO_SETTINGS_KEY = "alaya_seo_settings_v71";
+
+const DEFAULT_SEO_SETTINGS = {
+  title: "Alaya Holistics · Reservas, Herbolario, Astrología y Talleres",
+  description: "Alaya Holistics: consultas con cita previa, tarot, lectura de cartas, reiki, herbolario, astrología, talleres y cursos.",
+  keywords: "Alaya Holistics, tarot, reiki, herbolario, astrología, carta astral, talleres, reservas",
+  url: location.href.split("#")[0],
+  image: "assets/logos/alaya-holistics-logo.png"
+};
+
+function getSeoSettings() {
+  try {
+    return {
+      ...DEFAULT_SEO_SETTINGS,
+      ...JSON.parse(localStorage.getItem(SEO_SETTINGS_KEY) || "{}")
+    };
+  } catch {
+    return { ...DEFAULT_SEO_SETTINGS };
+  }
+}
+
+function saveSeoSettings(settings) {
+  localStorage.setItem(SEO_SETTINGS_KEY, JSON.stringify(settings));
+}
+
+function collectSeoForm() {
+  return {
+    title: seoTitleInput?.value.trim() || DEFAULT_SEO_SETTINGS.title,
+    description: seoDescriptionInput?.value.trim() || DEFAULT_SEO_SETTINGS.description,
+    keywords: seoKeywordsInput?.value.trim() || DEFAULT_SEO_SETTINGS.keywords,
+    url: seoUrlInput?.value.trim() || DEFAULT_SEO_SETTINGS.url,
+    image: seoImageInput?.value.trim() || DEFAULT_SEO_SETTINGS.image
+  };
+}
+
+function fillSeoForm() {
+  const settings = getSeoSettings();
+  if (seoTitleInput) seoTitleInput.value = settings.title;
+  if (seoDescriptionInput) seoDescriptionInput.value = settings.description;
+  if (seoKeywordsInput) seoKeywordsInput.value = settings.keywords;
+  if (seoUrlInput) seoUrlInput.value = settings.url;
+  if (seoImageInput) seoImageInput.value = settings.image;
+  renderSeoPreview();
+}
+
+function buildSeoMetaTags(settings = getSeoSettings()) {
+  return `
+<title>${settings.title}</title>
+<meta name="description" content="${settings.description}">
+<meta name="keywords" content="${settings.keywords}">
+<link rel="canonical" href="${settings.url}">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="${settings.title}">
+<meta property="og:description" content="${settings.description}">
+<meta property="og:url" content="${settings.url}">
+<meta property="og:image" content="${settings.image}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${settings.title}">
+<meta name="twitter:description" content="${settings.description}">
+<meta name="twitter:image" content="${settings.image}">
+  `.trim();
+}
+
+function buildSeoShareText(settings = getSeoSettings()) {
+  return `${settings.title}
+
+${settings.description}
+
+${settings.url}`.trim();
+}
+
+function renderSeoPreview() {
+  const settings = collectSeoForm();
+
+  if (seoPreviewImage) seoPreviewImage.src = settings.image || DEFAULT_SEO_SETTINGS.image;
+  if (seoPreviewTitle) seoPreviewTitle.textContent = settings.title;
+  if (seoPreviewDescription) seoPreviewDescription.textContent = settings.description;
+  if (seoPreviewUrl) seoPreviewUrl.textContent = settings.url;
+  if (seoShareTextOutput) seoShareTextOutput.value = buildSeoShareText(settings);
+  if (seoMetaOutput) seoMetaOutput.value = buildSeoMetaTags(settings);
+}
+
+function saveSeoFromAdmin() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  const settings = collectSeoForm();
+  saveSeoSettings(settings);
+  renderSeoPreview();
+  if (typeof showToast === "function") showToast("SEO guardado.");
+}
+
+function loadDefaultSeo() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  saveSeoSettings({ ...DEFAULT_SEO_SETTINGS });
+  fillSeoForm();
+  if (typeof showToast === "function") showToast("SEO base cargado.");
+}
+
+function copySeoMeta() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const text = seoMetaOutput?.value || buildSeoMetaTags(collectSeoForm());
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Meta HTML copiada.");
+}
+
+function copySeoShareText() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const text = seoShareTextOutput?.value || buildSeoShareText(collectSeoForm());
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Texto para compartir copiado.");
+}
+
+function copySeoChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const settings = collectSeoForm();
+  const text = `
+Checklist SEO Alaya
+
+[ ] Título SEO revisado: ${settings.title}
+[ ] Descripción menor de 160 caracteres si es posible.
+[ ] Keywords revisadas.
+[ ] URL pública correcta: ${settings.url}
+[ ] Imagen social existe: ${settings.image}
+[ ] Meta tags pegadas en el head final si se quiere SEO fijo.
+[ ] Sitemap publicado.
+[ ] robots.txt publicado.
+[ ] Página 404 publicada.
+[ ] Probar vista previa al compartir en WhatsApp.
+[ ] Probar en móvil.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist SEO copiado.");
+}
+
+function copyPublicPageLink() {
+  const url = location.href.split("#")[0];
+  if (typeof copyText === "function") copyText(url);
+  else navigator.clipboard?.writeText(url);
+  if (typeof showToast === "function") showToast("Enlace copiado.");
+}
+
+async function sharePublicPage() {
+  const settings = getSeoSettings();
+  const shareData = {
+    title: settings.title,
+    text: settings.description,
+    url: settings.url || location.href.split("#")[0]
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      return;
+    } catch {}
+  }
+
+  copyPublicPageLink();
+}
+
+[seoTitleInput, seoDescriptionInput, seoKeywordsInput, seoUrlInput, seoImageInput].forEach(input => {
+  input?.addEventListener("input", renderSeoPreview);
+});
+
+saveSeoSettingsBtn?.addEventListener("click", saveSeoFromAdmin);
+loadDefaultSeoBtn?.addEventListener("click", loadDefaultSeo);
+copySeoMetaBtn?.addEventListener("click", copySeoMeta);
+copySeoShareTextBtn?.addEventListener("click", copySeoShareText);
+copySeoChecklistBtn?.addEventListener("click", copySeoChecklist);
+copyPublicPageLinkBtn?.addEventListener("click", copyPublicPageLink);
+sharePublicPageBtn?.addEventListener("click", sharePublicPage);
+
+fillSeoForm();
+
+
+
+// v7.2 Rendimiento y Calidad Pro
+const qualityScoreValue = document.querySelector("#qualityScoreValue");
+const qualityScoreText = document.querySelector("#qualityScoreText");
+const qualityScoreOrb = document.querySelector("#qualityScoreOrb");
+const qualityFilesValue = document.querySelector("#qualityFilesValue");
+const qualityLinksValue = document.querySelector("#qualityLinksValue");
+const qualityImagesValue = document.querySelector("#qualityImagesValue");
+const qualityIssuesValue = document.querySelector("#qualityIssuesValue");
+const qualityFileResults = document.querySelector("#qualityFileResults");
+const qualityIssueResults = document.querySelector("#qualityIssueResults");
+const runQualityAuditBtn = document.querySelector("#runQualityAuditBtn");
+const copyQualityReportBtn = document.querySelector("#copyQualityReportBtn");
+const exportQualityCsvBtn = document.querySelector("#exportQualityCsvBtn");
+const copyQualityChecklistBtn = document.querySelector("#copyQualityChecklistBtn");
+
+let lastQualityAudit = null;
+
+const QUALITY_FILES = [
+  "./index.html",
+  "./css/styles.css",
+  "./js/app.js",
+  "./manifest.webmanifest",
+  "./sw.js",
+  "./offline.html",
+  "./404.html",
+  "./sitemap.xml",
+  "./robots.txt",
+  "./VERSION.json",
+  "./CHANGELOG.md"
+];
+
+function qualityBytesToHuman(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+async function getQualityFileInfo(path) {
+  try {
+    const response = await fetch(path, { cache: "no-store" });
+    if (!response.ok) return { path, ok: false, size: 0, label: "No encontrado" };
+    const text = await response.text();
+    const size = new Blob([text]).size;
+    return {
+      path,
+      ok: true,
+      size,
+      label: qualityBytesToHuman(size)
+    };
+  } catch {
+    return {
+      path,
+      ok: location.protocol === "file:",
+      size: 0,
+      label: location.protocol === "file:" ? "Local" : "Error"
+    };
+  }
+}
+
+function getInternalLinkIssues() {
+  const issues = [];
+  const links = [...document.querySelectorAll("a[href^='#']")];
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
+    const target = document.querySelector(href);
+    if (!target) {
+      issues.push({
+        type: "Enlace interno",
+        label: `${href} no existe`,
+        severity: "warning"
+      });
+    }
+  });
+
+  return { count: links.length, issues };
+}
+
+function getImageQualityIssues() {
+  const issues = [];
+  const images = [...document.querySelectorAll("img")];
+
+  images.forEach(img => {
+    if (!img.getAttribute("alt")) {
+      issues.push({ type: "Imagen", label: "Imagen sin texto alt", severity: "warning" });
+    }
+
+    if (!img.getAttribute("loading")) {
+      issues.push({ type: "Imagen", label: `Sin lazy loading: ${img.getAttribute("src") || "imagen"}`, severity: "info" });
+    }
+  });
+
+  return { count: images.length, issues };
+}
+
+function getBasicA11yIssues() {
+  const issues = [];
+
+  document.querySelectorAll("button").forEach(button => {
+    const text = (button.textContent || button.getAttribute("aria-label") || "").trim();
+    if (!text) issues.push({ type: "Accesibilidad", label: "Botón sin texto ni aria-label", severity: "warning" });
+  });
+
+  document.querySelectorAll("input, textarea, select").forEach(field => {
+    const hasLabel = field.id && document.querySelector(`label[for="${field.id}"]`);
+    const hasName = field.getAttribute("aria-label") || field.getAttribute("placeholder") || field.getAttribute("title");
+    if (!hasLabel && !hasName) {
+      issues.push({ type: "Formulario", label: `${field.tagName.toLowerCase()} sin label/placeholder`, severity: "warning" });
+    }
+  });
+
+  if (!document.querySelector("h1")) {
+    issues.push({ type: "SEO", label: "No se detecta h1", severity: "warning" });
+  }
+
+  if (!document.querySelector("meta[name='description']")) {
+    issues.push({ type: "SEO", label: "No se detecta meta description", severity: "warning" });
+  }
+
+  return issues;
+}
+
+function renderQualityList(target, items, emptyText) {
+  if (!target) return;
+  target.innerHTML = items.length
+    ? items.map(item => `
+      <div class="quality-list-item ${item.ok === false || item.severity === "warning" ? "warning" : ""}">
+        <b>${item.ok === false || item.severity === "warning" ? "!" : "OK"}</b>
+        <span>${item.path || item.label}</span>
+        <small>${item.label && item.path ? item.label : (item.type || "")}</small>
+      </div>
+    `).join("")
+    : `<p>${emptyText}</p>`;
+}
+
+async function runQualityAudit(silent = false) {
+  if (!silent && typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return null;
+
+  const fileResults = [];
+  for (const file of QUALITY_FILES) {
+    fileResults.push(await getQualityFileInfo(file));
+  }
+
+  const internalLinks = getInternalLinkIssues();
+  const imageQuality = getImageQualityIssues();
+  const a11yIssues = getBasicA11yIssues();
+
+  const allIssues = [
+    ...fileResults.filter(item => !item.ok).map(item => ({ type: "Archivo", label: `${item.path} no encontrado`, severity: "warning" })),
+    ...internalLinks.issues,
+    ...imageQuality.issues,
+    ...a11yIssues
+  ];
+
+  const warningCount = allIssues.filter(issue => issue.severity !== "info").length;
+  const score = Math.max(0, Math.min(100, 100 - warningCount * 8 - Math.max(0, allIssues.length - warningCount) * 2));
+
+  lastQualityAudit = {
+    createdAt: new Date().toISOString(),
+    score,
+    files: fileResults,
+    linksCount: internalLinks.count,
+    imagesCount: imageQuality.count,
+    issues: allIssues
+  };
+
+  if (qualityScoreValue) qualityScoreValue.textContent = `${score}/100`;
+  if (qualityScoreText) {
+    qualityScoreText.textContent = score >= 90
+      ? "Muy buen estado para publicar."
+      : score >= 75
+        ? "Buen estado, con pequeños avisos."
+        : "Revisar incidencias antes de publicar.";
+  }
+  if (qualityScoreOrb) qualityScoreOrb.textContent = score >= 90 ? "OK" : score >= 75 ? "QC" : "REV";
+  if (qualityFilesValue) qualityFilesValue.textContent = `${fileResults.filter(item => item.ok).length}/${fileResults.length}`;
+  if (qualityLinksValue) qualityLinksValue.textContent = internalLinks.count;
+  if (qualityImagesValue) qualityImagesValue.textContent = imageQuality.count;
+  if (qualityIssuesValue) qualityIssuesValue.textContent = allIssues.length;
+
+  renderQualityList(qualityFileResults, fileResults, "Sin archivos revisados.");
+  renderQualityList(qualityIssueResults, allIssues, "No se han detectado incidencias.");
+
+  if (!silent && typeof showToast === "function") showToast("Auditoría de calidad completada.");
+  return lastQualityAudit;
+}
+
+function buildQualityReport() {
+  const audit = lastQualityAudit;
+  if (!audit) return "Ejecuta primero la auditoría de calidad.";
+
+  const files = audit.files.map(item => `- ${item.ok ? "OK" : "ERROR"} ${item.path}: ${item.label}`).join("\n");
+  const issues = audit.issues.length
+    ? audit.issues.map(item => `- ${item.type}: ${item.label}`).join("\n")
+    : "- Sin incidencias detectadas";
+
+  return `
+Alaya Holistics · Informe de calidad v7.2
+
+Fecha: ${new Date(audit.createdAt).toLocaleString()}
+Puntuación: ${audit.score}/100
+Enlaces internos revisados: ${audit.linksCount}
+Imágenes detectadas: ${audit.imagesCount}
+Incidencias: ${audit.issues.length}
+
+Archivos:
+${files}
+
+Incidencias:
+${issues}
+  `.trim();
+}
+
+function copyQualityReport() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const report = buildQualityReport();
+  if (typeof copyText === "function") copyText(report);
+  else navigator.clipboard?.writeText(report);
+  if (typeof showToast === "function") showToast("Informe de calidad copiado.");
+}
+
+function exportQualityCsv() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const audit = lastQualityAudit;
+  if (!audit) {
+    if (typeof showToast === "function") showToast("Ejecuta primero la auditoría.");
+    return;
+  }
+
+  const rows = [["tipo", "estado", "detalle", "extra"]];
+  audit.files.forEach(item => rows.push(["archivo", item.ok ? "ok" : "error", item.path, item.label]));
+  audit.issues.forEach(item => rows.push([item.type, item.severity || "info", item.label, ""]));
+
+  const csv = rows.map(row => row.map(cell => `"${String(cell ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `alaya-calidad-v72-${new Date().toISOString().slice(0, 10)}.csv`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyQualityChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist de calidad Alaya v7.2
+
+[ ] Ejecutar auditoría de calidad.
+[ ] Revisar archivos críticos.
+[ ] Revisar enlaces internos rotos.
+[ ] Revisar imágenes sin alt.
+[ ] Revisar formularios con placeholder/label.
+[ ] Probar reserva.
+[ ] Probar buscador.
+[ ] Probar asistente.
+[ ] Probar compartir.
+[ ] Probar PWA.
+[ ] Probar móvil.
+[ ] Exportar backup antes de publicar.
+[ ] Limpiar caché PWA si se actualiza la web.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Checklist de calidad copiado.");
+}
+
+runQualityAuditBtn?.addEventListener("click", () => runQualityAudit(false));
+copyQualityReportBtn?.addEventListener("click", copyQualityReport);
+exportQualityCsvBtn?.addEventListener("click", exportQualityCsv);
+copyQualityChecklistBtn?.addEventListener("click", copyQualityChecklist);
+
+setTimeout(() => runQualityAudit(true), 1800);
+
+
+
+// v7.3 Avisos Globales Pro
+const globalNoticeBanner = document.querySelector("#globalNoticeBanner");
+const globalNoticeType = document.querySelector("#globalNoticeType");
+const globalNoticeTitle = document.querySelector("#globalNoticeTitle");
+const globalNoticeMessage = document.querySelector("#globalNoticeMessage");
+const globalNoticeCta = document.querySelector("#globalNoticeCta");
+const closeGlobalNoticeBtn = document.querySelector("#closeGlobalNoticeBtn");
+
+const noticeActiveInput = document.querySelector("#noticeActiveInput");
+const noticeTypeInput = document.querySelector("#noticeTypeInput");
+const noticeModeInput = document.querySelector("#noticeModeInput");
+const noticeTitleInput = document.querySelector("#noticeTitleInput");
+const noticeMessageInput = document.querySelector("#noticeMessageInput");
+const noticeCtaTextInput = document.querySelector("#noticeCtaTextInput");
+const noticeCtaUrlInput = document.querySelector("#noticeCtaUrlInput");
+const noticeDismissibleInput = document.querySelector("#noticeDismissibleInput");
+const saveGlobalNoticeBtn = document.querySelector("#saveGlobalNoticeBtn");
+const previewGlobalNoticeBtn = document.querySelector("#previewGlobalNoticeBtn");
+const resetGlobalNoticeBtn = document.querySelector("#resetGlobalNoticeBtn");
+const adminNoticePreview = document.querySelector("#adminNoticePreview");
+const copyGlobalNoticeBtn = document.querySelector("#copyGlobalNoticeBtn");
+const copyNoticeChecklistBtn = document.querySelector("#copyNoticeChecklistBtn");
+
+const publicNoticeCard = document.querySelector("#publicNoticeCard");
+const publicNoticeCardType = document.querySelector("#publicNoticeCardType");
+const publicNoticeCardTitle = document.querySelector("#publicNoticeCardTitle");
+const publicNoticeCardMessage = document.querySelector("#publicNoticeCardMessage");
+const publicNoticeCardCta = document.querySelector("#publicNoticeCardCta");
+
+const GLOBAL_NOTICE_KEY = "alaya_global_notice_v73";
+const GLOBAL_NOTICE_CLOSED_KEY = "alaya_global_notice_closed_v73";
+
+const DEFAULT_GLOBAL_NOTICE = {
+  active: false,
+  type: "normal",
+  mode: "banner-card",
+  title: "Reservas con cita previa",
+  message: "Alaya atiende con horas concertadas. Puedes solicitar tu reserva desde la web o por WhatsApp.",
+  ctaText: "Reservar",
+  ctaUrl: "#reservas",
+  dismissible: true,
+  updatedAt: new Date().toISOString()
+};
+
+function getGlobalNotice() {
+  try {
+    return {
+      ...DEFAULT_GLOBAL_NOTICE,
+      ...JSON.parse(localStorage.getItem(GLOBAL_NOTICE_KEY) || "{}")
+    };
+  } catch {
+    return { ...DEFAULT_GLOBAL_NOTICE };
+  }
+}
+
+function saveGlobalNoticeData(notice) {
+  localStorage.setItem(GLOBAL_NOTICE_KEY, JSON.stringify({
+    ...notice,
+    updatedAt: new Date().toISOString()
+  }));
+}
+
+function getNoticeTypeLabel(type) {
+  return {
+    normal: "Aviso",
+    importante: "Importante",
+    taller: "Taller",
+    herbolario: "Herbolario",
+    astrologia: "Astrología"
+  }[type] || "Aviso";
+}
+
+function collectNoticeForm() {
+  return {
+    active: Boolean(noticeActiveInput?.checked),
+    type: noticeTypeInput?.value || "normal",
+    mode: noticeModeInput?.value || "banner-card",
+    title: noticeTitleInput?.value.trim() || DEFAULT_GLOBAL_NOTICE.title,
+    message: noticeMessageInput?.value.trim() || DEFAULT_GLOBAL_NOTICE.message,
+    ctaText: noticeCtaTextInput?.value.trim() || DEFAULT_GLOBAL_NOTICE.ctaText,
+    ctaUrl: noticeCtaUrlInput?.value.trim() || DEFAULT_GLOBAL_NOTICE.ctaUrl,
+    dismissible: Boolean(noticeDismissibleInput?.checked)
+  };
+}
+
+function fillNoticeForm() {
+  const notice = getGlobalNotice();
+
+  if (noticeActiveInput) noticeActiveInput.checked = Boolean(notice.active);
+  if (noticeTypeInput) noticeTypeInput.value = notice.type || "normal";
+  if (noticeModeInput) noticeModeInput.value = notice.mode || "banner-card";
+  if (noticeTitleInput) noticeTitleInput.value = notice.title || "";
+  if (noticeMessageInput) noticeMessageInput.value = notice.message || "";
+  if (noticeCtaTextInput) noticeCtaTextInput.value = notice.ctaText || "";
+  if (noticeCtaUrlInput) noticeCtaUrlInput.value = notice.ctaUrl || "";
+  if (noticeDismissibleInput) noticeDismissibleInput.checked = notice.dismissible !== false;
+
+  renderNoticePreview();
+}
+
+function applyNoticeClass(element, type) {
+  if (!element) return;
+  element.classList.remove("notice-normal", "notice-importante", "notice-taller", "notice-herbolario", "notice-astrologia");
+  element.classList.add(`notice-${type || "normal"}`);
+}
+
+function renderNoticePreview() {
+  const notice = collectNoticeForm();
+
+  if (adminNoticePreview) {
+    applyNoticeClass(adminNoticePreview, notice.type);
+    adminNoticePreview.innerHTML = `
+      <span>${getNoticeTypeLabel(notice.type)}</span>
+      <strong>${notice.title}</strong>
+      <p>${notice.message}</p>
+      <a href="${notice.ctaUrl}">${notice.ctaText}</a>
+    `;
+  }
+}
+
+function renderGlobalNotice() {
+  const notice = getGlobalNotice();
+  const closed = localStorage.getItem(GLOBAL_NOTICE_CLOSED_KEY) === notice.updatedAt;
+
+  const showBanner = notice.active && ["banner", "banner-card"].includes(notice.mode) && !(notice.dismissible && closed);
+  const showCard = notice.active && ["card", "banner-card"].includes(notice.mode);
+
+  if (globalNoticeBanner) {
+    applyNoticeClass(globalNoticeBanner, notice.type);
+    globalNoticeBanner.classList.toggle("hidden", !showBanner);
+  }
+
+  if (globalNoticeType) globalNoticeType.textContent = getNoticeTypeLabel(notice.type);
+  if (globalNoticeTitle) globalNoticeTitle.textContent = notice.title;
+  if (globalNoticeMessage) globalNoticeMessage.textContent = notice.message;
+  if (globalNoticeCta) {
+    globalNoticeCta.textContent = notice.ctaText || "Ver más";
+    globalNoticeCta.href = notice.ctaUrl || "#reservas";
+  }
+
+  if (closeGlobalNoticeBtn) {
+    closeGlobalNoticeBtn.style.display = notice.dismissible ? "" : "none";
+  }
+
+  if (publicNoticeCard) {
+    applyNoticeClass(publicNoticeCard, notice.type);
+    publicNoticeCard.classList.toggle("is-inactive", !showCard);
+  }
+
+  if (publicNoticeCardType) publicNoticeCardType.textContent = showCard ? getNoticeTypeLabel(notice.type) : "Sin aviso";
+  if (publicNoticeCardTitle) publicNoticeCardTitle.textContent = showCard ? notice.title : "Sin aviso activo";
+  if (publicNoticeCardMessage) {
+    publicNoticeCardMessage.textContent = showCard
+      ? notice.message
+      : "Cuando Alaya active un aviso desde admin, aparecerá aquí.";
+  }
+  if (publicNoticeCardCta) {
+    publicNoticeCardCta.textContent = showCard ? (notice.ctaText || "Ver más") : "Reservar";
+    publicNoticeCardCta.href = showCard ? (notice.ctaUrl || "#reservas") : "#reservas";
+    publicNoticeCardCta.style.display = showCard ? "" : "none";
+  }
+}
+
+function saveNoticeFromAdmin() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const notice = collectNoticeForm();
+  saveGlobalNoticeData(notice);
+  localStorage.removeItem(GLOBAL_NOTICE_CLOSED_KEY);
+  renderNoticePreview();
+  renderGlobalNotice();
+
+  if (typeof showToast === "function") showToast("Aviso global guardado.");
+}
+
+function resetGlobalNotice() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  saveGlobalNoticeData({ ...DEFAULT_GLOBAL_NOTICE });
+  localStorage.removeItem(GLOBAL_NOTICE_CLOSED_KEY);
+  fillNoticeForm();
+  renderGlobalNotice();
+  if (typeof showToast === "function") showToast("Aviso base restaurado.");
+}
+
+function closeGlobalNotice() {
+  const notice = getGlobalNotice();
+  localStorage.setItem(GLOBAL_NOTICE_CLOSED_KEY, notice.updatedAt || "closed");
+  renderGlobalNotice();
+}
+
+function copyGlobalNoticeText() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const notice = collectNoticeForm();
+  const text = `${getNoticeTypeLabel(notice.type)} · ${notice.title}
+
+${notice.message}
+
+${notice.ctaText}: ${notice.ctaUrl}`.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Aviso copiado.");
+}
+
+function copyNoticeChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist de avisos Alaya
+
+[ ] Título claro.
+[ ] Mensaje breve.
+[ ] Enlace correcto.
+[ ] Tipo de aviso adecuado.
+[ ] Revisar en móvil.
+[ ] Revisar que se puede cerrar si no es urgente.
+[ ] Desactivar aviso cuando ya no sea actual.
+[ ] Evitar promesas médicas o absolutas.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist de avisos copiado.");
+}
+
+[noticeActiveInput, noticeTypeInput, noticeModeInput, noticeTitleInput, noticeMessageInput, noticeCtaTextInput, noticeCtaUrlInput, noticeDismissibleInput].forEach(input => {
+  input?.addEventListener("input", renderNoticePreview);
+  input?.addEventListener("change", renderNoticePreview);
+});
+
+saveGlobalNoticeBtn?.addEventListener("click", saveNoticeFromAdmin);
+previewGlobalNoticeBtn?.addEventListener("click", () => {
+  renderNoticePreview();
+  if (typeof showToast === "function") showToast("Vista previa actualizada.");
+});
+resetGlobalNoticeBtn?.addEventListener("click", resetGlobalNotice);
+copyGlobalNoticeBtn?.addEventListener("click", copyGlobalNoticeText);
+copyNoticeChecklistBtn?.addEventListener("click", copyNoticeChecklist);
+closeGlobalNoticeBtn?.addEventListener("click", closeGlobalNotice);
+
+fillNoticeForm();
+renderGlobalNotice();
+
+
+
+// v7.4 Modo Lanzamiento y Mantenimiento Pro
+const maintenanceOverlay = document.querySelector("#maintenanceOverlay");
+const maintenanceModeLabel = document.querySelector("#maintenanceModeLabel");
+const maintenanceTitle = document.querySelector("#maintenanceTitle");
+const maintenanceMessage = document.querySelector("#maintenanceMessage");
+const maintenanceCountdown = document.querySelector("#maintenanceCountdown");
+const maintenanceCta = document.querySelector("#maintenanceCta");
+const maintenanceContinueBtn = document.querySelector("#maintenanceContinueBtn");
+
+const maintenanceActiveInput = document.querySelector("#maintenanceActiveInput");
+const maintenanceModeInput = document.querySelector("#maintenanceModeInput");
+const maintenanceDisplayInput = document.querySelector("#maintenanceDisplayInput");
+const maintenanceTitleInput = document.querySelector("#maintenanceTitleInput");
+const maintenanceMessageInput = document.querySelector("#maintenanceMessageInput");
+const maintenanceDateInput = document.querySelector("#maintenanceDateInput");
+const maintenanceCtaTextInput = document.querySelector("#maintenanceCtaTextInput");
+const maintenanceCtaUrlInput = document.querySelector("#maintenanceCtaUrlInput");
+const maintenanceAllowContinueInput = document.querySelector("#maintenanceAllowContinueInput");
+const saveMaintenanceModeBtn = document.querySelector("#saveMaintenanceModeBtn");
+const previewMaintenanceModeBtn = document.querySelector("#previewMaintenanceModeBtn");
+const resetMaintenanceModeBtn = document.querySelector("#resetMaintenanceModeBtn");
+const adminMaintenancePreview = document.querySelector("#adminMaintenancePreview");
+const copyMaintenanceStatusBtn = document.querySelector("#copyMaintenanceStatusBtn");
+const copyMaintenanceSnippetBtn = document.querySelector("#copyMaintenanceSnippetBtn");
+const copyMaintenanceChecklistBtn = document.querySelector("#copyMaintenanceChecklistBtn");
+
+const publicMaintenanceCard = document.querySelector("#publicMaintenanceCard");
+const publicMaintenanceModeLabel = document.querySelector("#publicMaintenanceModeLabel");
+const publicMaintenanceTitle = document.querySelector("#publicMaintenanceTitle");
+const publicMaintenanceMessage = document.querySelector("#publicMaintenanceMessage");
+const publicMaintenanceCountdown = document.querySelector("#publicMaintenanceCountdown");
+const publicMaintenanceCta = document.querySelector("#publicMaintenanceCta");
+
+const MAINTENANCE_KEY = "alaya_maintenance_mode_v74";
+const MAINTENANCE_CONTINUE_KEY = "alaya_maintenance_continue_v74";
+
+const DEFAULT_MAINTENANCE_MODE = {
+  active: false,
+  mode: "proximamente",
+  display: "card",
+  title: "Alaya está preparando algo especial",
+  message: "Muy pronto estará disponible la experiencia completa.",
+  date: "",
+  ctaText: "Contactar",
+  ctaUrl: "#contacto-alaya",
+  allowContinue: true,
+  updatedAt: new Date().toISOString()
+};
+
+function getMaintenanceModeData() {
+  try {
+    return {
+      ...DEFAULT_MAINTENANCE_MODE,
+      ...JSON.parse(localStorage.getItem(MAINTENANCE_KEY) || "{}")
+    };
+  } catch {
+    return { ...DEFAULT_MAINTENANCE_MODE };
+  }
+}
+
+function saveMaintenanceModeData(data) {
+  localStorage.setItem(MAINTENANCE_KEY, JSON.stringify({
+    ...data,
+    updatedAt: new Date().toISOString()
+  }));
+}
+
+function getMaintenanceModeLabel(mode) {
+  return {
+    proximamente: "Próximamente",
+    mantenimiento: "Mantenimiento",
+    lanzamiento: "Lanzamiento"
+  }[mode] || "Estado";
+}
+
+function getCountdownText(dateValue) {
+  if (!dateValue) return "Sin cuenta atrás activa";
+
+  const target = new Date(dateValue).getTime();
+  const now = Date.now();
+  const diff = target - now;
+
+  if (!Number.isFinite(target)) return "Fecha no válida";
+  if (diff <= 0) return "Fecha alcanzada";
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+
+  if (days > 0) return `${days} día${days === 1 ? "" : "s"} · ${hours} h · ${minutes} min`;
+  if (hours > 0) return `${hours} h · ${minutes} min`;
+  return `${minutes} min`;
+}
+
+function collectMaintenanceForm() {
+  return {
+    active: Boolean(maintenanceActiveInput?.checked),
+    mode: maintenanceModeInput?.value || "proximamente",
+    display: maintenanceDisplayInput?.value || "card",
+    title: maintenanceTitleInput?.value.trim() || DEFAULT_MAINTENANCE_MODE.title,
+    message: maintenanceMessageInput?.value.trim() || DEFAULT_MAINTENANCE_MODE.message,
+    date: maintenanceDateInput?.value || "",
+    ctaText: maintenanceCtaTextInput?.value.trim() || DEFAULT_MAINTENANCE_MODE.ctaText,
+    ctaUrl: maintenanceCtaUrlInput?.value.trim() || DEFAULT_MAINTENANCE_MODE.ctaUrl,
+    allowContinue: Boolean(maintenanceAllowContinueInput?.checked)
+  };
+}
+
+function fillMaintenanceForm() {
+  const data = getMaintenanceModeData();
+
+  if (maintenanceActiveInput) maintenanceActiveInput.checked = Boolean(data.active);
+  if (maintenanceModeInput) maintenanceModeInput.value = data.mode || "proximamente";
+  if (maintenanceDisplayInput) maintenanceDisplayInput.value = data.display || "card";
+  if (maintenanceTitleInput) maintenanceTitleInput.value = data.title || "";
+  if (maintenanceMessageInput) maintenanceMessageInput.value = data.message || "";
+  if (maintenanceDateInput) maintenanceDateInput.value = data.date || "";
+  if (maintenanceCtaTextInput) maintenanceCtaTextInput.value = data.ctaText || "";
+  if (maintenanceCtaUrlInput) maintenanceCtaUrlInput.value = data.ctaUrl || "";
+  if (maintenanceAllowContinueInput) maintenanceAllowContinueInput.checked = data.allowContinue !== false;
+
+  renderMaintenancePreview();
+}
+
+function applyMaintenanceClass(element, mode) {
+  if (!element) return;
+  element.classList.remove("mode-proximamente", "mode-mantenimiento", "mode-lanzamiento", "is-normal");
+  element.classList.add(`mode-${mode || "proximamente"}`);
+}
+
+function renderMaintenancePreview() {
+  const data = collectMaintenanceForm();
+  const countdown = getCountdownText(data.date);
+
+  if (adminMaintenancePreview) {
+    applyMaintenanceClass(adminMaintenancePreview, data.mode);
+    adminMaintenancePreview.innerHTML = `
+      <span>${getMaintenanceModeLabel(data.mode)}</span>
+      <strong>${data.title}</strong>
+      <p>${data.message}</p>
+      <small>Cuenta atrás: ${countdown}</small>
+    `;
+  }
+}
+
+function renderMaintenancePublic() {
+  const data = getMaintenanceModeData();
+  const continued = sessionStorage.getItem(MAINTENANCE_CONTINUE_KEY) === data.updatedAt;
+  const countdownText = getCountdownText(data.date);
+  const showOverlay = data.active && ["overlay", "both"].includes(data.display) && !(data.allowContinue && continued);
+  const showCard = data.active && ["card", "both"].includes(data.display);
+
+  if (maintenanceOverlay) maintenanceOverlay.classList.toggle("hidden", !showOverlay);
+  if (maintenanceModeLabel) maintenanceModeLabel.textContent = getMaintenanceModeLabel(data.mode);
+  if (maintenanceTitle) maintenanceTitle.textContent = data.title;
+  if (maintenanceMessage) maintenanceMessage.textContent = data.message;
+  if (maintenanceCountdown) {
+    maintenanceCountdown.innerHTML = `<strong>${countdownText}</strong><small>Cuenta atrás</small>`;
+  }
+  if (maintenanceCta) {
+    maintenanceCta.textContent = data.ctaText || "Contactar";
+    maintenanceCta.href = data.ctaUrl || "#contacto-alaya";
+  }
+  if (maintenanceContinueBtn) maintenanceContinueBtn.style.display = data.allowContinue ? "" : "none";
+
+  if (publicMaintenanceCard) {
+    applyMaintenanceClass(publicMaintenanceCard, data.active ? data.mode : "normal");
+    publicMaintenanceCard.classList.toggle("is-normal", !showCard);
+  }
+  if (publicMaintenanceModeLabel) publicMaintenanceModeLabel.textContent = showCard ? getMaintenanceModeLabel(data.mode) : "Disponible";
+  if (publicMaintenanceTitle) publicMaintenanceTitle.textContent = showCard ? data.title : "Alaya Holistics está disponible";
+  if (publicMaintenanceMessage) {
+    publicMaintenanceMessage.textContent = showCard
+      ? data.message
+      : "Puedes navegar por la web, consultar servicios, reservar cita previa y contactar con Alaya.";
+  }
+  if (publicMaintenanceCountdown) publicMaintenanceCountdown.textContent = showCard ? countdownText : "Sin cuenta atrás activa";
+  if (publicMaintenanceCta) {
+    publicMaintenanceCta.textContent = showCard ? (data.ctaText || "Contactar") : "Reservar";
+    publicMaintenanceCta.href = showCard ? (data.ctaUrl || "#contacto-alaya") : "#reservas";
+  }
+}
+
+function saveMaintenanceFromAdmin() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+
+  const data = collectMaintenanceForm();
+  saveMaintenanceModeData(data);
+  sessionStorage.removeItem(MAINTENANCE_CONTINUE_KEY);
+  renderMaintenancePreview();
+  renderMaintenancePublic();
+
+  if (typeof showToast === "function") showToast("Modo de lanzamiento/mantenimiento guardado.");
+}
+
+function resetMaintenanceMode() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("guardar configuración")) return;
+  saveMaintenanceModeData({ ...DEFAULT_MAINTENANCE_MODE });
+  sessionStorage.removeItem(MAINTENANCE_CONTINUE_KEY);
+  fillMaintenanceForm();
+  renderMaintenancePublic();
+  if (typeof showToast === "function") showToast("Modo base restaurado.");
+}
+
+function continueFromMaintenance() {
+  const data = getMaintenanceModeData();
+  sessionStorage.setItem(MAINTENANCE_CONTINUE_KEY, data.updatedAt || "continue");
+  renderMaintenancePublic();
+}
+
+function getMaintenanceStatusText() {
+  const data = collectMaintenanceForm();
+  return `${getMaintenanceModeLabel(data.mode)} · ${data.title}
+
+${data.message}
+
+${data.date ? `Fecha objetivo: ${new Date(data.date).toLocaleString()}` : "Sin fecha objetivo"}
+
+${data.ctaText}: ${data.ctaUrl}`;
+}
+
+function copyMaintenanceStatus() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = getMaintenanceStatusText();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Estado copiado.");
+}
+
+function copyMaintenanceSnippet() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const data = collectMaintenanceForm();
+  const snippet = `
+<!-- Alaya · aviso de ${getMaintenanceModeLabel(data.mode)} -->
+<section style="padding:24px;border-radius:24px;background:#12091f;color:#fff;font-family:system-ui">
+  <p style="color:#ffd78a;font-weight:800">${getMaintenanceModeLabel(data.mode)}</p>
+  <h1>${data.title}</h1>
+  <p>${data.message}</p>
+  ${data.date ? `<p>Fecha objetivo: ${new Date(data.date).toLocaleString()}</p>` : ""}
+  <a href="${data.ctaUrl}" style="display:inline-block;padding:10px 14px;border-radius:999px;background:#ffd78a;color:#1a0b1d;text-decoration:none;font-weight:800">${data.ctaText}</a>
+</section>
+  `.trim();
+
+  if (typeof copyText === "function") copyText(snippet);
+  else navigator.clipboard?.writeText(snippet);
+
+  if (typeof showToast === "function") showToast("Snippet copiado.");
+}
+
+function copyMaintenanceChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist modo lanzamiento/mantenimiento
+
+[ ] Mensaje breve y claro.
+[ ] Fecha objetivo revisada.
+[ ] Botón CTA correcto.
+[ ] Probar en móvil.
+[ ] Probar pantalla completa.
+[ ] Permitir entrar si no es mantenimiento real.
+[ ] Desactivar cuando la web esté lista.
+[ ] Exportar backup antes de cambios grandes.
+[ ] Limpiar caché PWA después de publicar cambios.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist copiado.");
+}
+
+[maintenanceActiveInput, maintenanceModeInput, maintenanceDisplayInput, maintenanceTitleInput, maintenanceMessageInput, maintenanceDateInput, maintenanceCtaTextInput, maintenanceCtaUrlInput, maintenanceAllowContinueInput].forEach(input => {
+  input?.addEventListener("input", renderMaintenancePreview);
+  input?.addEventListener("change", renderMaintenancePreview);
+});
+
+saveMaintenanceModeBtn?.addEventListener("click", saveMaintenanceFromAdmin);
+previewMaintenanceModeBtn?.addEventListener("click", () => {
+  renderMaintenancePreview();
+  if (typeof showToast === "function") showToast("Vista previa actualizada.");
+});
+resetMaintenanceModeBtn?.addEventListener("click", resetMaintenanceMode);
+copyMaintenanceStatusBtn?.addEventListener("click", copyMaintenanceStatus);
+copyMaintenanceSnippetBtn?.addEventListener("click", copyMaintenanceSnippet);
+copyMaintenanceChecklistBtn?.addEventListener("click", copyMaintenanceChecklist);
+maintenanceContinueBtn?.addEventListener("click", continueFromMaintenance);
+
+fillMaintenanceForm();
+renderMaintenancePublic();
+setInterval(renderMaintenancePublic, 60000);
+
+
+
+// v7.5 Centro de Ayuda y Manual Pro
+const publicHelpSearchInput = document.querySelector("#publicHelpSearchInput");
+const publicHelpGrid = document.querySelector("#publicHelpGrid");
+const adminHelpGuideList = document.querySelector("#adminHelpGuideList");
+const adminHelpGuidePreview = document.querySelector("#adminHelpGuidePreview");
+const copyAdminQuickManualBtn = document.querySelector("#copyAdminQuickManualBtn");
+const copyTrainingChecklistBtn = document.querySelector("#copyTrainingChecklistBtn");
+const copyClientHelpTextBtn = document.querySelector("#copyClientHelpTextBtn");
+const openHelpDocsBtn = document.querySelector("#openHelpDocsBtn");
+
+const HELP_GUIDES = [
+  {
+    id: "reservas",
+    icon: "📅",
+    title: "Reservas",
+    audience: "Cliente / Admin",
+    summary: "Solicitar una cita previa, revisar estado y confirmar por mensaje.",
+    steps: [
+      "Entrar en la sección Reservas.",
+      "Elegir servicio, fecha y hora.",
+      "Enviar solicitud con datos básicos.",
+      "El admin revisa la reserva.",
+      "Confirmar, cancelar o enviar recordatorio desde el panel."
+    ]
+  },
+  {
+    id: "servicios",
+    icon: "✦",
+    title: "Servicios holísticos",
+    audience: "Admin",
+    summary: "Crear, editar y ordenar servicios visibles en la web.",
+    steps: [
+      "Entrar en admin.",
+      "Abrir la pestaña Servicios.",
+      "Editar título, categoría, duración, precio y descripción.",
+      "Guardar cambios.",
+      "Revisar la sección pública de servicios."
+    ]
+  },
+  {
+    id: "herbolario",
+    icon: "🌿",
+    title: "Alaya Herbolario",
+    audience: "Cliente / Admin",
+    summary: "Catálogo visual con productos y consulta directa por WhatsApp.",
+    steps: [
+      "Abrir la sección Herbolario.",
+      "Buscar o filtrar productos.",
+      "Abrir detalle de producto.",
+      "Consultar por WhatsApp.",
+      "Desde admin se pueden editar productos y stock visible."
+    ]
+  },
+  {
+    id: "talleres",
+    icon: "🎓",
+    title: "Talleres y cursos",
+    audience: "Cliente / Admin",
+    summary: "Publicar actividades con fecha, plazas, nivel y ficha ampliada.",
+    steps: [
+      "Crear taller desde admin.",
+      "Añadir fecha, hora, plazas, nivel y descripción.",
+      "Marcar como destacado si interesa.",
+      "El cliente puede verlo y solicitar reserva.",
+      "Revisar plazas antes de confirmar."
+    ]
+  },
+  {
+    id: "astral",
+    icon: "♈",
+    title: "Cartas astrales admin",
+    audience: "Admin",
+    summary: "Crear fichas privadas, informes y seguimiento de cartas astrales.",
+    steps: [
+      "Abrir la pestaña Cartas astrales.",
+      "Crear ficha con datos natales y consentimiento.",
+      "Añadir interpretación, notas privadas y seguimiento.",
+      "Generar informe interno o cliente.",
+      "Exportar o guardar backup antes de cambios grandes."
+    ]
+  },
+  {
+    id: "backup",
+    icon: "⬡",
+    title: "Backups",
+    audience: "Admin",
+    summary: "Exportar y restaurar datos locales de Alaya.",
+    steps: [
+      "Abrir la pestaña Backups.",
+      "Pulsar Generar backup.",
+      "Descargar JSON.",
+      "Guardar en lugar seguro.",
+      "Para migrar, importar el JSON en otro navegador y restaurar."
+    ]
+  },
+  {
+    id: "pwa",
+    icon: "📱",
+    title: "Instalar como app",
+    audience: "Cliente / Admin",
+    summary: "Usar Alaya como app instalada en móvil u ordenador.",
+    steps: [
+      "Abrir la web desde el navegador.",
+      "Tocar Instalar app si aparece.",
+      "Si no aparece, usar el menú del navegador.",
+      "En iPhone: Safari > Compartir > Añadir a pantalla de inicio.",
+      "En admin se puede revisar estado PWA."
+    ]
+  },
+  {
+    id: "publicacion",
+    icon: "⌂",
+    title: "Publicar en GitHub Pages",
+    audience: "Admin",
+    summary: "Subir la carpeta completa a GitHub Pages.",
+    steps: [
+      "Descomprimir el ZIP.",
+      "Subir todos los archivos a la raíz del repositorio.",
+      "Activar GitHub Pages desde Settings > Pages.",
+      "Probar la URL publicada.",
+      "Si no aparecen cambios, limpiar caché PWA."
+    ]
+  }
+];
+
+function helpNormalize(text = "") {
+  return String(text).toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function renderPublicHelp(query = "") {
+  if (!publicHelpGrid) return;
+
+  const q = helpNormalize(query);
+  const items = HELP_GUIDES.filter(item => {
+    const haystack = helpNormalize([item.title, item.summary, item.audience, item.steps.join(" ")].join(" "));
+    return !q || haystack.includes(q);
+  });
+
+  publicHelpGrid.innerHTML = items.length
+    ? items.map(item => `
+      <article class="public-help-card">
+        <span>${item.icon} ${item.audience}</span>
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+        <ul>
+          ${item.steps.slice(0, 3).map(step => `<li>${step}</li>`).join("")}
+        </ul>
+      </article>
+    `).join("")
+    : `<article class="public-help-card"><span>Sin resultados</span><h3>No encontré esa ayuda</h3><p>Prueba con otra palabra o contacta con Alaya.</p></article>`;
+}
+
+function renderAdminHelpList() {
+  if (!adminHelpGuideList) return;
+
+  adminHelpGuideList.innerHTML = HELP_GUIDES.map(item => `
+    <button class="help-guide-btn" type="button" data-help-guide="${item.id}">
+      <b>${item.icon}</b>
+      <span><strong>${item.title}</strong><br>${item.summary}</span>
+    </button>
+  `).join("");
+}
+
+function renderAdminHelpGuide(id) {
+  const item = HELP_GUIDES.find(guide => guide.id === id) || HELP_GUIDES[0];
+  if (!adminHelpGuidePreview || !item) return;
+
+  adminHelpGuidePreview.innerHTML = `
+    <span>${item.icon} ${item.audience}</span>
+    <strong>${item.title}</strong>
+    <p>${item.summary}</p>
+    <ol>
+      ${item.steps.map(step => `<li>${step}</li>`).join("")}
+    </ol>
+    <button class="btn btn-secondary" type="button" onclick="copySingleHelpGuide('${item.id}')">Copiar esta guía</button>
+  `;
+}
+
+function buildSingleHelpGuide(id) {
+  const item = HELP_GUIDES.find(guide => guide.id === id);
+  if (!item) return "";
+
+  return `${item.title} · ${item.audience}
+
+${item.summary}
+
+${item.steps.map((step, index) => `${index + 1}. ${step}`).join("\n")}`;
+}
+
+function copySingleHelpGuide(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = buildSingleHelpGuide(id);
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Guía copiada.");
+}
+
+function buildAdminQuickManual() {
+  return `Manual rápido Alaya Holistics
+
+${HELP_GUIDES.map(item => buildSingleHelpGuide(item.id)).join("\n\n---\n\n")}
+
+Consejo:
+Antes de publicar, revisa avisos, modo mantenimiento, SEO, calidad, PWA y exporta backup.`;
+}
+
+function copyAdminQuickManual() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = buildAdminQuickManual();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Manual rápido copiado.");
+}
+
+function copyTrainingChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const text = `
+Checklist de formación Alaya
+
+[ ] Saber entrar al admin.
+[ ] Revisar reservas.
+[ ] Confirmar/cancelar reservas.
+[ ] Editar servicios.
+[ ] Editar productos del herbolario.
+[ ] Crear talleres.
+[ ] Crear carta astral admin.
+[ ] Generar informe cliente.
+[ ] Crear aviso global.
+[ ] Usar modo mantenimiento si hace falta.
+[ ] Revisar SEO.
+[ ] Ejecutar auditoría de calidad.
+[ ] Exportar backup.
+[ ] Limpiar caché PWA si hay cambios.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist de formación copiado.");
+}
+
+function copyClientHelpText() {
+  const text = `
+Ayuda rápida para usar Alaya Holistics
+
+Puedes navegar por:
+- Reservas: pedir cita previa.
+- Servicios: ver consultas disponibles.
+- Herbolario: consultar productos y packs.
+- Talleres: ver cursos y actividades.
+- Astrología: reservar consulta astral.
+- Contacto: escribir por WhatsApp o email.
+- Instalar app: guardar Alaya en pantalla de inicio.
+
+Si no sabes qué elegir, usa el Asistente Alaya o contacta directamente.
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Ayuda cliente copiada.");
+}
+
+publicHelpSearchInput?.addEventListener("input", event => renderPublicHelp(event.target.value));
+adminHelpGuideList?.addEventListener("click", event => {
+  const button = event.target.closest("[data-help-guide]");
+  if (!button) return;
+  renderAdminHelpGuide(button.dataset.helpGuide);
+});
+
+copyAdminQuickManualBtn?.addEventListener("click", copyAdminQuickManual);
+copyTrainingChecklistBtn?.addEventListener("click", copyTrainingChecklist);
+copyClientHelpTextBtn?.addEventListener("click", copyClientHelpText);
+openHelpDocsBtn?.addEventListener("click", () => window.open("./docs/CENTRO-AYUDA-MANUAL-PRO.md", "_blank", "noopener"));
+
+window.copySingleHelpGuide = copySingleHelpGuide;
+
+renderPublicHelp("");
+renderAdminHelpList();
+renderAdminHelpGuide("reservas");
+
+
+
+// v7.6 Clientes y Admin Separados Pro
+const copySeparationChecklistBtn = document.querySelector("#copySeparationChecklistBtn");
+
+const CLIENT_HELP_GUIDES_V76 = [
+  {
+    id: "reservas-cliente",
+    icon: "📅",
+    title: "Cómo reservar cita",
+    audience: "Cliente",
+    summary: "Solicita una cita previa desde la web y espera confirmación de Alaya.",
+    steps: ["Entra en Reservas.", "Elige servicio, fecha y hora.", "Rellena tus datos de contacto.", "Envía la solicitud.", "Alaya confirma la reserva por mensaje."]
+  },
+  {
+    id: "servicios-cliente",
+    icon: "✦",
+    title: "Ver servicios",
+    audience: "Cliente",
+    summary: "Consulta lecturas, reiki, astrología, talleres y acompañamiento holístico.",
+    steps: ["Abre la sección Servicios.", "Busca o filtra el servicio que te interesa.", "Lee la ficha del servicio.", "Usa Reservar o Contactar si tienes dudas."]
+  },
+  {
+    id: "herbolario-cliente",
+    icon: "🌿",
+    title: "Consultar Alaya Herbolario",
+    audience: "Cliente",
+    summary: "Explora productos del catálogo y consulta disponibilidad por mensaje.",
+    steps: ["Abre Alaya Herbolario.", "Filtra por categoría o busca un producto.", "Abre el detalle.", "Consulta por WhatsApp si quieres más información."]
+  },
+  {
+    id: "talleres-cliente",
+    icon: "🎓",
+    title: "Talleres y cursos",
+    audience: "Cliente",
+    summary: "Consulta actividades disponibles, fechas, plazas y nivel.",
+    steps: ["Abre Talleres y cursos.", "Revisa fecha, hora y plazas.", "Lee la descripción.", "Solicita reserva si te interesa."]
+  },
+  {
+    id: "astrologia-cliente",
+    icon: "♈",
+    title: "Consulta de carta astral",
+    audience: "Cliente",
+    summary: "La parte pública permite reservar consulta astral; la ficha detallada se gestiona solo en admin.",
+    steps: ["Abre la zona de Astrología.", "Lee la explicación pública.", "Solicita reserva.", "Alaya prepara la consulta desde el panel privado."]
+  },
+  {
+    id: "contacto-cliente",
+    icon: "☎",
+    title: "Contactar con Alaya",
+    audience: "Cliente",
+    summary: "Usa WhatsApp, email o el mensaje rápido para resolver dudas.",
+    steps: ["Abre Contacto.", "Elige el motivo.", "Copia el mensaje o abre WhatsApp/email.", "Envía tu consulta."]
+  },
+  {
+    id: "app-cliente",
+    icon: "📱",
+    title: "Instalar como app",
+    audience: "Cliente",
+    summary: "Guarda Alaya en la pantalla de inicio del móvil.",
+    steps: ["Abre Instalar app.", "Pulsa el botón si aparece.", "En Android usa el menú del navegador si hace falta.", "En iPhone usa Safari > Compartir > Añadir a pantalla de inicio."]
+  }
+];
+
+const ADMIN_HELP_GUIDES_V76 = [
+  {
+    id: "reservas-admin",
+    icon: "📅",
+    title: "Gestionar reservas",
+    audience: "Administrador",
+    summary: "Revisar solicitudes, cambiar estados, copiar mensajes y controlar agenda.",
+    steps: ["Entrar al panel admin.", "Abrir Reservas o Calendario.", "Revisar fecha, hora, servicio y datos.", "Confirmar, cancelar o dejar pendiente.", "Copiar mensaje para el cliente."]
+  },
+  {
+    id: "contenido-admin",
+    icon: "✍",
+    title: "Contenido público",
+    audience: "Administrador",
+    summary: "Editar testimonios, FAQs, novedades y avisos sin tocar código.",
+    steps: ["Abrir Contenido o Avisos.", "Crear/editar el bloque necesario.", "Revisar vista previa.", "Guardar.", "Comprobar la web pública."]
+  },
+  {
+    id: "astral-admin",
+    icon: "♈",
+    title: "Cartas astrales privadas",
+    audience: "Administrador",
+    summary: "Crear fichas, notas privadas, informes y seguimiento dentro del admin.",
+    steps: ["Abrir Cartas astrales.", "Añadir datos con consentimiento.", "Completar interpretación e informe.", "Guardar seguimiento.", "Exportar backup si hay cambios importantes."]
+  },
+  {
+    id: "backups-admin",
+    icon: "⬡",
+    title: "Backups",
+    audience: "Administrador",
+    summary: "Crear copias completas y restaurarlas en otro navegador.",
+    steps: ["Abrir Backups.", "Generar backup.", "Descargar JSON.", "Guardar en lugar seguro.", "Restaurar solo si se entiende que sobrescribe datos."]
+  },
+  {
+    id: "tecnico-admin",
+    icon: "⚙",
+    title: "Zona técnica",
+    audience: "Administrador",
+    summary: "Calidad, SEO, PWA, publicación, mantenimiento y métricas son módulos internos.",
+    steps: ["Usar Calidad antes de publicar.", "Usar SEO para preparar títulos y descripciones.", "Usar PWA para probar instalación.", "Usar Lanzamiento/Publicación para GitHub Pages.", "Mantener estos módulos fuera de la experiencia cliente."]
+  }
+];
+
+function renderPublicHelpV76(query = "") {
+  if (!publicHelpGrid) return;
+  const q = helpNormalize(query);
+  const items = CLIENT_HELP_GUIDES_V76.filter(item => {
+    const haystack = helpNormalize([item.title, item.summary, item.audience, item.steps.join(" ")].join(" "));
+    return !q || haystack.includes(q);
+  });
+  publicHelpGrid.innerHTML = items.length
+    ? items.map(item => `
+      <article class="public-help-card">
+        <span>${item.icon} ${item.audience}</span>
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+        <ul>${item.steps.slice(0, 4).map(step => `<li>${step}</li>`).join("")}</ul>
+      </article>
+    `).join("")
+    : `<article class="public-help-card"><span>Cliente</span><h3>No encontré esa ayuda</h3><p>Prueba con otra palabra o contacta con Alaya.</p></article>`;
+}
+
+function renderAdminHelpListV76() {
+  if (!adminHelpGuideList) return;
+  adminHelpGuideList.innerHTML = ADMIN_HELP_GUIDES_V76.map(item => `
+    <button class="help-guide-btn" type="button" data-help-guide-v76="${item.id}">
+      <b>${item.icon}</b>
+      <span><strong>${item.title}</strong><br>${item.summary}</span>
+    </button>
+  `).join("");
+}
+
+function renderAdminHelpGuideV76(id) {
+  const item = ADMIN_HELP_GUIDES_V76.find(guide => guide.id === id) || ADMIN_HELP_GUIDES_V76[0];
+  if (!adminHelpGuidePreview || !item) return;
+  adminHelpGuidePreview.innerHTML = `
+    <span>${item.icon} ${item.audience}</span>
+    <strong>${item.title}</strong>
+    <p>${item.summary}</p>
+    <ol>${item.steps.map(step => `<li>${step}</li>`).join("")}</ol>
+    <button class="btn btn-secondary" type="button" onclick="copySingleAdminHelpGuideV76('${item.id}')">Copiar esta guía admin</button>
+  `;
+}
+
+function buildAdminHelpGuideV76(id) {
+  const item = ADMIN_HELP_GUIDES_V76.find(guide => guide.id === id);
+  if (!item) return "";
+  return `${item.title} · ${item.audience}
+
+${item.summary}
+
+${item.steps.map((step, index) => `${index + 1}. ${step}`).join("\n")}`;
+}
+
+function copySingleAdminHelpGuideV76(id) {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const text = buildAdminHelpGuideV76(id);
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Guía admin copiada.");
+}
+
+function copySeparationChecklist() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+  const text = `
+Checklist separación clientes / administrador
+
+Zona clientes:
+[ ] Servicios visibles y claros.
+[ ] Reservas visibles.
+[ ] Contacto visible.
+[ ] Herbolario visible como catálogo.
+[ ] Talleres visibles.
+[ ] Ayuda pública solo para clientes.
+[ ] Sin backups visibles.
+[ ] Sin publicación/GitHub visible.
+[ ] Sin métricas visibles.
+[ ] Sin calidad técnica visible.
+[ ] Sin notas internas visibles.
+
+Zona administrador:
+[ ] Reservas y agenda.
+[ ] Servicios/productos/talleres.
+[ ] Cartas astrales y notas privadas.
+[ ] Backups.
+[ ] SEO.
+[ ] Calidad.
+[ ] PWA.
+[ ] Publicación.
+[ ] Métricas.
+[ ] Mantenimiento.
+[ ] Avisos globales.
+  `.trim();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Checklist separación copiado.");
+}
+
+function copyClientHelpText() {
+  const text = `
+Ayuda rápida para clientes · Alaya Holistics
+
+Puedes usar la web para:
+- Ver servicios.
+- Solicitar una reserva con cita previa.
+- Consultar Alaya Herbolario.
+- Ver talleres y cursos.
+- Reservar consulta de astrología.
+- Contactar por WhatsApp o email.
+- Instalar la web como app.
+
+La gestión interna, backups, métricas, publicación, notas privadas y cartas astrales detalladas pertenecen solo al panel administrador.
+  `.trim();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Ayuda cliente copiada.");
+}
+
+document.querySelectorAll("[data-open-admin-tab]").forEach(link => {
+  link.addEventListener("click", event => {
+    event.preventDefault();
+    const tab = link.dataset.openAdminTab;
+    const tabButton = document.querySelector(`.admin-tab[data-admin-tab="${tab}"]`);
+    tabButton?.click();
+    document.querySelector("#adminPanel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+publicHelpSearchInput?.addEventListener("input", event => renderPublicHelpV76(event.target.value));
+adminHelpGuideList?.addEventListener("click", event => {
+  const button = event.target.closest("[data-help-guide-v76]");
+  if (!button) return;
+  renderAdminHelpGuideV76(button.dataset.helpGuideV76);
+});
+copySeparationChecklistBtn?.addEventListener("click", copySeparationChecklist);
+window.copySingleAdminHelpGuideV76 = copySingleAdminHelpGuideV76;
+
+setTimeout(() => {
+  renderPublicHelpV76(publicHelpSearchInput?.value || "");
+  renderAdminHelpListV76();
+  renderAdminHelpGuideV76("reservas-admin");
+}, 80);
+
+
+
+// v7.7 Acceso Admin Separado Pro
+function openAdminFromDedicatedAccess() {
+  const shouldOpenAdmin =
+    location.hash === "#admin" ||
+    new URLSearchParams(location.search).get("admin") === "1";
+
+  if (!shouldOpenAdmin) return;
+
+  const openButton = document.querySelector("#openAdminBtnTop");
+  const adminModal = document.querySelector("#adminModal");
+
+  if (openButton) {
+    openButton.click();
+    return;
+  }
+
+  if (adminModal) {
+    adminModal.classList.remove("hidden");
+    document.body.classList.add("modal-open");
+  }
+}
+
+window.addEventListener("hashchange", openAdminFromDedicatedAccess);
+setTimeout(openAdminFromDedicatedAccess, 300);
+
+
+
+// v7.9 Navegación Cliente Limpia Pro
+function getClientNavigationReport() {
+  const navLinks = [...document.querySelectorAll("#navLinks a, .footer-site-map a, .client-clean-shortcuts a")];
+  const internalWords = ["admin", "backup", "métrica", "metricas", "github", "calidad técnica", "publicación"];
+  const visibleIssues = navLinks
+    .map(link => (link.textContent || link.href || "").trim().toLowerCase())
+    .filter(text => internalWords.some(word => text.includes(word)));
+
+  return {
+    totalLinks: navLinks.length,
+    issues: visibleIssues,
+    ok: visibleIssues.length === 0
+  };
+}
+
+function copyClientNavigationChecklistV79() {
+  if (typeof requireAdminAccess === "function" && !requireAdminAccess("consultar panel")) return;
+
+  const report = getClientNavigationReport();
+  const text = `
+Checklist navegación cliente limpia
+
+[ ] Menú superior sin Admin.
+[ ] Footer sin Panel admin.
+[ ] Sin enlaces a backups en zona cliente.
+[ ] Sin enlaces a métricas en zona cliente.
+[ ] Sin enlaces a publicación/GitHub en zona cliente.
+[ ] Sin enlaces a calidad técnica en zona cliente.
+[ ] Cliente ve: Sobre Alaya, Servicios, Herbolario, Talleres, Astrología, Reservas, Contacto, Ayuda y Guía.
+[ ] Admin entra por admin.html.
+[ ] Manual admin separado de guía cliente.
+
+Estado detectado:
+- Enlaces cliente revisados: ${report.totalLinks}
+- Incidencias visibles: ${report.issues.length ? report.issues.join(", ") : "ninguna"}
+  `.trim();
+
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+
+  if (typeof showToast === "function") showToast("Checklist navegación cliente copiado.");
+}
+
+window.copyClientNavigationChecklistV79 = copyClientNavigationChecklistV79;
+
+
+
+// v8.0 Experiencia Cliente Pro
+function highlightClientRouteFromHash() {
+  const target = location.hash ? document.querySelector(location.hash) : null;
+  if (!target) return;
+  target.classList.add("client-section-highlight");
+  setTimeout(() => target.classList.remove("client-section-highlight"), 1400);
+}
+
+window.addEventListener("hashchange", highlightClientRouteFromHash);
+setTimeout(highlightClientRouteFromHash, 500);
+
+
+
+// v8.1 Selector de Servicio Cliente Pro
+const clientSelectorOptions = document.querySelectorAll(".client-selector-option");
+const clientSelectorBadge = document.querySelector("#clientSelectorBadge");
+const clientSelectorTitle = document.querySelector("#clientSelectorTitle");
+const clientSelectorText = document.querySelector("#clientSelectorText");
+const clientSelectorSteps = document.querySelector("#clientSelectorSteps");
+const clientSelectorMainLink = document.querySelector("#clientSelectorMainLink");
+const copyClientSelectorMessageBtn = document.querySelector("#copyClientSelectorMessageBtn");
+
+const CLIENT_SELECTOR_ROUTES = {
+  claridad: {
+    badge: "Lecturas",
+    title: "Lectura de cartas o tarot intuitivo",
+    text: "Si necesitas claridad sobre una situación, puedes empezar por una lectura simbólica o una consulta personalizada.",
+    href: "#servicios",
+    cta: "Ver servicios",
+    steps: ["Revisa los servicios disponibles.", "Elige el tipo de lectura.", "Solicita reserva con cita previa."],
+    message: "Hola Alaya, me gustaría información para una lectura de cartas o tarot intuitivo. Quiero reservar o saber qué opción me recomiendas."
+  },
+  energia: {
+    badge: "Energía",
+    title: "Reiki o acompañamiento energético",
+    text: "Si buscas una sesión tranquila de equilibrio y autocuidado, empieza por los servicios energéticos.",
+    href: "#servicios",
+    cta: "Ver energía",
+    steps: ["Consulta los servicios de energía.", "Lee la preparación recomendada.", "Solicita hora concertada."],
+    message: "Hola Alaya, me gustaría información sobre reiki o una sesión energética. ¿Qué opción me recomiendas?"
+  },
+  astral: {
+    badge: "Astrología",
+    title: "Consulta de carta astral",
+    text: "Si te interesa tu carta natal, puedes pedir una consulta astral para recibir orientación simbólica personalizada.",
+    href: "#astral-ia",
+    cta: "Ver astrología",
+    steps: ["Lee la sección de astrología.", "Prepara fecha, hora y lugar de nacimiento.", "Solicita reserva."],
+    message: "Hola Alaya, me interesa una consulta de carta astral. Tengo mis datos de nacimiento y quisiera reservar o pedir información."
+  },
+  herbolario: {
+    badge: "Herbolario",
+    title: "Catálogo Alaya Herbolario",
+    text: "Si buscas productos, packs o artículos de bienestar, explora el catálogo y consulta disponibilidad.",
+    href: "#herbolario",
+    cta: "Ver herbolario",
+    steps: ["Busca por categoría.", "Abre la ficha del producto.", "Consulta disponibilidad por mensaje."],
+    message: "Hola Alaya, quiero consultar productos del herbolario. ¿Me puedes ayudar con disponibilidad o recomendaciones generales?"
+  },
+  talleres: {
+    badge: "Talleres",
+    title: "Talleres y cursos",
+    text: "Si quieres aprender o participar en actividades, revisa próximos talleres, plazas y nivel.",
+    href: "#eventos",
+    cta: "Ver talleres",
+    steps: ["Revisa talleres disponibles.", "Comprueba fecha y plazas.", "Solicita inscripción."],
+    message: "Hola Alaya, me gustaría información sobre talleres o cursos disponibles. ¿Qué actividades hay próximamente?"
+  },
+  duda: {
+    badge: "Contacto",
+    title: "Contacto directo con Alaya",
+    text: "Si no tienes claro qué elegir, lo mejor es escribir un mensaje breve explicando lo que necesitas.",
+    href: "#contacto-alaya",
+    cta: "Contactar",
+    steps: ["Explica qué buscas.", "Indica si prefieres sesión, producto o taller.", "Alaya te orientará hacia la opción adecuada."],
+    message: "Hola Alaya, tengo dudas y no sé qué opción elegir. Me gustaría que me orientaras sobre servicios, herbolario o talleres."
+  }
+};
+
+let activeClientSelectorRoute = "claridad";
+
+function renderClientSelector(route = "claridad") {
+  const data = CLIENT_SELECTOR_ROUTES[route] || CLIENT_SELECTOR_ROUTES.claridad;
+  activeClientSelectorRoute = route;
+
+  clientSelectorOptions.forEach(button => {
+    button.classList.toggle("active", button.dataset.clientRoute === route);
+  });
+
+  if (clientSelectorBadge) clientSelectorBadge.textContent = data.badge;
+  if (clientSelectorTitle) clientSelectorTitle.textContent = data.title;
+  if (clientSelectorText) clientSelectorText.textContent = data.text;
+  if (clientSelectorMainLink) {
+    clientSelectorMainLink.href = data.href;
+    clientSelectorMainLink.textContent = data.cta;
+  }
+  if (clientSelectorSteps) {
+    clientSelectorSteps.innerHTML = data.steps.map(step => `<li>${step}</li>`).join("");
+  }
+}
+
+function copyClientSelectorMessage() {
+  const data = CLIENT_SELECTOR_ROUTES[activeClientSelectorRoute] || CLIENT_SELECTOR_ROUTES.claridad;
+  if (typeof copyText === "function") copyText(data.message);
+  else navigator.clipboard?.writeText(data.message);
+  if (typeof showToast === "function") showToast("Mensaje para Alaya copiado.");
+}
+
+clientSelectorOptions.forEach(button => {
+  button.addEventListener("click", () => renderClientSelector(button.dataset.clientRoute));
+});
+
+copyClientSelectorMessageBtn?.addEventListener("click", copyClientSelectorMessage);
+renderClientSelector("claridad");
+
+
+
+// v8.2 Pre-reserva Guiada Cliente Pro
+const prebookingName = document.querySelector("#prebookingName");
+const prebookingReason = document.querySelector("#prebookingReason");
+const prebookingTime = document.querySelector("#prebookingTime");
+const prebookingContact = document.querySelector("#prebookingContact");
+const prebookingComment = document.querySelector("#prebookingComment");
+const prebookingMessageOutput = document.querySelector("#prebookingMessageOutput");
+const copyPrebookingMessageBtn = document.querySelector("#copyPrebookingMessageBtn");
+
+function buildPrebookingMessage() {
+  const name = prebookingName?.value.trim() || "Cliente";
+  const reason = prebookingReason?.value || "No sé qué elegir";
+  const time = prebookingTime?.value || "Me adapto a la disponibilidad";
+  const contact = prebookingContact?.value || "WhatsApp";
+  const comment = prebookingComment?.value.trim();
+
+  return `Hola Alaya, soy ${name}.
+
+Me gustaría pedir información o preparar una reserva.
+
+Motivo: ${reason}
+Preferencia de horario: ${time}
+Canal de contacto preferido: ${contact}${comment ? `
+
+Comentario:
+${comment}` : ""}
+
+¿Me puedes confirmar disponibilidad y orientarme con la mejor opción?
+
+Gracias.`;
+}
+
+function renderPrebookingMessage() {
+  if (!prebookingMessageOutput) return;
+  prebookingMessageOutput.value = buildPrebookingMessage();
+}
+
+function copyPrebookingMessage() {
+  const text = buildPrebookingMessage();
+  if (typeof copyText === "function") copyText(text);
+  else navigator.clipboard?.writeText(text);
+  if (typeof showToast === "function") showToast("Mensaje de pre-reserva copiado.");
+}
+
+[prebookingName, prebookingReason, prebookingTime, prebookingContact, prebookingComment].forEach(input => {
+  input?.addEventListener("input", renderPrebookingMessage);
+  input?.addEventListener("change", renderPrebookingMessage);
+});
+
+copyPrebookingMessageBtn?.addEventListener("click", copyPrebookingMessage);
+renderPrebookingMessage();
+
+
+
+// v8.3 Consulta de Reserva Cliente Pro
+const clientReservationLookupForm = document.querySelector("#clientReservationLookupForm");
+const clientLookupCode = document.querySelector("#clientLookupCode");
+const clientLookupContact = document.querySelector("#clientLookupContact");
+const clientReservationResult = document.querySelector("#clientReservationResult");
+
+let lastClientReservationPublicSummary = "";
+
+function normalizeClientLookupText(value = "") {
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[^\w@.+-]/g, "");
+}
+
+function getPublicReservationsForClientLookup() {
+  try {
+    const stored = JSON.parse(localStorage.getItem("alaya_reservas") || "[]");
+    return Array.isArray(stored) ? stored : [];
+  } catch {
+    return [];
+  }
+}
+
+function getVisibleReservationHistory(reserva) {
+  const history = Array.isArray(reserva.statusHistory) ? reserva.statusHistory : [];
+  return history
+    .filter(item => item && item.estado)
+    .map(item => ({
+      estado: item.estado,
+      fecha: item.fecha || "",
+      detalle: item.actor === "admin" || item.actor === "sistema" || item.actor === "cliente"
+        ? (item.estado === "Pendiente" ? "Solicitud recibida" : `Estado actualizado a ${item.estado}`)
+        : "Estado actualizado"
+    }))[0];
+}
+
+function findClientReservationByCodeAndContact(code, contact) {
+  const normalizedCode = normalizeClientLookupText(code);
+  const normalizedContact = normalizeClientLookupText(contact);
+
+  if (!normalizedCode || !normalizedContact) return null;
+
+  return getPublicReservationsForClientLookup().find(reserva => {
+    const reservaCode = normalizeClientLookupText(reserva.codigo || "");
+    const reservaEmail = normalizeClientLookupText(reserva.email || "");
+    const reservaPhone = normalizeClientLookupText(reserva.telefono || "");
+    return reservaCode === normalizedCode && (reservaEmail === normalizedContact || reservaPhone === normalizedContact);
+  }) || null;
+}
+
+function buildClientReservationPublicSummary(reserva) {
+  const title = reserva.eventoTitulo || reserva.servicio || "Reserva Alaya";
+  const fecha = reserva.eventoFecha || reserva.fecha || "Pendiente";
+  const hora = reserva.eventoHora || reserva.hora || "Pendiente";
+  const estado = getReservationPublicStatusLabel(reserva);
+  const codigo = reserva.codigo || "Sin código";
+
+  return `Resumen de reserva Alaya
+
+Código: ${codigo}
+Estado: ${estado}
+Servicio / taller: ${title}
+Fecha: ${fecha}
+Hora: ${hora}
+
+Si necesitas modificarla, contacta con Alaya indicando tu código.`;
+}
+
+function renderClientReservationResult(reserva) {
+  if (!clientReservationResult) return;
+
+  if (!reserva) {
+    lastClientReservationPublicSummary = "";
+    clientReservationResult.classList.remove("found");
+    clientReservationResult.classList.add("not-found");
+    clientReservationResult.innerHTML = `
+      <span>Sin resultado</span>
+      <h3>No se encontró la solicitud</h3>
+      <p>
+        Revisa que el código y el contacto coincidan exactamente con los usados al reservar.
+        Si no lo tienes, contacta con Alaya.
+      </p>
+      <div class="client-reservation-result-actions">
+        <a class="btn btn-primary" href="#contacto-alaya">Contactar con Alaya</a>
+        <a class="btn btn-secondary" href="#reservas">Nueva reserva</a>
+      </div>
+    `;
+    return;
+  }
+
+  const title = reserva.eventoTitulo || reserva.servicio || "Reserva Alaya";
+  const fecha = reserva.eventoFecha || reserva.fecha || "Pendiente";
+  const hora = reserva.eventoHora || reserva.hora || "Pendiente";
+  const estado = getReservationPublicStatusLabel(reserva);
+  const codigo = reserva.codigo || "Sin código";
+  const lastMove = getVisibleReservationHistory(reserva);
+
+  lastClientReservationPublicSummary = buildClientReservationPublicSummary(reserva);
+  clientReservationResult.classList.remove("not-found");
+  clientReservationResult.classList.add("found");
+
+  clientReservationResult.innerHTML = `
+    <span class="client-reservation-status-pill">${estado}</span>
+    <h3>${title}</h3>
+    <p>Estos son los datos públicos de tu solicitud. Si aparece pendiente, aún falta la confirmación manual de Alaya.</p>
+    <ul class="client-reservation-public-list">
+      <li><b>Código</b><span>${codigo}</span></li>
+      <li><b>Estado</b><span>${estado}</span></li>
+      <li><b>Fecha</b><span>${fecha || "Pendiente"}</span></li>
+      <li><b>Hora</b><span>${hora || "Pendiente"}</span></li>
+      <li><b>Último movimiento</b><span>${lastMove ? `${lastMove.detalle}` : "Solicitud registrada"}</span></li>
+    </ul>
+    <div class="client-reservation-result-actions">
+      <button class="btn btn-primary" type="button" onclick="copyClientReservationPublicSummary()">Copiar resumen</button>
+      <a class="btn btn-secondary" href="#contacto-alaya">Contactar</a>
+    </div>
+  `;
+}
+
+function handleClientReservationLookup(event) {
+  event?.preventDefault?.();
+
+  const code = clientLookupCode?.value || "";
+  const contact = clientLookupContact?.value || "";
+
+  if (!code.trim() || !contact.trim()) {
+    if (typeof showToast === "function") showToast("Añade código y contacto.");
+    return;
+  }
+
+  const reserva = findClientReservationByCodeAndContact(code, contact);
+  renderClientReservationResult(reserva);
+}
+
+function copyClientReservationPublicSummary() {
+  if (!lastClientReservationPublicSummary) return;
+  if (typeof copyText === "function") copyText(lastClientReservationPublicSummary);
+  else navigator.clipboard?.writeText(lastClientReservationPublicSummary);
+  if (typeof showToast === "function") showToast("Resumen de reserva copiado.");
+}
+
+clientReservationLookupForm?.addEventListener("submit", handleClientReservationLookup);
+window.copyClientReservationPublicSummary = copyClientReservationPublicSummary;
+
+
+
+// v8.4 Confirmación Admin Obligatoria Pro
+function isReservationConfirmedByAdmin(reserva) {
+  return Boolean(reserva?.confirmacionAdmin) || reserva?.estado === "Confirmada";
+}
+
+function getReservationClientExplanation(reserva) {
+  if (!reserva) return "";
+  if (reserva.estado === "Cancelada") return "Esta solicitud aparece cancelada. Contacta con Alaya si necesitas más información.";
+  if (isReservationConfirmedByAdmin(reserva)) return "Tu cita ha sido confirmada por Alaya.";
+  return "Tu solicitud está recibida, pero todavía pendiente de confirmación por Alaya.";
+}
+
+
+
+// v8.5 Centro de Confirmaciones Admin Pro
+const confirmPendingCount = document.querySelector("#confirmPendingCount");
+const confirmConfirmedCount = document.querySelector("#confirmConfirmedCount");
+const confirmCancelledCount = document.querySelector("#confirmCancelledCount");
+const confirmAdminFilter = document.querySelector("#confirmAdminFilter");
+const confirmAdminSearch = document.querySelector("#confirmAdminSearch");
+const copyPendingConfirmationsBtn = document.querySelector("#copyPendingConfirmationsBtn");
+const copyConfirmationProcessBtn = document.querySelector("#copyConfirmationProcessBtn");
+const refreshConfirmationsBtn = document.querySelector("#refreshConfirmationsBtn");
+const confirmationsAdminList = document.querySelector("#confirmationsAdminList");
+
+function getConfirmationState(reserva) {
+  if (!reserva) return "pendiente";
+  if (reserva.estado === "Cancelada") return "cancelada";
+  if (reserva.confirmacionAdmin || reserva.estado === "Confirmada") return "confirmada";
+  return "pendiente";
+}
+
+function getConfirmationFilteredReservations() {
+  const filter = confirmAdminFilter?.value || "pendientes";
+  const q = (confirmAdminSearch?.value || "").trim().toLowerCase();
+
+  return (reservas || []).filter(reserva => {
+    const state = getConfirmationState(reserva);
+    const matchesFilter =
+      filter === "todas" ||
+      (filter === "pendientes" && state === "pendiente") ||
+      (filter === "confirmadas" && state === "confirmada") ||
+      (filter === "canceladas" && state === "cancelada");
+
+    const haystack = [
+      reserva.codigo,
+      reserva.nombre,
+      reserva.email,
+      reserva.telefono,
+      reserva.servicio,
+      reserva.eventoTitulo,
+      reserva.fecha,
+      reserva.hora,
+      reserva.estado
+    ].join(" ").toLowerCase();
+
+    return matchesFilter && (!q || haystack.includes(q));
+  }).sort((a, b) => {
+    const stateA = getConfirmationState(a);
+    const stateB = getConfirmationState(b);
+    const order = { pendiente: 0, confirmada: 1, cancelada: 2 };
+    return (order[stateA] ?? 9) - (order[stateB] ?? 9) || String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+  });
+}
+
+function renderConfirmationsAdminCenter() {
+  if (!confirmationsAdminList) return;
+
+  const all = reservas || [];
+  const pending = all.filter(reserva => getConfirmationState(reserva) === "pendiente").length;
+  const confirmed = all.filter(reserva => getConfirmationState(reserva) === "confirmada").length;
+  const cancelled = all.filter(reserva => getConfirmationState(reserva) === "cancelada").length;
+
+  if (confirmPendingCount) confirmPendingCount.textContent = pending;
+  if (confirmConfirmedCount) confirmConfirmedCount.textContent = confirmed;
+  if (confirmCancelledCount) confirmCancelledCount.textContent = cancelled;
+
+  const list = getConfirmationFilteredReservations();
+
+  if (!list.length) {
+    confirmationsAdminList.innerHTML = `<div class="confirmations-empty">No hay reservas en esta bandeja.</div>`;
+    return;
+  }
+
+  confirmationsAdminList.innerHTML = list.map(reserva => {
+    const state = getConfirmationState(reserva);
+    const title = reserva.eventoTitulo || reserva.servicio || "Reserva Alaya";
+    const fecha = reserva.eventoFecha || reserva.fecha || "Pendiente";
+    const hora = reserva.eventoHora || reserva.hora || "Pendiente";
+    const statusLabel = state === "pendiente"
+      ? "Pendiente de confirmación"
+      : state === "confirmada"
+        ? "Confirmada por admin"
+        : "Cancelada";
+
+    return `
+      <article class="confirmation-card-admin ${state === "pendiente" ? "pending" : state === "confirmada" ? "confirmed" : "cancelled"}">
+        <div class="confirmation-card-header">
+          <div>
+            <h5>${title}</h5>
+            <p>${reserva.nombre || "Cliente"} · ${reserva.codigo || "Sin código"}</p>
+          </div>
+          <span class="confirmation-status-pill ${state === "confirmada" ? "confirmed" : state === "cancelada" ? "cancelled" : ""}">${statusLabel}</span>
+        </div>
+        <ul>
+          <li><b>Fecha</b><br>${fecha}</li>
+          <li><b>Hora</b><br>${hora}</li>
+          <li><b>Contacto</b><br>${reserva.email || reserva.telefono || "No indicado"}</li>
+          <li><b>Servicio</b><br>${title}</li>
+        </ul>
+        <small>${state === "pendiente" ? "Revisar disponibilidad antes de confirmar." : state === "confirmada" ? "Reserva confirmada manualmente." : "Reserva cancelada."}</small>
+        <div class="confirmation-actions">
+          ${state === "pendiente" ? `<button class="btn btn-primary" type="button" onclick="confirmarReservaDesdeCentro('${reserva.id}')">Confirmar y copiar mensaje</button>` : ""}
+          ${state !== "cancelada" ? `<button class="btn btn-secondary" type="button" onclick="cancelarReservaDesdeCentro('${reserva.id}')">Cancelar y copiar mensaje</button>` : ""}
+          <button class="btn btn-secondary" type="button" onclick="copiarRevisionReserva('${reserva.id}')">Copiar revisión</button>
+          <button class="btn btn-secondary" type="button" onclick="editarReserva('${reserva.id}')">Abrir ficha</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+async function confirmarReservaDesdeCentro(id) {
+  if (typeof confirmarReservaAdmin === "function") {
+    await confirmarReservaAdmin(id);
+  } else {
+    cambiarEstadoReserva(id, "Confirmada");
+  }
+  renderConfirmationsAdminCenter();
+}
+
+async function cancelarReservaDesdeCentro(id) {
+  if (!requireAdminAccess("cancelar reservas")) return;
+  cambiarEstadoReserva(id, "Cancelada");
+  const reserva = reservas.find(item => item.id === id);
+  if (reserva) {
+    await copyTextToClipboard(buildClientMessage(reserva, "cancelacion"), "Reserva cancelada. Mensaje copiado.");
+  }
+  renderConfirmationsAdminCenter();
+}
+
+async function copiarRevisionReserva(id) {
+  if (!requireAdminAccess("consultar panel")) return;
+  const reserva = reservas.find(item => item.id === id);
+  if (!reserva) return;
+
+  const text = `Revisión de solicitud Alaya
+
+Código: ${reserva.codigo || "Sin código"}
+Cliente: ${reserva.nombre || "Cliente"}
+Servicio: ${reserva.eventoTitulo || reserva.servicio || "Reserva Alaya"}
+Fecha: ${reserva.eventoFecha || reserva.fecha || "Pendiente"}
+Hora: ${reserva.eventoHora || reserva.hora || "Pendiente"}
+Contacto: ${reserva.email || reserva.telefono || "No indicado"}
+
+Estado actual: ${getReservationPublicStatusLabel(reserva)}
+Acción pendiente: revisar disponibilidad y confirmar o cancelar manualmente.`;
+
+  await copyTextToClipboard(text, "Revisión copiada.");
+}
+
+function buildPendingConfirmationsReport() {
+  const pending = (reservas || []).filter(reserva => getConfirmationState(reserva) === "pendiente");
+  if (!pending.length) return "No hay reservas pendientes de confirmación.";
+
+  return `Reservas pendientes de confirmación · Alaya
+
+${pending.map((reserva, index) => `${index + 1}. ${reserva.codigo || "Sin código"} · ${reserva.nombre || "Cliente"} · ${reserva.eventoTitulo || reserva.servicio || "Reserva"} · ${reserva.eventoFecha || reserva.fecha || "Fecha pendiente"} ${reserva.eventoHora || reserva.hora || ""}`).join("\n")}
+
+Recordatorio: ninguna de estas reservas está confirmada hasta que el administrador pulse Confirmar reserva.`;
+}
+
+async function copyPendingConfirmationsReport() {
+  if (!requireAdminAccess("consultar panel")) return;
+  await copyTextToClipboard(buildPendingConfirmationsReport(), "Informe de pendientes copiado.");
+}
+
+async function copyConfirmationProcess() {
+  if (!requireAdminAccess("consultar panel")) return;
+  const text = `Protocolo de confirmación Alaya
+
+1. Revisar nueva solicitud.
+2. Comprobar disponibilidad real.
+3. Si hay disponibilidad, pulsar Confirmar y copiar mensaje.
+4. Enviar el mensaje al cliente.
+5. Si no hay disponibilidad, cancelar o proponer alternativa.
+6. No considerar confirmada ninguna cita sin confirmación manual del administrador.`;
+  await copyTextToClipboard(text, "Protocolo copiado.");
+}
+
+confirmAdminFilter?.addEventListener("change", renderConfirmationsAdminCenter);
+confirmAdminSearch?.addEventListener("input", renderConfirmationsAdminCenter);
+copyPendingConfirmationsBtn?.addEventListener("click", copyPendingConfirmationsReport);
+copyConfirmationProcessBtn?.addEventListener("click", copyConfirmationProcess);
+refreshConfirmationsBtn?.addEventListener("click", renderConfirmationsAdminCenter);
+
+window.renderConfirmationsAdminCenter = renderConfirmationsAdminCenter;
+window.confirmarReservaDesdeCentro = confirmarReservaDesdeCentro;
+window.cancelarReservaDesdeCentro = cancelarReservaDesdeCentro;
+window.copiarRevisionReserva = copiarRevisionReserva;
+
+// Re-render center after common admin actions.
+const originalRenderAdminReservasV85 = window.renderAdminReservas;
+if (typeof originalRenderAdminReservasV85 === "function") {
+  window.renderAdminReservas = function(...args) {
+    const result = originalRenderAdminReservasV85.apply(this, args);
+    setTimeout(renderConfirmationsAdminCenter, 0);
+    return result;
+  };
+}
+
+setTimeout(renderConfirmationsAdminCenter, 600);

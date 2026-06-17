@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Acceso administrador · Alaya Holistics</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Acceso interno administrador de Alaya Holistics.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="modern-ui astral-global-theme admin-entry-page">
+  <div class="astral-starfield" aria-hidden="true"></div>
+
+  <main class="admin-entry-main">
+    <section class="admin-entry-card">
+      <img src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics">
+      <span>Zona administrador</span>
+      <h1>Acceso interno Alaya</h1>
+      <p>
+        Esta entrada es solo para gestión interna: reservas, agenda, servicios, productos,
+        cartas astrales, backups, métricas, SEO, calidad, publicación y mantenimiento.
+      </p>
+
+      <div class="admin-entry-actions">
+        <a class="btn btn-primary" href="index.html#admin">Abrir panel administrador</a>
+        <a class="btn btn-secondary" href="manual-admin.html">Manual administrador</a>
+        <a class="btn btn-secondary" href="index.html">Volver a la web de clientes</a>
+      </div>
+
+      <div class="admin-entry-warning">
+        <strong>Separación clara:</strong>
+        <p>
+          La web principal queda limpia para clientes. Las herramientas internas deben gestionarse desde esta entrada o desde el enlace directo con <code>#admin</code>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>

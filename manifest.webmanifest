@@ -3,9 +3,9 @@
   "short_name": "Alaya",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#090510",
-  "theme_color": "#180b25",
-  "description": "Tarot, Reiki, Herbolario, Talleres y Reservas",
+  "background_color": "#070411",
+  "theme_color": "#070411",
+  "description": "Alaya Holistics: reservas, herbolario, astrología, talleres y contacto en modo app.",
   "icons": [
     {
       "src": "assets/icon-192.png",
@@ -16,6 +16,38 @@
       "src": "assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "categories": [
+    "lifestyle",
+    "productivity"
+  ],
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "shortcuts": [
+    {
+      "name": "Reservar",
+      "short_name": "Reservar",
+      "url": "./#reservas",
+      "description": "Abrir reservas"
+    },
+    {
+      "name": "Servicios",
+      "short_name": "Servicios",
+      "url": "./#servicios",
+      "description": "Ver servicios"
+    },
+    {
+      "name": "Herbolario",
+      "short_name": "Herbolario",
+      "url": "./#herbolario",
+      "description": "Ver catálogo"
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "url": "./#contacto-alaya",
+      "description": "Contactar con Alaya"
     }
   ]
 }

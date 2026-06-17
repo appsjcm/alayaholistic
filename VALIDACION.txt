@@ -1,5 +1,7 @@
-app.js: OK
+js/app.js: OK
 
-cloud-adapter.js: OK
 
-backend-config.js: OK
+js/cloud-adapter.js: OK
+
+
+js/backend-config.js: OK

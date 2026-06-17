@@ -10,16 +10,67 @@
   <meta property="og:description" content="Tarot, Reiki, Herbolario, talleres y reservas con cita previa.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/icon-512.png">
-  <title>Alaya Holistics · Tarot, Reiki y Herbolario</title>
+  <title>Alaya Holistics · Reservas, Herbolario y Astrología</title>
 
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="css/styles.css">
+
+  <meta name="description" content="Alaya Holistics: reservas con cita previa, tarot, cartas, reiki, talleres, Alaya Herbolario y Alaya Astrología con diseño astral premium.">
+  <meta name="keywords" content="Alaya Holistics, tarot, reiki, herbolario, astrología, carta astral, talleres, reservas">
+  <meta name="theme-color" content="#070411">
+  <meta name="apple-mobile-web-app-title" content="Alaya Holistics">
+  <meta name="application-name" content="Alaya Holistics">
+  <meta property="og:title" content="Alaya Holistics">
+  <meta property="og:description" content="Universo holístico con servicios, talleres, herbolario, astrología y reservas con cita previa.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logos/alaya-holistics-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json" id="alayaStructuredData">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Alaya Holistics",
+    "description": "Servicios holísticos, orientación simbólica, herbolario, astrología y talleres con cita previa.",
+    "url": ".",
+    "image": "assets/logos/alaya-holistics-logo.png",
+    "areaServed": "España",
+    "sameAs": [],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tarot intuitivo" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reiki" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Herbolario" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carta astral" } }
+    ]
+  }
+  </script>
+  <!-- Web Pública Pro -->
+
 </head>
 
-<body class="modern-ui">
-  <header class="site-header" id="top">
+<body class="modern-ui astral-global-theme">
+
+  <div class="global-notice-banner hidden" id="globalNoticeBanner" role="status" aria-live="polite">
+    <div class="global-notice-inner">
+      <span id="globalNoticeType">Aviso</span>
+      <strong id="globalNoticeTitle">Alaya Holistics</strong>
+      <p id="globalNoticeMessage">Aviso público configurable desde admin.</p>
+      <a id="globalNoticeCta" href="#reservas">Ver más</a>
+      <button id="closeGlobalNoticeBtn" type="button" aria-label="Cerrar aviso">×</button>
+    </div>
+  </div>
+
+  <a class="skip-to-content" href="#contenido">Saltar al contenido</a>
+  <div class="astral-starfield" id="astralStarfield" aria-hidden="true"></div>
+  <a class="brand brand-with-logo" href="#inicio" aria-label="Ir al inicio de Alaya Holistics">
+        <img class="brand-logo-img" loading="eager" decoding="async" src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics">
+        <div>
+          <strong>Alaya</strong>
+          <small>Holistics</small>
+        </div>
+      </a>
+<header class="site-header" id="top">
     <nav class="nav">
       <a class="brand" href="#top" aria-label="Ir al inicio">
         <img src="assets/icon-192.png" alt="" class="brand-icon">
@@ -32,20 +83,64 @@
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
 
       <div class="nav-links" id="navLinks">
+        <a href="#sobre-alaya">Sobre Alaya</a>
+        <a href="#experiencia-cliente">Qué hacer</a>
+        <a href="#selector-cliente">Selector</a>
         <a href="#servicios">Servicios</a>
-        <a href="#reservas">Reservas</a>
+        <a href="#herbolario">Herbolario</a>
         <a href="#eventos">Talleres</a>
-        <a href="#herbolario">Alaya Herbolario</a>
-        <a href="#contacto">Contacto</a>
-        <button class="admin-mini-btn" id="openAdminBtnTop">Admin</button>
+        <a href="#astral-ia">Astrología</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#pre-reserva">Pre-reserva</a>
+        <a href="#confirmacion-reserva">Confirmación</a>
+        <a href="#consulta-reserva">Mi reserva</a>
+        <a href="#como-reservar">Cómo reservar</a>
+        <a href="#contacto-alaya">Contacto</a>
+        <a href="#ayuda-alaya">Ayuda</a>
+        <a href="guia-clientes.html">Guía clientes</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="contenido">
+
+    <section class="section role-client-intro" id="zona-clientes">
+      <div class="role-client-card">
+        <span>Zona clientes</span>
+        <div>
+          <h2>Bienvenida/o a Alaya Holistics</h2>
+          <p>
+            Esta parte pública está pensada para clientes: descubrir servicios, consultar herbolario,
+            ver talleres, reservar cita, contactar y resolver dudas básicas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section client-clean-shortcuts" id="atajos-clientes">
+      <div class="client-clean-shortcuts-card">
+        <span>Atajos cliente</span>
+        <nav aria-label="Atajos rápidos para clientes">
+          <a href="#selector-cliente">Elegir camino</a>
+          <a href="#reservas">Reservar cita</a>
+          <a href="#pre-reserva">Preparar mensaje</a>
+          <a href="#consulta-reserva">Mi reserva</a>
+          <a href="#como-reservar">Cómo reservar</a>
+          <a href="#servicios">Ver servicios</a>
+          <a href="#herbolario">Herbolario</a>
+          <a href="#eventos">Talleres</a>
+          <a href="#contacto-alaya">Contactar</a>
+          <a href="guia-clientes.html">Guía</a>
+        </nav>
+      </div>
+    </section>
+
+
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-content">
+        <div class="astral-hero-seal" id="astralHeroSeal">☽ ✦ ♈︎</div>
+        <div class="public-status-ribbon">Reservas con cita previa · Horas concertadas</div>
         <div class="hero-kicker-row">
           <p class="eyebrow">Tarot · Reiki · Herbolario · Energía</p>
           <span class="live-pill">Agenda abierta</span>
@@ -84,6 +179,55 @@
         <p>Reserva por WhatsApp o email. Elige servicio, horario preferido y deja tu mensaje.</p>
         <a href="#reservas" class="btn btn-glass">Quiero reservar</a>
       </div>
+
+      <div class="public-channels-panel" id="canales-alaya">
+        <div class="public-channel-head">
+          <div>
+            <p class="eyebrow">Canales Alaya</p>
+            <h3>Contacto, ubicación y redes</h3>
+            <p>
+              Datos públicos configurables desde el panel admin para que el cliente siempre sepa cómo contactar.
+            </p>
+          </div>
+          <div class="public-channel-logo">
+            <img loading="lazy" decoding="async" src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics">
+          </div>
+        </div>
+
+        <div class="public-channel-grid">
+          <article>
+            <strong>WhatsApp</strong>
+            <span id="publicWhatsappLabel">Configurar en admin</span>
+            <a id="publicWhatsappLink" href="#reservas">Contactar</a>
+          </article>
+          <article>
+            <strong>Email</strong>
+            <span id="publicEmailLabel">Configurar en admin</span>
+            <a id="publicEmailLink" href="#reservas">Escribir</a>
+          </article>
+          <article>
+            <strong>Dirección / zona</strong>
+            <span id="publicAddressLabel">Horas concertadas</span>
+            <a id="publicMapLink" href="#contacto-alaya">Ver mapa</a>
+          </article>
+          <article>
+            <strong>Horario</strong>
+            <span id="publicHoursLabel">Con cita previa</span>
+            <a href="#reservas">Reservar</a>
+          </article>
+        </div>
+
+        <div class="public-social-links">
+          <a id="publicInstagramLink" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a id="publicTikTokLink" href="#" target="_blank" rel="noopener">TikTok</a>
+          <a id="publicYoutubeLink" href="#" target="_blank" rel="noopener">YouTube</a>
+        </div>
+
+        <p class="public-notice" id="publicNoticeText">
+          Atención con cita previa. La disponibilidad final se confirma por mensaje.
+        </p>
+      </div>
+
     </section>
 
     <section class="section intro-section">
@@ -119,6 +263,1001 @@
 
     <div class="cosmic-divider" aria-hidden="true"></div>
 
+    
+    <section class="section astral-about-section" id="sobre-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Sobre Alaya</p>
+        <h2>Un universo holístico con identidad propia</h2>
+        <p>
+          Alaya une orientación, energía, herbolario y astrología en una experiencia visual coherente:
+          cercana, mística, cuidada y preparada para reservas, talleres y consultas.
+        </p>
+      </div>
+
+      <div class="astral-about-grid">
+        <article class="astral-about-card large">
+          <span>☾</span>
+          <h3>Alaya Holistics</h3>
+          <p>
+            El corazón de la web: tarot, cartas, reiki, cuantim, acompañamiento,
+            talleres y experiencias de bienestar con cita previa.
+          </p>
+          <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+        </article>
+
+        <article class="astral-about-card">
+          <span>🌿</span>
+          <h3>Alaya Herbolario</h3>
+          <p>
+            Catálogo natural para productos, packs, velas, minerales, infusiones y consulta por WhatsApp.
+          </p>
+          <a class="btn btn-secondary" href="#herbolario">Ver herbolario</a>
+        </article>
+
+        <article class="astral-about-card">
+          <span>♈</span>
+          <h3>Alaya Astrología</h3>
+          <p>
+            Módulo astral integrado para carta astral, interpretación y experiencia cósmica.
+          </p>
+          <a class="btn btn-secondary" href="#astral-ia">Abrir Astrología</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section astral-method-section" id="metodo-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Método Alaya</p>
+        <h2>Una experiencia clara antes, durante y después</h2>
+        <p>
+          La web queda preparada para guiar al cliente desde la primera visita hasta la reserva final.
+        </p>
+      </div>
+
+      <div class="astral-method-steps">
+        <article>
+          <b>01</b>
+          <strong>Explorar</strong>
+          <span>El cliente descubre servicios, talleres, herbolario y Alaya Astrología con secciones separadas.</span>
+        </article>
+        <article>
+          <b>02</b>
+          <strong>Elegir</strong>
+          <span>Filtros, fichas ampliadas, ejemplos y categorías ayudan a encontrar lo que necesita.</span>
+        </article>
+        <article>
+          <b>03</b>
+          <strong>Reservar</strong>
+          <span>Formulario, WhatsApp, disponibilidad, calendario, bloqueos y agenda inteligente.</span>
+        </article>
+        <article>
+          <b>04</b>
+          <strong>Gestionar</strong>
+          <span>Panel admin con roles, auditoría, notificaciones, productos, talleres y ajustes visuales.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section astral-trust-section" id="confianza">
+      <div class="section-header">
+        <p class="eyebrow">Confianza</p>
+        <h2>Mensajes claros para una web más profesional</h2>
+        <p>
+          Testimonios de ejemplo y preguntas frecuentes para reforzar la claridad de la experiencia.
+        </p>
+      </div>
+
+      <div class="astral-testimonials">
+        <article>
+          <p>“Me ayudó a ordenar mis ideas y entender mejor qué necesitaba trabajar.”</p>
+          <strong>Consulta de orientación</strong>
+        </article>
+        <article>
+          <p>“La reserva fue fácil y la información del taller estaba muy clara.”</p>
+          <strong>Taller / curso</strong>
+        </article>
+        <article>
+          <p>“La sección de herbolario se entiende muy bien y pude consultar por WhatsApp.”</p>
+          <strong>Alaya Herbolario</strong>
+        </article>
+      </div>
+
+      <div class="astral-faq">
+        <details>
+          <summary>¿Las consultas son con cita previa?</summary>
+          <p>Sí. La web está pensada para trabajar con reservas y horas concertadas.</p>
+        </details>
+        <details>
+          <summary>¿Puedo reservar talleres y cursos?</summary>
+          <p>Sí. Cada actividad puede tener fecha, hora, precio, nivel, plazas y ficha ampliada.</p>
+        </details>
+        <details>
+          <summary>¿El herbolario es una tienda online?</summary>
+          <p>De momento funciona como catálogo con consulta por WhatsApp, sin pago online.</p>
+        </details>
+        <details>
+          <summary>¿Alaya Astrología está dentro de la web?</summary>
+          <p>Sí. Está integrado como área interna de administración.</p>
+        </details>
+      </div>
+    </section>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <section class="section client-experience-section" id="experiencia-cliente">
+      <div class="section-header">
+        <p class="eyebrow">Experiencia cliente</p>
+        <h2>Qué puedes hacer en Alaya Holistics</h2>
+        <p>
+          Todo está pensado para que encuentres rápido el servicio, producto o actividad que necesitas.
+        </p>
+      </div>
+
+      <div class="client-experience-grid">
+        <article>
+          <span>01</span>
+          <h3>Consultar servicios</h3>
+          <p>Lecturas, reiki, astrología, acompañamiento holístico y sesiones personalizadas.</p>
+          <a href="#servicios">Ver servicios</a>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Reservar cita previa</h3>
+          <p>Elige servicio, fecha y hora. Alaya revisa la solicitud y confirma la cita.</p>
+          <a href="#reservas">Reservar</a>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Explorar herbolario</h3>
+          <p>Consulta productos, packs, velas, minerales, infusiones y artículos de bienestar.</p>
+          <a href="#herbolario">Ver herbolario</a>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Apuntarte a talleres</h3>
+          <p>Descubre cursos, actividades, plazas disponibles y fechas importantes.</p>
+          <a href="#eventos">Ver talleres</a>
+        </article>
+      </div>
+    </section>
+
+    
+    <section class="section client-selector-section" id="selector-cliente">
+      <div class="section-header">
+        <p class="eyebrow">Selector cliente</p>
+        <h2>Te ayudamos a encontrar tu camino</h2>
+        <p>
+          Elige lo que más se parece a lo que necesitas y Alaya te mostrará una ruta recomendada.
+        </p>
+      </div>
+
+      <div class="client-selector-layout">
+        <div class="client-selector-options" role="list" aria-label="Opciones para clientes">
+          <button class="client-selector-option active" type="button" data-client-route="claridad">
+            <span>✦</span>
+            <strong>Necesito claridad</strong>
+            <small>Cartas, tarot o lectura simbólica</small>
+          </button>
+          <button class="client-selector-option" type="button" data-client-route="energia">
+            <span>☼</span>
+            <strong>Quiero equilibrar energía</strong>
+            <small>Reiki o acompañamiento energético</small>
+          </button>
+          <button class="client-selector-option" type="button" data-client-route="astral">
+            <span>♈</span>
+            <strong>Me interesa mi carta astral</strong>
+            <small>Astrología y lectura natal</small>
+          </button>
+          <button class="client-selector-option" type="button" data-client-route="herbolario">
+            <span>🌿</span>
+            <strong>Busco productos</strong>
+            <small>Herbolario, packs o artículos</small>
+          </button>
+          <button class="client-selector-option" type="button" data-client-route="talleres">
+            <span>☽</span>
+            <strong>Quiero aprender</strong>
+            <small>Talleres, cursos y actividades</small>
+          </button>
+          <button class="client-selector-option" type="button" data-client-route="duda">
+            <span>?</span>
+            <strong>Tengo dudas</strong>
+            <small>Contacto directo con Alaya</small>
+          </button>
+        </div>
+
+        <div class="client-selector-result" id="clientSelectorResult">
+          <span id="clientSelectorBadge">Recomendación</span>
+          <h3 id="clientSelectorTitle">Lectura de cartas o tarot intuitivo</h3>
+          <p id="clientSelectorText">
+            Si necesitas claridad sobre una situación, puedes empezar por una lectura simbólica o una consulta personalizada.
+          </p>
+          <ul id="clientSelectorSteps">
+            <li>Revisa los servicios disponibles.</li>
+            <li>Elige el tipo de lectura.</li>
+            <li>Solicita reserva con cita previa.</li>
+          </ul>
+          <div class="client-selector-actions">
+            <a class="btn btn-primary" id="clientSelectorMainLink" href="#servicios">Ver servicios</a>
+            <button class="btn btn-secondary" id="copyClientSelectorMessageBtn" type="button">Copiar mensaje</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section client-path-section" id="elige-camino">
+      <div class="section-header">
+        <p class="eyebrow">Elige tu camino</p>
+        <h2>¿Qué necesitas hoy?</h2>
+        <p>
+          Accesos rápidos para ir directamente a la zona adecuada.
+        </p>
+      </div>
+
+      <div class="client-path-grid">
+        <a href="#asistente-alaya">
+          <strong>No sé qué elegir</strong>
+          <span>Usar asistente</span>
+        </a>
+        <a href="#servicios">
+          <strong>Quiero una consulta</strong>
+          <span>Ver servicios</span>
+        </a>
+        <a href="#astral-ia">
+          <strong>Me interesa la carta astral</strong>
+          <span>Astrología</span>
+        </a>
+        <a href="#herbolario">
+          <strong>Busco productos</strong>
+          <span>Herbolario</span>
+        </a>
+        <a href="#eventos">
+          <strong>Quiero aprender</strong>
+          <span>Talleres</span>
+        </a>
+        <a href="#contacto-alaya">
+          <strong>Tengo una duda</strong>
+          <span>Contactar</span>
+        </a>
+      </div>
+    </section>
+
+    
+    
+    <section class="section client-confirmation-notice-section" id="confirmacion-reserva">
+      <div class="client-confirmation-notice">
+        <span>Importante</span>
+        <div>
+          <h2>La reserva necesita confirmación de Alaya</h2>
+          <p>
+            Al enviar una solicitud, la cita queda <strong>pendiente de confirmación</strong>.
+            Alaya revisará disponibilidad y te confirmará por mensaje.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#reservas">Solicitar reserva</a>
+      </div>
+    </section>
+
+
+    <section class="section client-prebooking-section" id="pre-reserva">
+      <div class="section-header">
+        <p class="eyebrow">Pre-reserva guiada</p>
+        <h2>Prepara tu mensaje antes de reservar</h2>
+        <p>
+          Rellena unos datos básicos y la web generará un mensaje claro para enviar a Alaya.
+        </p>
+      </div>
+
+      <div class="client-prebooking-layout">
+        <form class="client-prebooking-form" id="clientPrebookingForm">
+          <label>
+            Nombre
+            <input id="prebookingName" type="text" placeholder="Tu nombre">
+          </label>
+
+          <label>
+            ¿Qué necesitas?
+            <select id="prebookingReason">
+              <option value="Lectura de cartas o tarot">Lectura de cartas o tarot</option>
+              <option value="Reiki o sesión energética">Reiki o sesión energética</option>
+              <option value="Consulta de carta astral">Consulta de carta astral</option>
+              <option value="Producto de herbolario">Producto de herbolario</option>
+              <option value="Taller o curso">Taller o curso</option>
+              <option value="No sé qué elegir">No sé qué elegir</option>
+            </select>
+          </label>
+
+          <label>
+            Preferencia de horario
+            <select id="prebookingTime">
+              <option value="Me va bien por la mañana">Me va bien por la mañana</option>
+              <option value="Me va bien por la tarde">Me va bien por la tarde</option>
+              <option value="Prefiero fin de semana">Prefiero fin de semana</option>
+              <option value="Me adapto a la disponibilidad">Me adapto a la disponibilidad</option>
+            </select>
+          </label>
+
+          <label>
+            Canal de contacto preferido
+            <select id="prebookingContact">
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Email">Email</option>
+              <option value="Llamada">Llamada</option>
+            </select>
+          </label>
+
+          <label class="prebooking-full">
+            Comentario opcional
+            <textarea id="prebookingComment" rows="4" placeholder="Ejemplo: me interesa saber disponibilidad, precio o qué servicio me recomiendas..."></textarea>
+          </label>
+        </form>
+
+        <div class="client-prebooking-result">
+          <span>Mensaje preparado</span>
+          <h3>Resumen para Alaya</h3>
+          <textarea id="prebookingMessageOutput" rows="9" readonly></textarea>
+          <div class="client-prebooking-actions">
+            <button class="btn btn-primary" id="copyPrebookingMessageBtn" type="button">Copiar mensaje</button>
+            <a class="btn btn-secondary" href="#reservas">Ir a reservas</a>
+            <a class="btn btn-secondary" href="#contacto-alaya">Contactar</a>
+          </div>
+          <p class="prebooking-note">
+            Este mensaje no confirma una cita automáticamente. La reserva queda pendiente hasta que Alaya la confirme.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    
+    <section class="section client-reservation-lookup-section" id="consulta-reserva">
+      <div class="section-header">
+        <p class="eyebrow">Consulta de reserva</p>
+        <h2>Consulta el estado de tu solicitud</h2>
+        <p>
+          Introduce tu código de reserva y tu email o teléfono para ver el estado guardado en este dispositivo.
+        </p>
+      </div>
+
+      <div class="client-reservation-lookup-layout">
+        <form class="client-reservation-lookup-form" id="clientReservationLookupForm">
+          <label>
+            Código de reserva
+            <input id="clientLookupCode" type="text" placeholder="Ejemplo: ALAYA-ABCDE" autocomplete="off">
+          </label>
+
+          <label>
+            Email o teléfono
+            <input id="clientLookupContact" type="text" placeholder="El contacto usado en la reserva" autocomplete="off">
+          </label>
+
+          <div class="lookup-actions">
+            <button class="btn btn-primary" id="clientLookupBtn" type="submit">Consultar estado</button>
+            <a class="btn btn-secondary" href="#contacto-alaya">No tengo el código</a>
+          </div>
+
+          <p class="lookup-note">
+            Por privacidad, solo se muestra información básica. Si necesitas cambios, contacta con Alaya.
+          </p>
+        </form>
+
+        <div class="client-reservation-result" id="clientReservationResult">
+          <span>Resultado</span>
+          <h3>Introduce tus datos</h3>
+          <p>
+            Aquí aparecerá el estado de tu solicitud si el código y el contacto coinciden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section client-booking-flow-section" id="como-reservar">
+      <div class="section-header">
+        <p class="eyebrow">Reserva clara</p>
+        <h2>Cómo funciona una reserva</h2>
+        <p>
+          El proceso es sencillo y con cita previa.
+        </p>
+      </div>
+
+      <div class="booking-flow-timeline">
+        <article>
+          <span>1</span>
+          <h3>Elige</h3>
+          <p>Escoge servicio, taller o consulta que te interesa.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Solicita</h3>
+          <p>Envía tu solicitud con fecha, hora y datos de contacto.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Espera confirmación</h3>
+          <p>Alaya revisa disponibilidad y confirma manualmente la cita por mensaje.</p>
+        </article>
+        <article>
+          <span>4</span>
+          <h3>Disfruta</h3>
+          <p>Acude a tu sesión, taller o consulta con todo preparado.</p>
+        </article>
+      </div>
+
+      <div class="client-before-booking">
+        <div>
+          <strong>Antes de reservar</strong>
+          <p>
+            Ten claro qué buscas, revisa el servicio y deja un contacto correcto para poder confirmar la cita.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#reservas">Ir a reservas</a>
+      </div>
+    </section>
+
+
+    <section class="section public-help-section" id="ayuda-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Centro de ayuda</p>
+        <h2>Guía rápida para usar Alaya Holistics</h2>
+        <p>
+          Encuentra respuestas de cliente sobre reservas, servicios, herbolario, talleres,
+          carta astral, contacto e instalación como app. Las guías internas quedan solo en admin.
+        </p>
+      </div>
+
+      <div class="public-help-search">
+        <span>?</span>
+        <input id="publicHelpSearchInput" type="search" placeholder="Buscar ayuda: reservar, herbolario, taller, carta astral, app...">
+      </div>
+
+      <div class="public-help-grid" id="publicHelpGrid"></div>
+
+      <div class="public-help-cta">
+        <div>
+          <strong>¿Aún tienes dudas?</strong>
+          <p>Contacta con Alaya y explica lo que necesitas para recibir orientación personalizada.</p>
+        </div>
+        <a class="btn btn-primary" href="#contacto-alaya">Contactar</a>
+        <a class="btn btn-secondary" href="guia-clientes.html">Guía clientes</a>
+      </div>
+    </section>
+
+
+    <section class="section public-maintenance-section" id="estado-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Estado de Alaya</p>
+        <h2>Información de lanzamiento, mantenimiento o disponibilidad</h2>
+        <p>
+          Esta zona muestra si la web está en preparación, lanzamiento, mantenimiento
+          o funcionamiento normal.
+        </p>
+      </div>
+
+      <div id="publicMaintenanceCard" class="public-maintenance-card">
+        <span id="publicMaintenanceModeLabel">Disponible</span>
+        <h3 id="publicMaintenanceTitle">Alaya Holistics está disponible</h3>
+        <p id="publicMaintenanceMessage">
+          Puedes navegar por la web, consultar servicios, reservar cita previa y contactar con Alaya.
+        </p>
+        <div class="public-maintenance-countdown" id="publicMaintenanceCountdown">Sin cuenta atrás activa</div>
+        <a id="publicMaintenanceCta" class="btn btn-primary" href="#reservas">Reservar</a>
+      </div>
+    </section>
+
+
+    <section class="section public-notice-section" id="avisos-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Avisos Alaya</p>
+        <h2>Información importante y novedades destacadas</h2>
+        <p>
+          Espacio para mensajes rápidos: horarios, talleres, reservas, campañas,
+          novedades de herbolario o consultas especiales.
+        </p>
+      </div>
+
+      <div id="publicNoticeCard" class="public-notice-card">
+        <span id="publicNoticeCardType">Aviso</span>
+        <h3 id="publicNoticeCardTitle">Sin aviso activo</h3>
+        <p id="publicNoticeCardMessage">
+          Cuando Alaya active un aviso desde admin, aparecerá aquí.
+        </p>
+        <a id="publicNoticeCardCta" class="btn btn-primary" href="#reservas">Reservar</a>
+      </div>
+    </section>
+
+
+    <section class="section public-quality-section" id="calidad-alaya" data-internal-admin-section="true">
+      <div class="public-quality-card">
+        <span>✓</span>
+        <div>
+          <p class="eyebrow">Calidad técnica</p>
+          <h2>Una web preparada para revisión, publicación y mejora continua</h2>
+          <p>
+            Alaya incluye herramientas internas para revisar rendimiento, enlaces,
+            accesibilidad básica y archivos críticos antes de publicar la web.
+          </p>
+          <div class="public-quality-badges">
+            <span>Auditoría local</span>
+            <span>Enlaces internos</span>
+            <span>Accesibilidad</span>
+            <span>Rendimiento</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-share-section" id="compartir-alaya">
+      <div class="public-share-card">
+        <span>↗</span>
+        <div>
+          <p class="eyebrow">Compartir Alaya</p>
+          <h2>Comparte la web o guarda el enlace para más tarde</h2>
+          <p>
+            Acceso rápido para copiar el enlace de Alaya, compartir por WhatsApp o volver a la zona de reservas.
+          </p>
+          <div class="public-share-actions">
+            <button id="copyPublicPageLinkBtn" class="btn btn-primary" type="button">Copiar enlace</button>
+            <button id="sharePublicPageBtn" class="btn btn-secondary" type="button">Compartir</button>
+            <a class="btn btn-secondary" href="#reservas">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-rc-section" id="version-alaya" data-internal-admin-section="true">
+      <div class="public-rc-card">
+        <span>✦</span>
+        <div>
+          <p class="eyebrow">Versión candidata</p>
+          <h2>Alaya Holistics v7.0 está lista para revisión final</h2>
+          <p>
+            Esta versión reúne web pública, reservas, herbolario, talleres, astrología,
+            admin avanzado, PWA, backup, accesibilidad y publicación estática.
+          </p>
+          <div class="public-rc-badges">
+            <span>v7.0</span>
+            <span>Release Candidate</span>
+            <span>GitHub Pages ready</span>
+            <span>PWA</span>
+            <span>Admin Pro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-publish-section" id="publicar-alaya" data-internal-admin-section="true">
+      <div class="public-publish-card">
+        <span>⌂</span>
+        <div>
+          <p class="eyebrow">Preparada para publicar</p>
+          <h2>Alaya ya está organizada para subirse a GitHub Pages</h2>
+          <p>
+            La web incluye archivos de soporte para publicación estática: página 404,
+            PWA, sitemap, robots, documentación y estructura lista para subir al repositorio.
+          </p>
+          <div class="public-publish-badges">
+            <span>GitHub Pages</span>
+            <span>PWA</span>
+            <span>404</span>
+            <span>Sitemap</span>
+            <span>.nojekyll</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-backup-section" id="backup-alaya" data-internal-admin-section="true">
+      <div class="public-backup-card">
+        <span>⬡</span>
+        <div>
+          <p class="eyebrow">Datos portables</p>
+          <h2>Alaya puede guardarse y moverse con copias locales</h2>
+          <p>
+            El panel admin incluye un centro de backup para exportar y restaurar la información local
+            cuando se quiera cambiar de navegador, ordenador o preparar una copia de seguridad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-pwa-section" id="instalar-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Alaya como app</p>
+        <h2>Instala la web en tu móvil u ordenador</h2>
+        <p>
+          Alaya Holistics está preparada como PWA: se puede abrir como app,
+          cargar más rápido y funcionar mejor incluso con conexión inestable.
+        </p>
+      </div>
+
+      <div class="public-pwa-card">
+        <div class="public-pwa-visual">
+          <img loading="lazy" decoding="async" src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics">
+          <span id="pwaInstallStatus">Comprobando instalación...</span>
+        </div>
+
+        <div class="public-pwa-content">
+          <h3>Acceso directo a Alaya</h3>
+          <p>
+            Puedes guardar la web en la pantalla de inicio y acceder más rápido a reservas,
+            servicios, herbolario, talleres y contacto.
+          </p>
+
+          <div class="public-pwa-benefits">
+            <span>Inicio rápido</span>
+            <span>Modo app</span>
+            <span>Offline básico</span>
+            <span>Diseño móvil</span>
+          </div>
+
+          <div class="public-pwa-actions">
+            <button id="installPwaMainBtn" class="btn btn-primary" type="button">Instalar app</button>
+            <button id="copyPwaInstructionsBtn" class="btn btn-secondary" type="button">Copiar instrucciones</button>
+          </div>
+
+          <p class="public-pwa-note" id="pwaInstallHint">
+            Si el botón no aparece, usa el menú del navegador y elige “Añadir a pantalla de inicio”.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-accessibility-section" id="accesibilidad-alaya">
+      <div class="public-accessibility-card">
+        <span>◐</span>
+        <div>
+          <p class="eyebrow">Accesibilidad y comodidad</p>
+          <h2>Una experiencia más cómoda para leer y navegar</h2>
+          <p>
+            La web incluye ajustes locales de tamaño de texto, contraste y reducción de movimiento
+            para mejorar la lectura desde móvil, tablet u ordenador.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-metrics-note-section" id="privacidad-metricas" data-internal-admin-section="true">
+      <div class="public-metrics-note-card">
+        <span>◇</span>
+        <div>
+          <p class="eyebrow">Métricas respetuosas</p>
+          <h2>Sin analítica externa en esta versión</h2>
+          <p>
+            La web puede registrar actividad local para que Alaya revise mejoras desde admin,
+            pero no envía analítica a plataformas externas en esta versión base.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-legal-trust-section" id="confianza-legal">
+      <div class="public-legal-card">
+        <div>
+          <p class="eyebrow">Confianza y claridad</p>
+          <h2>Información clara antes de reservar</h2>
+          <p>
+            Alaya presenta sus servicios como orientación simbólica, bienestar y acompañamiento.
+            La web incluye páginas base de aviso legal, privacidad y cookies para preparar el lanzamiento.
+          </p>
+        </div>
+        <div class="public-legal-links">
+          <a href="legal.html">Aviso legal</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-launch-ready-section" id="lista-para-lanzamiento">
+      <div class="public-launch-card">
+        <div>
+          <p class="eyebrow">Web preparada</p>
+          <h2>Alaya ya tiene base para publicar y crecer</h2>
+          <p>
+            Estructura pública, reservas, herbolario, talleres, identidad astral, PWA,
+            área admin y módulos internos preparados para seguir ampliando.
+          </p>
+        </div>
+        <div class="public-launch-badges">
+          <span>SEO básico</span>
+          <span>PWA</span>
+          <span>Reservas</span>
+          <span>Admin Pro</span>
+          <span>Privacidad astral</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-trust-section" id="confianza-digital">
+      <div class="section-header">
+        <p class="eyebrow">Experiencia web</p>
+        <h2>Una web preparada para crecer</h2>
+        <p>
+          Alaya queda organizada para explicar servicios, gestionar reservas,
+          mostrar productos, preparar talleres y trabajar con un área interna protegida.
+        </p>
+      </div>
+
+      <div class="public-trust-grid">
+        <article>
+          <span>✦</span>
+          <strong>Reservas claras</strong>
+          <p>Formulario, disponibilidad, agenda inteligente, bloqueos y mensajes preparados.</p>
+        </article>
+        <article>
+          <span>☾</span>
+          <strong>Área admin avanzada</strong>
+          <p>Roles, auditoría, notificaciones, cartas astrales, informes y seguimiento interno.</p>
+        </article>
+        <article>
+          <span>🌿</span>
+          <strong>Catálogo sin pago online</strong>
+          <p>Alaya Herbolario como escaparate visual con consulta directa por WhatsApp.</p>
+        </article>
+        <article>
+          <span>♈</span>
+          <strong>Identidad astral</strong>
+          <p>Diseño unificado con estilo cósmico premium para toda la web.</p>
+        </article>
+      </div>
+    </section>
+
+
+    
+    
+    
+    
+    
+    <section class="section public-assistant-pro-section" id="asistente-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Asistente Alaya</p>
+        <h2>¿No sabes por dónde empezar?</h2>
+        <p>
+          Elige lo que necesitas y la web te orienta hacia una sección, servicio o mensaje de contacto.
+        </p>
+      </div>
+
+      <div class="public-assistant-card">
+        <div class="assistant-question">
+          <span>✦</span>
+          <div>
+            <h3>¿Qué estás buscando hoy?</h3>
+            <p>Selecciona una opción para recibir una recomendación rápida.</p>
+          </div>
+        </div>
+
+        <div class="assistant-options" id="assistantOptions">
+          <button type="button" data-assistant-need="claridad">Necesito claridad</button>
+          <button type="button" data-assistant-need="energia">Quiero equilibrar energía</button>
+          <button type="button" data-assistant-need="astrologia">Me interesa mi carta astral</button>
+          <button type="button" data-assistant-need="herbolario">Busco productos naturales</button>
+          <button type="button" data-assistant-need="aprender">Quiero aprender / talleres</button>
+          <button type="button" data-assistant-need="personalizado">No sé qué elegir</button>
+        </div>
+
+        <div class="assistant-result" id="assistantResult">
+          <div class="assistant-result-icon">☾</div>
+          <div>
+            <strong>Elige una opción</strong>
+            <p>Te aparecerá una recomendación con acceso rápido y mensaje preparado.</p>
+            <div class="assistant-result-actions">
+              <a class="btn btn-primary" href="#reservas">Reservar</a>
+              <button id="copyAssistantMessageBtn" class="btn btn-secondary" type="button">Copiar mensaje</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-search-pro-section" id="buscar-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Buscar en Alaya</p>
+        <h2>Encuentra rápido servicios, talleres, herbolario y novedades</h2>
+        <p>
+          Un buscador global para que el cliente llegue antes a lo que necesita:
+          consultas, productos, cursos, astrología, blog y preguntas frecuentes.
+        </p>
+      </div>
+
+      <div class="public-search-box">
+        <div class="public-search-input-wrap">
+          <span>⌕</span>
+          <input id="publicGlobalSearchInput" type="search" placeholder="Buscar tarot, reiki, carta astral, taller, infusión, herbolario...">
+        </div>
+
+        <div class="public-search-chips" id="publicSearchChips">
+          <button type="button" data-search-chip="tarot">Tarot</button>
+          <button type="button" data-search-chip="reiki">Reiki</button>
+          <button type="button" data-search-chip="carta astral">Carta astral</button>
+          <button type="button" data-search-chip="herbolario">Herbolario</button>
+          <button type="button" data-search-chip="taller">Taller</button>
+          <button type="button" data-search-chip="reserva">Reserva</button>
+        </div>
+
+        <div class="public-search-hint">
+          Consejo: toca una etiqueta o escribe lo que buscas.
+        </div>
+      </div>
+
+      <div id="publicGlobalSearchResults" class="public-search-results"></div>
+      <div id="publicSearchEmpty" class="public-search-empty hidden">
+        <strong>No se encontraron resultados.</strong>
+        <p>Prueba con otra palabra o reserva una consulta personalizada.</p>
+        <a class="btn btn-primary" href="#reservas">Reservar consulta</a>
+      </div>
+    </section>
+
+
+    <section class="section public-news-pro-section" id="novedades-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Novedades Alaya</p>
+        <h2>Noticias, avisos y contenido para la comunidad</h2>
+        <p>
+          Un espacio editable desde admin para publicar novedades, talleres destacados,
+          artículos de bienestar, herbolario y astrología.
+        </p>
+      </div>
+
+      <div class="public-news-toolbar">
+        <button class="news-filter active" type="button" data-news-filter="Todos">Todos</button>
+        <button class="news-filter" type="button" data-news-filter="Novedad">Novedades</button>
+        <button class="news-filter" type="button" data-news-filter="Taller">Talleres</button>
+        <button class="news-filter" type="button" data-news-filter="Herbolario">Herbolario</button>
+        <button class="news-filter" type="button" data-news-filter="Astrología">Astrología</button>
+        <button class="news-filter" type="button" data-news-filter="Bienestar">Bienestar</button>
+      </div>
+
+      <div id="publicFeaturedNews" class="public-featured-news"></div>
+      <div id="publicNewsGrid" class="public-news-grid"></div>
+    </section>
+
+    <div class="modal hidden" id="newsDetailModal">
+      <div class="modal-card news-detail-card">
+        <button class="modal-close" id="closeNewsDetailBtn" type="button" aria-label="Cerrar">×</button>
+        <div id="newsDetailContent"></div>
+      </div>
+    </div>
+
+
+    <section class="section public-content-pro-section" id="opiniones-faq">
+      <div class="section-header">
+        <p class="eyebrow">Opiniones y dudas</p>
+        <h2>Confianza pública editable desde admin</h2>
+        <p>
+          Testimonios y preguntas frecuentes que Alaya puede actualizar cuando quiera desde el panel interno.
+        </p>
+      </div>
+
+      <div class="public-content-layout">
+        <div>
+          <div class="public-content-title-row">
+            <h3>Testimonios</h3>
+            <span id="publicTestimonialsCount">0 opiniones</span>
+          </div>
+          <div id="publicTestimonialsGrid" class="public-testimonials-grid"></div>
+        </div>
+
+        <div>
+          <div class="public-content-title-row">
+            <h3>Preguntas frecuentes</h3>
+            <span id="publicFaqCount">0 FAQs</span>
+          </div>
+          <div id="publicFaqList" class="public-faq-list"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section public-contact-pro-section" id="contacto-alaya">
+      <div class="section-header">
+        <p class="eyebrow">Contacto y reservas</p>
+        <h2>Todo preparado para que el cliente sepa qué hacer</h2>
+        <p>
+          Una zona clara para contactar, pedir información o preparar un mensaje de reserva
+          antes de escribir por WhatsApp o enviar el formulario.
+        </p>
+      </div>
+
+      <div class="public-contact-grid">
+        <article class="public-contact-card main">
+          <span>✦</span>
+          <h3>Reserva con cita previa</h3>
+          <p>
+            Elige el servicio, revisa disponibilidad y deja tus datos para que Alaya pueda confirmar la hora.
+          </p>
+          <div class="public-contact-actions">
+            <a class="btn btn-primary" href="#reservas">Ir a reservas</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+          </div>
+        </article>
+
+        <article class="public-contact-card">
+          <span>☏</span>
+          <h3>WhatsApp</h3>
+          <p>Consulta disponibilidad, talleres, productos del herbolario o dudas antes de reservar.</p>
+          <a class="btn btn-secondary" href="#reservas">Consultar</a>
+        </article>
+
+        <article class="public-contact-card">
+          <span>☾</span>
+          <h3>Horario orientativo</h3>
+          <p>Trabajo con horas concertadas. La disponibilidad final se confirma en la reserva.</p>
+          <a class="btn btn-secondary" href="#eventos">Ver talleres</a>
+        </article>
+      </div>
+
+      <div class="public-message-builder">
+        <div>
+          <p class="eyebrow">Mensaje rápido</p>
+          <h3>Prepara un mensaje para contactar</h3>
+          <p>
+            Selecciona el motivo y copia un texto claro para enviar a Alaya.
+          </p>
+        </div>
+
+        <div class="message-builder-form">
+          <select id="publicContactReason">
+            <option value="una consulta holística">Consulta holística</option>
+            <option value="una lectura de cartas o tarot">Cartas / Tarot</option>
+            <option value="una consulta de Alaya Astrología">Astrología</option>
+            <option value="un producto de Alaya Herbolario">Herbolario</option>
+            <option value="un taller o curso">Taller / curso</option>
+          </select>
+          <input id="publicContactName" type="text" placeholder="Tu nombre">
+          <button id="copyPublicContactMessageBtn" class="btn btn-primary" type="button">Copiar mensaje</button>
+          <button id="openPublicWhatsappBtn" class="btn btn-secondary" type="button">Abrir WhatsApp</button>
+          <button id="openPublicEmailBtn" class="btn btn-secondary" type="button">Enviar email</button>
+        </div>
+
+        <div id="publicContactMessagePreview" class="public-contact-preview">
+          Hola Alaya, me gustaría pedir información para una consulta holística.
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section astral-final-cta" id="reserva-final">
+      <div>
+        <p class="eyebrow">Reserva con Alaya</p>
+        <h2>Elige tu camino: Holistics, Herbolario o Astrología</h2>
+        <p>
+          Una web completa para mostrar servicios, gestionar reservas, presentar talleres,
+          enseñar productos y mantener una estética astral unificada.
+        </p>
+      </div>
+      <div class="astral-final-actions">
+        <a class="btn btn-primary" href="#reservas">Reservar cita</a>
+        <a class="btn btn-secondary" href="#astral-ia">Reservar consulta astral</a>
+        <a class="btn btn-secondary" href="#herbolario">Ver Herbolario</a>
+      </div>
+    </section>
+
+
     <section class="section holistics-services-section" id="servicios">
       <div class="section-header">
         <p class="eyebrow">Alaya Holistics</p>
@@ -142,6 +1281,7 @@
 
       <div class="service-highlights" id="serviceHighlights"></div>
       <div class="featured-service" id="featuredService"></div>
+      <div class="service-example-packs" id="serviceExamplePacks"></div>
       <div class="services-grid" id="servicesGrid"></div>
     </section>
 
@@ -278,6 +1418,7 @@
         </div>
 
         <div class="herbolario-orbit-card">
+          <img id="herbolarioLogoImg" class="section-logo-mark" src="assets/logos/alaya-herbolario-logo.png" alt="Logo Alaya Herbolario">
           <span>♧</span>
           <strong>Alaya Herbolario</strong>
           <p>Bienestar natural · rituales · autocuidado</p>
@@ -392,7 +1533,75 @@
       </div>
     </div>
 
-</main>
+
+    
+    <section class="section alaya-astrologia-public-section" id="astral-ia">
+      <div class="alaya-astral-ia-card">
+        <div class="alaya-astral-copy">
+          <p class="eyebrow">Alaya Astrología</p>
+          <h2>Carta astral y acompañamiento astrológico</h2>
+          <p>
+            La parte pública muestra la identidad de Alaya Astrología y permite reservar consulta.
+            La creación detallada de cartas astrales queda reservada para el panel administrador.
+          </p>
+
+          <div class="astral-feature-grid">
+            <article><strong>☉ Carta astral</strong><span>Consulta personalizada con datos natales.</span></article>
+            <article><strong>☽ Notas privadas</strong><span>Seguimiento interno gestionado por Alaya admin.</span></article>
+            <article><strong>♒ Área admin</strong><span>Las cartas detalladas se crean y guardan desde administración.</span></article>
+          </div>
+
+          <div class="herbolario-actions">
+            <a class="btn btn-primary" href="#reservas">Reservar consulta astral</a>
+            <a class="btn btn-secondary" href="#astrologia">Ver identidad Alaya Astrología</a>
+          </div>
+        </div>
+
+        <div class="alaya-astral-logo-panel">
+          <img loading="lazy" decoding="async" src="assets/logos/alaya-astrologia-logo.png" alt="Logo Alaya Astrología">
+          <span>Área pública</span>
+        </div>
+      </div>
+    </section>
+<section class="section astrology-brand-section" id="astrologia">
+      <div class="astrology-brand-card">
+        <div>
+          <p class="eyebrow">Alaya Astrología</p>
+          <h2>Lecturas astrales y mirada cósmica</h2>
+          <p>
+            Una línea visual propia para astrología, carta astral, ciclos, energía planetaria y talleres astrales.
+          </p>
+          <div class="herbolario-actions">
+            <a class="btn btn-primary" href="#reservas">Consultar astrología</a>
+            <a class="btn btn-secondary" href="#eventos">Ver talleres</a>
+          </div>
+        </div>
+        <img class="astrology-logo-mark" loading="lazy" decoding="async" src="assets/logos/alaya-astrologia-logo.png" alt="Logo Alaya Astrología">
+      </div>
+    </section>
+
+  
+    <section class="section astral-universe-strip" id="universo-alaya">
+      <div class="astral-universe-grid">
+        <article>
+          <span>☾</span>
+          <strong>Alaya Holistics</strong>
+          <p>Lecturas, energía, talleres y acompañamiento con estética astral premium.</p>
+        </article>
+        <article>
+          <span>🌿</span>
+          <strong>Alaya Herbolario</strong>
+          <p>Herbolario integrado con tonos naturales dentro del universo cósmico Alaya.</p>
+        </article>
+        <article>
+          <span>♈</span>
+          <strong>Alaya Astrología</strong>
+          <p>Carta astral, interpretación y experiencia visual cósmica como estilo principal.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
 
   <section class="section legal-section" id="legal">
     <div class="section-header">
@@ -431,7 +1640,29 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> Alaya Holistics · Diseño web premium moderno.</p>
     <a href="#legal" class="footer-link">Legal</a>
-    <button class="footer-admin" id="openAdminBtnFooter">Panel admin</button>
+  
+    <div class="footer-site-map" id="contacto">
+      <strong>Mapa rápido para clientes</strong>
+      <nav aria-label="Mapa rápido de Alaya para clientes">
+        <a href="#sobre-alaya">Sobre Alaya</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#herbolario">Herbolario</a>
+        <a href="#eventos">Talleres</a>
+        <a href="#astral-ia">Astrología</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#contacto-alaya">Contacto</a>
+        <a href="guia-clientes.html">Guía clientes</a>
+      </nav>
+    </div>
+
+  
+    <div class="footer-legal-links">
+      <a href="legal.html">Aviso legal</a>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="cookies.html">Política de cookies</a>
+      <span>Zona pública para clientes. Administración separada en admin.html.</span>
+    </div>
+
   </footer>
 
   <!-- Modal reserva de evento -->
@@ -465,8 +1696,8 @@
       <button class="modal-close" id="closeAdminBtn" aria-label="Cerrar">×</button>
 
       <div id="adminLoginBox">
-        <h3 id="adminTitle">Panel de administrador</h3>
-        <p>Acceso privado para gestionar talleres, productos y reservas.</p>
+        <h3 id="adminTitle">Panel interno administrador</h3>
+        <p>Acceso privado. Esta zona no forma parte de la experiencia pública de clientes.</p>
         <p class="form-note">
           En modo Firebase, escribe aquí el email y contraseña del usuario admin de Firebase Authentication.
         </p>
@@ -480,7 +1711,7 @@
 
         <p id="adminLoginError" class="error-text"></p>
         <p class="form-note">
-          Usuario inicial: <strong>admin</strong> · Contraseña inicial: <strong>alaya2026</strong>
+          Acceso solo para administración autorizada.
         </p>
       </div>
 
@@ -508,10 +1739,21 @@
           <button class="admin-tab active" data-admin-tab="dashboard">Resumen</button>
           <button class="admin-tab" data-admin-tab="notificaciones">Notificaciones</button>
           <button class="admin-tab" data-admin-tab="servicios">Servicios</button>
+          <button class="admin-tab" data-admin-tab="astral">Cartas astrales</button>
           <button class="admin-tab" data-admin-tab="eventos">Eventos</button>
+          <button class="admin-tab" data-admin-tab="confirmaciones">Confirmaciones</button>
           <button class="admin-tab" data-admin-tab="reservas">Reservas</button>
           <button class="admin-tab" data-admin-tab="calendario">Calendario</button>
           <button class="admin-tab" data-admin-tab="productos">Productos</button>
+          <button class="admin-tab" data-admin-tab="contenido">Contenido</button>
+          <button class="admin-tab" data-admin-tab="metricas">Métricas</button>
+          <button class="admin-tab" data-admin-tab="ayuda">Ayuda</button>
+          <button class="admin-tab" data-admin-tab="mantenimiento">Mantenimiento</button>
+          <button class="admin-tab" data-admin-tab="avisos">Avisos</button>
+          <button class="admin-tab" data-admin-tab="calidad">Calidad</button>
+          <button class="admin-tab" data-admin-tab="seo">SEO</button>
+          <button class="admin-tab" data-admin-tab="backups">Backups</button>
+          <button class="admin-tab" data-admin-tab="lanzamiento">Lanzamiento</button>
           <button class="admin-tab" data-admin-tab="ajustes">Ajustes</button>
           <button class="admin-tab" data-admin-tab="online">Online</button>
           <button class="admin-tab" data-admin-tab="auditoria">Auditoría</button>
@@ -529,6 +1771,327 @@
             </div>
           </div>
         </section>
+
+        
+        
+          <div class="role-admin-intro">
+            <span>Zona administrador</span>
+            <strong>Panel interno privado</strong>
+            <p>
+              Aquí van herramientas internas: reservas, agenda, servicios, productos, cartas astrales,
+              backups, calidad, publicación, avisos, SEO, métricas y mantenimiento. No es contenido para clientes.
+            </p>
+          </div>
+
+
+        <section class="admin-tab-panel" id="adminTab-astral">
+          <h4>Alaya Astral Admin</h4>
+          <p class="form-note">
+            Área interna para crear cartas astrales detalladas, guardar fichas de cliente/paciente y añadir notas privadas de seguimiento.
+          </p>
+
+          <div class="admin-tools astral-admin-launcher">
+            <h4>App Alaya Astral IA</h4>
+            <p>
+              El acceso a la app astral queda oculto al público y disponible solo desde administración.
+            </p>
+            <div class="admin-actions">
+              <a class="btn btn-secondary" href="alaya-astral/index.html" target="_blank" rel="noopener">Abrir herramienta Astral IA</a>
+              <button class="btn btn-secondary" type="button" onclick="copyAstralAdminSummary()">Copiar resumen del módulo</button>
+            </div>
+          </div>
+
+          <div class="admin-tools astral-workflow-panel" id="astralWorkflowPanel">
+            <h4>Flujo de trabajo recomendado</h4>
+            <div class="astral-workflow-grid">
+              <article><b>1</b><strong>Datos natales</strong><span>Nombre, fecha, hora, lugar y consentimiento.</span></article>
+              <article><b>2</b><strong>Cálculo</strong><span>Usa la herramienta Astral IA desde admin para obtener posiciones.</span></article>
+              <article><b>3</b><strong>Interpretación</strong><span>Completa fortalezas, retos, recomendaciones y objetivo.</span></article>
+              <article><b>4</b><strong>Seguimiento</strong><span>Añade notas por sesión para próximas consultas.</span></article>
+            </div>
+          </div>
+
+          <div class="admin-form astral-chart-form">
+            <h4>Ficha de carta astral</h4>
+
+            <div class="form-row">
+              <input id="astralNombre" type="text" placeholder="Nombre cliente/paciente">
+              <input id="astralCodigo" type="text" placeholder="Código interno, ej: ALAYA-ASTRAL-001">
+            </div>
+
+            <div class="form-row">
+              <input id="astralEmail" type="email" placeholder="Email">
+              <input id="astralTelefono" type="tel" placeholder="Teléfono">
+            </div>
+
+            <div class="form-row">
+              <input id="astralFechaNacimiento" type="date" title="Fecha de nacimiento">
+              <input id="astralHoraNacimiento" type="time" title="Hora de nacimiento">
+            </div>
+
+            <div class="form-row">
+              <input id="astralLugarNacimiento" type="text" placeholder="Ciudad / lugar de nacimiento">
+              <input id="astralPaisNacimiento" type="text" placeholder="País">
+            </div>
+
+            <div class="form-row">
+              <input id="astralZonaHoraria" type="text" placeholder="Zona horaria, ej: Europe/Madrid">
+              <select id="astralEstado">
+                <option value="Borrador">Borrador</option>
+                <option value="En estudio">En estudio</option>
+                <option value="Completada">Completada</option>
+                <option value="Entregada">Entregada</option>
+                <option value="Seguimiento">Seguimiento</option>
+              </select>
+            </div>
+
+            <input id="astralTemaConsulta" type="text" placeholder="Tema principal de consulta">
+
+            <div class="form-row">
+              <input id="astralSol" type="text" placeholder="Sol, ej: Sol en Leo">
+              <input id="astralLuna" type="text" placeholder="Luna, ej: Luna en Piscis">
+            </div>
+
+            <div class="form-row">
+              <input id="astralAscendente" type="text" placeholder="Ascendente">
+              <input id="astralMedioCielo" type="text" placeholder="Medio Cielo">
+            </div>
+
+            <textarea id="astralPlanetas" rows="5" placeholder="Posiciones planetarias detalladas"></textarea>
+            <textarea id="astralCasas" rows="5" placeholder="Casas astrológicas / ejes importantes"></textarea>
+            <textarea id="astralAspectos" rows="5" placeholder="Aspectos principales"></textarea>
+            <textarea id="astralInterpretacion" rows="7" placeholder="Interpretación general detallada de la carta astral"></textarea>
+
+            <div class="admin-tools astral-client-report-box">
+              <h4>Informe para entregar al cliente/paciente</h4>
+              <p class="form-note">
+                Estos campos se usan para el informe limpio. Las notas privadas no aparecen en este informe.
+              </p>
+              <input id="astralReportTitle" type="text" placeholder="Título del informe, ej: Informe astral personalizado">
+              <textarea id="astralReportSummary" rows="4" placeholder="Resumen inicial del informe para el cliente"></textarea>
+              <textarea id="astralClientMessage" rows="5" placeholder="Mensaje final para el cliente / cierre de la consulta"></textarea>
+              <div class="admin-actions">
+                <button id="insertClientReportTemplateBtn" class="btn btn-secondary" type="button">Plantilla informe cliente</button>
+                <button id="previewClientReportDraftBtn" class="btn btn-secondary" type="button">Vista informe cliente</button>
+              </div>
+            </div>
+
+            <div class="astral-structured-grid">
+              <textarea id="astralFortalezas" rows="4" placeholder="Fortalezas principales"></textarea>
+              <textarea id="astralRetos" rows="4" placeholder="Retos o aprendizajes"></textarea>
+              <textarea id="astralRecomendaciones" rows="4" placeholder="Recomendaciones de acompañamiento"></textarea>
+              <textarea id="astralObjetivo" rows="4" placeholder="Objetivo de trabajo / intención de la consulta"></textarea>
+            </div>
+
+            <textarea id="astralNotasPrivadas" rows="6" placeholder="Notas privadas del cliente/paciente"></textarea>
+            <textarea id="astralSeguimiento" rows="5" placeholder="Seguimiento, próxima sesión, tareas o recordatorios internos"></textarea>
+
+            <div class="admin-tools astral-session-box">
+              <h4>Historial de sesiones</h4>
+              <p class="form-note">
+                Añade notas por sesión para llevar seguimiento interno de cada cliente/paciente.
+              </p>
+
+              <div class="form-row">
+                <input id="astralSessionDate" type="date" title="Fecha de sesión">
+                <input id="astralSessionTitle" type="text" placeholder="Título de sesión">
+              </div>
+              <textarea id="astralSessionNote" rows="4" placeholder="Nota de sesión, avances, observaciones o próximos pasos"></textarea>
+              <textarea id="astralSessionNext" rows="3" placeholder="Próximo paso recomendado"></textarea>
+              <button id="addAstralSessionBtn" class="btn btn-secondary" type="button">Añadir sesión al borrador</button>
+
+              <div id="astralSessionDraftList" class="astral-session-draft-list"></div>
+            </div>
+
+            <div class="form-row">
+              <input id="astralConsentDate" type="date" title="Fecha de consentimiento">
+              <select id="astralConsentSource">
+                <option value="">Origen del consentimiento</option>
+                <option value="Verbal">Verbal</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Email">Email</option>
+                <option value="Formulario">Formulario</option>
+                <option value="Documento firmado">Documento firmado</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <input id="astralRetentionReview" type="date" title="Próxima revisión de datos">
+              <input id="astralDataTags" type="text" placeholder="Etiquetas internas: seguimiento, taller, consulta...">
+            </div>
+
+            <div class="form-row">
+              <input id="astralNextSessionDate" type="date" title="Próxima sesión / seguimiento">
+              <select id="astralPriority">
+                <option value="Normal">Prioridad normal</option>
+                <option value="Alta">Prioridad alta</option>
+                <option value="Baja">Prioridad baja</option>
+              </select>
+            </div>
+
+            <textarea id="astralNextAction" rows="3" placeholder="Próximo paso concreto: contactar, revisar carta, preparar informe, enviar recordatorio..."></textarea>
+
+            <textarea id="astralConsentNotes" rows="3" placeholder="Notas sobre consentimiento, privacidad o permiso de uso interno"></textarea>
+
+            <label class="inline-check">
+              <input id="astralConsentimiento" type="checkbox">
+              <span>Consentimiento para guardar datos de carta astral y notas internas</span>
+            </label>
+
+            <div class="admin-actions">
+              <button id="guardarCartaAstralBtn" class="btn btn-primary" type="button">Guardar carta astral</button>
+              <button id="generarPromptCartaAstralBtn" class="btn btn-secondary" type="button">Copiar prompt IA</button>
+              <button id="imprimirBorradorCartaAstralBtn" class="btn btn-secondary" type="button">Vista informe interno</button>
+              <button id="previewInternalReportDraftBtn" class="btn btn-secondary" type="button">Vista informe completo</button>
+              <button id="crearPlantillaInterpretacionBtn" class="btn btn-secondary" type="button">Insertar plantilla</button>
+              <button id="limpiarCartaAstralBtn" class="btn btn-secondary" type="button">Limpiar formulario</button>
+              <button id="exportarCartasAstralesBtn" class="btn btn-secondary" type="button">Exportar JSON</button>
+              <button id="exportarCartasAstralesCsvBtn" class="btn btn-secondary" type="button">Exportar CSV</button>
+            </div>
+          </div>
+
+          <div class="astral-admin-toolbar">
+            <input id="astralSearch" type="search" placeholder="Buscar por nombre, código, signo, lugar o notas">
+            <select id="astralStatusFilter">
+              <option value="">Todos los estados</option>
+              <option value="Borrador">Borrador</option>
+              <option value="En estudio">En estudio</option>
+              <option value="Completada">Completada</option>
+              <option value="Entregada">Entregada</option>
+              <option value="Seguimiento">Seguimiento</option>
+            </select>
+          </div>
+
+          <div class="astral-admin-summary" id="astralAdminSummary"></div>
+
+          
+          
+          <div class="admin-tools astral-cloud-sync-panel" id="astralCloudSyncPanel">
+            <div class="astral-cloud-head">
+              <div>
+                <h4>Astral Cloud Sync Pro</h4>
+                <p class="form-note">
+                  Sincroniza cartas astrales, notas internas y seguimiento con Firestore cuando Firebase esté configurado.
+                </p>
+              </div>
+              <span id="astralOnlineStatus" class="astral-online-status">Cartas astrales online: comprobando...</span>
+            </div>
+
+            <div class="astral-cloud-actions">
+              <button id="syncAstralChartsOnlineBtn" class="btn btn-secondary" type="button">Subir cartas online</button>
+              <button id="loadAstralChartsOnlineBtn" class="btn btn-secondary" type="button">Cargar cartas online</button>
+              <button id="testAstralChartsOnlineBtn" class="btn btn-secondary" type="button">Probar Astral Cloud</button>
+              <button id="markAstralChartsLocalBtn" class="btn btn-secondary" type="button">Marcar como local</button>
+            </div>
+
+            <p class="astral-privacy-note">
+              Recomendado: usar solo con reglas Firestore protegidas y usuarios admin autorizados.
+              Las cartas pueden incluir datos natales, notas privadas y seguimiento.
+            </p>
+          </div>
+
+
+          <div class="admin-tools astral-privacy-panel" id="astralPrivacyPanel">
+            <div class="astral-privacy-head">
+              <div>
+                <h4>Privacidad Astral Pro</h4>
+                <p class="form-note">
+                  Herramientas internas para trabajar con cartas, notas y datos personales con más control.
+                </p>
+              </div>
+              <label class="inline-check privacy-switch">
+                <input id="astralPrivacyModeToggle" type="checkbox">
+                <span>Modo privacidad</span>
+              </label>
+            </div>
+
+            <div class="astral-privacy-grid">
+              <article>
+                <strong>Consentimiento</strong>
+                <span>Plantilla para informar antes de guardar datos natales y notas internas.</span>
+                <button id="copyAstralConsentTemplateBtn" class="btn btn-secondary" type="button">Copiar plantilla</button>
+              </article>
+              <article>
+                <strong>Datos sensibles</strong>
+                <span>El modo privacidad oculta visualmente notas privadas y seguimiento en pantalla.</span>
+                <button id="toggleAstralPrivacyBtn" class="btn btn-secondary" type="button">Activar / desactivar</button>
+              </article>
+              <article>
+                <strong>Revisión</strong>
+                <span>Marca fecha de consentimiento y próxima revisión de datos en cada ficha.</span>
+                <button id="copyAstralPrivacyChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist</button>
+              </article>
+            </div>
+          </div>
+
+          
+          
+          <div class="admin-tools astral-reports-panel" id="astralReportsPanel">
+            <div class="astral-reports-head">
+              <div>
+                <h4>Informes Astrales Pro</h4>
+                <p class="form-note">
+                  Crea informes limpios para entregar al cliente/paciente, separados de las notas internas.
+                </p>
+              </div>
+              <button id="copyAstralReportChecklistBtn" class="btn btn-secondary" type="button">Checklist informe</button>
+            </div>
+
+            <div class="astral-reports-grid">
+              <article>
+                <strong>Informe cliente</strong>
+                <span>No incluye notas privadas ni seguimiento interno por defecto.</span>
+              </article>
+              <article>
+                <strong>Informe interno</strong>
+                <span>Incluye notas, sesiones y seguimiento para uso de Alaya admin.</span>
+              </article>
+              <article>
+                <strong>PDF navegador</strong>
+                <span>Se abre una vista imprimible para imprimir o guardar como PDF.</span>
+              </article>
+            </div>
+          </div>
+
+
+          <div class="admin-tools astral-followup-panel" id="astralFollowupPanel">
+            <div class="astral-followup-head">
+              <div>
+                <h4>Seguimiento Astral Pro</h4>
+                <p class="form-note">
+                  Próximas sesiones, acciones pendientes y clientes/pacientes que conviene revisar.
+                </p>
+              </div>
+              <select id="astralFollowupFilter">
+                <option value="all">Todos</option>
+                <option value="overdue">Vencidos</option>
+                <option value="today">Hoy</option>
+                <option value="week">Próximos 7 días</option>
+                <option value="high">Prioridad alta</option>
+              </select>
+            </div>
+
+            <div id="astralFollowupList" class="astral-followup-list"></div>
+          </div>
+
+
+          <div class="admin-tools astral-client-hub-wrapper">
+            <div class="astral-client-hub-head">
+              <div>
+                <h4>Client Hub Astral</h4>
+                <p class="form-note">
+                  Resumen por cliente/paciente con cartas, sesiones, estados y últimos seguimientos.
+                </p>
+              </div>
+              <input id="astralClientSearch" type="search" placeholder="Buscar cliente, email, teléfono o lugar">
+            </div>
+
+            <div id="astralClientHub" class="astral-client-hub"></div>
+          </div>
+
+          <div id="adminAstralChartsList" class="admin-list astral-charts-list"></div>
+        </section>
+
 
         <section class="admin-tab-panel" id="adminTab-servicios">
           <h4>Alaya Holistics / servicios</h4>
@@ -567,7 +2130,11 @@
             <textarea id="servicioBeneficios" placeholder="Qué incluye / beneficios / enfoque de la sesión"></textarea>
             <textarea id="servicioPreparacion" placeholder="Preparación recomendada antes de la sesión"></textarea>
 
-            <button id="guardarServicioBtn" class="btn btn-primary">Guardar servicio</button>
+            <div class="admin-actions">
+              <button id="guardarServicioBtn" class="btn btn-primary">Guardar servicio</button>
+              <button id="loadServiceExamplesBtn" class="btn btn-secondary" type="button">Cargar ejemplos Alaya</button>
+              <button id="resetServicesExamplesBtn" class="btn btn-danger" type="button">Restaurar servicios ejemplo</button>
+            </div>
           </div>
 
           <div class="admin-tools services-admin-help">
@@ -653,20 +2220,69 @@
           <div id="adminEventosList" class="admin-list"></div>
         </section>
 
+        
+        <section class="admin-tab-panel" id="adminTab-confirmaciones">
+          <h4>Centro de Confirmaciones Admin Pro</h4>
+          <p class="form-note">
+            Bandeja interna para revisar solicitudes pendientes. Ninguna reserva queda confirmada
+            hasta que el administrador la confirme manualmente.
+          </p>
+
+          <div class="confirm-admin-summary">
+            <article>
+              <span>Pendientes</span>
+              <strong id="confirmPendingCount">0</strong>
+            </article>
+            <article>
+              <span>Confirmadas</span>
+              <strong id="confirmConfirmedCount">0</strong>
+            </article>
+            <article>
+              <span>Canceladas</span>
+              <strong id="confirmCancelledCount">0</strong>
+            </article>
+          </div>
+
+          <div class="admin-tools confirm-admin-tools">
+            <h4>Herramientas de confirmación</h4>
+            <div class="form-row">
+              <select id="confirmAdminFilter">
+                <option value="pendientes">Pendientes de confirmación</option>
+                <option value="todas">Todas</option>
+                <option value="confirmadas">Confirmadas</option>
+                <option value="canceladas">Canceladas</option>
+              </select>
+              <input id="confirmAdminSearch" type="search" placeholder="Buscar por nombre, código, servicio o contacto">
+            </div>
+            <div class="admin-actions">
+              <button id="copyPendingConfirmationsBtn" class="btn btn-secondary" type="button">Copiar informe pendientes</button>
+              <button id="copyConfirmationProcessBtn" class="btn btn-secondary" type="button">Copiar protocolo</button>
+              <button id="refreshConfirmationsBtn" class="btn btn-secondary" type="button">Actualizar bandeja</button>
+            </div>
+          </div>
+
+          <div id="confirmationsAdminList" class="confirmations-admin-list"></div>
+        </section>
+
+
         <section class="admin-tab-panel" id="adminTab-reservas">
           <h4>Reservas recibidas</h4>
+          <div class="admin-confirmation-required-box">
+            <span>Confirmación obligatoria</span>
+            <p>Las solicitudes que llegan desde la web quedan pendientes. La cita solo queda confirmada cuando el administrador pulsa <strong>Confirmar reserva</strong>.</p>
+          </div>
           <div class="admin-filter-row">
             <input id="reservationSearch" type="search" placeholder="Buscar por nombre, teléfono, servicio o estado">
             <select id="reservationStatusFilter">
               <option value="">Todos los estados</option>
-              <option value="Pendiente">Pendiente</option>
+              <option value="Pendiente">Pendiente de confirmación</option>
               <option value="Confirmada">Confirmada</option>
               <option value="Cancelada">Cancelada</option>
             </select>
           </div>
           <div class="admin-tools reservation-pro-tools" id="reservationProTools">
             <h4>Reservas Pro</h4>
-            <p>Gestiona notas internas, historial de estado y mensajes rápidos para clientes.</p>
+            <p>Gestiona solicitudes pendientes, confirma reservas manualmente, usa notas internas y copia mensajes para clientes.</p>
             <div class="reservation-pro-summary" id="reservationProSummary"></div>
           </div>
 
@@ -812,6 +2428,735 @@
         </section>
 
 
+        
+        
+        <section class="admin-tab-panel" id="adminTab-contenido">
+          <h4>Contenido Público Pro</h4>
+          <p class="form-note">
+            Gestiona testimonios/opiniones y preguntas frecuentes visibles en la web pública sin editar código.
+          </p>
+
+          <div class="public-content-admin-grid">
+            <div class="admin-tools">
+              <h4>Nuevo testimonio / opinión</h4>
+              <input id="contentTestimonialName" type="text" placeholder="Nombre o iniciales">
+              <input id="contentTestimonialContext" type="text" placeholder="Contexto, ej: Consulta astral, Reiki, Taller...">
+              <textarea id="contentTestimonialText" rows="5" placeholder="Texto del testimonio"></textarea>
+              <div class="admin-actions">
+                <button id="addPublicTestimonialBtn" class="btn btn-primary" type="button">Añadir testimonio</button>
+                <button id="loadDefaultTestimonialsBtn" class="btn btn-secondary" type="button">Cargar ejemplos</button>
+              </div>
+              <div id="adminPublicTestimonialsList" class="admin-list public-content-admin-list"></div>
+            </div>
+
+            <div class="admin-tools">
+              <h4>Nueva pregunta frecuente</h4>
+              <input id="contentFaqQuestion" type="text" placeholder="Pregunta">
+              <textarea id="contentFaqAnswer" rows="5" placeholder="Respuesta"></textarea>
+              <div class="admin-actions">
+                <button id="addPublicFaqBtn" class="btn btn-primary" type="button">Añadir FAQ</button>
+                <button id="loadDefaultFaqsBtn" class="btn btn-secondary" type="button">Cargar ejemplos</button>
+              </div>
+              <div id="adminPublicFaqList" class="admin-list public-content-admin-list"></div>
+            </div>
+          </div>
+
+          
+            <div class="admin-tools public-news-admin-panel">
+              <h4>Novedades / Blog</h4>
+              <p class="form-note">
+                Publica avisos, artículos, talleres destacados o consejos de bienestar para la web pública.
+              </p>
+
+              <div class="form-row">
+                <input id="newsTitle" type="text" placeholder="Título de la novedad">
+                <select id="newsCategory">
+                  <option value="Novedad">Novedad</option>
+                  <option value="Taller">Taller</option>
+                  <option value="Herbolario">Herbolario</option>
+                  <option value="Astrología">Astrología</option>
+                  <option value="Bienestar">Bienestar</option>
+                  <option value="Aviso">Aviso</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <input id="newsDate" type="date" title="Fecha de publicación">
+                <select id="newsStatus">
+                  <option value="Publicado">Publicado</option>
+                  <option value="Borrador">Borrador</option>
+                </select>
+              </div>
+
+              <input id="newsImage" type="text" placeholder="Icono o emoji, ej: ✦ 🌿 ☾">
+              <textarea id="newsExcerpt" rows="3" placeholder="Resumen corto visible en la tarjeta"></textarea>
+              <textarea id="newsBody" rows="6" placeholder="Contenido completo del artículo o aviso"></textarea>
+
+              <label class="inline-check">
+                <input id="newsFeatured" type="checkbox">
+                <span>Destacar en la web pública</span>
+              </label>
+
+              <div class="admin-actions">
+                <button id="saveNewsBtn" class="btn btn-primary" type="button">Guardar novedad</button>
+                <button id="clearNewsBtn" class="btn btn-secondary" type="button">Limpiar</button>
+                <button id="loadDefaultNewsBtn" class="btn btn-secondary" type="button">Cargar ejemplos</button>
+              </div>
+
+              <div id="adminNewsList" class="admin-list public-news-admin-list"></div>
+            </div>
+
+
+          <div class="admin-tools">
+            <h4>Herramientas de contenido</h4>
+            <p class="form-note">
+              Los cambios se guardan en el navegador. También se pueden copiar para backup rápido.
+            </p>
+            <div class="admin-actions">
+              <button id="copyPublicContentBtn" class="btn btn-secondary" type="button">Copiar contenido JSON</button>
+              <button id="resetPublicContentBtn" class="btn btn-secondary" type="button">Restaurar contenido base</button>
+            </div>
+          </div>
+        </section>
+
+
+        
+        <section class="admin-tab-panel" id="adminTab-metricas">
+          <h4>Métricas Locales Pro</h4>
+          <p class="form-note">
+            Analítica interna sin servicios externos: visitas locales, clics importantes, búsquedas y actividad de la web.
+          </p>
+
+          <div class="metrics-privacy-note">
+            <strong>Privacidad:</strong>
+            estas métricas se guardan solo en este navegador con localStorage. No envían datos a Google Analytics ni a servicios externos.
+          </div>
+
+          <div class="metrics-dashboard-grid">
+            <article>
+              <span>Visitas</span>
+              <strong id="metricVisitsValue">0</strong>
+              <small>Total registrado en este navegador</small>
+            </article>
+            <article>
+              <span>Clics CTA</span>
+              <strong id="metricClicksValue">0</strong>
+              <small>Reservas, contacto, WhatsApp, email y botones clave</small>
+            </article>
+            <article>
+              <span>Búsquedas</span>
+              <strong id="metricSearchesValue">0</strong>
+              <small>Consultas realizadas en el buscador público</small>
+            </article>
+            <article>
+              <span>Última visita</span>
+              <strong id="metricLastVisitValue">—</strong>
+              <small>Fecha/hora local</small>
+            </article>
+          </div>
+
+          <div class="metrics-admin-layout">
+            <div class="admin-tools">
+              <h4>Top búsquedas</h4>
+              <div id="metricTopSearches" class="metrics-list"></div>
+            </div>
+
+            <div class="admin-tools">
+              <h4>Top clics</h4>
+              <div id="metricTopClicks" class="metrics-list"></div>
+            </div>
+
+            <div class="admin-tools">
+              <h4>Actividad reciente</h4>
+              <div id="metricRecentActivity" class="metrics-list"></div>
+            </div>
+          </div>
+
+          <div class="admin-tools">
+            <h4>Herramientas</h4>
+            <div class="admin-actions">
+              <button id="refreshMetricsBtn" class="btn btn-secondary" type="button">Actualizar métricas</button>
+              <button id="copyMetricsReportBtn" class="btn btn-secondary" type="button">Copiar informe</button>
+              <button id="exportMetricsCsvBtn" class="btn btn-secondary" type="button">Exportar CSV</button>
+              <button id="resetMetricsBtn" class="btn btn-danger" type="button">Reiniciar métricas</button>
+            </div>
+          </div>
+        </section>
+
+
+        
+        
+        
+        
+        
+        
+        <section class="admin-tab-panel" id="adminTab-ayuda">
+          <h4>Centro de Ayuda y Manual Pro</h4>
+          <p class="form-note">
+            Guías rápidas para entender y enseñar el uso de Alaya: reservas, agenda,
+            herbolario, talleres, cartas astrales, backups, PWA y publicación.
+          </p>
+
+          <div class="help-admin-hero">
+            <div>
+              <span>Manual interno</span>
+              <strong>Guía rápida para administrar Alaya</strong>
+              <p>
+                Usa esta zona para copiar instrucciones, formar a otra persona o repasar qué revisar antes de publicar.
+              </p>
+            </div>
+            <div class="help-admin-orb">?</div>
+          </div>
+
+          <div class="help-admin-tools">
+            <button id="copyAdminQuickManualBtn" class="btn btn-primary" type="button">Copiar manual rápido</button>
+            <button id="copyTrainingChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist formación</button>
+            <button id="copyClientHelpTextBtn" class="btn btn-secondary" type="button">Copiar ayuda cliente</button>
+            <button id="openHelpDocsBtn" class="btn btn-secondary" type="button">Abrir docs ayuda</button>
+            <button id="copySeparationChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist separación</button>
+            <button class="btn btn-secondary" type="button" onclick="copyClientNavigationChecklistV79()">Checklist navegación cliente</button>
+          </div>
+
+          
+          <div class="admin-tools admin-internal-center">
+            <h4>Centro interno administrador</h4>
+            <p class="form-note">
+              Accesos rápidos a zonas internas que no deben mezclarse con la experiencia pública de clientes.
+            </p>
+            <div class="admin-internal-grid">
+              <a href="#adminTab-backups" data-open-admin-tab="backups">Backups y migración</a>
+              <a href="#adminTab-calidad" data-open-admin-tab="calidad">Calidad técnica</a>
+              <a href="#adminTab-seo" data-open-admin-tab="seo">SEO y compartir</a>
+              <a href="#adminTab-lanzamiento" data-open-admin-tab="lanzamiento">Lanzamiento</a>
+              <a href="#adminTab-mantenimiento" data-open-admin-tab="mantenimiento">Mantenimiento</a>
+              <a href="#adminTab-metricas" data-open-admin-tab="metricas">Métricas internas</a>
+            </div>
+          </div>
+
+
+          <div class="help-admin-layout">
+            <div class="admin-tools help-admin-card">
+              <h4>Guías por módulo</h4>
+              <div id="adminHelpGuideList" class="help-guide-list"></div>
+            </div>
+
+            <div class="admin-tools help-admin-card">
+              <h4>Vista de guía</h4>
+              <div id="adminHelpGuidePreview" class="help-guide-preview">
+                <span>Selecciona una guía</span>
+                <strong>Manual Alaya</strong>
+                <p>Elige un módulo para ver instrucciones rápidas.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-mantenimiento">
+          <h4>Modo Lanzamiento y Mantenimiento Pro</h4>
+          <p class="form-note">
+            Activa una pantalla pública para indicar que Alaya está en preparación, mantenimiento
+            o lanzamiento. Útil antes de publicar o durante cambios importantes.
+          </p>
+
+          <div class="maintenance-admin-layout">
+            <div class="admin-tools maintenance-admin-card">
+              <h4>Configurar estado público</h4>
+
+              <label class="inline-check">
+                <input id="maintenanceActiveInput" type="checkbox">
+                <span>Activar modo especial</span>
+              </label>
+
+              <div class="form-row">
+                <select id="maintenanceModeInput">
+                  <option value="proximamente">Próximamente</option>
+                  <option value="mantenimiento">Mantenimiento</option>
+                  <option value="lanzamiento">Lanzamiento</option>
+                </select>
+                <select id="maintenanceDisplayInput">
+                  <option value="card">Solo tarjeta pública</option>
+                  <option value="overlay">Pantalla completa</option>
+                  <option value="both">Pantalla completa + tarjeta</option>
+                </select>
+              </div>
+
+              <input id="maintenanceTitleInput" type="text" placeholder="Título">
+              <textarea id="maintenanceMessageInput" rows="4" placeholder="Mensaje público"></textarea>
+
+              <div class="form-row">
+                <input id="maintenanceDateInput" type="datetime-local" title="Fecha objetivo">
+                <input id="maintenanceCtaTextInput" type="text" placeholder="Texto del botón">
+              </div>
+
+              <input id="maintenanceCtaUrlInput" type="text" placeholder="Enlace del botón, ej: #contacto-alaya">
+
+              <label class="inline-check">
+                <input id="maintenanceAllowContinueInput" type="checkbox" checked>
+                <span>Permitir entrar igualmente</span>
+              </label>
+
+              <div class="admin-actions">
+                <button id="saveMaintenanceModeBtn" class="btn btn-primary" type="button">Guardar estado</button>
+                <button id="previewMaintenanceModeBtn" class="btn btn-secondary" type="button">Vista previa</button>
+                <button id="resetMaintenanceModeBtn" class="btn btn-secondary" type="button">Restaurar base</button>
+              </div>
+            </div>
+
+            <div class="admin-tools maintenance-admin-card">
+              <h4>Vista previa y herramientas</h4>
+              <div id="adminMaintenancePreview" class="admin-maintenance-preview">
+                <span>Próximamente</span>
+                <strong>Alaya está preparando algo especial</strong>
+                <p>Muy pronto estará disponible la experiencia completa.</p>
+                <small>Cuenta atrás: —</small>
+              </div>
+
+              <div class="admin-actions">
+                <button id="copyMaintenanceStatusBtn" class="btn btn-secondary" type="button">Copiar estado</button>
+                <button id="copyMaintenanceSnippetBtn" class="btn btn-secondary" type="button">Copiar snippet</button>
+                <button id="copyMaintenanceChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist</button>
+              </div>
+
+              <div class="maintenance-note-box">
+                <strong>Uso recomendado:</strong>
+                <p>
+                  Actívalo mientras preparas la publicación, haces cambios grandes o quieres anunciar una fecha de lanzamiento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-avisos">
+          <h4>Avisos Globales Pro</h4>
+          <p class="form-note">
+            Publica avisos importantes en toda la web: cambios de horario, talleres destacados,
+            vacaciones, campañas, novedades o mensajes urgentes.
+          </p>
+
+          <div class="notice-admin-layout">
+            <div class="admin-tools notice-admin-card">
+              <h4>Configurar aviso</h4>
+
+              <label class="inline-check">
+                <input id="noticeActiveInput" type="checkbox">
+                <span>Mostrar aviso público</span>
+              </label>
+
+              <div class="form-row">
+                <select id="noticeTypeInput">
+                  <option value="normal">Normal</option>
+                  <option value="importante">Importante</option>
+                  <option value="taller">Taller</option>
+                  <option value="herbolario">Herbolario</option>
+                  <option value="astrologia">Astrología</option>
+                </select>
+                <select id="noticeModeInput">
+                  <option value="banner-card">Banner + tarjeta</option>
+                  <option value="banner">Solo banner</option>
+                  <option value="card">Solo tarjeta</option>
+                </select>
+              </div>
+
+              <input id="noticeTitleInput" type="text" placeholder="Título del aviso">
+              <textarea id="noticeMessageInput" rows="4" placeholder="Mensaje del aviso"></textarea>
+
+              <div class="form-row">
+                <input id="noticeCtaTextInput" type="text" placeholder="Texto del botón">
+                <input id="noticeCtaUrlInput" type="text" placeholder="Enlace, ej: #reservas">
+              </div>
+
+              <label class="inline-check">
+                <input id="noticeDismissibleInput" type="checkbox" checked>
+                <span>Permitir cerrar el banner</span>
+              </label>
+
+              <div class="admin-actions">
+                <button id="saveGlobalNoticeBtn" class="btn btn-primary" type="button">Guardar aviso</button>
+                <button id="previewGlobalNoticeBtn" class="btn btn-secondary" type="button">Vista previa</button>
+                <button id="resetGlobalNoticeBtn" class="btn btn-secondary" type="button">Restaurar base</button>
+              </div>
+            </div>
+
+            <div class="admin-tools notice-admin-card">
+              <h4>Vista previa y herramientas</h4>
+              <div id="adminNoticePreview" class="admin-notice-preview">
+                <span>Aviso</span>
+                <strong>Alaya Holistics</strong>
+                <p>Configura un aviso para verlo aquí.</p>
+                <a href="#reservas">Ver más</a>
+              </div>
+
+              <div class="admin-actions">
+                <button id="copyGlobalNoticeBtn" class="btn btn-secondary" type="button">Copiar aviso</button>
+                <button id="copyNoticeChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist</button>
+              </div>
+
+              <div class="notice-tips-box">
+                <strong>Ideas de uso:</strong>
+                <p>
+                  “Nuevo taller disponible”, “Reservas solo con cita previa”, “Horario especial”,
+                  “Consulta de carta astral abierta” o “Nueva sección de herbolario”.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-calidad">
+          <h4>Rendimiento y Calidad Pro</h4>
+          <p class="form-note">
+            Revisión técnica local antes de publicar: peso de archivos, enlaces internos,
+            imágenes, accesibilidad básica y estado general.
+          </p>
+
+          <div class="quality-score-card">
+            <div>
+              <span>Puntuación de calidad</span>
+              <strong id="qualityScoreValue">—</strong>
+              <small id="qualityScoreText">Ejecuta la revisión para calcular el estado.</small>
+            </div>
+            <div class="quality-score-orb" id="qualityScoreOrb">QC</div>
+          </div>
+
+          <div class="quality-metrics-grid">
+            <article>
+              <span>Archivos revisados</span>
+              <strong id="qualityFilesValue">0</strong>
+            </article>
+            <article>
+              <span>Enlaces internos</span>
+              <strong id="qualityLinksValue">0</strong>
+            </article>
+            <article>
+              <span>Imágenes</span>
+              <strong id="qualityImagesValue">0</strong>
+            </article>
+            <article>
+              <span>Incidencias</span>
+              <strong id="qualityIssuesValue">0</strong>
+            </article>
+          </div>
+
+          <div class="admin-tools quality-tools-card">
+            <h4>Herramientas de revisión</h4>
+            <div class="admin-actions">
+              <button id="runQualityAuditBtn" class="btn btn-primary" type="button">Ejecutar auditoría</button>
+              <button id="copyQualityReportBtn" class="btn btn-secondary" type="button">Copiar informe</button>
+              <button id="exportQualityCsvBtn" class="btn btn-secondary" type="button">Exportar CSV</button>
+              <button id="copyQualityChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist</button>
+            </div>
+          </div>
+
+          <div class="quality-results-layout">
+            <div class="admin-tools">
+              <h4>Archivos principales</h4>
+              <div id="qualityFileResults" class="quality-list"></div>
+            </div>
+
+            <div class="admin-tools">
+              <h4>Incidencias y avisos</h4>
+              <div id="qualityIssueResults" class="quality-list"></div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-seo">
+          <h4>SEO y Compartir Pro</h4>
+          <p class="form-note">
+            Prepara títulos, descripciones, palabras clave y textos para compartir Alaya en redes,
+            WhatsApp o antes de publicar en GitHub Pages.
+          </p>
+
+          <div class="seo-admin-layout">
+            <div class="admin-tools seo-card">
+              <h4>Datos SEO principales</h4>
+              <input id="seoTitleInput" type="text" placeholder="Título SEO">
+              <textarea id="seoDescriptionInput" rows="3" placeholder="Descripción SEO"></textarea>
+              <input id="seoKeywordsInput" type="text" placeholder="Palabras clave separadas por comas">
+              <input id="seoUrlInput" type="url" placeholder="URL pública de la web">
+              <input id="seoImageInput" type="text" placeholder="Imagen social, ej: assets/logos/alaya-holistics-logo.png">
+
+              <div class="admin-actions">
+                <button id="saveSeoSettingsBtn" class="btn btn-primary" type="button">Guardar SEO</button>
+                <button id="loadDefaultSeoBtn" class="btn btn-secondary" type="button">Cargar base</button>
+                <button id="copySeoMetaBtn" class="btn btn-secondary" type="button">Copiar meta HTML</button>
+              </div>
+            </div>
+
+            <div class="admin-tools seo-card">
+              <h4>Vista previa social</h4>
+              <div class="seo-preview-card" id="seoPreviewCard">
+                <img id="seoPreviewImage" src="assets/logos/alaya-holistics-logo.png" alt="Vista previa SEO">
+                <div>
+                  <strong id="seoPreviewTitle">Alaya Holistics</strong>
+                  <p id="seoPreviewDescription">Reservas, herbolario, astrología, talleres y bienestar holístico.</p>
+                  <span id="seoPreviewUrl">alaya-holistics</span>
+                </div>
+              </div>
+
+              <textarea id="seoShareTextOutput" rows="6" placeholder="Texto para compartir..."></textarea>
+
+              <div class="admin-actions">
+                <button id="copySeoShareTextBtn" class="btn btn-secondary" type="button">Copiar texto compartir</button>
+                <button id="copySeoChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist SEO</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-tools seo-card">
+            <h4>Meta tags generadas</h4>
+            <p class="form-note">
+              Puedes copiar estas etiquetas y pegarlas en el `<head>` del HTML final si quieres dejar SEO fijo antes de publicar.
+            </p>
+            <textarea id="seoMetaOutput" rows="12" placeholder="Meta tags generadas..."></textarea>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-backups">
+          <h4>Backup Total y Migración Pro</h4>
+          <p class="form-note">
+            Exporta y restaura toda la información local de Alaya: reservas, servicios, talleres,
+            herbolario, cartas astrales, contenido público, novedades, métricas y ajustes.
+          </p>
+
+          <div class="backup-warning-box">
+            <strong>Importante:</strong>
+            las copias pueden contener datos personales o notas internas. Guarda los archivos en un lugar seguro.
+          </div>
+
+          <div class="backup-stats-grid">
+            <article>
+              <span>Claves Alaya</span>
+              <strong id="backupKeysCount">0</strong>
+              <small>Entradas guardadas en este navegador</small>
+            </article>
+            <article>
+              <span>Tamaño aprox.</span>
+              <strong id="backupSizeValue">0 KB</strong>
+              <small>Datos incluidos en backup</small>
+            </article>
+            <article>
+              <span>Última copia</span>
+              <strong id="backupLastDate">—</strong>
+              <small>Fecha de exportación local</small>
+            </article>
+            <article>
+              <span>Estado</span>
+              <strong id="backupStatusValue">Listo</strong>
+              <small>Centro de copias local</small>
+            </article>
+          </div>
+
+          <div class="backup-layout">
+            <div class="admin-tools backup-card">
+              <h4>Crear copia</h4>
+              <p class="form-note">
+                Genera un backup completo en formato JSON para guardar o mover a otro navegador.
+              </p>
+              <div class="admin-actions">
+                <button id="generateFullBackupBtn" class="btn btn-primary" type="button">Generar backup</button>
+                <button id="downloadFullBackupBtn" class="btn btn-secondary" type="button">Descargar JSON</button>
+                <button id="copyFullBackupBtn" class="btn btn-secondary" type="button">Copiar JSON</button>
+              </div>
+              <textarea id="fullBackupOutput" rows="9" placeholder="Aquí aparecerá el backup generado..."></textarea>
+            </div>
+
+            <div class="admin-tools backup-card">
+              <h4>Restaurar copia</h4>
+              <p class="form-note">
+                Pega un backup JSON o importa un archivo. Restaurar sobrescribe las claves incluidas.
+              </p>
+              <input id="backupImportFile" type="file" accept=".json,application/json">
+              <textarea id="fullBackupInput" rows="9" placeholder="Pega aquí un backup JSON para restaurar..."></textarea>
+              <div class="admin-actions">
+                <button id="restoreFullBackupBtn" class="btn btn-primary" type="button">Restaurar backup</button>
+                <button id="validateFullBackupBtn" class="btn btn-secondary" type="button">Validar</button>
+                <button id="clearBackupInputBtn" class="btn btn-secondary" type="button">Limpiar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-tools backup-card">
+            <h4>Inventario de datos locales</h4>
+            <p class="form-note">
+              Revisa qué módulos tienen datos guardados en este navegador.
+            </p>
+            <div class="admin-actions">
+              <button id="refreshBackupInventoryBtn" class="btn btn-secondary" type="button">Actualizar inventario</button>
+              <button id="copyBackupInventoryBtn" class="btn btn-secondary" type="button">Copiar inventario</button>
+              <button id="downloadBackupInventoryCsvBtn" class="btn btn-secondary" type="button">Descargar CSV</button>
+            </div>
+            <div id="backupInventoryList" class="backup-inventory-list"></div>
+          </div>
+        </section>
+
+
+        <section class="admin-tab-panel" id="adminTab-lanzamiento">
+          <h4>Centro de Lanzamiento Pro</h4>
+          <p class="form-note">
+            Revisa el estado de la web antes de publicarla: contenido, reservas, PWA, Firebase, privacidad y SEO.
+          </p>
+
+          <div class="launch-score-card">
+            <div>
+              <span class="launch-score-label">Preparación de lanzamiento</span>
+              <strong id="launchScoreValue">0%</strong>
+              <p id="launchScoreText">Calculando estado...</p>
+            </div>
+            <div class="launch-score-ring" id="launchScoreRing">✦</div>
+          </div>
+
+          
+          
+          
+          <div class="admin-tools rc-admin-panel">
+            <h4>Release Candidate Pro</h4>
+            <p class="form-note">
+              Revisión final de versión, archivos críticos y notas antes de publicar Alaya Holistics.
+            </p>
+
+            <div class="rc-version-card">
+              <div>
+                <span>Versión actual</span>
+                <strong id="rcVersionValue">v7.0</strong>
+                <small id="rcBuildDateValue">Release Candidate Pro</small>
+              </div>
+              <div class="rc-status-orb" id="rcStatusOrb">RC</div>
+            </div>
+
+            <div class="rc-check-grid">
+              <article>
+                <span>Archivos críticos</span>
+                <strong id="rcCriticalFilesStatus">—</strong>
+              </article>
+              <article>
+                <span>Documentación</span>
+                <strong id="rcDocsStatus">—</strong>
+              </article>
+              <article>
+                <span>PWA</span>
+                <strong id="rcPwaStatus">—</strong>
+              </article>
+              <article>
+                <span>Publicación</span>
+                <strong id="rcPublishStatus">—</strong>
+              </article>
+            </div>
+
+            <div class="admin-actions">
+              <button id="runRcCheckBtn" class="btn btn-primary" type="button">Revisión final</button>
+              <button id="copyRcNotesBtn" class="btn btn-secondary" type="button">Copiar notas v7.0</button>
+              <button id="openChangelogBtn" class="btn btn-secondary" type="button">Abrir changelog</button>
+              <button id="openVersionFileBtn" class="btn btn-secondary" type="button">Abrir VERSION.json</button>
+            </div>
+
+            <div id="rcCheckList" class="rc-check-list"></div>
+          </div>
+
+
+          <div class="admin-tools publish-admin-panel">
+            <h4>Publicación GitHub Pages Pro</h4>
+            <p class="form-note">
+              Comprueba si la web está preparada para publicarse online en GitHub Pages y copia los pasos rápidos.
+            </p>
+
+            <div class="publish-status-grid">
+              <article>
+                <span>Protocolo</span>
+                <strong id="publishProtocolStatus">—</strong>
+              </article>
+              <article>
+                <span>Dominio</span>
+                <strong id="publishHostStatus">—</strong>
+              </article>
+              <article>
+                <span>Archivos base</span>
+                <strong id="publishFilesStatus">—</strong>
+              </article>
+              <article>
+                <span>Estado</span>
+                <strong id="publishReadyStatus">—</strong>
+              </article>
+            </div>
+
+            <div class="admin-actions">
+              <button id="checkPublishStatusBtn" class="btn btn-secondary" type="button">Comprobar publicación</button>
+              <button id="copyGithubPagesStepsBtn" class="btn btn-secondary" type="button">Copiar pasos GitHub Pages</button>
+              <button id="copyPublishChecklistBtn" class="btn btn-secondary" type="button">Copiar checklist final</button>
+            </div>
+          </div>
+
+
+          <div class="admin-tools pwa-maintenance-panel">
+            <h4>PWA Instalación y Mantenimiento</h4>
+            <p class="form-note">
+              Revisa si la web está preparada como app instalable y limpia cachés si al publicar no se ven los últimos cambios.
+            </p>
+
+            <div class="pwa-maintenance-grid">
+              <article>
+                <span>Manifest</span>
+                <strong id="pwaManifestStatus">—</strong>
+              </article>
+              <article>
+                <span>Service Worker</span>
+                <strong id="pwaSwStatus">—</strong>
+              </article>
+              <article>
+                <span>Modo instalación</span>
+                <strong id="pwaInstallModeStatus">—</strong>
+              </article>
+              <article>
+                <span>Cachés</span>
+                <strong id="pwaCacheStatus">—</strong>
+              </article>
+            </div>
+
+            <div class="admin-actions">
+              <button id="checkPwaStatusBtn" class="btn btn-secondary" type="button">Comprobar PWA</button>
+              <button id="clearPwaCachesBtn" class="btn btn-secondary" type="button">Limpiar caché PWA</button>
+              <button id="copyPwaAdminGuideBtn" class="btn btn-secondary" type="button">Copiar guía instalación</button>
+            </div>
+          </div>
+
+
+          <div class="launch-actions">
+            <button id="runLaunchCheckBtn" class="btn btn-primary" type="button">Revisar ahora</button>
+            <button id="copyLaunchReportBtn" class="btn btn-secondary" type="button">Copiar informe</button>
+            <button id="resetLaunchChecklistBtn" class="btn btn-secondary" type="button">Reiniciar checklist</button>
+          </div>
+
+          <div class="launch-grid">
+            <article>
+              <h4>Checklist público</h4>
+              <div id="launchPublicChecklist" class="launch-checklist"></div>
+            </article>
+
+            <article>
+              <h4>Checklist admin</h4>
+              <div id="launchAdminChecklist" class="launch-checklist"></div>
+            </article>
+
+            <article>
+              <h4>Pruebas rápidas</h4>
+              <div id="launchQuickTests" class="launch-tests"></div>
+            </article>
+          </div>
+
+          <div class="admin-tools launch-notes-box">
+            <h4>Notas de lanzamiento</h4>
+            <textarea id="launchNotes" rows="5" placeholder="Notas internas para el lanzamiento, pendientes, ideas o cosas a revisar antes de publicar..."></textarea>
+            <button id="saveLaunchNotesBtn" class="btn btn-secondary" type="button">Guardar notas</button>
+          </div>
+        </section>
+
+
         <section class="admin-tab-panel" id="adminTab-ajustes">
           <h4>Ajustes de la web</h4>
           <div class="admin-form">
@@ -819,6 +3164,31 @@
             <input id="settingTagline" type="text" placeholder="Frase principal">
             <input id="settingWhatsapp" type="text" placeholder="WhatsApp con prefijo, sin +">
             <input id="settingEmail" type="email" placeholder="Email de reservas">
+
+            <div class="admin-tools public-profile-settings-panel">
+              <h4>Datos públicos y redes</h4>
+              <p class="form-note">
+                Configura los datos que aparecen en la zona pública de contacto, redes y canales de atención.
+              </p>
+
+              <div class="form-row">
+                <input id="settingPublicAddress" type="text" placeholder="Dirección / zona de atención">
+                <input id="settingPublicHours" type="text" placeholder="Horario público, ej: horas concertadas">
+              </div>
+
+              <div class="form-row">
+                <input id="settingMapLink" type="url" placeholder="Enlace de Google Maps">
+                <input id="settingInstagram" type="url" placeholder="Instagram">
+              </div>
+
+              <div class="form-row">
+                <input id="settingTikTok" type="url" placeholder="TikTok">
+                <input id="settingYoutube" type="url" placeholder="YouTube">
+              </div>
+
+              <textarea id="settingPublicNotice" rows="3" placeholder="Aviso público breve: cita previa, tiempos de respuesta, atención personalizada..."></textarea>
+            </div>
+
             <input id="settingAdminUser" type="text" placeholder="Usuario admin">
             <input id="settingAdminPass" type="text" placeholder="Contraseña admin">
             <button id="guardarAjustesBtn" class="btn btn-primary">Guardar ajustes</button>
@@ -826,6 +3196,27 @@
 
 
 
+
+          <div class="admin-tools admin-astral-integration-panel" id="adminAstralIntegrationPanel">
+            <h4>Alaya Astrología integrada</h4>
+            <p>
+              La app astral está incluida en <code>alaya-astral/</code>.
+              Desde el panel admin se abre con el botón <strong>Reservar consulta astral</strong>.
+            </p>
+            <div class="admin-actions">
+              <a class="btn btn-secondary" href="#reservas" target="_blank" rel="noopener">Abrir herramienta Astral IA</a>
+            </div>
+          </div>
+
+          <div class="admin-tools admin-logo-preview-panel" id="adminLogoPreviewPanel">
+            <h4>Logos de marca</h4>
+            <p>Los 3 logos quedan integrados en la web y disponibles en la carpeta <code>assets/logos/</code>.</p>
+            <div class="admin-logo-grid">
+              <article><img loading="lazy" decoding="async" src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics"><strong>Alaya Holistics</strong></article>
+              <article><img loading="lazy" decoding="async" src="assets/logos/alaya-herbolario-logo.png" alt="Alaya Herbolario"><strong>Alaya Herbolario</strong></article>
+              <article><img loading="lazy" decoding="async" src="assets/logos/alaya-astrologia-logo.png" alt="Alaya Astrología"><strong>Alaya Astrología</strong></article>
+            </div>
+          </div>
 
           <div class="admin-tools branding-pro-panel">
             <h4>Branding Pro</h4>
@@ -838,6 +3229,7 @@
                 <label>
                   Estilo visual
                   <select id="settingBrandPreset">
+                    <option value="astral">Alaya Astral</option>
                     <option value="cosmic">Cosmic premium</option>
                     <option value="herbal">Herbal natural</option>
                     <option value="sunrise">Sunrise cálido</option>
@@ -1289,5 +3681,88 @@
   <script src="js/backend-config.js"></script>
   <script src="js/cloud-adapter.js"></script>
   <script src="js/app.js"></script>
+
+  <div class="public-quick-dock" id="publicQuickDock" aria-label="Accesos rápidos">
+    <a href="#reservas" title="Reservar cita">Reservar</a>
+    <a href="#servicios" title="Ver servicios">Servicios</a>
+    <a href="#herbolario" title="Ver herbolario">Herbolario</a>
+    <a href="#contacto-alaya" title="Contacto">Contacto</a>
+    <a href="#ayuda-alaya" title="Ayuda">Ayuda</a>
+    <a href="#estado-alaya" title="Estado">Estado</a>
+    <a href="#avisos-alaya" title="Avisos">Avisos</a>
+    <a href="#compartir-alaya" title="Compartir">Compartir</a>
+    <a href="#instalar-alaya" title="Instalar">App</a>
+    <a href="#asistente-alaya" title="Asistente">Asistente</a>
+    <a href="#buscar-alaya" title="Buscar">Buscar</a>
+    <a href="#accesibilidad-alaya" title="Accesibilidad">Accesibilidad</a>
+    <a href="#novedades-alaya" title="Novedades">Novedades</a>
+    <a href="#opiniones-faq" title="Opiniones">Opiniones</a>
+    <a href="#canales-alaya" title="Canales">Canales</a>
+  </div>
+
+
+  <div class="cookie-banner hidden" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div>
+      <strong>Cookies y privacidad</strong>
+      <p>
+        Usamos almacenamiento local para guardar preferencias, reservas y funcionamiento de la app.
+        Revisa la política de cookies antes de publicar la web final.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button id="acceptCookiesBtn" class="btn btn-primary" type="button">Aceptar</button>
+      <button id="rejectCookiesBtn" class="btn btn-secondary" type="button">Solo necesarias</button>
+      <a class="btn btn-secondary" href="cookies.html">Leer más</a>
+    </div>
+  </div>
+
+
+  <button class="back-to-top-btn" id="backToTopBtn" type="button" aria-label="Volver arriba">↑</button>
+
+
+  <button class="accessibility-fab" id="accessibilityFab" type="button" aria-label="Abrir ajustes de accesibilidad">A11y</button>
+
+  <aside class="accessibility-panel hidden" id="accessibilityPanel" aria-label="Panel de accesibilidad">
+    <div class="accessibility-panel-head">
+      <strong>Accesibilidad</strong>
+      <button id="closeAccessibilityPanelBtn" type="button" aria-label="Cerrar panel">×</button>
+    </div>
+
+    <p>Personaliza la lectura de la web en este navegador.</p>
+
+    <div class="accessibility-actions">
+      <button id="increaseTextBtn" type="button">Aumentar texto</button>
+      <button id="decreaseTextBtn" type="button">Reducir texto</button>
+      <button id="toggleHighContrastBtn" type="button">Alto contraste</button>
+      <button id="toggleReduceMotionBtn" type="button">Reducir movimiento</button>
+      <button id="resetAccessibilityBtn" type="button">Restaurar</button>
+    </div>
+
+    <div class="accessibility-status" id="accessibilityStatus">
+      Tamaño normal · Contraste normal · Movimiento activo
+    </div>
+  </aside>
+
+
+  <button class="pwa-install-fab hidden" id="pwaInstallFab" type="button" aria-label="Instalar Alaya como app">Instalar</button>
+
+
+  <div class="maintenance-overlay hidden" id="maintenanceOverlay" role="dialog" aria-modal="true" aria-label="Estado de Alaya">
+    <div class="maintenance-card">
+      <img loading="lazy" decoding="async" src="assets/logos/alaya-holistics-logo.png" alt="Alaya Holistics">
+      <span id="maintenanceModeLabel">Próximamente</span>
+      <h2 id="maintenanceTitle">Alaya está preparando algo especial</h2>
+      <p id="maintenanceMessage">Muy pronto estará disponible la experiencia completa.</p>
+      <div class="maintenance-countdown" id="maintenanceCountdown">
+        <strong>—</strong>
+        <small>Cuenta atrás</small>
+      </div>
+      <div class="maintenance-actions">
+        <a id="maintenanceCta" class="btn btn-primary" href="#contacto-alaya">Contactar</a>
+        <button id="maintenanceContinueBtn" class="btn btn-secondary" type="button">Entrar igualmente</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

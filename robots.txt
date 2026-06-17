@@ -2,3 +2,9 @@ User-agent: *
 Allow: /
 
 Sitemap: ./sitemap.xml
+
+# Admin separado
+Disallow: /admin.html
+
+# Manual administrador separado
+Disallow: /manual-admin.html

@@ -824,3 +824,856 @@ Alaya Holistics queda reforzado como área principal de terapias, lecturas y tal
 ## Próxima mejora recomendada
 
 v4.4 Lista de consulta / carrito sin pago para Alaya Herbolario.
+
+
+---
+
+# Versión v4.4 Servicios Ejemplo Pro añadida
+
+## Nuevo en v4.4
+
+- Más ejemplos reales de servicios.
+- Nuevos servicios base: posos de café, numerología, carta astral básica, limpieza energética, meditación guiada, ritual lunar y lectura emocional simbólica.
+- Nueva sección visual con packs: Lecturas, Energía y Bienestar.
+- Botón admin **Cargar ejemplos Alaya**.
+- Botón admin **Restaurar servicios ejemplo**.
+- Nueva guía: `docs/SERVICIOS-EJEMPLO-PRO.md`.
+
+## Próxima mejora recomendada
+
+v4.5 Landing Premium: Sobre Alaya, método de trabajo, testimonios, FAQ y CTA final.
+
+
+---
+
+# Versión v4.5 Logos Integrados añadida
+
+## Nuevo en v4.5
+
+- Integrados los 3 logos de marca:
+  - Alaya Holistics
+  - Alaya Herbolario
+  - Alaya Astrología
+- Logos guardados en `assets/logos/`.
+- Logo principal añadido al header.
+- Logo principal añadido al hero.
+- Logo Alaya Herbolario añadido a su sección.
+- Nueva sección visual de Alaya Astrología.
+- Vista previa de logos en el panel admin.
+- Iconos PWA/favicon generados desde el logo Alaya Holistics.
+- Nueva guía: `docs/LOGOS-INTEGRADOS.md`.
+
+
+---
+
+# Versión v4.6 Alaya Astral IA integrada
+
+## Nuevo en v4.6
+
+- Integrada la app **Alaya Astral IA** dentro de la web principal.
+- La app queda en la carpeta `alaya-astral/`.
+- Nueva sección pública **Alaya Astral IA**.
+- Botón para abrir la app astral.
+- Botón para reservar consulta astral.
+- Panel admin con acceso directo a la app astral.
+- Logo Alaya Astrología usado como identidad visual del módulo.
+- Nueva guía: `docs/ALAYA-ASTRAL-INTEGRADO.md`.
+
+## Importante
+
+La app astral se integra como módulo separado para conservar su funcionamiento.
+
+
+---
+
+# Versión v4.7 Diseño Astral Global añadida
+
+## Nuevo en v4.7
+
+- El estilo de Alaya Astral IA se aplica a toda la web.
+- Fondo cósmico oscuro.
+- Estrellas animadas.
+- Paleta astral global: violeta, dorado, cyan y crema.
+- Cards tipo glass premium.
+- Botones y filtros con estilo astral.
+- Header más oscuro y elegante.
+- Servicios, talleres, herbolario y astrología quedan unificados visualmente.
+- Nuevo preset **Alaya Astral** en Branding Pro.
+- Nueva sección **Universo Alaya**.
+- Nueva guía: `docs/DISENO-ASTRAL-GLOBAL.md`.
+
+
+---
+
+# Versión v4.8 Landing Astral Premium añadida
+
+## Nuevo en v4.8
+
+- Nueva sección **Sobre Alaya**.
+- Nueva sección **Método Alaya**.
+- Nueva zona de confianza.
+- Testimonios de ejemplo.
+- Preguntas frecuentes.
+- CTA final de reserva.
+- Accesos claros a:
+  - Alaya Holistics
+  - Alaya Herbolario
+  - Alaya Astral IA
+- Diseño coherente con el estilo astral global.
+- Nueva guía: `docs/LANDING-ASTRAL-PREMIUM.md`.
+
+
+---
+
+# Versión v4.9 Astral Admin Pro añadida
+
+## Nuevo en v4.9
+
+- Se quita el acceso público directo a **Alaya Astral IA**.
+- La herramienta astral pasa al panel admin.
+- Nueva pestaña admin **Cartas astrales**.
+- Guardado de cartas astrales detalladas.
+- Fichas de cliente/paciente.
+- Notas privadas por persona.
+- Seguimiento interno.
+- Estados de carta:
+  - Borrador
+  - En estudio
+  - Completada
+  - Entregada
+  - Seguimiento
+- Búsqueda y filtro por estado.
+- Exportación JSON.
+- Exportación CSV.
+- Backup general incluye cartas astrales.
+- Nueva guía: `docs/ASTRAL-ADMIN-PRO.md`.
+
+## Importante
+
+La gestión de cartas astrales guarda datos personales. Revisar privacidad y consentimiento antes de usarlo en producción.
+
+
+---
+
+# Versión v5.0 Astral Admin Plus añadida
+
+## Nuevo en v5.0
+
+- Historial de sesiones por cliente/paciente.
+- Notas por sesión.
+- Próximo paso recomendado.
+- Campos estructurados de interpretación:
+  - objetivo
+  - fortalezas
+  - retos
+  - recomendaciones
+- Botón **Copiar prompt IA**.
+- Botón **Insertar plantilla**.
+- Vista resumida de interpretación en cada carta.
+- Timeline de sesiones.
+- Exportación JSON/CSV ampliada.
+- Nueva guía: `docs/ASTRAL-ADMIN-PLUS.md`.
+
+
+---
+
+# Versión v5.1 Astral Client Hub añadida
+
+## Nuevo en v5.1
+
+- Nuevo **Client Hub Astral** dentro del admin.
+- Agrupa cartas por cliente/paciente.
+- Muestra cartas, sesiones, estado y último seguimiento.
+- Botón **Ver cartas** por cliente.
+- Botón **Copiar ficha** por cliente.
+- Botón **Imprimir ficha** por cliente.
+- Botón **Informe** en cada carta astral.
+- Botón **Vista informe** para el borrador actual.
+- Informes imprimibles desde navegador.
+- Nueva guía: `docs/ASTRAL-CLIENT-HUB.md`.
+
+
+---
+
+# Versión v5.2 Privacidad Astral Pro añadida
+
+## Nuevo en v5.2
+
+- Panel **Privacidad Astral Pro**.
+- Modo privacidad para ocultar visualmente notas privadas.
+- Plantilla de consentimiento copiable.
+- Checklist de privacidad copiable.
+- Fecha de consentimiento.
+- Origen del consentimiento.
+- Próxima revisión de datos.
+- Etiquetas internas.
+- Notas de consentimiento.
+- Botón **Anonimizar** en cada carta astral.
+- Indicadores visuales de consentimiento.
+- Nueva guía: `docs/PRIVACIDAD-ASTRAL-PRO.md`.
+
+## Importante
+
+Esta mejora ayuda a organizar privacidad, pero no sustituye revisión legal/profesional para uso real con datos personales.
+
+
+---
+
+# Versión v5.3 Astral Cloud Sync Pro añadida
+
+## Nuevo en v5.3
+
+- Panel **Astral Cloud Sync Pro**.
+- Sincronización online de cartas astrales con Firebase/Firestore.
+- Botón **Subir cartas online**.
+- Botón **Cargar cartas online**.
+- Botón **Probar Astral Cloud**.
+- Botón **Marcar como local**.
+- Indicadores **Online / Local** en cada carta.
+- Auto-sync al guardar una carta si Firebase admin está activo.
+- Borrado online al borrar carta local si hay sesión admin.
+- Nueva colección Firestore: `alaya_astral_charts`.
+- Reglas Firestore actualizadas: solo admin.
+- Nueva guía: `docs/ASTRAL-CLOUD-SYNC-PRO.md`.
+
+## Importante
+
+Por privacidad, las cartas astrales online quedan protegidas para rol admin.
+
+
+---
+
+# Versión v5.4 Seguimiento Astral Pro añadida
+
+## Nuevo en v5.4
+
+- Fecha de próxima sesión / seguimiento.
+- Prioridad:
+  - Alta
+  - Normal
+  - Baja
+- Próximo paso concreto.
+- Panel **Seguimiento Astral Pro**.
+- Filtros de seguimiento:
+  - vencidos
+  - hoy
+  - próximos 7 días
+  - prioridad alta
+- Botón **Abrir ficha**.
+- Botón **Copiar mensaje**.
+- Botón **Marcar hecho**.
+- Client Hub mejorado con próximo paso.
+- Informes incluyen próximo paso.
+- Nueva guía: `docs/SEGUIMIENTO-ASTRAL-PRO.md`.
+
+
+---
+
+# Versión v5.5 Informes Astrales Pro añadida
+
+## Nuevo en v5.5
+
+- Panel **Informes Astrales Pro**.
+- Campos de informe para cliente:
+  - título
+  - resumen inicial
+  - mensaje final
+- Botón **Plantilla informe cliente**.
+- Botón **Vista informe cliente**.
+- Botón **Informe cliente** en cada carta astral.
+- Informe interno separado.
+- Checklist de informe copiable.
+- Informe cliente imprimible / guardable como PDF desde navegador.
+- El informe cliente no incluye notas privadas por defecto.
+- Nueva guía: `docs/INFORMES-ASTRALES-PRO.md`.
+
+
+---
+
+# Versión v5.6 Web Pública Pro añadida
+
+## Nuevo en v5.6
+
+- SEO básico en el head.
+- JSON-LD tipo LocalBusiness.
+- Open Graph y Twitter Card.
+- `sitemap.xml`.
+- `robots.txt`.
+- `offline.html`.
+- Fallback offline para PWA.
+- Accesos rápidos flotantes.
+- Enlace accesible “Saltar al contenido”.
+- Nueva sección **Experiencia web**.
+- Mapa rápido en el footer.
+- Manifest PWA mejorado.
+- Nueva guía: `docs/WEB-PUBLICA-PRO.md`.
+
+
+---
+
+# Versión v5.7 Centro de Lanzamiento Pro añadida
+
+## Nuevo en v5.7
+
+- Nueva pestaña admin **Lanzamiento**.
+- Puntuación de preparación de lanzamiento.
+- Checklist público.
+- Checklist admin.
+- Pruebas rápidas automáticas.
+- Informe de lanzamiento copiable.
+- Notas internas de lanzamiento.
+- Bloque público **Web preparada**.
+- Mejoras de carga de imágenes.
+- Manifest PWA revisado.
+- Nueva guía: `docs/CENTRO-LANZAMIENTO-PRO.md`.
+
+
+---
+
+# Versión v5.8 Legal y Confianza Web Pro añadida
+
+## Nuevo en v5.8
+
+- Página `legal.html`.
+- Página `privacidad.html`.
+- Página `cookies.html`.
+- Banner de cookies / almacenamiento local.
+- Enlaces legales en footer.
+- Bloque público de confianza legal.
+- Aviso claro de bienestar y orientación simbólica.
+- Sitemap actualizado.
+- Páginas legales cacheadas por la PWA.
+- Nueva guía: `docs/LEGAL-CONFIANZA-WEB-PRO.md`.
+
+## Importante
+
+Los textos legales son base orientativa y deben revisarse/adaptarse antes de publicar.
+
+
+---
+
+# Versión v5.9 Contacto y Conversión Pro añadida
+
+## Nuevo en v5.9
+
+- Nueva sección pública **Contacto y reservas**.
+- Tarjetas de contacto:
+  - cita previa
+  - WhatsApp
+  - horario orientativo
+- Constructor de mensaje rápido.
+- Botón **Copiar mensaje**.
+- Vista previa del mensaje.
+- Botón flotante **volver arriba**.
+- Ribbon en hero de cita previa.
+- Sitemap actualizado.
+- Nueva guía: `docs/CONTACTO-CONVERSION-PRO.md`.
+
+
+---
+
+# Versión v6.0 Canales y Redes Pro añadida
+
+## Nuevo en v6.0
+
+- Panel admin **Datos públicos y redes**.
+- Dirección / zona de atención editable.
+- Horario público editable.
+- Enlace de Google Maps.
+- Instagram, TikTok y YouTube.
+- Aviso público breve.
+- Nueva zona pública **Canales Alaya**.
+- Botón **Abrir WhatsApp** desde mensaje rápido.
+- Botón **Enviar email** desde mensaje rápido.
+- Redes desactivadas visualmente si están vacías.
+- Sitemap actualizado.
+- Nueva guía: `docs/CANALES-REDES-PRO.md`.
+
+
+---
+
+# Versión v6.1 Contenido Público Pro añadida
+
+## Nuevo en v6.1
+
+- Nueva pestaña admin **Contenido**.
+- Editor de testimonios/opiniones.
+- Editor de preguntas frecuentes.
+- Nueva sección pública **Opiniones y dudas**.
+- Contadores públicos de opiniones y FAQs.
+- Botones para cargar ejemplos.
+- Botón para copiar contenido JSON.
+- Botón para restaurar contenido base.
+- Sitemap actualizado.
+- Nueva guía: `docs/CONTENIDO-PUBLICO-PRO.md`.
+
+
+---
+
+# Versión v6.2 Novedades y Blog Pro añadida
+
+## Nuevo en v6.2
+
+- Nueva sección pública **Novedades Alaya**.
+- Filtros por categoría.
+- Tarjeta destacada.
+- Modal de lectura completa.
+- Botón para copiar resumen.
+- Editor admin de novedades dentro de **Contenido**.
+- Estado publicado/borrador.
+- Opción para destacar una novedad.
+- CRUD completo: crear, editar, borrar y cargar ejemplos.
+- Sitemap actualizado.
+- Nueva guía: `docs/NOVEDADES-BLOG-PRO.md`.
+
+
+---
+
+# Versión v6.3 Buscador Público Pro añadida
+
+## Nuevo en v6.3
+
+- Nueva sección pública **Buscar en Alaya**.
+- Buscador global.
+- Etiquetas rápidas de búsqueda.
+- Resultados de servicios, talleres, herbolario, novedades, FAQs, opiniones, contacto y reservas.
+- Estado vacío con CTA a reservar.
+- Atajo `/` para enfocar el buscador.
+- Sitemap actualizado.
+- Nueva guía: `docs/BUSCADOR-PUBLICO-PRO.md`.
+
+
+---
+
+# Versión v6.4 Métricas Locales Pro añadida
+
+## Nuevo en v6.4
+
+- Nueva pestaña admin **Métricas**.
+- Analítica interna sin servicios externos.
+- Registro local de visitas.
+- Registro de clics importantes.
+- Registro de búsquedas del buscador público.
+- Top búsquedas.
+- Top clics.
+- Actividad reciente.
+- Copiar informe de métricas.
+- Exportar CSV.
+- Reiniciar métricas.
+- Bloque público de transparencia sobre métricas.
+- Nueva guía: `docs/METRICAS-LOCALES-PRO.md`.
+
+
+---
+
+# Versión v6.5 Accesibilidad y UX Pro añadida
+
+## Nuevo en v6.5
+
+- Botón flotante **A11y**.
+- Panel de accesibilidad.
+- Aumentar/reducir texto.
+- Alto contraste.
+- Reducir movimiento.
+- Restaurar ajustes.
+- Preferencias guardadas localmente.
+- Mejora de foco visible con teclado.
+- Sección pública de accesibilidad.
+- Sitemap actualizado.
+- Nueva guía: `docs/ACCESIBILIDAD-UX-PRO.md`.
+
+
+---
+
+# Versión v6.6 Asistente Público Pro añadida
+
+## Nuevo en v6.6
+
+- Nueva sección **Asistente Alaya**.
+- Guía rápida para elegir servicio.
+- Recomendaciones automáticas por necesidad.
+- Acceso rápido a servicio/sección recomendada.
+- Botón para reservar.
+- Botón para copiar mensaje preparado.
+- Sitemap actualizado.
+- Nueva guía: `docs/ASISTENTE-PUBLICO-PRO.md`.
+
+
+---
+
+# Versión v6.7 PWA Instalación y Mantenimiento Pro añadida
+
+## Nuevo en v6.7
+
+- Nueva sección pública **Alaya como app**.
+- Botón **Instalar app**.
+- Botón para copiar instrucciones de instalación.
+- Botón flotante de instalación cuando está disponible.
+- Panel PWA dentro de **Lanzamiento**.
+- Estado de manifest, Service Worker, instalación y cachés.
+- Botón **Comprobar PWA**.
+- Botón **Limpiar caché PWA**.
+- Botón **Copiar guía instalación**.
+- Manifest actualizado con shortcuts.
+- Sitemap actualizado.
+- Nueva guía: `docs/PWA-INSTALACION-MANTENIMIENTO-PRO.md`.
+
+
+---
+
+# Versión v6.8 Backup Total y Migración Pro añadida
+
+## Nuevo en v6.8
+
+- Nueva pestaña admin **Backups**.
+- Backup total de datos locales Alaya.
+- Restauración desde JSON pegado.
+- Restauración desde archivo `.json`.
+- Validación de backup.
+- Descarga de backup completo.
+- Copiar backup al portapapeles.
+- Inventario de datos locales.
+- Copiar inventario.
+- Descargar inventario CSV.
+- Estadísticas de claves, tamaño y última copia.
+- Bloque público de datos portables.
+- Sitemap actualizado.
+- Nueva guía: `docs/BACKUP-TOTAL-MIGRACION-PRO.md`.
+
+
+---
+
+# Versión v6.9 Publicación GitHub Pages Pro añadida
+
+## Nuevo en v6.9
+
+- Archivo `.nojekyll`.
+- Página `404.html` personalizada.
+- Panel admin de publicación dentro de **Lanzamiento**.
+- Comprobación de protocolo, dominio y archivos base.
+- Botón **Copiar pasos GitHub Pages**.
+- Botón **Copiar checklist final**.
+- Sección pública de publicación.
+- Sitemap actualizado.
+- Nueva guía: `docs/PUBLICACION-GITHUB-PAGES-PRO.md`.
+
+
+---
+
+# Versión v7.0 Release Candidate Pro añadida
+
+Build: `2026-06-16T19:07:25Z`
+
+## Nuevo en v7.0
+
+- Archivo `VERSION.json`.
+- Archivo `CHANGELOG.md`.
+- Panel admin **Release Candidate Pro**.
+- Revisión de archivos críticos.
+- Revisión de documentación.
+- Estado PWA y publicación.
+- Botón para copiar notas v7.0.
+- Sección pública de versión candidata.
+- Sitemap actualizado.
+- Nueva guía: `docs/RELEASE-CANDIDATE-PRO.md`.
+
+## Recomendación
+
+Usar esta versión para pruebas finales antes de publicarla como versión estable.
+
+
+---
+
+# Versión v7.1 SEO y Compartir Pro añadida
+
+Build: `2026-06-16T19:09:26Z`
+
+## Nuevo en v7.1
+
+- Nueva pestaña admin **SEO**.
+- Editor de título, descripción, keywords, URL e imagen social.
+- Vista previa social.
+- Generador de meta tags HTML.
+- Generador de texto para compartir.
+- Botón copiar meta HTML.
+- Botón copiar checklist SEO.
+- Sección pública **Compartir Alaya**.
+- Botones públicos para copiar enlace y compartir.
+- Sitemap actualizado.
+- Nueva guía: `docs/SEO-COMPARTIR-PRO.md`.
+
+
+---
+
+# Versión v7.2 Rendimiento y Calidad Pro añadida
+
+Build: `2026-06-16T19:11:29Z`
+
+## Nuevo en v7.2
+
+- Nueva pestaña admin **Calidad**.
+- Auditoría local de archivos principales.
+- Revisión de enlaces internos.
+- Revisión de imágenes y textos alternativos.
+- Revisión básica de formularios y SEO.
+- Puntuación global de calidad.
+- Informe copiable.
+- Exportación CSV.
+- Checklist de calidad.
+- Sección pública de calidad técnica.
+- Sitemap actualizado.
+- Nueva guía: `docs/RENDIMIENTO-CALIDAD-PRO.md`.
+
+
+---
+
+# Versión v7.3 Avisos Globales Pro añadida
+
+Build: `2026-06-16T19:14:31Z`
+
+## Nuevo en v7.3
+
+- Nueva pestaña admin **Avisos**.
+- Aviso global activo/inactivo.
+- Tipos de aviso: normal, importante, taller, herbolario y astrología.
+- Modo banner, tarjeta o ambos.
+- Título, mensaje, botón y enlace configurables.
+- Banner público superior.
+- Tarjeta pública de aviso.
+- Vista previa en admin.
+- Botón copiar aviso.
+- Botón copiar checklist.
+- Sitemap actualizado.
+- Nueva guía: `docs/AVISOS-GLOBALES-PRO.md`.
+
+
+---
+
+# Versión v7.4 Modo Lanzamiento y Mantenimiento Pro añadida
+
+Build: `2026-06-16T19:16:48Z`
+
+## Nuevo en v7.4
+
+- Nueva pestaña admin **Mantenimiento**.
+- Modo Próximamente, Mantenimiento o Lanzamiento.
+- Pantalla pública opcional.
+- Tarjeta pública de estado.
+- Cuenta atrás por fecha objetivo.
+- Botón CTA configurable.
+- Opción de entrar igualmente.
+- Vista previa en admin.
+- Copiar estado.
+- Copiar snippet.
+- Copiar checklist.
+- Sitemap actualizado.
+- Nueva guía: `docs/MODO-LANZAMIENTO-MANTENIMIENTO-PRO.md`.
+
+
+---
+
+# Versión v7.5 Centro de Ayuda y Manual Pro añadida
+
+Build: `2026-06-16T19:18:43Z`
+
+## Nuevo en v7.5
+
+- Nueva pestaña admin **Ayuda**.
+- Centro de ayuda público.
+- Buscador de ayuda.
+- Guías rápidas por módulo.
+- Vista de guía en admin.
+- Copiar guía individual.
+- Copiar manual rápido completo.
+- Copiar checklist de formación.
+- Copiar ayuda para cliente.
+- Sitemap actualizado.
+- Nueva guía: `docs/CENTRO-AYUDA-MANUAL-PRO.md`.
+
+
+---
+
+# Versión v7.6 Clientes y Admin Separados Pro añadida
+
+Build: `2026-06-16T19:22:21Z`
+
+## Corregido en v7.6
+
+- Separación clara entre **zona clientes** y **zona administrador**.
+- Ayuda pública solo para clientes.
+- Ayuda admin solo para administrador.
+- Ocultadas de navegación pública las secciones internas:
+  - backups
+  - publicación
+  - calidad técnica
+  - versión interna
+  - métricas técnicas
+- Añadido centro interno administrador.
+- Añadido checklist de separación.
+- Sitemap limpiado para no destacar secciones internas.
+- Nueva guía: `docs/CLIENTES-ADMIN-SEPARADOS-PRO.md`.
+
+
+---
+
+# Versión v7.7 Acceso Admin Separado Pro añadida
+
+Build: `2026-06-16T20:10:53Z`
+
+## Nuevo en v7.7
+
+- Eliminado el botón **Admin** de la navegación pública.
+- Nueva página `admin.html`.
+- `admin.html` marcada como `noindex,nofollow`.
+- `robots.txt` bloquea `/admin.html`.
+- Acceso directo compatible con `index.html#admin`.
+- Textos de acceso admin más claros.
+- La web principal queda más limpia para clientes.
+- Nueva guía: `docs/ACCESO-ADMIN-SEPARADO-PRO.md`.
+
+
+---
+
+# Versión v7.8 Documentación Cliente/Admin Pro añadida
+
+Build: `2026-06-16T20:20:56Z`
+
+## Nuevo en v7.8
+
+- Nueva página pública `guia-clientes.html`.
+- Nueva página interna `manual-admin.html`.
+- `manual-admin.html` marcada como `noindex,nofollow`.
+- `robots.txt` bloquea `/manual-admin.html`.
+- `admin.html` enlaza al manual administrador.
+- La web pública enlaza a la guía de clientes.
+- Sitemap incluye solo la guía pública de clientes.
+- Nueva guía: `docs/DOCUMENTACION-CLIENTE-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v7.9 Navegación Cliente Limpia Pro añadida
+
+Build: `2026-06-16T20:24:21Z`
+
+## Nuevo en v7.9
+
+- Menú público simplificado.
+- Eliminados enlaces duplicados.
+- Eliminado botón **Panel admin** del footer.
+- Footer reorganizado para clientes.
+- Nueva franja de atajos para clientes.
+- Checklist de navegación cliente limpia.
+- Admin sigue separado en `admin.html`.
+- Nueva guía: `docs/NAVEGACION-CLIENTE-LIMPIA-PRO.md`.
+
+
+---
+
+# Versión v8.0 Experiencia Cliente Pro añadida
+
+Build: `2026-06-16T20:25:55Z`
+
+## Nuevo en v8.0
+
+- Nueva sección **Qué puedes hacer en Alaya Holistics**.
+- Nueva sección **Elige tu camino**.
+- Nueva sección **Cómo funciona una reserva**.
+- Mini guía antes de reservar.
+- Accesos rápidos pensados para clientes.
+- Sitemap actualizado.
+- Nueva guía: `docs/EXPERIENCIA-CLIENTE-PRO.md`.
+
+## Enfoque
+
+La parte pública queda centrada en clientes. Las herramientas internas siguen separadas en `admin.html`.
+
+
+---
+
+# Versión v8.1 Selector de Servicio Cliente Pro añadida
+
+Build: `2026-06-16T20:39:48Z`
+
+## Nuevo en v8.1
+
+- Nueva sección pública **Selector cliente**.
+- Recomendaciones según intención del cliente.
+- Botón principal dinámico.
+- Pasos sugeridos.
+- Botón para copiar mensaje de consulta.
+- Sitemap actualizado.
+- Nueva guía: `docs/SELECTOR-SERVICIO-CLIENTE-PRO.md`.
+
+
+---
+
+# Versión v8.2 Pre-reserva Guiada Cliente Pro añadida
+
+Build: `2026-06-16T20:46:14Z`
+
+## Nuevo en v8.2
+
+- Nueva sección pública **Pre-reserva guiada**.
+- Formulario simple para clientes.
+- Generador de mensaje claro.
+- Botón para copiar mensaje.
+- Botones para ir a reservas o contacto.
+- Sitemap actualizado.
+- Nueva guía: `docs/PRERESERVA-GUIADA-CLIENTE-PRO.md`.
+
+
+---
+
+# Versión v8.3 Consulta de Reserva Cliente Pro añadida
+
+Build: `2026-06-16T20:51:45Z`
+
+## Nuevo en v8.3
+
+- Nueva sección pública **Consultar mi reserva**.
+- Búsqueda por código y contacto.
+- Resultado público sin notas internas.
+- Botón copiar resumen.
+- Botón contactar si no aparece la solicitud.
+- Sitemap actualizado.
+- Nueva guía: `docs/CONSULTA-RESERVA-CLIENTE-PRO.md`.
+
+
+---
+
+# Versión v8.4 Confirmación Admin Obligatoria Pro añadida
+
+Build: `2026-06-16T20:54:32Z`
+
+## Nuevo en v8.4
+
+- La reserva queda como **Pendiente de confirmación**.
+- La cita solo se confirma cuando el administrador pulsa **Confirmar reserva**.
+- Aviso público para clientes.
+- Aviso interno en panel admin.
+- Botón admin **Confirmar reserva**.
+- Mensaje de confirmación copiado automáticamente al confirmar.
+- Consulta pública muestra estado claro.
+- Sitemap actualizado.
+- Nueva guía: `docs/CONFIRMACION-ADMIN-OBLIGATORIA-PRO.md`.
+
+
+---
+
+# Versión v8.5 Centro de Confirmaciones Admin Pro añadida
+
+Build: `2026-06-16T21:04:55Z`
+
+## Nuevo en v8.5
+
+- Nueva pestaña admin **Confirmaciones**.
+- Bandeja de reservas pendientes.
+- Contadores de pendientes, confirmadas y canceladas.
+- Filtro y buscador de reservas.
+- Botón **Confirmar y copiar mensaje**.
+- Botón **Cancelar y copiar mensaje**.
+- Botón **Copiar revisión**.
+- Botón **Copiar informe pendientes**.
+- Botón **Copiar protocolo**.
+- Nueva guía: `docs/CENTRO-CONFIRMACIONES-ADMIN-PRO.md`.
