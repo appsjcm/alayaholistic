@@ -1,0 +1,38 @@
+{
+  "version": "11.2",
+  "updatedAt": "2026-06-17T06:41:36Z",
+  "collection": "alayaAgenda",
+  "document": "public",
+  "documentShape": {
+    "slots": [
+      {
+        "id": "slot id",
+        "service": "service name",
+        "date": "YYYY-MM-DD",
+        "time": "HH:mm",
+        "duration": "45 min",
+        "capacity": 1,
+        "status": "disponible | plazas-limitadas | completo | oculto",
+        "publicNote": "visible note",
+        "internalNote": "admin-only note",
+        "createdAt": "ISO datetime",
+        "updatedAt": "ISO datetime"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "block id",
+        "date": "YYYY-MM-DD",
+        "reason": "reason",
+        "createdAt": "ISO datetime"
+      }
+    ],
+    "updatedAt": "ISO datetime",
+    "source": "alaya-agenda-v11.2"
+  },
+  "securityNotes": [
+    "Public can read published availability if desired.",
+    "Only admins should write agenda slots and blocks.",
+    "Slots are orientative and do not confirm appointments automatically."
+  ]
+}

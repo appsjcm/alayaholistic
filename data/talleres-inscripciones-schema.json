@@ -1,0 +1,38 @@
+{
+  "version": "13.0",
+  "updatedAt": "2026-06-17T09:13:41Z",
+  "localStorageKeys": {
+    "workshops": "alaya_workshops_v130",
+    "requests": "alaya_workshop_requests_v130"
+  },
+  "workshopShape": {
+    "id": "workshop id",
+    "title": "title",
+    "category": "tarot | reiki | herbolario | bienestar | astrologia | otro",
+    "date": "YYYY-MM-DD",
+    "time": "HH:MM",
+    "duration": "duration text",
+    "mode": "presencial | online | mixta",
+    "capacity": "number of places",
+    "price": "indicative price",
+    "status": "abierto | pocas-plazas | lista-espera | cerrado | borrador",
+    "visible": "public visibility",
+    "description": "public description",
+    "disclaimer": "responsible note"
+  },
+  "requestShape": {
+    "id": "request id",
+    "name": "client name",
+    "contact": "email or phone",
+    "workshopId": "workshop id",
+    "workshopTitle": "workshop title",
+    "message": "optional message",
+    "status": "pendiente | contactada | confirmada | lista-espera | cancelada",
+    "createdAt": "ISO datetime"
+  },
+  "notes": [
+    "Solicitudes no confirman plaza automáticamente.",
+    "Confirmación manual por el administrador.",
+    "Evitar datos sensibles innecesarios."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "11.8",
+  "updatedAt": "2026-06-17T07:31:01Z",
+  "localStorageKeys": {
+    "settings": "alaya_launch_settings_v118",
+    "history": "alaya_launch_qa_history_v118"
+  },
+  "modes": [
+    "draft",
+    "launch",
+    "maintenance"
+  ],
+  "reportShape": {
+    "generatedAt": "ISO datetime",
+    "score": "0-100",
+    "mode": "draft | launch | maintenance",
+    "checks": "array of launch QA checks",
+    "tasks": "array of recommended tasks",
+    "totals": "reservations, clients, slots, messages"
+  },
+  "checklist": [
+    "contenido",
+    "reservas",
+    "seguimiento",
+    "agenda",
+    "legal",
+    "backup",
+    "crm",
+    "mensajes",
+    "hosting",
+    "firebase"
+  ]
+}

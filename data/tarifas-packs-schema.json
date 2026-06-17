@@ -1,0 +1,42 @@
+{
+  "version": "12.9",
+  "updatedAt": "2026-06-17T09:08:17Z",
+  "localStorageKey": "alaya_services_catalog_v129",
+  "categories": [
+    "tarot",
+    "reiki",
+    "holistico",
+    "herbolario",
+    "taller",
+    "pack"
+  ],
+  "modes": [
+    "presencial",
+    "online",
+    "mixta",
+    "consulta"
+  ],
+  "availability": [
+    "disponible",
+    "hora-concertada",
+    "proximamente",
+    "oculto"
+  ],
+  "serviceShape": {
+    "id": "service id",
+    "name": "service name",
+    "category": "service category",
+    "mode": "service mode",
+    "duration": "duration",
+    "price": "indicative price",
+    "availability": "availability status",
+    "description": "public description",
+    "disclaimer": "responsible note",
+    "visible": "public visibility"
+  },
+  "responsibleNotes": [
+    "Tarifas orientativas sujetas a confirmación manual.",
+    "No prometer diagnósticos ni resultados médicos.",
+    "Servicios de bienestar/orientación simbólica."
+  ]
+}

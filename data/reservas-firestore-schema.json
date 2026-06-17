@@ -1,0 +1,37 @@
+{
+  "version": "11.1",
+  "updatedAt": "2026-06-17T06:36:15Z",
+  "collection": "reservas",
+  "documentShape": {
+    "id": "local generated id",
+    "cloudId": "Firestore document id when synced",
+    "code": "ALAYA-YYYYMMDD-XXXX",
+    "name": "client name",
+    "contact": "phone, whatsapp or email",
+    "service": "requested service",
+    "preferredDate": "free text date preference",
+    "preferredTime": "free text time preference",
+    "message": "client message",
+    "status": "pendiente | confirmada | alternativa | cancelada | completada",
+    "source": "web-online",
+    "syncStatus": "local | firebase",
+    "createdAt": "ISO datetime",
+    "updatedAt": "ISO datetime",
+    "clientReply": "visible answer for client status lookup",
+    "internalNote": "admin-only note",
+    "proposedDate": "alternative proposed date",
+    "proposedTime": "alternative proposed time",
+    "history": "array of simple update events"
+  },
+  "securityNotes": [
+    "Public users may create reservation requests.",
+    "Only admins should read, update or delete reservations.",
+    "Do not store sensitive health data in reservation messages.",
+    "Review Firestore rules before production."
+  ],
+  "features": [
+    "client status lookup",
+    "admin follow-up fields",
+    "proposal fields"
+  ]
+}

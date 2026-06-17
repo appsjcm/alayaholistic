@@ -1,0 +1,31 @@
+{
+  "version": "12.7",
+  "updatedAt": "2026-06-17T08:22:39Z",
+  "localStorageKeys": {
+    "translations": "alaya_translations_v127",
+    "language": "alaya_language_v127"
+  },
+  "languages": [
+    "es",
+    "cat",
+    "en"
+  ],
+  "dictionaryKeys": [
+    "headline",
+    "intro",
+    "servicesTag",
+    "servicesTitle",
+    "servicesText",
+    "bookingTag",
+    "bookingTitle",
+    "bookingText",
+    "trustTag",
+    "trustTitle",
+    "trustText"
+  ],
+  "outputs": [
+    "translations JSON export",
+    "translations JSON import",
+    "public language switch"
+  ]
+}

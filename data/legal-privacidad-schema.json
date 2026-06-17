@@ -1,0 +1,29 @@
+{
+  "version": "11.7",
+  "updatedAt": "2026-06-17T07:16:07Z",
+  "localStorageKey": "alaya_legal_privacy_v117",
+  "legalVersion": "AlayaLegal-v11.7",
+  "settingsShape": {
+    "businessName": "commercial name",
+    "owner": "responsible person or business",
+    "email": "contact email",
+    "jurisdiction": "territory",
+    "privacySummary": "public privacy summary",
+    "bookingConsent": "booking consent text",
+    "cookiesText": "cookies/local storage notice",
+    "retentionText": "data retention notice",
+    "disclaimer": "holistic services disclaimer"
+  },
+  "reservationConsentShape": {
+    "accepted": true,
+    "version": "AlayaLegal-v11.7",
+    "text": "consent text at time of booking",
+    "acceptedAt": "ISO datetime"
+  },
+  "notes": [
+    "Base orientativa, no asesoramiento legal.",
+    "Revisar textos antes de producción.",
+    "No guardar datos sensibles innecesarios.",
+    "Los servicios holísticos no deben presentarse como diagnóstico o tratamiento."
+  ]
+}

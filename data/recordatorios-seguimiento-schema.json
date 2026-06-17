@@ -1,0 +1,39 @@
+{
+  "version": "12.8",
+  "updatedAt": "2026-06-17T08:26:10Z",
+  "localStorageKeys": {
+    "settings": "alaya_reminder_settings_v128",
+    "reminders": "alaya_reminders_v128"
+  },
+  "statuses": [
+    "pendiente",
+    "preparado",
+    "enviado-manual",
+    "omitido"
+  ],
+  "types": [
+    "pending",
+    "confirmed24h",
+    "followup",
+    "proposal",
+    "agenda"
+  ],
+  "reminderShape": {
+    "id": "reminder id",
+    "fingerprint": "unique type/source key",
+    "type": "reminder type",
+    "title": "display title",
+    "status": "reminder status",
+    "sourceName": "client/source name",
+    "sourceContact": "contact if available",
+    "service": "service",
+    "date": "date",
+    "time": "time",
+    "message": "message ready to copy"
+  },
+  "privacyNotes": [
+    "No envía mensajes automáticamente.",
+    "No incluir datos sensibles innecesarios.",
+    "El seguimiento es manual."
+  ]
+}

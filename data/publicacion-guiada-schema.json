@@ -1,0 +1,25 @@
+{
+  "version": "12.1",
+  "updatedAt": "2026-06-17T07:52:11Z",
+  "localStorageKey": "alaya_publish_settings_v121",
+  "platforms": [
+    "github-pages",
+    "netlify",
+    "vercel",
+    "manual"
+  ],
+  "settingsShape": {
+    "platform": "selected platform",
+    "url": "public URL",
+    "basePath": "base path",
+    "domain": "custom domain",
+    "email": "contact email",
+    "projectName": "repository or project name"
+  },
+  "outputs": [
+    "publication plan JSON",
+    "robots.txt preview",
+    "sitemap.xml preview",
+    "deployment checklist"
+  ]
+}

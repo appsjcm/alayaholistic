@@ -1,0 +1,26 @@
+{
+  "version": "11.3",
+  "updatedAt": "2026-06-17T06:48:01Z",
+  "templates": [
+    "recibida",
+    "confirmada",
+    "alternativa",
+    "recordatorio",
+    "cancelacion",
+    "agradecimiento",
+    "personalizado"
+  ],
+  "channels": [
+    "whatsapp",
+    "email",
+    "copy"
+  ],
+  "localStorageKeys": {
+    "messageLog": "alaya_message_log_v113"
+  },
+  "notes": [
+    "Hosting estático no envía mensajes automáticamente.",
+    "El sistema prepara el texto para copiar, WhatsApp o email.",
+    "Evitar incluir datos sensibles en mensajes."
+  ]
+}

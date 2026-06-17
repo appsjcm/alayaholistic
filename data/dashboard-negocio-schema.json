@@ -1,0 +1,27 @@
+{
+  "version": "11.5",
+  "updatedAt": "2026-06-17T07:04:06Z",
+  "reportShape": {
+    "generatedAt": "ISO datetime",
+    "totals": "reservations, clients, agenda, messages",
+    "reservationsByStatus": "object",
+    "reservationsByService": "object",
+    "tasks": "recommended actions",
+    "upcomingSlots": "next agenda items",
+    "recentClients": "recent CRM records",
+    "tech": "technical readiness flags"
+  },
+  "sources": [
+    "alaya_online_reservations_v110",
+    "alaya_clients_crm_v114",
+    "alaya_agenda_slots_v112",
+    "alaya_agenda_blocks_v112",
+    "alaya_message_log_v113",
+    "alaya_wordpress_cms_v105"
+  ],
+  "privacyNotes": [
+    "El informe es interno de Admin.",
+    "No compartir datos de clientes públicamente.",
+    "Exportar y almacenar copias con cuidado."
+  ]
+}

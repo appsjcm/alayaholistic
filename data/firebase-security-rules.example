@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && request.auth.token.email in [
+          // Añade aquí emails administradores:
+          // "admin@alaya.es"
+        ];
+    }
+
+    // CMS público: lectura pública, escritura solo admin.
+    match /alayaCms/{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Reservas: escritura pública limitada, lectura y gestión admin.
+    match /reservas/{reservationId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Auditoría interna: solo admin.
+    match /auditLog/{logId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Bloqueo por defecto.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

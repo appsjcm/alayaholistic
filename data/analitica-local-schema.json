@@ -1,0 +1,25 @@
+{
+  "version": "12.6",
+  "updatedAt": "2026-06-17T08:16:35Z",
+  "localStorageKeys": {
+    "events": "alaya_analytics_events_v126",
+    "session": "alaya_analytics_session_v126"
+  },
+  "eventShape": {
+    "id": "event id",
+    "type": "page_view | section_view | click | reservation_intent | contact_intent | marketing_intent",
+    "label": "short non-personal label",
+    "path": "local path",
+    "hash": "section hash",
+    "session": "session id",
+    "at": "ISO datetime",
+    "meta": "non-personal metadata"
+  },
+  "privacyNotes": [
+    "Analítica local del navegador.",
+    "No usa servicios externos.",
+    "No debe guardar datos personales.",
+    "Se puede limpiar desde Admin."
+  ],
+  "reportExport": "alaya-analitica-local-YYYY-MM-DD.json"
+}

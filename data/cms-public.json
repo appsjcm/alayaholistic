@@ -1,0 +1,71 @@
+{
+  "version": "10.7",
+  "publishedAt": "2026-06-17T06:16:37Z",
+  "source": "default-package",
+  "cms": {
+    "identity": {
+      "siteName": "Alaya Holistics",
+      "subtitle": "Bienestar · Tarot · Reiki · Herbolario",
+      "email": "",
+      "phone": "",
+      "location": "",
+      "instagram": "",
+      "brandText": "Un espacio de bienestar, orientación simbólica y acompañamiento holístico."
+    },
+    "home": {
+      "heroTitle": "Un espacio para reconectar contigo",
+      "heroText": "En Alaya Holistics encontrarás lectura de cartas, tarot, reiki, consultas energéticas, herbolario y talleres para acompañarte con calma, intuición y cuidado.",
+      "primaryCtaText": "Solicitar reserva",
+      "primaryCtaLink": "#reservas",
+      "secondaryCtaText": "Ver servicios",
+      "secondaryCtaLink": "#servicios",
+      "publicMenuText": "Atajos gestionados desde el panel Admin."
+    },
+    "appearance": {
+      "colorPrimary": "#ffd78a",
+      "colorSecondary": "#86ecff",
+      "colorAccent": "#ff9fcb",
+      "colorOk": "#a7ffce",
+      "visualScale": "normal",
+      "homeMode": "premium"
+    },
+    "menu": [
+      {
+        "label": "Reservar",
+        "url": "#guia-reservas"
+      },
+      {
+        "label": "Servicios",
+        "url": "#guia-servicios"
+      },
+      {
+        "label": "Herbolario",
+        "url": "#guia-herbolario"
+      },
+      {
+        "label": "Talleres",
+        "url": "#guia-talleres"
+      },
+      {
+        "label": "Contacto",
+        "url": "#mensaje-contacto"
+      }
+    ],
+    "blocks": [],
+    "seo": {
+      "title": "Alaya Holistics · Bienestar, Tarot, Reiki y Herbolario",
+      "description": "Alaya Holistics: consultas de tarot, lectura de cartas, reiki, astrología, talleres y herbolario con reserva previa.",
+      "keywords": "tarot, reiki, herbolario, talleres, astrología, bienestar",
+      "index": "index"
+    },
+    "publish": {
+      "siteStatus": "publicada",
+      "announcementEnabled": "no",
+      "announcementText": ""
+    }
+  },
+  "instructions": {
+    "uploadPath": "data/cms-public.json",
+    "description": "Archivo de contenido publicado para hosting estático."
+  }
+}

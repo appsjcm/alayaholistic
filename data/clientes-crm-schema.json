@@ -1,0 +1,29 @@
+{
+  "version": "11.4",
+  "updatedAt": "2026-06-17T06:56:44Z",
+  "localStorageKey": "alaya_clients_crm_v114",
+  "firebase": {
+    "collection": "alayaClients",
+    "document": "crm"
+  },
+  "clientShape": {
+    "id": "client id",
+    "name": "client name",
+    "contact": "phone, whatsapp or email",
+    "tags": [
+      "general tags"
+    ],
+    "preference": "general preference",
+    "internalNote": "admin-only note",
+    "source": "manual or reserva-online",
+    "lastReservationCode": "last linked reservation code",
+    "createdAt": "ISO datetime",
+    "updatedAt": "ISO datetime"
+  },
+  "privacyNotes": [
+    "No guardar datos sensibles.",
+    "Las notas internas no se muestran públicamente.",
+    "Revisar reglas Firebase antes de producción.",
+    "Exportar copias de seguridad periódicas."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": "10.8",
+  "updatedAt": "2026-06-17T06:18:33Z",
+  "firestore": {
+    "defaultCollection": "alayaCms",
+    "defaultDocument": "public",
+    "documentShape": {
+      "cms": "object with identity, home, appearance, menu, blocks, seo, publish",
+      "updatedAt": "ISO datetime",
+      "source": "alaya-admin-v10.8"
+    }
+  },
+  "localStorageKeys": {
+    "cms": "alaya_wordpress_cms_v105",
+    "syncSettings": "alaya_cms_sync_settings_v108",
+    "snapshots": "alaya_cms_snapshots_v108",
+    "publishedRemoteMeta": "alaya_cms_remote_meta_v107"
+  },
+  "recommendedSecurity": [
+    "Use Firebase Auth for admin users.",
+    "Restrict write access to admin emails.",
+    "Allow public read only for published CMS if needed.",
+    "Never store sensitive personal data in public CMS content."
+  ]
+}

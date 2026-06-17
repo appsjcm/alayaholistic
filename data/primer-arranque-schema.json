@@ -1,0 +1,26 @@
+{
+  "version": "12.3",
+  "updatedAt": "2026-06-17T08:06:13Z",
+  "localStorageKey": "alaya_onboarding_settings_v123",
+  "demoTag": "demo-v12.3",
+  "settingsShape": {
+    "projectName": "project name",
+    "location": "city or zone",
+    "contact": "main contact",
+    "adminEmail": "admin email",
+    "channel": "preferred channel",
+    "status": "setup | testing | ready"
+  },
+  "demoData": [
+    "reservation demo in alaya_online_reservations_v110",
+    "client demo in alaya_clients_crm_v114",
+    "slot demo in alaya_agenda_slots_v112",
+    "message demo in alaya_message_log_v113"
+  ],
+  "outputs": [
+    "onboarding plan JSON",
+    "initial checklist",
+    "demo data loader",
+    "demo data safe reset"
+  ]
+}

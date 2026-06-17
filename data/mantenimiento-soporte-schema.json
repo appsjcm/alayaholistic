@@ -1,0 +1,28 @@
+{
+  "version": "12.4",
+  "updatedAt": "2026-06-17T08:09:02Z",
+  "localStorageKeys": {
+    "settings": "alaya_maintenance_settings_v124",
+    "issues": "alaya_maintenance_issues_v124"
+  },
+  "settingsShape": {
+    "status": "ok | review | maintenance",
+    "message": "public maintenance message",
+    "updatedAt": "ISO datetime"
+  },
+  "issueShape": {
+    "id": "issue id",
+    "title": "issue title",
+    "priority": "baja | media | alta",
+    "status": "pendiente | en-proceso | cerrada",
+    "area": "affected area",
+    "description": "description",
+    "createdAt": "ISO datetime",
+    "updatedAt": "ISO datetime"
+  },
+  "outputs": [
+    "maintenance report JSON",
+    "public maintenance status",
+    "support summary"
+  ]
+}

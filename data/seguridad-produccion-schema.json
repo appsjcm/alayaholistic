@@ -1,0 +1,25 @@
+{
+  "version": "12.2",
+  "updatedAt": "2026-06-17T08:00:40Z",
+  "localStorageKey": "alaya_security_production_v122",
+  "settingsShape": {
+    "mode": "local | staging | production",
+    "domain": "allowed domain",
+    "adminEmails": "authorized admin emails",
+    "cmsCollection": "CMS collection name",
+    "reservationsCollection": "reservations collection name",
+    "agendaCollection": "agenda collection name",
+    "clientsCollection": "clients collection name"
+  },
+  "outputs": [
+    "security audit JSON",
+    "firestore rules template",
+    "security checklist"
+  ],
+  "notes": [
+    "Plantilla orientativa, no sustituye revisión técnica.",
+    "Usar Firebase Authentication para admins.",
+    "No dejar reglas abiertas en producción.",
+    "Probar reglas en Firebase Emulator o consola antes de publicar."
+  ]
+}

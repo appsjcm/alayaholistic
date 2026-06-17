@@ -1,0 +1,40 @@
+{
+  "version": "11.6",
+  "updatedAt": "2026-06-17T07:13:36Z",
+  "backupGroups": {
+    "cms": [
+      "alaya_wordpress_cms_v105",
+      "alaya_wordpress_cms_revisions_v106",
+      "alaya_admin_content_v103"
+    ],
+    "reservations": [
+      "alaya_online_reservations_v110"
+    ],
+    "agenda": [
+      "alaya_agenda_slots_v112",
+      "alaya_agenda_blocks_v112"
+    ],
+    "clients": [
+      "alaya_clients_crm_v114"
+    ],
+    "messages": [
+      "alaya_message_log_v113"
+    ],
+    "settings": [
+      "alaya_cms_sync_settings_v108",
+      "alaya_cms_snapshots_v108",
+      "alaya_cms_remote_meta_v107",
+      "alaya_firebase_wizard_v109"
+    ]
+  },
+  "restoreModes": [
+    "merge",
+    "replace"
+  ],
+  "privacyNotes": [
+    "Los backups pueden contener datos de clientes.",
+    "No compartir backups públicamente.",
+    "Guardar copias en un lugar seguro.",
+    "Antes de restaurar, descargar una copia del estado actual."
+  ]
+}

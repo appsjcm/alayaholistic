@@ -1,0 +1,25 @@
+{
+  "version": "11.9",
+  "updatedAt": "2026-06-17T07:33:23Z",
+  "localStorageKey": "alaya_ux_settings_v119",
+  "checks": [
+    "title",
+    "description",
+    "viewport",
+    "manifest",
+    "service-worker",
+    "offline",
+    "images-alt",
+    "forms-labels",
+    "links",
+    "reservas",
+    "legal",
+    "backup"
+  ],
+  "uxSettings": {
+    "readingMode": "comfortable reading mode",
+    "reduceMotion": "reduce animations",
+    "denseAdmin": "compact admin spacing"
+  },
+  "reportExport": "alaya-seo-ux-YYYY-MM-DD.json"
+}

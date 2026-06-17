@@ -1,0 +1,28 @@
+{
+  "version": "13.1",
+  "updatedAt": "2026-06-17T18:30:20Z",
+  "localStorageKeys": {
+    "reviews": "alaya_reviews_v131",
+    "gallery": "alaya_gallery_v131"
+  },
+  "reviewShape": {
+    "name": "visible name/initials",
+    "service": "related service",
+    "rating": "1-5",
+    "status": "revision|publicada|oculta",
+    "visible": "boolean",
+    "consent": "boolean",
+    "text": "responsible review"
+  },
+  "galleryShape": {
+    "title": "title",
+    "category": "espacio|taller|herbolario|inspiracion",
+    "image": "image URL",
+    "description": "text",
+    "visible": "boolean"
+  },
+  "responsibleNotes": [
+    "No publicar datos privados sin consentimiento.",
+    "No prometer curación, diagnósticos ni resultados garantizados."
+  ]
+}

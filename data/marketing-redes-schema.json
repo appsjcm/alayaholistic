@@ -1,0 +1,27 @@
+{
+  "version": "12.5",
+  "updatedAt": "2026-06-17T08:11:25Z",
+  "localStorageKey": "alaya_marketing_campaigns_v125",
+  "campaignShape": {
+    "id": "campaign id",
+    "title": "campaign title",
+    "service": "service or topic",
+    "channel": "instagram | whatsapp | email | google-business | web",
+    "goal": "reservas | taller | confianza | novedad | comunidad",
+    "date": "YYYY-MM-DD",
+    "cta": "call to action",
+    "note": "internal note",
+    "generatedText": "generated copy",
+    "status": "planificada | finalizada"
+  },
+  "outputs": [
+    "marketing plan JSON",
+    "generated text",
+    "campaign calendar"
+  ],
+  "privacyNotes": [
+    "No incluir datos privados de clientes.",
+    "No envía mensajes automáticamente.",
+    "Revisar textos antes de publicar."
+  ]
+}
