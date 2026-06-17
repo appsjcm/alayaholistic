@@ -44,6 +44,12 @@
       "description": "Ver catálogo"
     },
     {
+      "name": "Testimonios",
+      "short_name": "Testimonios",
+      "url": "./#testimonios-galeria",
+      "description": "Ver testimonios y galería"
+    },
+    {
       "name": "Contacto",
       "short_name": "Contacto",
       "url": "./#contacto-alaya",

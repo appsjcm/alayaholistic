@@ -1677,3 +1677,866 @@ Build: `2026-06-16T21:04:55Z`
 - Botón **Copiar informe pendientes**.
 - Botón **Copiar protocolo**.
 - Nueva guía: `docs/CENTRO-CONFIRMACIONES-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v8.6 Propuestas de Horario Admin Pro añadida
+
+Build: `2026-06-17T04:32:09Z`
+
+## Nuevo en v8.6
+
+- Nueva pestaña admin **Alternativas**.
+- Propuesta de hasta 3 horarios alternativos.
+- Mensaje automático para cliente.
+- Estado **Propuesta alternativa**.
+- Botón copiar mensaje de espera.
+- Botón copiar protocolo.
+- Listado de reservas pendientes o con alternativa.
+- Nueva guía: `docs/PROPUESTAS-HORARIO-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v8.7 Respuesta a Propuesta Cliente Pro añadida
+
+Build: `2026-06-17T04:34:38Z`
+
+## Nuevo en v8.7
+
+- Nueva sección pública **Responder propuesta**.
+- Cliente puede elegir una alternativa y copiar mensaje de aceptación.
+- Admin puede registrar la alternativa aceptada.
+- Nuevo estado **Alternativa aceptada**.
+- Admin puede confirmar una alternativa aceptada.
+- Sitemap actualizado.
+- Nueva guía: `docs/RESPUESTA-PROPUESTA-CLIENTE-PRO.md`.
+
+
+---
+
+# Versión v8.8 Diseño PC Pro añadida
+
+Build: `2026-06-17T04:38:16Z`
+
+## Ajustes en v8.8
+
+- Cabecera de escritorio corregida.
+- Menú público más compacto.
+- Hero y secciones mejor adaptadas a PC.
+- Grids y tarjetas más equilibrados.
+- Formularios públicos más cómodos.
+- Footer más ordenado.
+- Panel administrador con más ancho útil.
+- Nueva guía: `docs/DISENO-PC-PRO.md`.
+
+
+---
+
+# Versión v8.9 Inicio PC Ordenado Pro añadida
+
+Build: `2026-06-17T05:05:48Z`
+
+## Nuevo en v8.9
+
+- Menú superior más limpio en PC.
+- Accesos secundarios ocultos del menú superior en escritorio.
+- Nuevo panel inicial de accesos principales.
+- Mejor primer pantallazo en ordenador.
+- Nueva guía: `docs/INICIO-PC-ORDENADO-PRO.md`.
+
+
+---
+
+# Versión v9.0 Diseño Responsive Total Pro añadida
+
+Build: `2026-06-17T05:07:56Z`
+
+## Nuevo en v9.0
+
+- Ajuste completo para móvil, tablet y PC.
+- Menú móvil mejorado.
+- Barra inferior móvil para clientes.
+- Hero, tarjetas, formularios y grids adaptados.
+- Panel admin mejorado en móvil y PC.
+- Eliminado duplicado de enlace “Responder propuesta”.
+- Nueva guía: `docs/DISENO-RESPONSIVE-TOTAL-PRO.md`.
+
+
+---
+
+# Versión v9.1 Mejora Sección por Sección Pro añadida
+
+Build: `2026-06-17T05:09:19Z`
+
+## Nuevo en v9.1
+
+- Primera pasada de mejora sección por sección.
+- Indicador de sección activa en la navegación.
+- Nuevo bloque público **Recorrido claro por secciones**.
+- Mejor separación visual entre bloques.
+- Tarjetas y formularios más consistentes.
+- Reservas con aviso visual más claro.
+- Admin con recordatorio de revisión por secciones.
+- Nueva guía: `docs/MEJORA-SECCION-POR-SECCION-PRO.md`.
+
+
+---
+
+# Versión v9.2 Hero e Inicio Pro añadida
+
+Build: `2026-06-17T05:10:23Z`
+
+## Nuevo en v9.2
+
+- Hero más claro y profesional.
+- Nuevo bloque de confianza en la primera pantalla.
+- Nuevo resumen de bienvenida.
+- Accesos rápidos para clientes.
+- Botones principales más visibles.
+- Mejor equilibrio móvil/PC.
+- Nueva guía: `docs/HERO-INICIO-PRO.md`.
+
+
+---
+
+# Versión v9.3 Servicios Pro añadida
+
+Build: `2026-06-17T05:11:38Z`
+
+## Nuevo en v9.3
+
+- Nueva guía visual de servicios.
+- Selector rápido por tipo de necesidad.
+- Recomendación dinámica.
+- CTA final hacia reserva.
+- Mejor lectura de la sección servicios en móvil y PC.
+- Nueva guía: `docs/SERVICIOS-PRO.md`.
+
+
+---
+
+# Versión v9.4 Herbolario Pro añadida
+
+Build: `2026-06-17T05:13:06Z`
+
+## Nuevo en v9.4
+
+- Nueva guía visual para Herbolario.
+- Recomendación rápida por categoría.
+- Formulario para preparar consulta de producto.
+- Botón copiar mensaje.
+- CTA hacia contacto.
+- Mejor lectura del catálogo en móvil y PC.
+- Nueva guía: `docs/HERBOLARIO-PRO.md`.
+
+
+---
+
+# Versión v9.5 Talleres y Cursos Pro añadida
+
+Build: `2026-06-17T05:14:35Z`
+
+## Nuevo en v9.5
+
+- Nueva guía visual de talleres y cursos.
+- Recomendación rápida por tipo de actividad.
+- Formulario para preparar consulta de plaza.
+- Botón copiar mensaje.
+- CTA hacia contacto y talleres.
+- Mejor lectura en móvil y PC.
+- Nueva guía: `docs/TALLERES-CURSOS-PRO.md`.
+
+
+---
+
+# Versión v9.6 Reservas Pro añadida
+
+Build: `2026-06-17T05:15:53Z`
+
+## Nuevo en v9.6
+
+- Nueva guía visual de reservas.
+- Checklist para solicitar reserva.
+- Botón copiar checklist.
+- Bloque “Después de reservar”.
+- Estados de reserva explicados.
+- CTA hacia consultar estado y responder propuesta.
+- Refuerzo de confirmación manual por administrador.
+- Nueva guía: `docs/RESERVAS-PRO.md`.
+
+
+---
+
+# Versión v9.7 Consulta y Respuesta Pro añadida
+
+Build: `2026-06-17T05:17:09Z`
+
+## Nuevo en v9.7
+
+- Guía antes de consultar reserva.
+- Explicación de código + contacto.
+- Estados de reserva más claros.
+- Ayuda para solicitudes no encontradas.
+- Botón copiar mensaje de ayuda.
+- Guía antes de responder propuesta.
+- Refuerzo de que aceptar alternativa no confirma automáticamente.
+- Nueva guía: `docs/CONSULTA-RESPUESTA-PRO.md`.
+
+
+---
+
+# Versión v9.8 Contacto y Confianza Pro añadida
+
+Build: `2026-06-17T05:18:36Z`
+
+## Nuevo en v9.8
+
+- Nueva guía antes de contacto.
+- Generador de mensaje de contacto.
+- Botón copiar mensaje.
+- Bloque de confianza para clientes.
+- CTA hacia mensaje y ayuda.
+- Mejor lectura de contacto en móvil y PC.
+- Nueva guía: `docs/CONTACTO-CONFIANZA-PRO.md`.
+
+
+---
+
+# Versión v9.9 Admin Visible Pro añadida
+
+Build: `2026-06-17T05:20:17Z`
+
+## Nuevo en v9.9
+
+- Botón **Admin** visible en la página principal.
+- Bloque público **Acceso administrador**.
+- Enlace directo a `admin.html`.
+- Enlace a `manual-admin.html`.
+- Acceso admin también en footer.
+- Mejoras visuales de entrada admin en móvil y PC.
+- Nueva guía: `docs/ADMIN-VISIBLE-PRO.md`.
+
+
+---
+
+# Versión v10.0 Panel Admin Pro añadida
+
+Build: `2026-06-17T05:21:42Z`
+
+## Nuevo en v10.0
+
+- Centro rápido interno del administrador.
+- Accesos a confirmaciones, alternativas, reservas, calendario, servicios y manual.
+- Checklist diario admin.
+- Botón copiar protocolo diario.
+- Mejoras visuales de `admin.html`.
+- Nueva guía: `docs/PANEL-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v10.1 Ayuda y Manuales Pro añadida
+
+Build: `2026-06-17T05:26:40Z`
+
+## Nuevo en v10.1
+
+- Nueva ayuda rápida para clientes.
+- FAQ pública.
+- Botón copiar pasos rápidos.
+- Mejora de `guia-clientes.html`.
+- Mejora de `manual-admin.html`.
+- Nueva guía: `docs/AYUDA-MANUALES-PRO.md`.
+
+
+---
+
+# Versión v10.2 UX Global Pro añadida
+
+Build: `2026-06-17T05:28:38Z`
+
+## Nuevo en v10.2
+
+- Barra superior de progreso.
+- Botón flotante para volver arriba.
+- Mapa rápido de navegación.
+- Accesibilidad: enlace para saltar al contenido y foco visual mejorado.
+- Mejoras globales de lectura y responsive.
+- Nueva guía: `docs/UX-GLOBAL-PRO.md`.
+
+
+---
+
+# Versión v10.3 Gestor de Contenido Admin Pro añadida
+
+Build: `2026-06-17T05:35:35Z`
+
+## Nuevo en v10.3
+
+- Nueva pestaña Admin: Gestor contenido.
+- Crear servicios, talleres, cursos, productos de herbolario, avisos y novedades.
+- Editar, ocultar/publicar, duplicar y borrar.
+- Exportar contenido en JSON.
+- Render público automático por sección.
+- Nueva guía: `docs/GESTOR-CONTENIDO-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v10.4 Hosting Ready Pro añadida
+
+Build: `2026-06-17T05:38:34Z`
+
+## Nuevo en v10.4
+
+- Proyecto preparado para hosting estático.
+- Añadido `HOSTING.md`.
+- Añadido `DEPLOY-CHECKLIST.md`.
+- Añadido `.htaccess`.
+- Añadido `netlify.toml`.
+- Añadido `vercel.json`.
+- Añadido `_headers` y `_redirects`.
+- Añadido `.nojekyll`.
+- Actualizado `robots.txt`.
+- Generado `sitemap.xml`.
+- Añadido `hosting-config.json`.
+- Nueva guía: `docs/HOSTING-READY-PRO.md`.
+
+## Subida rápida
+
+Sube todo el contenido de la carpeta a la raíz pública del hosting, por ejemplo `public_html`.
+
+
+---
+
+# Versión v10.5 Admin WordPress CMS Pro añadida
+
+Build: `2026-06-17T05:42:37Z`
+
+## Nuevo en v10.5
+
+- Nueva pestaña Admin: **WordPress CMS**.
+- Control de identidad, portada, diseño, menú, bloques, SEO y publicación.
+- Render público automático de menú y bloques.
+- Exportar/importar JSON del CMS.
+- Aviso global editable.
+- Hosting ready mantenido.
+- Nueva guía: `docs/ADMIN-WORDPRESS-CMS-PRO.md`.
+
+## Nota
+
+No es WordPress real con PHP/MySQL. Es un mini CMS integrado en la web estática.
+
+
+---
+
+# Versión v10.6 Constructor Visual Admin Pro añadida
+
+Build: `2026-06-17T05:45:19Z`
+
+## Nuevo en v10.6
+
+- Nueva pestaña Admin: **Constructor visual**.
+- Plantillas rápidas.
+- Ordenar bloques.
+- Duplicar bloques.
+- Publicar/ocultar.
+- Borrar bloques.
+- Guardar/restaurar revisiones.
+- Exportar backup completo.
+- Nueva guía: `docs/CONSTRUCTOR-VISUAL-ADMIN-PRO.md`.
+
+
+---
+
+# Versión v10.7 Publicador CMS Hosting Pro añadida
+
+Build: `2026-06-17T06:16:37Z`
+
+## Nuevo en v10.7
+
+- Nueva pestaña Admin: **Publicador CMS**.
+- Genera `cms-public.json`.
+- Añade carpeta `data/`.
+- Añade `data/cms-public.json`.
+- La web pública carga automáticamente `data/cms-public.json`.
+- Importador de JSON publicado.
+- Actualización de `HOSTING.md` y `DEPLOY-CHECKLIST.md`.
+- Nueva guía: `docs/PUBLICADOR-CMS-HOSTING-PRO.md`.
+
+## Flujo de publicación
+
+Editar en Admin → Publicador CMS → Descargar `cms-public.json` → subir a `/data/cms-public.json`.
+
+
+---
+
+# Versión v10.8 CMS Online Sync Pro añadida
+
+Build: `2026-06-17T06:18:33Z`
+
+## Nuevo en v10.8
+
+- Nueva pestaña Admin: **Sync CMS**.
+- Modo local, archivo publicado y Firebase ready.
+- Snapshots locales del CMS.
+- Restaurar snapshots.
+- Descargar backup.
+- Diagnóstico técnico.
+- Archivo `data/cms-sync-schema.json`.
+- Guía: `docs/CMS-ONLINE-SYNC-PRO.md`.
+
+## Nota
+
+Para multiadministrador real hay que configurar Firebase/online sync con reglas de seguridad.
+
+
+---
+
+# Versión v10.9 Firebase Setup Wizard Pro añadida
+
+Build: `2026-06-17T06:20:28Z`
+
+## Nuevo en v10.9
+
+- Nueva pestaña Admin: **Firebase Wizard**.
+- Generador de `backend-config.js`.
+- Reglas Firestore orientativas.
+- Diagnóstico Firebase.
+- Archivo `js/backend-config.example.js`.
+- Archivo `data/firebase-security-rules.example`.
+- Guía `docs/FIREBASE-SETUP-WIZARD-PRO.md`.
+
+
+---
+
+# Versión v11.0 Reservas Online Firebase Pro añadida
+
+Build: `2026-06-17T06:23:54Z`
+
+## Nuevo en v11.0
+
+- Sección pública: **Reserva online**.
+- Código automático de solicitud.
+- Guardado local y envío Firestore si Firebase está configurado.
+- Nueva pestaña Admin: **Reservas online**.
+- Estados de solicitud.
+- Exportación JSON.
+- Sincronización Firebase preparada.
+- Archivo `data/reservas-firestore-schema.json`.
+- Guía `docs/RESERVAS-ONLINE-FIREBASE-PRO.md`.
+
+
+---
+
+# Versión v11.1 Seguimiento de Reservas Pro añadida
+
+Build: `2026-06-17T06:36:15Z`
+
+## Nuevo en v11.1
+
+- Consulta pública de estado de reserva.
+- Búsqueda por código y contacto.
+- Respuesta visible para cliente.
+- Nota interna para Admin.
+- Propuesta de día/hora.
+- Copiar respuesta.
+- Historial básico.
+- Guía `docs/SEGUIMIENTO-RESERVAS-PRO.md`.
+
+
+---
+
+# Versión v11.2 Agenda y Disponibilidad Online Pro añadida
+
+Build: `2026-06-17T06:41:36Z`
+
+## Nuevo en v11.2
+
+- Sección pública: **Disponibilidad orientativa**.
+- Nueva pestaña Admin: **Agenda online**.
+- Crear horarios disponibles.
+- Crear bloqueos de fechas.
+- Publicar/ocultar/completo.
+- Botón “Solicitar este horario”.
+- Exportación agenda JSON.
+- Sincronización Firebase preparada.
+- Archivo `data/agenda-firestore-schema.json`.
+- Guía `docs/AGENDA-DISPONIBILIDAD-ONLINE-PRO.md`.
+
+
+---
+
+# Versión v11.3 Mensajes y Notificaciones Pro añadida
+
+Build: `2026-06-17T06:48:01Z`
+
+## Nuevo en v11.3
+
+- Nueva pestaña Admin: **Mensajes**.
+- Plantillas para reservas.
+- Generador de mensajes con datos reales.
+- Copiar texto.
+- Abrir WhatsApp/email.
+- Avisos internos.
+- Registro local de mensajes.
+- Exportar mensajes JSON.
+- Archivo `data/mensajes-schema.json`.
+- Guía `docs/MENSAJES-NOTIFICACIONES-PRO.md`.
+
+
+---
+
+# Versión v11.4 Clientes CRM e Historial Pro añadida
+
+Build: `2026-06-17T06:56:44Z`
+
+## Nuevo en v11.4
+
+- Nueva pestaña Admin: **Clientes**.
+- Mini CRM interno.
+- Alta manual de cliente.
+- Actualizar desde reservas.
+- Historial de reservas por cliente.
+- Etiquetas y preferencias.
+- Notas internas.
+- Exportar clientes JSON.
+- Sincronización Firebase preparada.
+- Archivo `data/clientes-crm-schema.json`.
+- Guía `docs/CLIENTES-CRM-HISTORIAL-PRO.md`.
+
+
+---
+
+# Versión v11.5 Dashboard Negocio Pro añadida
+
+Build: `2026-06-17T07:04:06Z`
+
+## Nuevo en v11.5
+
+- Nueva pestaña Admin: **Dashboard Pro**.
+- Métricas de reservas, clientes, agenda y mensajes.
+- Tareas pendientes.
+- Reservas por estado y servicio.
+- Agenda próxima.
+- Clientes recientes.
+- Estado técnico.
+- Exportar informe JSON.
+- Copiar resumen ejecutivo.
+- Archivo `data/dashboard-negocio-schema.json`.
+- Guía `docs/DASHBOARD-NEGOCIO-PRO.md`.
+
+
+---
+
+# Versión v11.6 Backup y Restauración Pro añadida
+
+Build: `2026-06-17T07:13:36Z`
+
+## Nuevo en v11.6
+
+- Nueva pestaña Admin: **Backup**.
+- Exportar backup total.
+- Exportar backup selectivo.
+- Restaurar backup JSON.
+- Modo combinar/reemplazar.
+- Auditoría de datos locales.
+- Checklist de migración.
+- Copiar resumen.
+- Archivo `data/backup-restauracion-schema.json`.
+- Guía `docs/BACKUP-RESTAURACION-PRO.md`.
+
+
+---
+
+# Versión v11.7 Legal, Privacidad y Consentimientos Pro añadida
+
+Build: `2026-06-17T07:16:07Z`
+
+## Nuevo en v11.7
+
+- Nueva pestaña Admin: **Legal Pro**.
+- Textos legales editables.
+- Sección pública “Privacidad y confianza”.
+- Consentimiento versionado en reservas.
+- Auditoría de privacidad.
+- Exportar configuración legal JSON.
+- Copiar resumen legal.
+- Archivo `data/legal-privacidad-schema.json`.
+- Guía `docs/LEGAL-PRIVACIDAD-CONSENTIMIENTOS-PRO.md`.
+
+
+---
+
+# Versión v11.8 Centro Lanzamiento y QA Pro añadida
+
+Build: `2026-06-17T07:31:01Z`
+
+## Nuevo en v11.8
+
+- Nueva pestaña Admin: **Lanzamiento QA**.
+- Puntuación QA.
+- Checklist final.
+- Tareas recomendadas.
+- Modo borrador/lanzamiento/mantenimiento.
+- Estado público del proyecto.
+- Historial QA.
+- Exportar reporte JSON.
+- Copiar resumen.
+- Archivo `data/lanzamiento-qa-schema.json`.
+- Guía `docs/CENTRO-LANZAMIENTO-QA-PRO.md`.
+
+
+---
+
+# Versión v11.9 SEO, Rendimiento y Accesibilidad Pro añadida
+
+Build: `2026-06-17T07:33:23Z`
+
+## Nuevo en v11.9
+
+- Nueva pestaña Admin: **SEO UX**.
+- Auditoría SEO/PWA/accesibilidad.
+- Puntuación de optimización.
+- Sugerencias automáticas.
+- Modo lectura cómoda.
+- Reducir animaciones.
+- Admin compacto.
+- Exportar informe JSON.
+- Copiar resumen SEO.
+- Archivo `data/seo-rendimiento-schema.json`.
+- Guía `docs/SEO-RENDIMIENTO-ACCESIBILIDAD-PRO.md`.
+
+
+---
+
+# Versión v12.0 Release Candidate Final Pro añadida
+
+Build: `2026-06-17T07:42:38Z`
+
+## Nuevo en v12.0
+
+- Nueva pestaña Admin: **Release Final**.
+- Informe global final.
+- Puntuación final combinada.
+- Checklist de entrega.
+- Módulos incluidos.
+- Prioridades finales.
+- Estado de release.
+- Notas finales editables.
+- Copiar briefing.
+- Exportar paquete final JSON.
+- `RELEASE-NOTES.md`.
+- `FINAL-CHECKLIST.md`.
+- `data/release-candidate-schema.json`.
+- Guía `docs/RELEASE-CANDIDATE-FINAL-PRO.md`.
+
+
+---
+
+# Versión v12.1 Publicación Guiada y Dominio Pro añadida
+
+Build: `2026-06-17T07:52:11Z`
+
+## Nuevo en v12.1
+
+- Nueva pestaña Admin: **Publicación**.
+- Asistente para GitHub Pages, Netlify, Vercel y hosting manual.
+- Configuración de URL, ruta base, dominio y email.
+- Plan de publicación exportable.
+- Checklist de subida.
+- Generador de robots.txt.
+- Generador de sitemap.xml.
+- Archivos `robots.template.txt` y `sitemap.template.xml`.
+- Archivo `data/publicacion-guiada-schema.json`.
+- Guía `docs/PUBLICACION-GUIADA-DOMINIO-PRO.md`.
+
+
+---
+
+# Versión v12.2 Seguridad Producción y Firebase Rules Pro añadida
+
+Build: `2026-06-17T08:00:40Z`
+
+## Nuevo en v12.2
+
+- Nueva pestaña Admin: **Seguridad Pro**.
+- Auditoría de seguridad.
+- Configuración de modo local/staging/producción.
+- Emails admin autorizados.
+- Dominio permitido.
+- Colecciones Firebase configurables.
+- Generador de reglas Firestore orientativas.
+- Copiar reglas.
+- Exportar plan de seguridad JSON.
+- Archivo `firestore.rules.template`.
+- Archivo `data/seguridad-produccion-schema.json`.
+- Guía `docs/SEGURIDAD-PRODUCCION-FIREBASE-PRO.md`.
+
+
+---
+
+# Versión v12.3 Primer Arranque y Datos Demo Pro añadida
+
+Build: `2026-06-17T08:06:13Z`
+
+## Nuevo en v12.3
+
+- Nueva pestaña Admin: **Primer Arranque**.
+- Configuración rápida inicial.
+- Carga de datos demo seguros.
+- Borrado solo de datos demo.
+- Checklist de puesta en marcha.
+- Prioridades iniciales.
+- Exportar plan JSON.
+- Copiar resumen.
+- Archivo `data/primer-arranque-schema.json`.
+- Guía `docs/PRIMER-ARRANQUE-DATOS-DEMO-PRO.md`.
+
+
+---
+
+# Versión v12.4 Mantenimiento, Soporte e Incidencias Pro añadida
+
+Build: `2026-06-17T08:09:02Z`
+
+## Nuevo en v12.4
+
+- Nueva pestaña Admin: **Mantenimiento**.
+- Estado público de mantenimiento.
+- Registro de incidencias.
+- Prioridades y estados.
+- Auditoría rápida.
+- Copiar resumen de soporte.
+- Exportar reporte JSON.
+- Borrar incidencias cerradas.
+- Archivo `data/mantenimiento-soporte-schema.json`.
+- Guía `docs/MANTENIMIENTO-SOPORTE-INCIDENCIAS-PRO.md`.
+
+
+---
+
+# Versión v12.5 Marketing, Redes y Difusión Pro añadida
+
+Build: `2026-06-17T08:11:25Z`
+
+## Nuevo en v12.5
+
+- Nueva pestaña Admin: **Marketing**.
+- Campañas y calendario.
+- Textos para Instagram, WhatsApp, email, Google Business y anuncio corto.
+- Ideas rápidas de contenido.
+- Copiar textos.
+- Exportar plan marketing JSON.
+- Sección pública de comunidad/novedades.
+- Archivo `data/marketing-redes-schema.json`.
+- Guía `docs/MARKETING-REDES-DIFUSION-PRO.md`.
+
+
+---
+
+# Versión v12.6 Analítica Local y Conversión Pro añadida
+
+Build: `2026-06-17T08:16:35Z`
+
+## Nuevo en v12.6
+
+- Nueva pestaña Admin: **Analítica**.
+- Eventos locales sin servicios externos.
+- Embudo de conversión.
+- Objetivos orientativos.
+- Top secciones.
+- Filtro de eventos.
+- Limpiar eventos locales.
+- Copiar resumen.
+- Exportar informe JSON.
+- Archivo `data/analitica-local-schema.json`.
+- Guía `docs/ANALITICA-LOCAL-CONVERSION-PRO.md`.
+
+
+---
+
+# Versión v12.7 Multiidioma y Traducciones Pro añadida
+
+Build: `2026-06-17T08:22:39Z`
+
+## Nuevo en v12.7
+
+- Nueva pestaña Admin: **Idiomas**.
+- Selector público ES/CAT/EN.
+- Diccionario editable.
+- Traducciones base en castellano, catalán e inglés.
+- Importar/exportar traducciones JSON.
+- Copiar resumen de traducciones.
+- Archivo `data/multiidioma-schema.json`.
+- Guía `docs/MULTIIDIOMA-TRADUCCIONES-PRO.md`.
+
+
+---
+
+# Versión v12.8 Recordatorios y Seguimiento Pro añadida
+
+Build: `2026-06-17T08:26:10Z`
+
+## Nuevo en v12.8
+
+- Nueva pestaña Admin: **Recordatorios**.
+- Generación de recordatorios desde reservas y agenda.
+- Mensajes listos para copiar.
+- Estados: pendiente, preparado, enviado manual, omitido.
+- Filtros y buscador.
+- Copiar resumen.
+- Exportar reporte JSON.
+- Archivo `data/recordatorios-seguimiento-schema.json`.
+- Guía `docs/RECORDATORIOS-SEGUIMIENTO-PRO.md`.
+
+
+---
+
+# Versión v12.9 Tarifas, Packs y Servicios Pro añadida
+
+Build: `2026-06-17T09:08:17Z`
+
+## Nuevo en v12.9
+
+- Nueva pestaña Admin: **Tarifas**.
+- Catálogo de servicios y packs.
+- Precios orientativos.
+- Duración, modalidad y disponibilidad.
+- Visibilidad pública.
+- Buscador y filtro público.
+- Copiar ficha de servicio.
+- Exportar catálogo JSON.
+- Archivo `data/tarifas-packs-schema.json`.
+- Guía `docs/TARIFAS-PACKS-SERVICIOS-PRO.md`.
+
+
+---
+
+# Versión v13.0 Talleres, Cursos e Inscripciones Pro añadida
+
+Build: `2026-06-17T09:13:41Z`
+
+## Nuevo en v13.0
+
+- Nueva pestaña Admin: **Talleres**.
+- Gestión de talleres y cursos.
+- Fechas, horas, duración y modalidad.
+- Plazas orientativas.
+- Solicitudes públicas de inscripción.
+- Estados de solicitudes.
+- Catálogo público con filtros.
+- Copiar ficha de taller.
+- Exportar listado JSON.
+- Archivo `data/talleres-inscripciones-schema.json`.
+- Guía `docs/TALLERES-CURSOS-INSCRIPCIONES-PRO.md`.
+
+
+---
+# Versión v13.1 Testimonios, Reseñas y Galería Pro
+
+Build: `2026-06-17T18:30:20Z`
+
+Añade pestaña **Reseñas**, testimonios responsables, consentimiento, galería pública y exportación JSON.

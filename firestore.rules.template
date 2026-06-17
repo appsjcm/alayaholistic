@@ -1,0 +1,38 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function adminEmail() {
+      return signedIn() && request.auth.token.email in [
+        "admin@tudominio.com"
+      ];
+    }
+
+    match /cms/{docId} {
+      allow read: if true;
+      allow write: if adminEmail();
+    }
+
+    match /reservas/{docId} {
+      allow create: if true;
+      allow read, update, delete: if adminEmail();
+    }
+
+    match /alayaAgenda/{docId} {
+      allow read: if true;
+      allow write: if adminEmail();
+    }
+
+    match /alayaClients/{docId} {
+      allow read, write: if adminEmail();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "project": "Alaya Holistics Web",
+  "version": "13.1",
+  "codename": "Testimonios, Reseñas y Galería Pro",
+  "buildDate": "2026-06-17T18:30:59Z",
+  "type": "static-pwa-cms",
+  "entry": "index.html",
+  "adminEntry": "admin.html",
+  "cms": "WordPress-like frontend CMS using localStorage",
+  "recommendedUpload": "upload all files inside this folder to public_html or hosting root",
+  "requiresBackend": false,
+  "notes": [
+    "El CMS tipo WordPress funciona en hosting estático.",
+    "Los cambios del CMS se guardan en localStorage si no se conecta Firebase.",
+    "Para varios administradores o varios dispositivos, activar sincronización online/Firebase.",
+    "No es WordPress real con PHP/MySQL; es un mini CMS integrado en la web estática."
+  ],
+  "supportedHosting": [
+    "Apache/cPanel",
+    "Netlify",
+    "Vercel",
+    "GitHub Pages",
+    "Cloudflare Pages",
+    "Hosting estático"
+  ],
+  "features": [
+    "visual-builder",
+    "cms-revisions",
+    "cms-backup",
+    "cms-public-json",
+    "static-cms-publisher",
+    "published-cms-loader",
+    "cms-online-sync",
+    "cms-snapshots",
+    "firebase-ready-sync",
+    "cms-diagnostics",
+    "firebase-setup-wizard",
+    "firestore-rules-helper",
+    "backend-config-generator",
+    "firebase-diagnostics",
+    "online-reservations",
+    "reservation-admin-panel",
+    "firebase-reservations-ready",
+    "reservation-json-export",
+    "reservation-status-lookup",
+    "reservation-client-reply",
+    "reservation-internal-notes",
+    "reservation-proposals",
+    "online-availability",
+    "admin-agenda",
+    "agenda-blocks",
+    "slot-to-reservation-prefill",
+    "agenda-json-export",
+    "admin-message-center",
+    "reservation-message-templates",
+    "whatsapp-email-helper",
+    "admin-notification-center",
+    "clients-crm",
+    "client-reservation-history",
+    "client-tags",
+    "client-internal-notes",
+    "clients-json-export",
+    "business-dashboard",
+    "admin-reporting",
+    "business-kpis",
+    "pending-tasks",
+    "business-report-export",
+    "full-backup-export",
+    "selective-backup-export",
+    "backup-restore",
+    "local-data-audit",
+    "migration-checklist",
+    "legal-admin-center",
+    "privacy-text-editor",
+    "versioned-booking-consent",
+    "privacy-audit",
+    "legal-json-export",
+    "launch-center",
+    "qa-checklist",
+    "launch-mode",
+    "maintenance-mode",
+    "qa-report-export",
+    "seo-audit",
+    "pwa-audit",
+    "accessibility-audit",
+    "reading-mode",
+    "reduce-motion",
+    "seo-report-export",
+    "release-candidate-final",
+    "final-report",
+    "final-checklist",
+    "release-notes",
+    "publication-package",
+    "publication-wizard",
+    "domain-plan",
+    "robots-generator",
+    "sitemap-generator",
+    "deployment-plan-export",
+    "security-audit",
+    "firestore-rules-generator",
+    "authorized-admin-emails",
+    "allowed-domain-plan",
+    "security-plan-export",
+    "first-run-wizard",
+    "safe-demo-data",
+    "demo-data-reset",
+    "onboarding-checklist",
+    "onboarding-plan-export",
+    "maintenance-center",
+    "issue-tracker",
+    "support-report-export",
+    "public-maintenance-status",
+    "quick-maintenance-audit",
+    "marketing-center",
+    "campaign-calendar",
+    "social-copy-generator",
+    "marketing-plan-export",
+    "content-ideas",
+    "local-analytics",
+    "conversion-funnel",
+    "local-events",
+    "top-sections",
+    "analytics-report-export",
+    "multi-language",
+    "translation-center",
+    "public-language-switch",
+    "translations-import-export",
+    "manual-reminders",
+    "reservation-followup",
+    "agenda-reminders",
+    "copy-ready-messages",
+    "reminders-report-export",
+    "services-pricing",
+    "service-packs",
+    "public-services-catalog",
+    "catalog-export",
+    "responsible-service-copy",
+    "workshops-courses",
+    "public-workshop-requests",
+    "capacity-management",
+    "workshop-requests-admin",
+    "workshop-export",
+    "responsible-reviews",
+    "reviews-consent",
+    "public-gallery",
+    "reviews-export"
+  ],
+  "cmsPublicData": "data/cms-public.json",
+  "publishingFlow": "Admin exports cms-public.json; upload it to /data/cms-public.json on hosting",
+  "cmsSyncSchema": "data/cms-sync-schema.json",
+  "firebaseWizard": {
+    "configExample": "js/backend-config.example.js",
+    "rulesExample": "data/firebase-security-rules.example",
+    "guide": "docs/FIREBASE-SETUP-WIZARD-PRO.md"
+  },
+  "reservations": {
+    "localStorageKey": "alaya_online_reservations_v110",
+    "defaultFirestoreCollection": "reservas",
+    "schema": "data/reservas-firestore-schema.json"
+  },
+  "reservationTracking": {
+    "lookup": "code + contact",
+    "publicFields": [
+      "status",
+      "service",
+      "preferredDate",
+      "preferredTime",
+      "clientReply",
+      "proposedDate",
+      "proposedTime"
+    ],
+    "adminOnlyFields": [
+      "internalNote"
+    ]
+  },
+  "agenda": {
+    "localStorageSlotsKey": "alaya_agenda_slots_v112",
+    "localStorageBlocksKey": "alaya_agenda_blocks_v112",
+    "defaultFirestoreCollection": "alayaAgenda",
+    "defaultFirestoreDocument": "public",
+    "schema": "data/agenda-firestore-schema.json"
+  },
+  "messages": {
+    "schema": "data/mensajes-schema.json",
+    "localStorageKey": "alaya_message_log_v113",
+    "channels": [
+      "copy",
+      "whatsapp",
+      "email"
+    ]
+  },
+  "clientsCrm": {
+    "localStorageKey": "alaya_clients_crm_v114",
+    "firebaseCollection": "alayaClients",
+    "firebaseDocument": "crm",
+    "schema": "data/clientes-crm-schema.json"
+  },
+  "businessDashboard": {
+    "schema": "data/dashboard-negocio-schema.json",
+    "export": "alaya-dashboard-negocio-YYYY-MM-DD.json"
+  },
+  "backupRestore": {
+    "schema": "data/backup-restauracion-schema.json",
+    "export": "alaya-backup-total-YYYY-MM-DD.json",
+    "modes": [
+      "merge",
+      "replace"
+    ]
+  },
+  "legalPrivacy": {
+    "schema": "data/legal-privacidad-schema.json",
+    "localStorageKey": "alaya_legal_privacy_v117",
+    "legalVersion": "AlayaLegal-v11.7"
+  },
+  "launchQa": {
+    "schema": "data/lanzamiento-qa-schema.json",
+    "settingsKey": "alaya_launch_settings_v118",
+    "historyKey": "alaya_launch_qa_history_v118",
+    "modes": [
+      "draft",
+      "launch",
+      "maintenance"
+    ]
+  },
+  "seoUx": {
+    "schema": "data/seo-rendimiento-schema.json",
+    "settingsKey": "alaya_ux_settings_v119",
+    "report": "alaya-seo-ux-YYYY-MM-DD.json"
+  },
+  "status": "release-candidate",
+  "releaseCandidate": {
+    "schema": "data/release-candidate-schema.json",
+    "settingsKey": "alaya_release_final_v120",
+    "finalChecklist": "FINAL-CHECKLIST.md",
+    "releaseNotes": "RELEASE-NOTES.md"
+  },
+  "publicationGuide": {
+    "schema": "data/publicacion-guiada-schema.json",
+    "settingsKey": "alaya_publish_settings_v121",
+    "platforms": [
+      "github-pages",
+      "netlify",
+      "vercel",
+      "manual"
+    ],
+    "robotsTemplate": "robots.template.txt",
+    "sitemapTemplate": "sitemap.template.xml"
+  },
+  "securityProduction": {
+    "schema": "data/seguridad-produccion-schema.json",
+    "settingsKey": "alaya_security_production_v122",
+    "firestoreTemplate": "firestore.rules.template"
+  },
+  "onboarding": {
+    "schema": "data/primer-arranque-schema.json",
+    "settingsKey": "alaya_onboarding_settings_v123",
+    "demoTag": "demo-v12.3"
+  },
+  "maintenanceSupport": {
+    "schema": "data/mantenimiento-soporte-schema.json",
+    "settingsKey": "alaya_maintenance_settings_v124",
+    "issuesKey": "alaya_maintenance_issues_v124"
+  },
+  "marketing": {
+    "schema": "data/marketing-redes-schema.json",
+    "campaignsKey": "alaya_marketing_campaigns_v125"
+  },
+  "localAnalytics": {
+    "schema": "data/analitica-local-schema.json",
+    "eventsKey": "alaya_analytics_events_v126",
+    "sessionKey": "alaya_analytics_session_v126"
+  },
+  "multiLanguage": {
+    "schema": "data/multiidioma-schema.json",
+    "translationsKey": "alaya_translations_v127",
+    "languageKey": "alaya_language_v127",
+    "languages": [
+      "es",
+      "cat",
+      "en"
+    ]
+  },
+  "reminders": {
+    "schema": "data/recordatorios-seguimiento-schema.json",
+    "settingsKey": "alaya_reminder_settings_v128",
+    "remindersKey": "alaya_reminders_v128"
+  },
+  "servicesCatalog": {
+    "schema": "data/tarifas-packs-schema.json",
+    "catalogKey": "alaya_services_catalog_v129"
+  },
+  "workshops": {
+    "schema": "data/talleres-inscripciones-schema.json",
+    "workshopsKey": "alaya_workshops_v130",
+    "requestsKey": "alaya_workshop_requests_v130"
+  },
+  "reviewsGallery": {
+    "schema": "data/testimonios-galeria-schema.json",
+    "reviewsKey": "alaya_reviews_v131",
+    "galleryKey": "alaya_gallery_v131"
+  }
+}

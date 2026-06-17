@@ -1,4 +1,4 @@
-const CACHE_NAME = "alaya-holistics-v8-5-centro-confirmaciones-admin-pro";
+const CACHE_NAME = "alaya-holistics-v13-1-testimonios-resenas-galeria-pro";
 const ASSETS = [
   "./",
   "./index.html",
@@ -43,7 +43,7 @@ const ASSETS = [
   "./docs/HERBOLARIO-CATALOGO-PRO.md",
   "./docs/ALAYA-HOLISTICS-SERVICIOS-PRO.md",
   "./docs/TALLERES-CURSOS-PRO.md",
-  "./docs/SERVICIOS-EJEMPLO-PRO.md"
+  "./docs/SERVICIOS-EJEMPLO-PRO.md",
   "./alaya-astral/index.html",
   "./docs/ALAYA-ASTRAL-INTEGRADO.md",
   "./docs/DISENO-ASTRAL-GLOBAL.md",
@@ -96,6 +96,83 @@ const ASSETS = [
   "./docs/CONSULTA-RESERVA-CLIENTE-PRO.md",
   "./docs/CONFIRMACION-ADMIN-OBLIGATORIA-PRO.md",
   "./docs/CENTRO-CONFIRMACIONES-ADMIN-PRO.md",
+  "./docs/PROPUESTAS-HORARIO-ADMIN-PRO.md",
+  "./docs/RESPUESTA-PROPUESTA-CLIENTE-PRO.md",
+  "./docs/DISENO-PC-PRO.md",
+  "./docs/INICIO-PC-ORDENADO-PRO.md",
+  "./docs/DISENO-RESPONSIVE-TOTAL-PRO.md",
+  "./docs/MEJORA-SECCION-POR-SECCION-PRO.md",
+  "./docs/HERO-INICIO-PRO.md",
+  "./docs/SERVICIOS-PRO.md",
+  "./docs/HERBOLARIO-PRO.md",
+  "./docs/CONSULTA-RESPUESTA-PRO.md",
+  "./docs/CONTACTO-CONFIANZA-PRO.md",
+  "./docs/ADMIN-VISIBLE-PRO.md",
+  "./docs/PANEL-ADMIN-PRO.md",
+  "./docs/AYUDA-MANUALES-PRO.md",
+  "./docs/UX-GLOBAL-PRO.md",
+  "./docs/GESTOR-CONTENIDO-ADMIN-PRO.md",
+  "./HOSTING.md",
+  "./DEPLOY-CHECKLIST.md",
+  "./hosting-config.json",
+  "./docs/HOSTING-READY-PRO.md",
+  "./docs/ADMIN-WORDPRESS-CMS-PRO.md",
+  "./docs/CONSTRUCTOR-VISUAL-ADMIN-PRO.md",
+  "./data/cms-public.json",
+  "./docs/PUBLICADOR-CMS-HOSTING-PRO.md",
+  "./data/cms-sync-schema.json",
+  "./docs/CMS-ONLINE-SYNC-PRO.md",
+  "./js/backend-config.example.js",
+  "./data/firebase-security-rules.example",
+  "./docs/FIREBASE-SETUP-WIZARD-PRO.md",
+  "./data/reservas-firestore-schema.json",
+  "./docs/RESERVAS-ONLINE-FIREBASE-PRO.md",
+  "./docs/SEGUIMIENTO-RESERVAS-PRO.md",
+  "./data/agenda-firestore-schema.json",
+  "./docs/AGENDA-DISPONIBILIDAD-ONLINE-PRO.md",
+  "./data/mensajes-schema.json",
+  "./docs/MENSAJES-NOTIFICACIONES-PRO.md",
+  "./data/clientes-crm-schema.json",
+  "./docs/CLIENTES-CRM-HISTORIAL-PRO.md",
+  "./data/dashboard-negocio-schema.json",
+  "./docs/DASHBOARD-NEGOCIO-PRO.md",
+  "./data/backup-restauracion-schema.json",
+  "./docs/BACKUP-RESTAURACION-PRO.md",
+  "./data/legal-privacidad-schema.json",
+  "./docs/LEGAL-PRIVACIDAD-CONSENTIMIENTOS-PRO.md",
+  "./data/lanzamiento-qa-schema.json",
+  "./docs/CENTRO-LANZAMIENTO-QA-PRO.md",
+  "./data/seo-rendimiento-schema.json",
+  "./docs/SEO-RENDIMIENTO-ACCESIBILIDAD-PRO.md",
+  "./data/release-candidate-schema.json",
+  "./docs/RELEASE-CANDIDATE-FINAL-PRO.md",
+  "./RELEASE-NOTES.md",
+  "./FINAL-CHECKLIST.md",
+  "./data/publicacion-guiada-schema.json",
+  "./docs/PUBLICACION-GUIADA-DOMINIO-PRO.md",
+  "./robots.template.txt",
+  "./sitemap.template.xml",
+  "./data/seguridad-produccion-schema.json",
+  "./docs/SEGURIDAD-PRODUCCION-FIREBASE-PRO.md",
+  "./firestore.rules.template",
+  "./data/primer-arranque-schema.json",
+  "./docs/PRIMER-ARRANQUE-DATOS-DEMO-PRO.md",
+  "./data/mantenimiento-soporte-schema.json",
+  "./docs/MANTENIMIENTO-SOPORTE-INCIDENCIAS-PRO.md",
+  "./data/marketing-redes-schema.json",
+  "./docs/MARKETING-REDES-DIFUSION-PRO.md",
+  "./data/analitica-local-schema.json",
+  "./docs/ANALITICA-LOCAL-CONVERSION-PRO.md",
+  "./data/multiidioma-schema.json",
+  "./docs/MULTIIDIOMA-TRADUCCIONES-PRO.md",
+  "./data/recordatorios-seguimiento-schema.json",
+  "./docs/RECORDATORIOS-SEGUIMIENTO-PRO.md",
+  "./data/tarifas-packs-schema.json",
+  "./docs/TARIFAS-PACKS-SERVICIOS-PRO.md",
+  "./data/talleres-inscripciones-schema.json",
+  "./docs/TALLERES-CURSOS-INSCRIPCIONES-PRO.md",
+  "./data/testimonios-galeria-schema.json",
+  "./docs/TESTIMONIOS-RESENAS-GALERIA-PRO.md",
 ];
 
 self.addEventListener("install", event => {
@@ -114,17 +191,17 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => response)
+        .catch(() => caches.match("./offline.html"))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(response => response || fetch(event.request))
   );
-});
-
-
-// v5.6 fallback offline seguro
-self.addEventListener("fetch", event => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      fetch(event.request).catch(() => caches.match("./offline.html"))
-    );
-  }
 });

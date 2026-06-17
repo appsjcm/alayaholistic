@@ -1,7 +1,18 @@
-js/app.js: OK
+VALIDACIÓN v13.1 Testimonios, Reseñas y Galería Pro
+Build: 2026-06-17T18:30:59Z
 
+js/app.js: OK
 
 js/cloud-adapter.js: OK
 
-
 js/backend-config.js: OK
+
+js/backend-config.example.js: OK
+
+sw.js: OK
+
+JSON testimonios-galeria-schema.json: OK
+Nota: revisar consentimiento y textos responsables.
+Nota Codex: corregido caché PWA, enlaces internos y salida pública de testimonios/galería.
+Nota Codex UX: navegación pública simplificada, testimonios visibles en accesos rápidos y admin retirado del recorrido de cliente.
+Nota Codex SEO: cabecera HTML corregida, metas duplicadas limpiadas, manifest y documentos finales actualizados a v13.1.

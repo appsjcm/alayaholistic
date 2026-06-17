@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="modern-ui astral-global-theme admin-manual-page">
+<body class="ux-global-v102 admin-manual-v101 section-polish-v91 responsive-total-v90 modern-ui astral-global-theme admin-manual-page">
   <div class="astral-starfield" aria-hidden="true"></div>
   <main class="guide-page-main admin-manual-main">
     <a class="guide-back" href="admin.html">← Volver a acceso admin</a>
@@ -80,6 +80,417 @@
       </div>
       <a class="btn btn-primary" href="index.html#admin">Abrir panel</a>
     </section>
-  </main>
+  
+      <section class="guide-card">
+        <h2>Admin Visible Pro</h2>
+        <p>La página principal incluye un botón visible de Admin, pero el panel sigue separado en <code>admin.html</code>.</p>
+        <p>Recomendación: usar este acceso solo para administradores y mantener credenciales seguras.</p>
+      </section>
+
+      <section class="guide-card">
+        <h2>Panel Admin Pro</h2>
+        <p>El panel incluye un centro rápido con accesos a confirmaciones, alternativas, reservas, calendario, servicios y manual interno.</p>
+        <p>La rutina recomendada es revisar pendientes, confirmar o proponer alternativa, enviar mensaje al cliente y realizar copia de seguridad si hay cambios importantes.</p>
+      </section>
+
+      <section class="guide-card">
+        <h2>Rutina de revisión por secciones</h2>
+        <ol>
+          <li>Revisar reservas pendientes.</li>
+          <li>Confirmar, cancelar o proponer alternativas.</li>
+          <li>Actualizar talleres, plazas y servicios visibles.</li>
+          <li>Revisar mensajes de contacto o consultas de herbolario.</li>
+          <li>Comprobar que la web pública no muestra herramientas internas salvo el acceso Admin.</li>
+          <li>Hacer copia de seguridad tras cambios importantes.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Gestor de Contenido Admin Pro</h2>
+        <p>La pestaña “Gestor contenido” permite crear servicios, talleres, cursos, productos de herbolario, avisos y novedades desde el panel.</p>
+        <ol>
+          <li>Entrar al panel Admin.</li>
+          <li>Abrir “Gestor contenido”.</li>
+          <li>Elegir tipo de contenido.</li>
+          <li>Rellenar título, categoría, estado, fecha, precio y descripción.</li>
+          <li>Marcar “Publicar visible en la web” si debe verse para clientes.</li>
+          <li>Guardar contenido.</li>
+        </ol>
+        <p>En modo estático se guarda en el navegador. Para compartir entre dispositivos hace falta activar sincronización online.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Admin WordPress CMS Pro</h2>
+        <p>La pestaña “WordPress CMS” permite gestionar la web como un mini WordPress estático.</p>
+        <ol>
+          <li>Entrar al panel Admin.</li>
+          <li>Abrir “WordPress CMS”.</li>
+          <li>Editar identidad, portada, colores, menú y SEO.</li>
+          <li>Crear bloques públicos desde “Bloques”.</li>
+          <li>Guardar cambios.</li>
+          <li>Exportar JSON como copia de seguridad.</li>
+        </ol>
+        <p>En hosting estático los cambios se guardan en el navegador. Para compartir entre dispositivos, conectar Firebase/online sync.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Constructor Visual Admin Pro</h2>
+        <p>La pestaña “Constructor visual” permite crear secciones por plantilla, ordenar bloques y guardar revisiones.</p>
+        <ol>
+          <li>Entrar al panel Admin.</li>
+          <li>Abrir “Constructor visual”.</li>
+          <li>Elegir una plantilla rápida.</li>
+          <li>Editar el bloque desde “WordPress CMS → Bloques”.</li>
+          <li>Ordenar bloques con subir/bajar.</li>
+          <li>Guardar una revisión antes de publicar cambios grandes.</li>
+          <li>Exportar backup JSON si vas a subir una versión nueva al hosting.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Publicador CMS Hosting Pro</h2>
+        <p>La pestaña “Publicador CMS” genera el archivo <code>data/cms-public.json</code> con la configuración pública del CMS.</p>
+        <ol>
+          <li>Editar la web desde Admin.</li>
+          <li>Entrar en “Publicador CMS”.</li>
+          <li>Descargar <code>cms-public.json</code>.</li>
+          <li>Subirlo al hosting dentro de la carpeta <code>data/</code>.</li>
+          <li>Comprobar la web en incógnito.</li>
+        </ol>
+        <p>Para publicación automática real hace falta Firebase o backend.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>CMS Online Sync Pro</h2>
+        <p>La pestaña “Sync CMS” prepara sincronización entre dispositivos y administradores.</p>
+        <ol>
+          <li>Editar contenido desde Admin.</li>
+          <li>Guardar un snapshot local antes de cambios grandes.</li>
+          <li>Usar Publicador CMS para generar <code>data/cms-public.json</code>.</li>
+          <li>Para multiadmin real, configurar Firebase y reglas de seguridad.</li>
+          <li>Probar subida/bajada del CMS desde Sync CMS.</li>
+        </ol>
+        <p>Sin Firebase, el contenido sigue guardándose en el navegador o en archivo publicado JSON.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Firebase Setup Wizard Pro</h2>
+        <p>La pestaña “Firebase Wizard” ayuda a generar configuración, reglas y diagnóstico para online sync real.</p>
+        <ol>
+          <li>Crear proyecto Firebase.</li>
+          <li>Activar Authentication y Firestore.</li>
+          <li>Pegar configuración web en el asistente.</li>
+          <li>Añadir emails admin autorizados.</li>
+          <li>Copiar reglas Firestore y revisarlas.</li>
+          <li>Descargar <code>backend-config.js</code> y subirlo al hosting.</li>
+          <li>Probar Sync CMS.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Reservas Online Firebase Pro</h2>
+        <p>La pestaña “Reservas online” permite gestionar solicitudes recibidas desde la web pública.</p>
+        <ol>
+          <li>El cliente envía una solicitud desde “Reserva online”.</li>
+          <li>El sistema genera un código.</li>
+          <li>Admin revisa la solicitud.</li>
+          <li>Admin cambia estado: pendiente, confirmada, alternativa, cancelada o completada.</li>
+          <li>Admin copia el mensaje para responder al cliente.</li>
+          <li>Si Firebase está configurado, puede sincronizar solicitudes.</li>
+        </ol>
+        <p>La cita no queda confirmada automáticamente. Siempre requiere validación manual de Alaya.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Seguimiento de Reservas Pro</h2>
+        <p>Permite que el cliente consulte el estado con código y contacto. Admin puede guardar respuesta visible, nota interna y propuesta de horario.</p>
+        <ol>
+          <li>Cliente envía una reserva online.</li>
+          <li>Admin revisa la solicitud.</li>
+          <li>Admin añade propuesta o respuesta visible.</li>
+          <li>Cliente consulta estado con código/contacto.</li>
+          <li>La cita solo queda confirmada cuando Admin cambia el estado a confirmada.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Agenda y Disponibilidad Online Pro</h2>
+        <p>Permite crear horarios disponibles y bloqueos desde Admin.</p>
+        <ol>
+          <li>Entrar en Admin → Agenda online.</li>
+          <li>Crear un horario con servicio, fecha y hora.</li>
+          <li>Publicarlo como disponible o plazas limitadas.</li>
+          <li>El cliente lo verá en Disponibilidad orientativa.</li>
+          <li>El cliente puede solicitar ese horario desde Reserva online.</li>
+          <li>Admin confirma manualmente la solicitud.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Mensajes y Notificaciones Pro</h2>
+        <p>La pestaña “Mensajes” permite crear respuestas rápidas para clientes de reservas.</p>
+        <ol>
+          <li>Selecciona una reserva.</li>
+          <li>Elige una plantilla.</li>
+          <li>Revisa el mensaje generado.</li>
+          <li>Copia el texto o abre WhatsApp/email.</li>
+          <li>Envía manualmente el mensaje al cliente.</li>
+        </ol>
+        <p>En hosting estático no se envían mensajes automáticos.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Clientes CRM e Historial Pro</h2>
+        <p>La pestaña “Clientes” permite gestionar clientes/consultantes, etiquetas, preferencias y notas internas.</p>
+        <ol>
+          <li>Crear cliente manualmente o actualizar desde reservas.</li>
+          <li>Añadir etiquetas y preferencia general.</li>
+          <li>Consultar historial de reservas vinculadas.</li>
+          <li>Copiar resumen si se necesita.</li>
+          <li>Exportar clientes JSON como copia.</li>
+        </ol>
+        <p>No guardar datos sensibles ni información privada innecesaria.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Dashboard Negocio Pro</h2>
+        <p>La pestaña “Dashboard Pro” reúne métricas, tareas pendientes, agenda, clientes y estado técnico.</p>
+        <ol>
+          <li>Entrar en Admin → Dashboard Pro.</li>
+          <li>Revisar KPIs principales.</li>
+          <li>Atender tareas pendientes.</li>
+          <li>Revisar próximos horarios y clientes recientes.</li>
+          <li>Exportar informe JSON si se necesita copia.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Backup y Restauración Pro</h2>
+        <p>La pestaña “Backup” permite exportar y restaurar todos los datos internos del Admin.</p>
+        <ol>
+          <li>Entrar en Admin → Backup.</li>
+          <li>Descargar backup total antes de actualizar.</li>
+          <li>Guardar el archivo en un lugar seguro.</li>
+          <li>Para restaurar, pegar el JSON en la zona de importación.</li>
+          <li>Elegir combinar o reemplazar.</li>
+          <li>Revisar reservas, clientes, agenda y CMS.</li>
+        </ol>
+        <p>Los backups pueden contener datos de clientes; no compartir públicamente.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Legal, Privacidad y Consentimientos Pro</h2>
+        <p>La pestaña “Legal Pro” permite editar textos de privacidad, consentimiento y avisos de confianza.</p>
+        <ol>
+          <li>Entrar en Admin → Legal Pro.</li>
+          <li>Completar nombre comercial y contacto.</li>
+          <li>Revisar consentimiento de reservas.</li>
+          <li>Revisar aviso de cookies y retención de datos.</li>
+          <li>Revisar auditoría de privacidad.</li>
+          <li>Exportar configuración legal como copia.</li>
+        </ol>
+        <p>Es una base orientativa. Revisar antes de publicar con datos reales.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Centro Lanzamiento y QA Pro</h2>
+        <p>La pestaña “Lanzamiento QA” permite revisar la web antes de publicarla.</p>
+        <ol>
+          <li>Descargar backup total.</li>
+          <li>Revisar Legal Pro.</li>
+          <li>Probar reserva y seguimiento.</li>
+          <li>Crear disponibilidad de agenda.</li>
+          <li>Ejecutar QA.</li>
+          <li>Resolver tareas pendientes.</li>
+          <li>Exportar reporte.</li>
+          <li>Activar modo lanzamiento.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>SEO, Rendimiento y Accesibilidad Pro</h2>
+        <p>La pestaña “SEO UX” revisa SEO técnico, PWA, formularios, enlaces y accesibilidad.</p>
+        <ol>
+          <li>Entrar en Admin → SEO UX.</li>
+          <li>Ejecutar auditoría.</li>
+          <li>Revisar sugerencias.</li>
+          <li>Activar lectura cómoda o reducir animaciones si se desea.</li>
+          <li>Exportar informe.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Release Candidate Final Pro</h2>
+        <p>La pestaña “Release Final” reúne el cierre final de la web: informe global, checklist, módulos incluidos y prioridades.</p>
+        <ol>
+          <li>Descargar backup total.</li>
+          <li>Ejecutar Lanzamiento QA.</li>
+          <li>Ejecutar SEO UX.</li>
+          <li>Abrir Release Final.</li>
+          <li>Revisar puntuación final.</li>
+          <li>Exportar paquete final JSON.</li>
+          <li>Guardar el ZIP v12.0 como versión candidata final.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Publicación Guiada y Dominio Pro</h2>
+        <p>La pestaña “Publicación” prepara hosting, dominio, robots, sitemap y plan de subida.</p>
+        <ol>
+          <li>Elegir plataforma: GitHub Pages, Netlify, Vercel o manual.</li>
+          <li>Escribir URL pública o dominio.</li>
+          <li>Generar plan de publicación.</li>
+          <li>Copiar pasos o exportar JSON.</li>
+          <li>Copiar robots/sitemap si se van a subir personalizados.</li>
+          <li>Subir todos los archivos del ZIP descomprimido.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Seguridad Producción y Firebase Rules Pro</h2>
+        <p>La pestaña “Seguridad Pro” ayuda a preparar admins, dominio y reglas Firestore orientativas.</p>
+        <ol>
+          <li>Entrar en Admin → Seguridad Pro.</li>
+          <li>Configurar modo staging o producción.</li>
+          <li>Añadir emails admin autorizados.</li>
+          <li>Añadir dominio permitido.</li>
+          <li>Copiar reglas Firestore orientativas.</li>
+          <li>Revisar y probar reglas en Firebase.</li>
+          <li>Exportar plan de seguridad.</li>
+        </ol>
+        <p>No usar datos reales con reglas abiertas.</p>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Primer Arranque y Datos Demo Pro</h2>
+        <p>La pestaña “Primer Arranque” ayuda a configurar la web y probarla sin datos reales.</p>
+        <ol>
+          <li>Completar datos básicos.</li>
+          <li>Cargar datos demo.</li>
+          <li>Probar reservas, agenda, clientes y mensajes.</li>
+          <li>Borrar datos demo.</li>
+          <li>Exportar plan inicial.</li>
+          <li>Descargar backup antes de usar datos reales.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Mantenimiento, Soporte e Incidencias Pro</h2>
+        <p>La pestaña “Mantenimiento” sirve para registrar incidencias, tareas y estado público tras el lanzamiento.</p>
+        <ol>
+          <li>Definir estado público.</li>
+          <li>Registrar incidencias.</li>
+          <li>Priorizar tareas.</li>
+          <li>Cerrar incidencias resueltas.</li>
+          <li>Exportar reporte antes de cambios grandes.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Marketing, Redes y Difusión Pro</h2>
+        <p>La pestaña “Marketing” sirve para preparar campañas, textos y calendario de difusión.</p>
+        <ol>
+          <li>Crear una campaña.</li>
+          <li>Elegir canal y objetivo.</li>
+          <li>Generar texto.</li>
+          <li>Copiar y revisar el texto.</li>
+          <li>Publicar manualmente.</li>
+          <li>Exportar plan de marketing.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Analítica Local y Conversión Pro</h2>
+        <p>La pestaña “Analítica” permite revisar eventos locales, embudo y conversión sin servicios externos.</p>
+        <ol>
+          <li>Navegar por la web para generar eventos.</li>
+          <li>Abrir Admin → Analítica.</li>
+          <li>Revisar métricas y embudo.</li>
+          <li>Ver top secciones.</li>
+          <li>Exportar informe JSON.</li>
+          <li>Limpiar eventos locales cuando sea necesario.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Multiidioma y Traducciones Pro</h2>
+        <p>La pestaña “Idiomas” permite editar textos en castellano, catalán e inglés.</p>
+        <ol>
+          <li>Elegir idioma.</li>
+          <li>Editar textos principales.</li>
+          <li>Guardar traducciones.</li>
+          <li>Aplicar idioma.</li>
+          <li>Exportar diccionario JSON como copia.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Recordatorios y Seguimiento Pro</h2>
+        <p>La pestaña “Recordatorios” ayuda a preparar mensajes manuales de reservas y agenda.</p>
+        <ol>
+          <li>Guardar nombre visible y firma.</li>
+          <li>Pulsar “Generar recordatorios”.</li>
+          <li>Copiar el mensaje necesario.</li>
+          <li>Marcar como preparado, enviado u omitido.</li>
+          <li>Exportar reporte de seguimiento.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Tarifas, Packs y Servicios Pro</h2>
+        <p>La pestaña “Tarifas” permite gestionar catálogo, precios orientativos, packs y visibilidad pública.</p>
+        <ol>
+          <li>Crear o editar servicio.</li>
+          <li>Definir categoría, modalidad, duración y precio.</li>
+          <li>Añadir nota responsable.</li>
+          <li>Marcar visible u oculto.</li>
+          <li>Exportar catálogo JSON.</li>
+        </ol>
+      </section>
+
+
+      <section class="guide-card">
+        <h2>Talleres, Cursos e Inscripciones Pro</h2>
+        <p>La pestaña “Talleres” permite crear actividades, controlar plazas y gestionar solicitudes.</p>
+        <ol>
+          <li>Crear taller o curso.</li>
+          <li>Definir fecha, hora, duración, plazas y precio orientativo.</li>
+          <li>Marcar visible para publicarlo.</li>
+          <li>Revisar solicitudes recibidas.</li>
+          <li>Marcar como contactada, confirmada, lista de espera o cancelada.</li>
+          <li>Exportar listado JSON.</li>
+        </ol>
+      </section>
+
+</main>
 </body>
 </html>
+
+
+<section class="guide-card"><h2>Testimonios, Reseñas y Galería Pro</h2><p>Gestiona reseñas con consentimiento y galería pública.</p></section>

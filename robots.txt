@@ -1,10 +1,17 @@
 User-agent: *
 Allow: /
-
-Sitemap: ./sitemap.xml
-
-# Admin separado
 Disallow: /admin.html
-
-# Manual administrador separado
 Disallow: /manual-admin.html
+Disallow: /docs/
+Disallow: /VALIDACION.txt
+Disallow: /CHANGELOG.md
+Disallow: /README.md
+Disallow: /HOSTING.md
+Disallow: /DEPLOY-CHECKLIST.md
+Disallow: /FINAL-CHECKLIST.md
+Disallow: /RELEASE-NOTES.md
+Disallow: /VERSION.json
+Disallow: /hosting-config.json
+Disallow: /firebase/
+
+Sitemap: /sitemap.xml
