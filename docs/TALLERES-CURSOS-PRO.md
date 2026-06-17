@@ -1,53 +1,31 @@
-# Alaya Holistics v4.3 · Talleres y Cursos Pro
+# Alaya Holistics v9.5 · Talleres y Cursos Pro
 
-Esta versión mejora la agenda de actividades.
+Esta versión mejora la sección de talleres y cursos.
 
-## Nuevo en la parte pública
+## Mejoras
 
-- Buscador de talleres y cursos.
-- Filtros por categoría.
-- Filtro por nivel.
-- Filtro por estado de plazas.
-- Actividad destacada.
-- Contadores de agenda.
-- Ficha ampliada de actividad.
-- Consulta por WhatsApp desde la ficha.
-- Etiquetas clicables.
-- Control visual de plazas.
-- Botón de reserva se bloquea si el evento está completo.
+- Nueva guía visual antes de talleres.
+- Bloques para:
+  - Taller puntual.
+  - Curso.
+  - Actividad de grupo.
+  - Consulta de plazas.
+- Recomendación rápida por tipo de actividad.
+- Formulario para preparar mensaje.
+- Botón para copiar consulta.
+- CTA final hacia consulta de plaza o listado de talleres.
+- Mejor lectura en móvil y PC.
 
-## Categorías
+## Flujo recomendado para cliente
 
-- Tarot
-- Reiki
-- Astrología
-- Herbolario
-- Rituales
-- Bienestar
-- Otros
+1. Leer guía de talleres.
+2. Elegir tipo de actividad.
+3. Ver próximos eventos.
+4. Preparar consulta de plaza.
+5. Enviar mensaje a Alaya.
+6. Esperar confirmación.
 
-## Nuevo en el panel admin
+## Importante
 
-Ahora cada actividad puede tener:
-
-- icono
-- categoría
-- nivel
-- fecha
-- hora
-- precio
-- plazas
-- formato
-- ubicación
-- etiquetas
-- actividad destacada
-- descripción
-- temario
-- material
-- notas
-
-## Plazas
-
-Las plazas se calculan con las reservas del evento que no están canceladas.
-
-Si una actividad se llena, aparece como **Completo**.
+Una solicitud de plaza no confirma asistencia.
+Alaya debe confirmar disponibilidad.

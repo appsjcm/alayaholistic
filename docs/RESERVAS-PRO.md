@@ -1,42 +1,34 @@
-# Alaya Holistics v2.7 · Reservas Pro
+# Alaya Holistics v9.6 · Reservas Pro
 
 Esta versión mejora el flujo de reservas.
 
-## Nuevo
+## Mejoras
 
-- Consentimiento obligatorio en formularios públicos.
-- Código único de reserva.
-- Nota interna por reserva.
-- Historial de estados.
-- Mensajes rápidos:
-  - confirmación
-  - cancelación
-  - recordatorio
-- Exportación CSV con código, nota y consentimiento.
-- Resumen Reservas Pro en el panel admin.
+- Nueva guía visual antes de reservar.
+- Flujo en 4 pasos:
+  1. Elegir servicio.
+  2. Enviar solicitud.
+  3. Revisión por Alaya.
+  4. Confirmación manual.
+- Checklist de datos para el cliente.
+- Botón para copiar checklist.
+- Bloque “Después de reservar”.
+- Estados explicados:
+  - Pendiente de confirmación.
+  - Propuesta alternativa.
+  - Alternativa aceptada.
+  - Confirmada por Alaya.
+- CTA hacia consulta de estado y responder propuesta.
 
-## Código de reserva
+## Flujo correcto
 
-Cada reserva recibe un código tipo:
+1. Cliente envía solicitud.
+2. La solicitud queda pendiente.
+3. Administrador revisa disponibilidad.
+4. Administrador confirma, cancela o propone alternativa.
+5. La cita solo queda confirmada con respuesta final de Alaya.
 
-```txt
-ALAYA-ABCDE
-```
+## Importante
 
-Sirve para identificar la cita cuando se habla con el cliente.
-
-## Notas internas
-
-Las notas internas no aparecen en los mensajes al cliente.
-
-Se usan para apuntar detalles de gestión.
-
-## Historial de estados
-
-Cada vez que se cambia el estado se añade una entrada al historial.
-
-## Consentimiento
-
-Los formularios públicos piden aceptar el uso de datos para gestionar la reserva.
-
-Esto no sustituye una política legal completa, pero mejora la claridad del flujo.
+La reserva no se confirma automáticamente.
+La confirmación final la hace el administrador.
