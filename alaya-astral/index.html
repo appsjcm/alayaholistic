@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090414" />
+  <meta name="description" content="Alaya Astral IA v6.9 Puter IA: carta astral visible con guía clara bajo la rueda e interpretación opcional por IA usando Puter tras iniciar sesión." />
+  <title>Alaya Astral IA v6.9 Puter IA</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" data-route="inicio" aria-label="Ir al inicio">
+      <img src="icons/icon-192.png" alt="" />
+      <span><b>Alaya Astral IA</b><small>v6.9 Puter IA</small></span>
+    </a>
+    <nav class="nav desktop" aria-label="Navegación principal">
+      <a href="#inicio" data-route="inicio">Inicio</a>
+      <a href="#crear" data-route="crear">Crear carta</a>
+      <a href="#historial" data-route="historial">Historial</a>
+      <a href="#ajustes" data-route="ajustes">Ajustes</a>
+    </nav>
+    <button id="installBtn" class="btn small ghost hidden">Instalar</button>
+  </header>
+
+  <main id="app">
+    <section id="inicio" class="screen active">
+      <article class="hero card glow">
+        <p class="eyebrow">Carta astral visible</p>
+        <h1>Carta astral clara, con guía e IA opcional.</h1>
+        <p class="lead">Al generar, verás primero la rueda astral. Debajo tendrás una explicación sencilla de casas, ascendente, signos y planetas. La interpretación profunda se genera aparte con IA de Puter.</p>
+        <div class="hero-actions">
+          <button class="btn primary big" data-route="crear">Crear mi carta astral</button>
+          <button class="btn secondary" id="demoBtn">Ver carta demo</button>
+        </div>
+        <div class="quick-steps">
+          <div><b>1</b><span>Escribe tus datos</span></div>
+          <div><b>2</b><span>Elige una intención</span></div>
+          <div><b>3</b><span>Ve la rueda astral</span></div>
+        </div>
+      </article>
+
+      <section class="two-col">
+        <article class="card">
+          <p class="eyebrow">Qué hace esta versión</p>
+          <h2>Menos items, más claridad</h2>
+          <p>La rueda astral ahora aparece justo al generar: grande, centrada y con una tabla de Sol, Luna, Ascendente y planetas.</p>
+        </article>
+        <article class="card" id="lastCard">
+          <p class="eyebrow">Última carta</p>
+          <h2>Todavía no hay cartas</h2>
+          <p>Crea una carta para verla aquí y guardarla en el historial.</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="crear" class="screen">
+      <div class="section-title">
+        <p class="eyebrow">Crear carta</p>
+        <h2>Solo 3 pasos</h2>
+        <p>Rellena lo básico. Al terminar verás la carta astral visual antes del texto.</p>
+      </div>
+
+      <div class="wizard card">
+        <div class="progress" aria-label="Progreso">
+          <button class="dot active" type="button" data-step="1"><b>1</b><span>Datos</span></button>
+          <button class="dot" type="button" data-step="2"><b>2</b><span>Intención</span></button>
+          <button class="dot" type="button" data-step="3"><b>3</b><span>Resultado</span></button>
+        </div>
+
+        <form id="chartForm" novalidate>
+          <section class="step-page active" data-page="1">
+            <h3>1 · Datos de nacimiento</h3>
+            <p class="hint">Esto es lo mínimo para crear la carta.</p>
+            <div class="grid-2">
+              <label>Nombre
+                <input id="name" name="name" required placeholder="Ej. Atenea" />
+              </label>
+              <label>Fecha de nacimiento
+                <input id="birthDate" name="birthDate" type="date" required />
+              </label>
+              <label>Hora de nacimiento
+                <input id="birthTime" name="birthTime" type="time" required />
+              </label>
+              <label>Ciudad
+                <input id="city" name="city" required placeholder="Ej. Barcelona" />
+              </label>
+              <label>País
+                <input id="country" name="country" required placeholder="Ej. España" />
+              </label>
+              <label>Precisión de la hora
+                <select id="timeAccuracy" name="timeAccuracy">
+                  <option value="alta">Alta: hora oficial</option>
+                  <option value="media">Media: hora recordada</option>
+                  <option value="baja">Baja: aproximada</option>
+                  <option value="sin-hora">No sé la hora exacta</option>
+                </select>
+              </label>
+            </div>
+            <div class="actions right">
+              <button class="btn primary" type="button" data-next="2">Siguiente</button>
+            </div>
+          </section>
+
+          <section class="step-page" data-page="2">
+            <h3>2 · Elige qué carta quieres</h3>
+            <p class="hint">Solo hay tres opciones principales para que no sea un lío.</p>
+            <div class="choice-grid" role="radiogroup" aria-label="Tipo de carta">
+              <label class="choice selected">
+                <input type="radio" name="readingType" value="natal" checked />
+                <b>Carta natal</b>
+                <span>Personalidad, emociones, talentos y retos.</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="readingType" value="hoy" />
+                <b>Energía de hoy</b>
+                <span>Guía breve para el momento actual.</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="readingType" value="compatibilidad" />
+                <b>Compatibilidad</b>
+                <span>Lectura simbólica entre dos personas.</span>
+              </label>
+            </div>
+
+            <div id="compatBox" class="soft-box hidden">
+              <h4>Datos de la segunda persona</h4>
+              <div class="grid-2">
+                <label>Nombre de la otra persona<input id="otherName" name="otherName" placeholder="Ej. Alex" /></label>
+                <label>Fecha nacimiento otra persona<input id="otherBirthDate" name="otherBirthDate" type="date" /></label>
+              </div>
+            </div>
+
+            <label>Pregunta o intención
+              <textarea id="intention" name="intention" rows="3" placeholder="Ej. ¿Qué necesito entender de mi momento actual?"></textarea>
+            </label>
+
+            <details class="advanced">
+              <summary>Modo avanzado opcional</summary>
+              <p class="hint">No hace falta tocar esto para crear la carta. Sirve para revisar con Astro.com o mejorar datos técnicos.</p>
+              <div class="grid-2">
+                <label>Latitud<input id="lat" name="lat" placeholder="41.38" /></label>
+                <label>Longitud<input id="lon" name="lon" placeholder="2.17" /></label>
+                <label>UTC nacimiento<input id="utc" name="utc" placeholder="+01:00" /></label>
+                <label>Sistema de casas
+                  <select id="houses" name="houses">
+                    <option>No indicado</option><option>Placidus</option><option>Whole Sign</option><option>Casas iguales</option>
+                  </select>
+                </label>
+              </div>
+              <label>Posiciones copiadas desde Astro.com
+                <textarea id="astroText" name="astroText" rows="5" placeholder="Ej. Sol Aries 12°, Luna Cáncer 4°, Ascendente Libra 8°..."></textarea>
+              </label>
+              <div class="actions">
+                <a class="btn ghost" href="https://www.astro.com/free/free_chart_e.htm" target="_blank" rel="noopener">Abrir Astro.com</a>
+              </div>
+            </details>
+
+            <div class="actions between">
+              <button class="btn ghost" type="button" data-next="1">Atrás</button>
+              <button class="btn primary" type="submit">Generar carta</button>
+            </div>
+          </section>
+
+          <section class="step-page" data-page="3">
+            <h3>3 · Tu carta astral visual</h3>
+            <div id="resultSlot" class="result-empty">
+              Rellena los pasos anteriores y pulsa <b>Generar carta</b>. Aquí aparecerá la rueda astral grande.
+            </div>
+          </section>
+        </form>
+      </div>
+    </section>
+
+    <section id="historial" class="screen">
+      <div class="section-title split">
+        <div>
+          <p class="eyebrow">Historial</p>
+          <h2>Tus cartas guardadas</h2>
+        </div>
+        <button id="clearHistoryBtn" class="btn ghost small">Borrar historial</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+    <section id="ajustes" class="screen">
+      <div class="section-title">
+        <p class="eyebrow">Ajustes</p>
+        <h2>Simple por defecto</h2>
+        <p>La app está pensada para que cualquiera pueda hacer una carta sin leer instrucciones largas.</p>
+      </div>
+      <div class="settings-grid">
+        <article class="card">
+          <h3>Apariencia</h3>
+          <label class="switch"><input id="comfortToggle" type="checkbox" /> Lectura cómoda</label>
+          <label class="switch"><input id="contrastToggle" type="checkbox" /> Alto contraste</label>
+        </article>
+        <article class="card">
+          <h3>Datos</h3>
+          <button id="exportBtn" class="btn secondary">Exportar historial</button>
+          <label class="import-label">Importar historial<input id="importFile" type="file" accept="application/json" /></label>
+        </article>
+        <article class="card">
+          <h3>Ayuda rápida</h3>
+          <ol class="help-list">
+            <li>Entra en <b>Crear carta</b>.</li>
+            <li>Rellena nombre, fecha, hora y ciudad.</li>
+            <li>Elige carta natal, energía de hoy o compatibilidad.</li>
+            <li>Pulsa <b>Generar carta</b>.</li>
+            <li>Mira primero la <b>rueda astral visual</b>.</li>
+            <li>Lee la guía genérica bajo la rueda.</li>
+            <li>Para IA: inicia sesión o regístrate en Puter y pulsa <b>Generar interpretación IA</b>.</li>
+            <li>Guarda o descarga el PDF.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegación móvil">
+    <button data-route="inicio">Inicio</button>
+    <button data-route="crear">Crear</button>
+    <button data-route="historial">Historial</button>
+    <button data-route="ajustes">Ajustes</button>
+  </nav>
+
+  <template id="readingTemplate">
+    <article class="reading card printable">
+      <div class="reading-cover">
+        <p class="eyebrow">Alaya Astral IA · Carta astral visible</p>
+        <h2 data-field="title"></h2>
+        <p data-field="subtitle"></p>
+        <div data-field="badges" class="badges"></div>
+      </div>
+      <section class="chart-hero">
+        <div>
+          <p class="eyebrow">Rueda astral</p>
+          <h3>Tu carta astral visual</h3>
+          <p class="hint">Primero mira la rueda. Después lee la interpretación por secciones.</p>
+        </div>
+        <div class="chart-grid">
+          <aside class="astro-wheel big-wheel" data-field="wheel"></aside>
+          <div class="position-panel" data-field="positionPanel"></div>
+        </div>
+        <div class="generic-guide" data-field="genericGuide"></div>
+      </section>
+      <section class="puter-ai-panel" data-field="aiPanel">
+        <div class="ai-head">
+          <div>
+            <p class="eyebrow">Interpretación IA opcional</p>
+            <h3>Interpretación personalizada con Puter</h3>
+            <p>Primero inicia sesión o regístrate en Puter. Después pulsa generar para recibir una lectura más profunda basada en la carta que acabas de crear.</p>
+          </div>
+          <span class="ai-status" data-field="puterStatus">Puter pendiente</span>
+        </div>
+        <div class="actions wrap">
+          <button class="btn secondary" data-action="puterLogin">1 · Iniciar sesión / registrarme en Puter</button>
+          <button class="btn primary" data-action="aiInterpret">2 · Generar interpretación IA</button>
+        </div>
+        <div class="ai-output" data-field="aiOutput">La interpretación IA aparecerá aquí cuando hayas iniciado sesión en Puter.</div>
+      </section>
+      <div class="reading-layout full">
+        <div data-field="sections" class="reading-sections"></div>
+      </div>
+      <div class="actions wrap no-print">
+        <button class="btn primary" data-action="save">Guardar carta</button>
+        <button class="btn secondary" data-action="focusWheel">Ver rueda</button>
+        <button class="btn secondary" data-action="pdf">Descargar PDF</button>
+        <button class="btn ghost" data-action="copy">Copiar texto</button>
+        <button class="btn ghost" data-action="html">Descargar HTML</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

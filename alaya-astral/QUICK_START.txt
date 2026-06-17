@@ -1,0 +1,19 @@
+CÓMO VER LA CARTA Y USAR LA IA
+
+Ver carta demo:
+1. En Inicio pulsa “Ver carta demo”.
+2. Verás la rueda astral grande.
+3. Debajo aparece la explicación genérica de rueda, casas, ascendente y planetas.
+
+Crear tu carta:
+1. Pulsa “Crear mi carta astral”.
+2. Escribe nombre, fecha, hora, ciudad y país.
+3. Pulsa Siguiente.
+4. Elige Carta natal.
+5. Pulsa Generar carta.
+
+Interpretación IA con Puter:
+1. Baja al bloque “Interpretación personalizada con Puter”.
+2. Pulsa “1 · Iniciar sesión / registrarme en Puter”.
+3. Inicia sesión o crea cuenta Puter.
+4. Pulsa “2 · Generar interpretación IA”.
