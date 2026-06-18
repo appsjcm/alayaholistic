@@ -19,7 +19,7 @@
       "primaryCtaLink": "#reservas",
       "secondaryCtaText": "Ver servicios",
       "secondaryCtaLink": "#servicios",
-      "publicMenuText": "Atajos gestionados desde el panel Admin."
+      "publicMenuText": "Elige rápido qué necesitas consultar."
     },
     "appearance": {
       "colorPrimary": "#ffd78a",
@@ -32,23 +32,27 @@
     "menu": [
       {
         "label": "Reservar",
-        "url": "#guia-reservas"
+        "url": "#reservas"
       },
       {
         "label": "Servicios",
-        "url": "#guia-servicios"
+        "url": "#servicios"
       },
       {
         "label": "Herbolario",
-        "url": "#guia-herbolario"
+        "url": "#herbolario"
       },
       {
         "label": "Talleres",
-        "url": "#guia-talleres"
+        "url": "#eventos"
+      },
+      {
+        "label": "Testimonios",
+        "url": "#testimonios-galeria"
       },
       {
         "label": "Contacto",
-        "url": "#mensaje-contacto"
+        "url": "#contacto-alaya"
       }
     ],
     "blocks": [],
@@ -64,8 +68,17 @@
       "announcementText": ""
     }
   },
+  "publicContent": {
+    "version": "10.3",
+    "items": []
+  },
+  "socialProof": {
+    "version": "13.1",
+    "reviews": [],
+    "gallery": []
+  },
   "instructions": {
     "uploadPath": "data/cms-public.json",
-    "description": "Archivo de contenido publicado para hosting estático."
+    "description": "Archivo de contenido publicado para hosting estático: CMS, contenido público, testimonios y galería."
   }
 }

@@ -16,3 +16,7 @@ Nota: revisar consentimiento y textos responsables.
 Nota Codex: corregido caché PWA, enlaces internos y salida pública de testimonios/galería.
 Nota Codex UX: navegación pública simplificada, testimonios visibles en accesos rápidos y admin retirado del recorrido de cliente.
 Nota Codex SEO: cabecera HTML corregida, metas duplicadas limpiadas, manifest y documentos finales actualizados a v13.1.
+Nota Codex CMS: añadido escritorio premium tipo WordPress con accesos directos para editar datos, portada, servicios, testimonios, SEO y publicación.
+Nota Codex CMS Plus: el publicador ahora incluye contenido editable, testimonios y galería dentro de cms-public.json para hosting estático.
+Nota Codex Premium QA: añadido estado de preparación con porcentaje, checks clicables y revisión rápida antes de publicar.
+Nota Codex Seguridad Admin: admin.html convertido en puerta privada con contraseña, noindex, bloqueo por intentos y apertura segura del panel integrado.

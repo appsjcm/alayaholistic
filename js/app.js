@@ -7127,14 +7127,14 @@ settingClosedDates?.addEventListener("input", renderAvailabilityPreview);
 $("#contactWhatsapp").href = buildWhatsappUrl("Hola, quiero información sobre Alaya Holistics.");
 $("#contactEmail").href = buildEmailUrl("Consulta Alaya Holistics", "Hola, quiero información sobre Alaya Holistics.");
 
-$("#openAdminBtn").addEventListener("click", abrirAdminModal);
-$("#openAdminBtnTop").addEventListener("click", abrirAdminModal);
-$("#openAdminBtnFooter").addEventListener("click", abrirAdminModal);
-closeAdminBtn.addEventListener("click", cerrarAdminModal);
-loginAdminBtn.addEventListener("click", loginAdmin);
+$("#openAdminBtn")?.addEventListener("click", abrirAdminModal);
+$("#openAdminBtnTop")?.addEventListener("click", abrirAdminModal);
+$("#openAdminBtnFooter")?.addEventListener("click", abrirAdminModal);
+closeAdminBtn?.addEventListener("click", cerrarAdminModal);
+loginAdminBtn?.addEventListener("click", loginAdmin);
 resetFirebasePasswordBtn?.addEventListener("click", enviarResetPasswordFirebase);
 lockAdminBtn?.addEventListener("click", () => bloquearPanelAdmin("Panel bloqueado manualmente."));
-logoutAdminBtn.addEventListener("click", logoutAdmin);
+logoutAdminBtn?.addEventListener("click", logoutAdmin);
 guardarCartaAstralBtn?.addEventListener("click", guardarCartaAstralDesdeAdmin);
 limpiarCartaAstralBtn?.addEventListener("click", limpiarFormularioCartaAstral);
 exportarCartasAstralesBtn?.addEventListener("click", exportarCartasAstralesJson);
@@ -11232,6 +11232,11 @@ function openAdminFromDedicatedAccess() {
   const openButton = document.querySelector("#openAdminBtnTop");
   const adminModal = document.querySelector("#adminModal");
 
+  if (typeof abrirAdminModal === "function") {
+    abrirAdminModal();
+    return;
+  }
+
   if (openButton) {
     openButton.click();
     return;
@@ -12852,6 +12857,8 @@ function saveAdminContentV103(items) {
   localStorage.setItem(ADMIN_CONTENT_KEY_V103, JSON.stringify(items));
   renderAdminContentManagerV103();
   renderPublicAdminContentV103();
+  if (typeof renderPremiumCmsReadinessV132 === "function") renderPremiumCmsReadinessV132();
+  if (typeof renderPublishedCmsJsonV107 === "function") renderPublishedCmsJsonV107();
 }
 
 function createAdminContentIdV103() {
@@ -13144,7 +13151,7 @@ const WP_DEFAULT_CMS_V105 = {
     primaryCtaLink: "#reservas",
     secondaryCtaText: "Ver servicios",
     secondaryCtaLink: "#servicios",
-    publicMenuText: "Atajos gestionados desde el panel Admin."
+    publicMenuText: "Elige rápido qué necesitas consultar."
   },
   appearance: {
     colorPrimary: "#ffd78a",
@@ -13155,11 +13162,12 @@ const WP_DEFAULT_CMS_V105 = {
     homeMode: "premium"
   },
   menu: [
-    { label: "Reservar", url: "#guia-reservas" },
-    { label: "Servicios", url: "#guia-servicios" },
-    { label: "Herbolario", url: "#guia-herbolario" },
-    { label: "Talleres", url: "#guia-talleres" },
-    { label: "Contacto", url: "#mensaje-contacto" }
+    { label: "Reservar", url: "#reservas" },
+    { label: "Servicios", url: "#servicios" },
+    { label: "Herbolario", url: "#herbolario" },
+    { label: "Talleres", url: "#eventos" },
+    { label: "Testimonios", url: "#testimonios-galeria" },
+    { label: "Contacto", url: "#contacto-alaya" }
   ],
   blocks: [],
   seo: {
@@ -13201,6 +13209,7 @@ function saveWpCmsV105(cms) {
   localStorage.setItem(WP_CMS_KEY_V105, JSON.stringify(cms));
   applyWpCmsV105();
   renderWpAdminV105();
+  if (typeof renderPublishedCmsJsonV107 === "function") renderPublishedCmsJsonV107();
 }
 
 function sanitizeWpV105(value) {
@@ -13262,7 +13271,7 @@ function applyWpCmsV105() {
   }
 
   const menuText = document.querySelector("#cmsPublicMenuTextV105");
-  if (menuText) menuText.textContent = cms.home.publicMenuText || "Atajos gestionados desde Admin.";
+  if (menuText) menuText.textContent = cms.home.publicMenuText || "Elige rápido qué necesitas consultar.";
 
   renderWpPublicMenuV105(cms);
   renderWpPublicBlocksV105(cms);
@@ -13364,7 +13373,7 @@ function collectWpFormsV105() {
     primaryCtaLink: wpGetInputV105("#wpPrimaryCtaLinkV105") || "#reservas",
     secondaryCtaText: wpGetInputV105("#wpSecondaryCtaTextV105") || "Ver servicios",
     secondaryCtaLink: wpGetInputV105("#wpSecondaryCtaLinkV105") || "#servicios",
-    publicMenuText: wpGetInputV105("#wpPublicMenuTextInputV105") || "Atajos gestionados desde Admin."
+    publicMenuText: wpGetInputV105("#wpPublicMenuTextInputV105") || "Elige rápido qué necesitas consultar."
   };
   cms.appearance = {
     colorPrimary: wpGetInputV105("#wpColorPrimaryV105") || "#ffd78a",
@@ -13533,6 +13542,8 @@ function renderWpDashboardV105() {
   if (seoTitle) seoTitle.textContent = cms.seo.title || cms.identity.siteName;
   const seoDesc = document.querySelector("#wpSeoPreviewDescV105");
   if (seoDesc) seoDesc.textContent = cms.seo.description || "Descripción SEO de la web.";
+
+  renderPremiumCmsReadinessV132(cms);
 }
 
 function renderWpAdminV105() {
@@ -13545,6 +13556,103 @@ function renderWpAdminV105() {
 function switchWpSectionV105(name) {
   document.querySelectorAll("[data-wp-section-v105]").forEach(btn => btn.classList.toggle("active", btn.dataset.wpSectionV105 === name));
   document.querySelectorAll("[data-wp-panel-v105]").forEach(panel => panel.classList.toggle("active", panel.dataset.wpPanelV105 === name));
+}
+
+function openPremiumCmsAreaV132(button) {
+  const adminTab = button?.dataset?.premiumAdminTabV132;
+  const wpSection = button?.dataset?.premiumCmsSectionV132;
+
+  if (adminTab && typeof jumpAdminTabV100 === "function") {
+    jumpAdminTabV100(adminTab);
+    return;
+  }
+
+  if (wpSection) {
+    switchWpSectionV105(wpSection);
+    document.querySelector("#adminTab-wordpress-cms .wp-topbar-v105")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function getPremiumCmsReadinessItemsV132(cms = getWpCmsV105()) {
+  const contentItems = typeof getAdminContentV103 === "function" ? getAdminContentV103() : [];
+  const reviews = typeof getReviewsV131 === "function" ? getReviewsV131() : [];
+  const gallery = typeof getGalleryV131 === "function" ? getGalleryV131() : [];
+  const visibleContent = contentItems.filter(item => item.active !== false);
+  const publishedReviews = reviews.filter(item => item.visible && item.consent && item.status === "publicada");
+  const visibleGallery = gallery.filter(item => item.visible !== false);
+
+  return [
+    {
+      title: "Contacto visible",
+      ready: Boolean(cms.identity.email || cms.identity.phone || cms.identity.instagram),
+      detail: "Añade email, WhatsApp o Instagram para que puedan contactar.",
+      target: "identity"
+    },
+    {
+      title: "Portada completa",
+      ready: Boolean(cms.home.heroTitle && cms.home.heroText && cms.home.primaryCtaText && cms.home.primaryCtaLink),
+      detail: "Título, texto y botón principal preparados.",
+      target: "home"
+    },
+    {
+      title: "Menú útil",
+      ready: (cms.menu || []).filter(item => item.label && item.url).length >= 4,
+      detail: "Al menos cuatro accesos rápidos para clientes.",
+      target: "menu"
+    },
+    {
+      title: "Contenido público",
+      ready: visibleContent.length > 0,
+      detail: `${visibleContent.length} contenido${visibleContent.length === 1 ? "" : "s"} visible${visibleContent.length === 1 ? "" : "s"} en la web.`,
+      adminTab: "gestor-contenido"
+    },
+    {
+      title: "SEO preparado",
+      ready: Boolean(cms.seo.title && cms.seo.description && cms.seo.description.length >= 70),
+      detail: "Título y descripción para buscadores.",
+      target: "seo"
+    },
+    {
+      title: "Confianza pública",
+      ready: publishedReviews.length > 0 || visibleGallery.length > 0,
+      detail: `${publishedReviews.length} reseña${publishedReviews.length === 1 ? "" : "s"} y ${visibleGallery.length} imagen${visibleGallery.length === 1 ? "" : "es"} visible${visibleGallery.length === 1 ? "" : "s"}.`,
+      adminTab: "resenas"
+    }
+  ];
+}
+
+function renderPremiumCmsReadinessV132(cms = getWpCmsV105()) {
+  const box = document.querySelector("#premiumCmsReadinessV132");
+  if (!box) return;
+  const items = getPremiumCmsReadinessItemsV132(cms);
+  const readyCount = items.filter(item => item.ready).length;
+  const percent = Math.round((readyCount / items.length) * 100);
+  const message = percent >= 85
+    ? "La web está muy cerca de publicación."
+    : percent >= 60
+      ? "Buen avance. Faltan algunos datos para dejarla redonda."
+      : "Completa los puntos básicos antes de publicar.";
+
+  box.innerHTML = `
+    <div class="premium-cms-score-v132">
+      <span>Estado de preparación</span>
+      <strong>${percent}% listo</strong>
+      <p>${message}</p>
+    </div>
+    <div class="premium-cms-readiness-list-v132">
+      ${items.map(item => `
+        <button class="premium-cms-readiness-item-v132" type="button" data-ready="${item.ready}" ${item.target ? `data-premium-cms-section-v132="${item.target}"` : ""} ${item.adminTab ? `data-premium-admin-tab-v132="${item.adminTab}"` : ""}>
+          <span>${item.ready ? "Listo" : "Pendiente"}</span>
+          <strong>${item.title}</strong>
+          <small>${item.detail}</small>
+        </button>
+      `).join("")}
+    </div>
+  `;
+
+  box.querySelectorAll("[data-premium-cms-section-v132], [data-premium-admin-tab-v132]").forEach(button => {
+    button.addEventListener("click", () => openPremiumCmsAreaV132(button));
+  });
 }
 
 function exportWpCmsV105() {
@@ -13585,6 +13693,10 @@ function importWpCmsV105() {
 
 document.querySelectorAll("[data-wp-section-v105]").forEach(btn => {
   btn.addEventListener("click", () => switchWpSectionV105(btn.dataset.wpSectionV105));
+});
+
+document.querySelectorAll("[data-premium-cms-section-v132], [data-premium-admin-tab-v132]").forEach(button => {
+  button.addEventListener("click", () => openPremiumCmsAreaV132(button));
 });
 
 document.querySelector("#wpSaveAllV105")?.addEventListener("click", saveWpAllV105);
@@ -13912,14 +14024,26 @@ const CMS_REMOTE_META_KEY_V107 = "alaya_cms_remote_meta_v107";
 
 function buildPublishedCmsPackageV107() {
   const cms = typeof getWpCmsV105 === "function" ? getWpCmsV105() : {};
+  const adminContent = typeof getAdminContentV103 === "function" ? getAdminContentV103() : [];
+  const reviews = typeof getReviewsV131 === "function" ? getReviewsV131() : [];
+  const gallery = typeof getGalleryV131 === "function" ? getGalleryV131() : [];
   return {
     version: "10.7",
     publishedAt: new Date().toISOString(),
     source: "alaya-admin-publicador-cms",
     cms,
+    publicContent: {
+      version: "10.3",
+      items: adminContent
+    },
+    socialProof: {
+      version: "13.1",
+      reviews,
+      gallery
+    },
     instructions: {
       uploadPath: "data/cms-public.json",
-      description: "Sube este archivo a la carpeta /data/ del hosting para publicar los cambios del CMS."
+      description: "Sube este archivo a la carpeta /data/ del hosting para publicar portada, menú, bloques, contenido, testimonios y galería."
     }
   };
 }
@@ -13935,10 +14059,17 @@ function renderPublisherMetricsV107() {
   const menuCount = cms.menu?.length || 0;
   const blockCount = cms.blocks?.length || 0;
   const publishedBlocks = (cms.blocks || []).filter(block => block.status === "Publicado").length;
+  const contentCount = typeof getAdminContentV103 === "function" ? getAdminContentV103().length : 0;
+  const publishedContent = typeof getAdminContentV103 === "function" ? getAdminContentV103().filter(item => item.active !== false).length : 0;
+  const publishedReviews = typeof getReviewsV131 === "function" ? getReviewsV131().filter(item => item.visible && item.consent && item.status === "publicada").length : 0;
+  const visibleGallery = typeof getGalleryV131 === "function" ? getGalleryV131().filter(item => item.visible !== false).length : 0;
   metrics.innerHTML = `
     <div class="cms-publisher-metric-v107"><strong>${menuCount}</strong><span>Enlaces menú</span></div>
     <div class="cms-publisher-metric-v107"><strong>${blockCount}</strong><span>Bloques totales</span></div>
     <div class="cms-publisher-metric-v107"><strong>${publishedBlocks}</strong><span>Bloques publicados</span></div>
+    <div class="cms-publisher-metric-v107"><strong>${publishedContent}/${contentCount}</strong><span>Contenidos visibles</span></div>
+    <div class="cms-publisher-metric-v107"><strong>${publishedReviews}</strong><span>Reseñas publicadas</span></div>
+    <div class="cms-publisher-metric-v107"><strong>${visibleGallery}</strong><span>Imágenes visibles</span></div>
   `;
 }
 
@@ -13975,6 +14106,19 @@ function importPublishedCmsV107() {
     const parsed = JSON.parse(raw);
     const cms = parsed.cms || parsed;
     if (typeof saveWpCmsV105 === "function") saveWpCmsV105(cms);
+    if (Array.isArray(parsed.publicContent?.items)) {
+      localStorage.setItem("alaya_admin_content_v103", JSON.stringify(parsed.publicContent.items));
+      if (typeof renderAdminContentManagerV103 === "function") renderAdminContentManagerV103();
+      if (typeof renderPublicAdminContentV103 === "function") renderPublicAdminContentV103();
+    }
+    if (Array.isArray(parsed.socialProof?.reviews)) {
+      localStorage.setItem("alaya_reviews_v131", JSON.stringify(parsed.socialProof.reviews));
+    }
+    if (Array.isArray(parsed.socialProof?.gallery)) {
+      localStorage.setItem("alaya_gallery_v131", JSON.stringify(parsed.socialProof.gallery));
+    }
+    if (typeof renderReviewsAdminV131 === "function") renderReviewsAdminV131();
+    if (typeof renderPublicReviewsV131 === "function") renderPublicReviewsV131();
     renderPublishedCmsJsonV107();
     if (typeof showToast === "function") showToast("Publicación importada al CMS.");
   } catch {
@@ -13995,6 +14139,9 @@ async function loadPublishedCmsFromHostingV107() {
     const metaRaw = localStorage.getItem(CMS_REMOTE_META_KEY_V107);
     const meta = metaRaw ? JSON.parse(metaRaw) : {};
     const hasLocalCms = Boolean(localStorage.getItem("alaya_wordpress_cms_v105"));
+    const hasLocalContent = Boolean(localStorage.getItem("alaya_admin_content_v103"));
+    const hasLocalReviews = Boolean(localStorage.getItem("alaya_reviews_v131"));
+    const hasLocalGallery = Boolean(localStorage.getItem("alaya_gallery_v131"));
     const hasKnownRemote = Boolean(meta.publishedAt);
 
     const shouldApplyRemote =
@@ -14007,6 +14154,27 @@ async function loadPublishedCmsFromHostingV107() {
       if (typeof applyWpCmsV105 === "function") applyWpCmsV105();
       if (typeof renderWpAdminV105 === "function") renderWpAdminV105();
     }
+
+    const shouldApplyRemoteData =
+      shouldApplyRemote ||
+      (hasKnownRemote && remotePublishedAt && remotePublishedAt > meta.publishedAt);
+
+    if (Array.isArray(parsed.publicContent?.items) && (!hasLocalContent || shouldApplyRemoteData)) {
+      localStorage.setItem("alaya_admin_content_v103", JSON.stringify(parsed.publicContent.items));
+      if (typeof renderAdminContentManagerV103 === "function") renderAdminContentManagerV103();
+      if (typeof renderPublicAdminContentV103 === "function") renderPublicAdminContentV103();
+    }
+
+    if (Array.isArray(parsed.socialProof?.reviews) && (!hasLocalReviews || shouldApplyRemoteData)) {
+      localStorage.setItem("alaya_reviews_v131", JSON.stringify(parsed.socialProof.reviews));
+    }
+
+    if (Array.isArray(parsed.socialProof?.gallery) && (!hasLocalGallery || shouldApplyRemoteData)) {
+      localStorage.setItem("alaya_gallery_v131", JSON.stringify(parsed.socialProof.gallery));
+    }
+
+    if (typeof renderReviewsAdminV131 === "function") renderReviewsAdminV131();
+    if (typeof renderPublicReviewsV131 === "function") renderPublicReviewsV131();
 
     const statusTitle = document.querySelector("#cmsPublishStatusTitleV107");
     const statusText = document.querySelector("#cmsPublishStatusTextV107");
@@ -20826,8 +20994,8 @@ const DEFAULT_GALLERY_V131=[
 ];
 function getReviewsV131(){try{const r=localStorage.getItem(REVIEWS_KEY_V131);const p=r?JSON.parse(r):DEFAULT_REVIEWS_V131;return Array.isArray(p)?p:DEFAULT_REVIEWS_V131}catch{return DEFAULT_REVIEWS_V131}}
 function getGalleryV131(){try{const r=localStorage.getItem(GALLERY_KEY_V131);const p=r?JSON.parse(r):DEFAULT_GALLERY_V131;return Array.isArray(p)?p:DEFAULT_GALLERY_V131}catch{return DEFAULT_GALLERY_V131}}
-function saveReviewsV131(x){localStorage.setItem(REVIEWS_KEY_V131,JSON.stringify(x));renderReviewsAdminV131();renderPublicReviewsV131()}
-function saveGalleryV131(x){localStorage.setItem(GALLERY_KEY_V131,JSON.stringify(x));renderReviewsAdminV131();renderPublicReviewsV131()}
+function saveReviewsV131(x){localStorage.setItem(REVIEWS_KEY_V131,JSON.stringify(x));renderReviewsAdminV131();renderPublicReviewsV131();if(typeof renderPremiumCmsReadinessV132==="function")renderPremiumCmsReadinessV132();if(typeof renderPublishedCmsJsonV107==="function")renderPublishedCmsJsonV107()}
+function saveGalleryV131(x){localStorage.setItem(GALLERY_KEY_V131,JSON.stringify(x));renderReviewsAdminV131();renderPublicReviewsV131();if(typeof renderPremiumCmsReadinessV132==="function")renderPremiumCmsReadinessV132();if(typeof renderPublishedCmsJsonV107==="function")renderPublishedCmsJsonV107()}
 function cleanReviewTextV131(v){return String(v||"").replace(/[<>]/g,"").trim()}
 function escapeReviewHtmlV131(v){return String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
 function safeGalleryImageV131(v){const url=String(v||"").trim();if(!url)return "";if(url.startsWith("assets/")||url.startsWith("./assets/"))return url.replace(/"/g,"");try{const parsed=new URL(url,window.location.href);return ["http:","https:"].includes(parsed.protocol)?parsed.href:""}catch{return ""}}
@@ -20864,4 +21032,4 @@ document.querySelector("#copyReviewsSummaryV131")?.addEventListener("click",copy
 document.querySelector("#reviewSearchV131")?.addEventListener("input",renderAdminReviewsListV131);
 document.querySelector("#reviewFilterV131")?.addEventListener("change",renderAdminReviewsListV131);
 window.renderReviewsAdminV131=renderReviewsAdminV131;window.renderPublicReviewsV131=renderPublicReviewsV131;window.editReviewV131=editReviewV131;window.setReviewStatusV131=setReviewStatusV131;window.copyReviewV131=copyReviewV131;window.editGalleryV131=editGalleryV131;window.toggleGalleryVisibleV131=toggleGalleryVisibleV131;window.buildReviewsReportV131=buildReviewsReportV131;
-setTimeout(()=>{renderReviewsAdminV131();renderPublicReviewsV131()},2900);
+setTimeout(()=>{renderReviewsAdminV131();renderPublicReviewsV131();if(typeof renderPremiumCmsReadinessV132==="function")renderPremiumCmsReadinessV132()},2900);

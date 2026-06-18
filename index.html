@@ -143,7 +143,7 @@
         <div>
           <p class="eyebrow">Menú destacado</p>
           <h2 id="cmsPublicMenuTitleV105">Accesos recomendados</h2>
-          <p id="cmsPublicMenuTextV105">Atajos gestionados desde el panel Admin.</p>
+          <p id="cmsPublicMenuTextV105">Elige rápido qué necesitas consultar.</p>
         </div>
         <nav id="cmsPublicMenuLinksV105" aria-label="Menú destacado gestionado desde Admin"></nav>
       </div>
@@ -5554,8 +5554,8 @@
                 <p class="eyebrow">Publicador CMS</p>
                 <h4>Publicar cambios del Admin en el hosting</h4>
                 <p>
-                  Genera el archivo <code>data/cms-public.json</code> con portada, menú, SEO, colores y bloques del CMS.
-                  Súbelo al hosting para que la web pública lo cargue.
+                  Genera el archivo <code>data/cms-public.json</code> con portada, menú, SEO, colores, bloques, servicios, talleres, testimonios y galería.
+                  Súbelo al hosting para que la web pública muestre tus últimos cambios.
                 </p>
               </div>
               <div class="cms-publisher-actions-v107">
@@ -5568,17 +5568,17 @@
               <article>
                 <span>1</span>
                 <h5>Edita la web</h5>
-                <p>Usa WordPress CMS, Gestor contenido o Constructor visual.</p>
+                <p>Cambia portada, datos, servicios, testimonios o bloques.</p>
               </article>
               <article>
                 <span>2</span>
                 <h5>Descarga JSON</h5>
-                <p>Genera el archivo <code>cms-public.json</code>.</p>
+                <p>Descarga el archivo listo para publicar.</p>
               </article>
               <article>
                 <span>3</span>
                 <h5>Sube al hosting</h5>
-                <p>Colócalo en <code>/data/cms-public.json</code>.</p>
+                <p>Colócalo dentro de la carpeta <code>/data/</code>.</p>
               </article>
               <article>
                 <span>4</span>
@@ -5600,7 +5600,9 @@
                   <ul>
                     <li>Revisar portada y botones.</li>
                     <li>Revisar menú destacado.</li>
+                    <li>Revisar servicios, talleres y herbolario añadidos.</li>
                     <li>Revisar bloques públicos.</li>
+                    <li>Revisar testimonios y galería con consentimiento.</li>
                     <li>Revisar SEO.</li>
                     <li>Descargar y subir <code>cms-public.json</code>.</li>
                   </ul>
@@ -5621,7 +5623,7 @@
               <div>
                 <p class="eyebrow">Importar publicación</p>
                 <h5>Restaurar desde JSON publicado</h5>
-                <p>Pega un archivo `cms-public.json` para recuperar una publicación anterior.</p>
+                <p>Pega un archivo <code>cms-public.json</code> para recuperar una publicación anterior.</p>
               </div>
               <textarea id="importPublishedCmsTextV107" rows="6" placeholder="Pega aquí el JSON publicado..."></textarea>
               <button class="btn btn-secondary" id="importPublishedCmsV107" type="button">Importar JSON publicado</button>
@@ -5629,7 +5631,7 @@
 
             <div class="cms-publisher-note-v107">
               <strong>Importante:</strong>
-              <span>En hosting estático el Admin no puede escribir directamente en el servidor. Por eso genera un archivo JSON para subirlo. Para publicación automática real, conecta Firebase o backend.</span>
+              <span>Esta versión está preparada para hosting estático: editas en el panel, descargas el archivo y lo subes al hosting. Para publicación automática entre dispositivos, conecta Firebase o un backend.</span>
             </div>
           </div>
         </section>
@@ -5717,7 +5719,7 @@
                 <div>
                   <p class="eyebrow">Admin tipo WordPress</p>
                   <h4>Control total de la web</h4>
-                  <p>Gestiona portada, marca, colores, menú, SEO y bloques públicos sin tocar código.</p>
+                  <p>Gestiona textos, servicios, testimonios, portada, menú, SEO y publicación desde un panel visual.</p>
                 </div>
                 <div class="wp-topbar-actions-v105">
                   <button class="btn btn-primary" id="wpSaveAllV105" type="button">Guardar cambios</button>
@@ -5726,6 +5728,53 @@
               </div>
 
               <div class="wp-section-v105 active" data-wp-panel-v105="dashboard">
+                <div class="premium-cms-hero-v132">
+                  <div>
+                    <p class="eyebrow">Web editable premium</p>
+                    <h5>Actualiza Alaya como en WordPress</h5>
+                    <p>Cambia datos del negocio, portada, servicios, talleres, reseñas, colores y avisos sin tocar código. Guarda, revisa la vista pública y publica cuando esté listo.</p>
+                  </div>
+                  <div class="premium-cms-actions-v132">
+                    <button class="btn btn-primary" type="button" data-premium-cms-section-v132="home">Editar portada</button>
+                    <button class="btn btn-secondary" type="button" data-premium-admin-tab-v132="publicador-cms">Publicar cambios</button>
+                  </div>
+                </div>
+
+                <div class="premium-cms-quickgrid-v132" aria-label="Accesos rápidos de edición">
+                  <button type="button" data-premium-cms-section-v132="identity">
+                    <span>01</span>
+                    <strong>Datos del negocio</strong>
+                    <small>Nombre, contacto, ubicación e Instagram.</small>
+                  </button>
+                  <button type="button" data-premium-cms-section-v132="home">
+                    <span>02</span>
+                    <strong>Portada</strong>
+                    <small>Título, presentación y botones principales.</small>
+                  </button>
+                  <button type="button" data-premium-admin-tab-v132="gestor-contenido">
+                    <span>03</span>
+                    <strong>Servicios y talleres</strong>
+                    <small>Añade contenido visible en la web pública.</small>
+                  </button>
+                  <button type="button" data-premium-admin-tab-v132="resenas">
+                    <span>04</span>
+                    <strong>Testimonios y galería</strong>
+                    <small>Gestiona reseñas, consentimiento e imágenes.</small>
+                  </button>
+                  <button type="button" data-premium-cms-section-v132="seo">
+                    <span>05</span>
+                    <strong>Google y buscadores</strong>
+                    <small>Título, descripción y palabras clave.</small>
+                  </button>
+                  <button type="button" data-premium-admin-tab-v132="publicador-cms">
+                    <span>06</span>
+                    <strong>Publicar</strong>
+                    <small>Descarga el archivo para subir cambios al hosting.</small>
+                  </button>
+                </div>
+
+                <div class="premium-cms-readiness-v132" id="premiumCmsReadinessV132" aria-live="polite"></div>
+
                 <div class="wp-dashboard-grid-v105">
                   <article>
                     <span>Identidad</span>
@@ -5781,7 +5830,7 @@
                   <label>Enlace botón principal<input id="wpPrimaryCtaLinkV105" type="text" placeholder="#reservas"></label>
                   <label>Botón secundario<input id="wpSecondaryCtaTextV105" type="text" placeholder="Ver servicios"></label>
                   <label>Enlace botón secundario<input id="wpSecondaryCtaLinkV105" type="text" placeholder="#servicios"></label>
-                  <label class="wp-full-v105">Texto del menú destacado<input id="wpPublicMenuTextInputV105" type="text" placeholder="Atajos gestionados desde Admin."></label>
+                  <label class="wp-full-v105">Texto del menú destacado<input id="wpPublicMenuTextInputV105" type="text" placeholder="Elige rápido qué necesitas consultar."></label>
                 </form>
               </div>
 
@@ -5893,8 +5942,8 @@
                 </div>
 
                 <div class="wp-static-note-v105">
-                  <strong>Modo hosting estático</strong>
-                  <p>Los cambios se guardan en este navegador. Para sincronizar entre dispositivos o administradores, activa Firebase/online sync.</p>
+                  <strong>Cómo publicar en la web real</strong>
+                  <p>Primero guarda los cambios. Después entra en Publicador CMS, descarga <code>cms-public.json</code> y súbelo a la carpeta <code>/data/</code> del hosting.</p>
                 </div>
               </div>
             </div>
