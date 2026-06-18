@@ -2792,6 +2792,22 @@ let auditLog = JSON.parse(localStorage.getItem("alaya_audit_log")) || [];
 let agendaBlocks = JSON.parse(localStorage.getItem("alaya_agenda_blocks")) || [];
 let appNotifications = JSON.parse(localStorage.getItem("alaya_notifications")) || [];
 
+const ADMIN_SIMPLE_MODE_KEY_V134 = "alaya_admin_simple_mode_v134";
+const ADMIN_SIMPLE_TABS_V134 = new Set([
+  "dashboard",
+  "gestor-contenido",
+  "wordpress-cms",
+  "publicador-cms",
+  "reservas",
+  "servicios",
+  "eventos",
+  "productos",
+  "resenas",
+  "tarifas",
+  "talleres",
+  "ajustes"
+]);
+
 
 function saveNotifications() {
   localStorage.setItem("alaya_notifications", JSON.stringify(appNotifications));
@@ -3720,7 +3736,40 @@ applyRoleGuardUx();
 renderAuditLog();
 updateAdminSessionUI();
   updateAdminSessionUI();
+  applyAdminSimpleModeV134();
   resetAdminAutoLock();
+}
+
+function isAdminSimpleModeV134() {
+  return localStorage.getItem(ADMIN_SIMPLE_MODE_KEY_V134) !== "advanced";
+}
+
+function applyAdminSimpleModeV134() {
+  const simple = isAdminSimpleModeV134();
+  const tabs = document.querySelector(".admin-tabs");
+  const toggle = document.querySelector("#toggleAdminSimpleModeV134");
+  tabs?.classList.toggle("is-advanced-v134", !simple);
+  if (toggle) toggle.textContent = simple ? "Mostrar avanzado" : "Volver a simple";
+
+  document.querySelectorAll(".admin-tab").forEach(tab => {
+    const isSimple = ADMIN_SIMPLE_TABS_V134.has(tab.dataset.adminTab);
+    tab.classList.toggle("is-hidden-simple-v134", simple && !isSimple);
+  });
+
+  const active = document.querySelector(".admin-tab.active");
+  if (simple && active && !ADMIN_SIMPLE_TABS_V134.has(active.dataset.adminTab)) {
+    switchAdminTab("dashboard");
+  }
+}
+
+function toggleAdminSimpleModeV134() {
+  const next = isAdminSimpleModeV134() ? "advanced" : "simple";
+  if (next === "advanced") localStorage.setItem(ADMIN_SIMPLE_MODE_KEY_V134, "advanced");
+  else localStorage.setItem(ADMIN_SIMPLE_MODE_KEY_V134, "simple");
+  applyAdminSimpleModeV134();
+  if (typeof showToast === "function") {
+    showToast(next === "advanced" ? "Panel avanzado visible." : "Panel simple activado.");
+  }
 }
 
 function switchAdminTab(tabName) {
@@ -3731,6 +3780,8 @@ function switchAdminTab(tabName) {
   $$(".admin-tab-panel").forEach(panel => {
     panel.classList.toggle("active", panel.id === `adminTab-${tabName}`);
   });
+
+  applyAdminSimpleModeV134();
 }
 
 
@@ -7135,6 +7186,7 @@ loginAdminBtn?.addEventListener("click", loginAdmin);
 resetFirebasePasswordBtn?.addEventListener("click", enviarResetPasswordFirebase);
 lockAdminBtn?.addEventListener("click", () => bloquearPanelAdmin("Panel bloqueado manualmente."));
 logoutAdminBtn?.addEventListener("click", logoutAdmin);
+document.querySelector("#toggleAdminSimpleModeV134")?.addEventListener("click", toggleAdminSimpleModeV134);
 guardarCartaAstralBtn?.addEventListener("click", guardarCartaAstralDesdeAdmin);
 limpiarCartaAstralBtn?.addEventListener("click", limpiarFormularioCartaAstral);
 exportarCartasAstralesBtn?.addEventListener("click", exportarCartasAstralesJson);
@@ -13276,6 +13328,7 @@ function applyWpCmsV105() {
   renderWpPublicMenuV105(cms);
   renderWpPublicBlocksV105(cms);
   renderWpAnnouncementV105(cms);
+  if (typeof applySectionEditorV133 === "function") applySectionEditorV133();
 }
 
 function renderWpAnnouncementV105(cms) {
@@ -13573,6 +13626,199 @@ function openPremiumCmsAreaV132(button) {
   }
 }
 
+// v13.3 Editor claro por apartados
+const SECTION_EDITOR_KEY_V133 = "alaya_section_editor_v133";
+
+const SECTION_EDITOR_CONFIG_V133 = {
+  inicio: {
+    label: "Inicio",
+    anchor: "#camino-cliente",
+    eyebrow: ".claridad-cliente-v133 .section-header .eyebrow",
+    heading: ".claridad-cliente-v133 .section-header h2",
+    text: ".claridad-cliente-v133 .section-header p:not(.eyebrow)"
+  },
+  servicios: {
+    label: "Servicios",
+    anchor: "#servicios",
+    eyebrow: "#servicios .section-header .eyebrow",
+    heading: "#servicios .section-header h2",
+    text: "#servicios .section-header p:not(.eyebrow)"
+  },
+  reservas: {
+    label: "Reservas",
+    anchor: "#reservas",
+    eyebrow: "#reservas .split-copy .eyebrow",
+    heading: "#reservas .split-copy h2",
+    text: "#reservas .split-copy p"
+  },
+  talleres: {
+    label: "Talleres",
+    anchor: "#eventos",
+    eyebrow: "#eventos .section-header .eyebrow",
+    heading: "#eventos .section-header h2",
+    text: "#eventos .section-header p:not(.eyebrow)"
+  },
+  herbolario: {
+    label: "Herbolario",
+    anchor: "#herbolario",
+    eyebrow: "#herbolario .herbolario-hero .eyebrow",
+    heading: "#herbolario .herbolario-hero h2",
+    text: "#herbolario .herbolario-hero p:not(.eyebrow)"
+  },
+  astrologia: {
+    label: "Astrología",
+    anchor: "#astral-ia",
+    eyebrow: "#astral-ia .eyebrow",
+    heading: "#astral-ia h2",
+    text: "#astral-ia .alaya-astral-copy > p:not(.eyebrow)"
+  },
+  testimonios: {
+    label: "Testimonios",
+    anchor: "#testimonios-galeria",
+    eyebrow: "#testimonios-galeria .section-header .eyebrow",
+    heading: "#testimonios-galeria .section-header h2",
+    text: "#testimonios-galeria .section-header p:not(.eyebrow)"
+  },
+  contacto: {
+    label: "Contacto",
+    anchor: "#contacto-alaya",
+    eyebrow: "#contacto-alaya .section-header .eyebrow",
+    heading: "#contacto-alaya .section-header h2",
+    text: "#contacto-alaya .section-header p:not(.eyebrow)"
+  }
+};
+
+function cleanSectionEditorV133(value) {
+  return String(value || "").replace(/[<>]/g, "").trim();
+}
+
+function getSectionEditorDataV133() {
+  try {
+    const raw = localStorage.getItem(SECTION_EDITOR_KEY_V133);
+    const parsed = raw ? JSON.parse(raw) : {};
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveSectionEditorDataV133(data) {
+  localStorage.setItem(SECTION_EDITOR_KEY_V133, JSON.stringify(data));
+}
+
+function getSectionEditorCurrentV133(key) {
+  const config = SECTION_EDITOR_CONFIG_V133[key];
+  if (!config) return {};
+  const read = selector => cleanSectionEditorV133(document.querySelector(selector)?.textContent);
+  return {
+    eyebrow: read(config.eyebrow),
+    heading: read(config.heading),
+    text: read(config.text),
+    ctaText: "",
+    ctaLink: config.anchor || ""
+  };
+}
+
+function setSectionTextV133(selector, value) {
+  const el = document.querySelector(selector);
+  if (el && value) el.textContent = value;
+}
+
+function applySectionEditorV133() {
+  const data = getSectionEditorDataV133();
+  Object.entries(data).forEach(([key, item]) => {
+    const config = SECTION_EDITOR_CONFIG_V133[key];
+    if (!config) return;
+    setSectionTextV133(config.eyebrow, item.eyebrow);
+    setSectionTextV133(config.heading, item.heading);
+    setSectionTextV133(config.text, item.text);
+
+    if (item.ctaText || item.ctaLink) {
+      const section = document.querySelector(config.anchor);
+      const cta = section?.querySelector(".btn-primary, a.btn, button.btn");
+      if (cta) {
+        if (item.ctaText) cta.textContent = item.ctaText;
+        if (item.ctaLink && cta.tagName === "A") cta.setAttribute("href", item.ctaLink);
+      }
+    }
+  });
+}
+
+function renderSectionEditorGridV133() {
+  const grid = document.querySelector("#sectionEditorGridV133");
+  if (!grid) return;
+  const data = getSectionEditorDataV133();
+  grid.innerHTML = Object.entries(SECTION_EDITOR_CONFIG_V133).map(([key, config], index) => `
+    <button class="section-editor-card-v133" type="button" data-section-editor-v133="${key}">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <strong>${config.label}</strong>
+      <small>${data[key] ? "Personalizado" : "Texto base"}</small>
+    </button>
+  `).join("");
+
+  grid.querySelectorAll("[data-section-editor-v133]").forEach(button => {
+    button.addEventListener("click", () => openSectionEditorV133(button.dataset.sectionEditorV133));
+  });
+}
+
+function fillSectionEditorFormV133(key) {
+  const config = SECTION_EDITOR_CONFIG_V133[key];
+  if (!config) return;
+  const saved = getSectionEditorDataV133()[key] || {};
+  const current = getSectionEditorCurrentV133(key);
+  const value = { ...current, ...saved };
+  const set = (selector, content) => {
+    const el = document.querySelector(selector);
+    if (el) el.value = content || "";
+  };
+  set("#sectionEditorKeyV133", key);
+  set("#sectionEditorEyebrowV133", value.eyebrow);
+  set("#sectionEditorHeadingV133", value.heading);
+  set("#sectionEditorTextV133", value.text);
+  set("#sectionEditorCtaTextV133", value.ctaText);
+  set("#sectionEditorCtaLinkV133", value.ctaLink || config.anchor);
+  const title = document.querySelector("#sectionEditorTitleV133");
+  if (title) title.textContent = `Editar ${config.label}`;
+}
+
+function openSectionEditorV133(key) {
+  if (!SECTION_EDITOR_CONFIG_V133[key]) return;
+  fillSectionEditorFormV133(key);
+  document.querySelector("#sectionEditorModalV133")?.classList.remove("hidden");
+}
+
+function closeSectionEditorV133() {
+  document.querySelector("#sectionEditorModalV133")?.classList.add("hidden");
+}
+
+function saveSectionEditorFormV133(event) {
+  event?.preventDefault();
+  const key = document.querySelector("#sectionEditorKeyV133")?.value;
+  if (!SECTION_EDITOR_CONFIG_V133[key]) return;
+  const data = getSectionEditorDataV133();
+  data[key] = {
+    eyebrow: cleanSectionEditorV133(document.querySelector("#sectionEditorEyebrowV133")?.value),
+    heading: cleanSectionEditorV133(document.querySelector("#sectionEditorHeadingV133")?.value),
+    text: cleanSectionEditorV133(document.querySelector("#sectionEditorTextV133")?.value),
+    ctaText: cleanSectionEditorV133(document.querySelector("#sectionEditorCtaTextV133")?.value),
+    ctaLink: cleanSectionEditorV133(document.querySelector("#sectionEditorCtaLinkV133")?.value),
+    updatedAt: new Date().toISOString()
+  };
+  saveSectionEditorDataV133(data);
+  applySectionEditorV133();
+  renderSectionEditorGridV133();
+  if (typeof renderPremiumCmsReadinessV132 === "function") renderPremiumCmsReadinessV132();
+  if (typeof renderPublishedCmsJsonV107 === "function") renderPublishedCmsJsonV107();
+  if (typeof showToast === "function") showToast("Apartado guardado.");
+}
+
+function previewSectionEditorV133() {
+  const key = document.querySelector("#sectionEditorKeyV133")?.value;
+  const anchor = SECTION_EDITOR_CONFIG_V133[key]?.anchor;
+  closeSectionEditorV133();
+  if (anchor) document.querySelector(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function getPremiumCmsReadinessItemsV132(cms = getWpCmsV105()) {
   const contentItems = typeof getAdminContentV103 === "function" ? getAdminContentV103() : [];
   const reviews = typeof getReviewsV131 === "function" ? getReviewsV131() : [];
@@ -13699,6 +13945,13 @@ document.querySelectorAll("[data-premium-cms-section-v132], [data-premium-admin-
   button.addEventListener("click", () => openPremiumCmsAreaV132(button));
 });
 
+document.querySelector("#sectionEditorFormV133")?.addEventListener("submit", saveSectionEditorFormV133);
+document.querySelector("#closeSectionEditorV133")?.addEventListener("click", closeSectionEditorV133);
+document.querySelector("#previewSectionEditorV133")?.addEventListener("click", previewSectionEditorV133);
+document.querySelector("#sectionEditorModalV133")?.addEventListener("click", event => {
+  if (event.target?.id === "sectionEditorModalV133") closeSectionEditorV133();
+});
+
 document.querySelector("#wpSaveAllV105")?.addEventListener("click", saveWpAllV105);
 document.querySelector("#wpResetPreviewV105")?.addEventListener("click", () => applyWpCmsV105());
 document.querySelector("#wpAddMenuItemV105")?.addEventListener("click", addWpMenuItemV105);
@@ -13726,6 +13979,8 @@ window.applyWpCmsV105 = applyWpCmsV105;
 
 applyWpCmsV105();
 renderWpAdminV105();
+renderSectionEditorGridV133();
+applySectionEditorV133();
 
 
 
@@ -14027,11 +14282,16 @@ function buildPublishedCmsPackageV107() {
   const adminContent = typeof getAdminContentV103 === "function" ? getAdminContentV103() : [];
   const reviews = typeof getReviewsV131 === "function" ? getReviewsV131() : [];
   const gallery = typeof getGalleryV131 === "function" ? getGalleryV131() : [];
+  const sectionEditor = typeof getSectionEditorDataV133 === "function" ? getSectionEditorDataV133() : {};
   return {
     version: "10.7",
     publishedAt: new Date().toISOString(),
     source: "alaya-admin-publicador-cms",
     cms,
+    sectionEditor: {
+      version: "13.3",
+      items: sectionEditor
+    },
     publicContent: {
       version: "10.3",
       items: adminContent
@@ -14063,10 +14323,12 @@ function renderPublisherMetricsV107() {
   const publishedContent = typeof getAdminContentV103 === "function" ? getAdminContentV103().filter(item => item.active !== false).length : 0;
   const publishedReviews = typeof getReviewsV131 === "function" ? getReviewsV131().filter(item => item.visible && item.consent && item.status === "publicada").length : 0;
   const visibleGallery = typeof getGalleryV131 === "function" ? getGalleryV131().filter(item => item.visible !== false).length : 0;
+  const sectionCount = typeof getSectionEditorDataV133 === "function" ? Object.keys(getSectionEditorDataV133()).length : 0;
   metrics.innerHTML = `
     <div class="cms-publisher-metric-v107"><strong>${menuCount}</strong><span>Enlaces menú</span></div>
     <div class="cms-publisher-metric-v107"><strong>${blockCount}</strong><span>Bloques totales</span></div>
     <div class="cms-publisher-metric-v107"><strong>${publishedBlocks}</strong><span>Bloques publicados</span></div>
+    <div class="cms-publisher-metric-v107"><strong>${sectionCount}</strong><span>Apartados editados</span></div>
     <div class="cms-publisher-metric-v107"><strong>${publishedContent}/${contentCount}</strong><span>Contenidos visibles</span></div>
     <div class="cms-publisher-metric-v107"><strong>${publishedReviews}</strong><span>Reseñas publicadas</span></div>
     <div class="cms-publisher-metric-v107"><strong>${visibleGallery}</strong><span>Imágenes visibles</span></div>
@@ -14106,6 +14368,11 @@ function importPublishedCmsV107() {
     const parsed = JSON.parse(raw);
     const cms = parsed.cms || parsed;
     if (typeof saveWpCmsV105 === "function") saveWpCmsV105(cms);
+    if (parsed.sectionEditor?.items && typeof parsed.sectionEditor.items === "object") {
+      localStorage.setItem("alaya_section_editor_v133", JSON.stringify(parsed.sectionEditor.items));
+      if (typeof applySectionEditorV133 === "function") applySectionEditorV133();
+      if (typeof renderSectionEditorGridV133 === "function") renderSectionEditorGridV133();
+    }
     if (Array.isArray(parsed.publicContent?.items)) {
       localStorage.setItem("alaya_admin_content_v103", JSON.stringify(parsed.publicContent.items));
       if (typeof renderAdminContentManagerV103 === "function") renderAdminContentManagerV103();
@@ -14139,6 +14406,7 @@ async function loadPublishedCmsFromHostingV107() {
     const metaRaw = localStorage.getItem(CMS_REMOTE_META_KEY_V107);
     const meta = metaRaw ? JSON.parse(metaRaw) : {};
     const hasLocalCms = Boolean(localStorage.getItem("alaya_wordpress_cms_v105"));
+    const hasLocalSectionEditor = Boolean(localStorage.getItem("alaya_section_editor_v133"));
     const hasLocalContent = Boolean(localStorage.getItem("alaya_admin_content_v103"));
     const hasLocalReviews = Boolean(localStorage.getItem("alaya_reviews_v131"));
     const hasLocalGallery = Boolean(localStorage.getItem("alaya_gallery_v131"));
@@ -14163,6 +14431,12 @@ async function loadPublishedCmsFromHostingV107() {
       localStorage.setItem("alaya_admin_content_v103", JSON.stringify(parsed.publicContent.items));
       if (typeof renderAdminContentManagerV103 === "function") renderAdminContentManagerV103();
       if (typeof renderPublicAdminContentV103 === "function") renderPublicAdminContentV103();
+    }
+
+    if (parsed.sectionEditor?.items && typeof parsed.sectionEditor.items === "object" && (!hasLocalSectionEditor || shouldApplyRemoteData)) {
+      localStorage.setItem("alaya_section_editor_v133", JSON.stringify(parsed.sectionEditor.items));
+      if (typeof applySectionEditorV133 === "function") applySectionEditorV133();
+      if (typeof renderSectionEditorGridV133 === "function") renderSectionEditorGridV133();
     }
 
     if (Array.isArray(parsed.socialProof?.reviews) && (!hasLocalReviews || shouldApplyRemoteData)) {

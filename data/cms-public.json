@@ -68,6 +68,10 @@
       "announcementText": ""
     }
   },
+  "sectionEditor": {
+    "version": "13.3",
+    "items": {}
+  },
   "publicContent": {
     "version": "10.3",
     "items": []

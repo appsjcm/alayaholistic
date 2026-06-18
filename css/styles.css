@@ -614,6 +614,29 @@ textarea {
   display: block;
 }
 
+.admin-tab.is-hidden-simple-v134 {
+  display: none !important;
+}
+
+.admin-tabs::before {
+  content: "Panel simple: edición, contenido y publicación";
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: #190b1d;
+  font-weight: 1000;
+  background: linear-gradient(135deg, var(--astral-gold, #ffd78a), var(--astral-cyan, #86ecff));
+}
+
+.admin-tabs.is-advanced-v134::before {
+  content: "Panel avanzado completo";
+  color: #fff8ec;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
 .admin-list {
   display: grid;
   gap: 12px;
@@ -22933,3 +22956,218 @@ body.dense-admin-v119 .business-card-v115 {
 #reviewsReportPreviewV131{color:#d9fbe7;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
 @media(max-width:1100px){.reviews-grid-v131,.gallery-grid-v131,.reviews-layout-v131,.reviews-header-v131{grid-template-columns:1fr}.reviews-stats-v131{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.review-form-v131,.reviews-filter-v131,.reviews-stats-v131{grid-template-columns:1fr}.reviews-actions-v131 .btn,.reviews-buttons-v131 .btn{width:100%;justify-content:center}}
+
+/* v13.3 · Web clara + editor por apartados */
+body.public-clarity-v133 [data-internal-admin-section="true"],
+body.public-clarity-v133 #bienvenida-alaya,
+body.public-clarity-v133 #cms-menu-publico,
+body.public-clarity-v133 #zona-clientes,
+body.public-clarity-v133 #atajos-clientes,
+body.public-clarity-v133 #reserva-final,
+body.public-clarity-v133 #servicios-reserva,
+body.public-clarity-v133 #despues-reservar,
+body.public-clarity-v133 #talleres-reserva,
+body.public-clarity-v133 #guia-herbolario,
+body.public-clarity-v133 #guia-servicios,
+body.public-clarity-v133 #guia-talleres,
+body.public-clarity-v133 #guia-reservas,
+body.public-clarity-v133 #guia-contacto,
+body.public-clarity-v133 #mapa-web,
+body.public-clarity-v133 #mejora-continua,
+body.public-clarity-v133 #novedades-comunidad,
+body.public-clarity-v133 #estado-mantenimiento,
+body.public-clarity-v133 #primer-arranque-web,
+body.public-clarity-v133 #seguridad-datos,
+body.public-clarity-v133 #publicacion-web,
+body.public-clarity-v133 #release-final,
+body.public-clarity-v133 #experiencia-accesible,
+body.public-clarity-v133 #estado-lanzamiento,
+body.public-clarity-v133 #disponibilidad-online,
+body.public-clarity-v133 #reserva-online,
+body.public-clarity-v133 #contenido-admin-publico {
+  display: none !important;
+}
+
+body.public-clarity-v133 .hero {
+  margin-top: 0;
+}
+
+.claridad-cliente-v133 {
+  position: relative;
+  z-index: 1;
+}
+
+.claridad-grid-v133 {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.claridad-grid-v133 a {
+  display: grid;
+  gap: 8px;
+  min-height: 154px;
+  padding: 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(255,215,138,.12), transparent 34%),
+    rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--astral-shadow);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.claridad-grid-v133 a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,215,138,.32);
+}
+
+.claridad-grid-v133 span,
+.section-editor-admin-v133 .eyebrow,
+.section-editor-card-v133 span {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: rgba(255,215,138,.10);
+  border: 1px solid rgba(255,215,138,.18);
+  color: var(--astral-gold, #ffd78a);
+  font-size: .78rem;
+  font-weight: 1000;
+}
+
+.claridad-grid-v133 strong {
+  color: #fff8ec;
+  font-size: 1.05rem;
+  line-height: 1.12;
+}
+
+.claridad-grid-v133 small,
+.section-editor-admin-v133 p,
+.section-editor-card-v133 small,
+.section-editor-help-v133 {
+  color: var(--astral-muted, var(--muted));
+  line-height: 1.5;
+}
+
+.section-editor-admin-v133 {
+  display: grid;
+  grid-template-columns: minmax(220px, .42fr) minmax(0, 1fr);
+  gap: 14px;
+  margin: 12px 0;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(134,236,255,.10), transparent 34%),
+    rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.13);
+  box-shadow: var(--astral-shadow);
+}
+
+.section-editor-admin-v133 h5 {
+  color: #fff8ec;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  margin: 6px 0 8px;
+}
+
+.section-editor-grid-v133 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.section-editor-card-v133 {
+  display: grid;
+  gap: 7px;
+  min-height: 118px;
+  padding: 14px;
+  border-radius: 18px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.11);
+}
+
+.section-editor-card-v133:hover {
+  border-color: rgba(255,215,138,.30);
+  transform: translateY(-1px);
+}
+
+.section-editor-card-v133 strong,
+.section-editor-modal-v133 h3 {
+  color: #fff8ec;
+  line-height: 1.12;
+}
+
+.section-editor-modal-v133 {
+  max-width: 760px;
+}
+
+.section-editor-form-v133 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.section-editor-form-v133 label {
+  display: grid;
+  gap: 7px;
+  color: #fff8ec;
+  font-weight: 900;
+}
+
+.section-editor-form-v133 input,
+.section-editor-form-v133 textarea {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(4,2,10,.62);
+  color: #fff8ec;
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.section-editor-full-v133,
+.section-editor-actions-v133 {
+  grid-column: 1 / -1;
+}
+
+.section-editor-actions-v133 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+@media (max-width: 1180px) {
+  .claridad-grid-v133,
+  .section-editor-grid-v133 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .claridad-grid-v133,
+  .section-editor-admin-v133,
+  .section-editor-grid-v133,
+  .section-editor-form-v133 {
+    grid-template-columns: 1fr;
+  }
+
+  .claridad-grid-v133 a,
+  .section-editor-admin-v133,
+  .section-editor-modal-v133 {
+    border-radius: 22px;
+    padding: 16px;
+  }
+
+  .section-editor-actions-v133 .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

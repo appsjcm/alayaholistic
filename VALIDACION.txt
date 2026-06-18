@@ -20,3 +20,5 @@ Nota Codex CMS: añadido escritorio premium tipo WordPress con accesos directos 
 Nota Codex CMS Plus: el publicador ahora incluye contenido editable, testimonios y galería dentro de cms-public.json para hosting estático.
 Nota Codex Premium QA: añadido estado de preparación con porcentaje, checks clicables y revisión rápida antes de publicar.
 Nota Codex Seguridad Admin: admin.html convertido en puerta privada con contraseña, noindex, bloqueo por intentos y apertura segura del panel integrado.
+Nota Codex Orden Web: añadida vista pública simplificada, recorrido principal de cliente y editor admin por apartados con popup.
+Nota Codex Admin Simple: añadido modo simple/avanzado para reducir pestañas y facilitar la edición diaria.

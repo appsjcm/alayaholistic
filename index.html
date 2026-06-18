@@ -42,7 +42,7 @@
 
 </head>
 
-<body class="testimonios-galeria-v131 talleres-inscripciones-v130 tarifas-packs-v129 recordatorios-v128 multiidioma-v127 analitica-local-v126 marketing-redes-v125 mantenimiento-soporte-v124 primer-arranque-v123 seguridad-produccion-v122 publicacion-guiada-v121 release-final-v120 seo-rendimiento-v119 lanzamiento-qa-v118 legal-privacidad-v117 backup-restauracion-v116 dashboard-negocio-v115 clientes-crm-v114 mensajes-notificaciones-v113 agenda-disponibilidad-v112 seguimiento-reservas-v111 reservas-online-v110 firebase-wizard-v109 cms-online-sync-v108 publicador-cms-v107 constructor-visual-v106 wordpress-cms-v105 hosting-ready-v104 gestor-contenido-v103 ux-global-v102 ayuda-manuales-v101 panel-admin-v100 admin-visible-v99 contacto-confianza-v98 consulta-respuesta-v97 reservas-pro-v96 talleres-pro-v95 herbolario-pro-v94 servicios-pro-v93 hero-inicio-v92 section-polish-v91 responsive-total-v90 desktop-polish-v88 modern-ui astral-global-theme">
+<body class="public-clarity-v133 testimonios-galeria-v131 talleres-inscripciones-v130 tarifas-packs-v129 recordatorios-v128 multiidioma-v127 analitica-local-v126 marketing-redes-v125 mantenimiento-soporte-v124 primer-arranque-v123 seguridad-produccion-v122 publicacion-guiada-v121 release-final-v120 seo-rendimiento-v119 lanzamiento-qa-v118 legal-privacidad-v117 backup-restauracion-v116 dashboard-negocio-v115 clientes-crm-v114 mensajes-notificaciones-v113 agenda-disponibilidad-v112 seguimiento-reservas-v111 reservas-online-v110 firebase-wizard-v109 cms-online-sync-v108 publicador-cms-v107 constructor-visual-v106 wordpress-cms-v105 hosting-ready-v104 gestor-contenido-v103 ux-global-v102 ayuda-manuales-v101 panel-admin-v100 admin-visible-v99 contacto-confianza-v98 consulta-respuesta-v97 reservas-pro-v96 talleres-pro-v95 herbolario-pro-v94 servicios-pro-v93 hero-inicio-v92 section-polish-v91 responsive-total-v90 desktop-polish-v88 modern-ui astral-global-theme">
   <div class="cms-global-announcement-v105 hidden" id="cmsGlobalAnnouncementV105" role="status"></div>
   <a class="skip-link-v102" href="#bienvenida-alaya">Saltar al contenido</a>
   <div class="page-progress-v102" id="pageProgressV102" aria-hidden="true"></div>
@@ -1555,6 +1555,26 @@
             Para reservas y plazas, la respuesta final depende de la confirmación de Alaya.
           </p>
         </div>
+      </div>
+    </section>
+
+    <section class="section claridad-cliente-v133" id="camino-cliente">
+      <div class="section-header">
+        <p class="eyebrow">Recorrido claro</p>
+        <h2>Todo lo importante, sin perderte</h2>
+        <p>
+          Elige el apartado que necesitas. La web queda centrada en servicios, reservas,
+          talleres, herbolario, astrología, testimonios y contacto.
+        </p>
+      </div>
+
+      <div class="claridad-grid-v133">
+        <a href="#servicios"><span>01</span><strong>Servicios</strong><small>Tarot, Reiki, energía y acompañamiento.</small></a>
+        <a href="#reservas"><span>02</span><strong>Reservas</strong><small>Solicita cita y espera confirmación manual.</small></a>
+        <a href="#eventos"><span>03</span><strong>Talleres</strong><small>Cursos, encuentros y actividades.</small></a>
+        <a href="#herbolario"><span>04</span><strong>Herbolario</strong><small>Productos, packs y consultas de bienestar.</small></a>
+        <a href="#astral-ia"><span>05</span><strong>Astrología</strong><small>Carta astral y consulta astrológica.</small></a>
+        <a href="#contacto-alaya"><span>06</span><strong>Contacto</strong><small>WhatsApp, email y mensaje preparado.</small></a>
       </div>
     </section>
 
@@ -3187,6 +3207,7 @@
             </div>
           </div>
           <div class="admin-header-actions">
+            <button id="toggleAdminSimpleModeV134" class="btn btn-primary" type="button">Mostrar avanzado</button>
             <button id="lockAdminBtn" class="btn btn-secondary">Bloquear panel</button>
             <button id="logoutAdminBtn" class="btn btn-secondary">Cerrar sesión</button>
           </div>
@@ -5967,6 +5988,15 @@
             </div>
           </div>
 
+          <section class="section-editor-admin-v133">
+            <div>
+              <p class="eyebrow">Editor por apartados</p>
+              <h5>Modificar textos principales con popup</h5>
+              <p>Edita cada bloque importante de la web sin buscarlo por pestañas. Guarda y revisa el cambio al momento.</p>
+            </div>
+            <div class="section-editor-grid-v133" id="sectionEditorGridV133"></div>
+          </section>
+
           <div class="content-manager-stats-v103" id="contentManagerStatsV103"></div>
 
           <div class="content-manager-layout-v103">
@@ -8068,6 +8098,43 @@
     </div>
   </div>
 
+  <div class="modal hidden" id="sectionEditorModalV133" role="dialog" aria-modal="true" aria-labelledby="sectionEditorTitleV133">
+    <div class="modal-content section-editor-modal-v133">
+      <button class="modal-close" id="closeSectionEditorV133" type="button" aria-label="Cerrar editor">×</button>
+      <p class="eyebrow">Editor por apartado</p>
+      <h3 id="sectionEditorTitleV133">Editar apartado</h3>
+      <p class="section-editor-help-v133">Cambia los textos principales de esta sección. El cambio se verá en la web pública y se incluirá en el archivo de publicación.</p>
+
+      <form class="section-editor-form-v133" id="sectionEditorFormV133">
+        <input id="sectionEditorKeyV133" type="hidden">
+        <label>
+          Etiqueta pequeña
+          <input id="sectionEditorEyebrowV133" type="text" placeholder="Ejemplo: Servicios">
+        </label>
+        <label>
+          Título
+          <input id="sectionEditorHeadingV133" type="text" placeholder="Título principal del apartado">
+        </label>
+        <label class="section-editor-full-v133">
+          Texto
+          <textarea id="sectionEditorTextV133" rows="5" placeholder="Explicación breve y clara para clientes."></textarea>
+        </label>
+        <label>
+          Texto del botón principal
+          <input id="sectionEditorCtaTextV133" type="text" placeholder="Ejemplo: Solicitar reserva">
+        </label>
+        <label>
+          Enlace del botón
+          <input id="sectionEditorCtaLinkV133" type="text" placeholder="Ejemplo: #reservas">
+        </label>
+        <div class="section-editor-actions-v133">
+          <button class="btn btn-primary" type="submit">Guardar apartado</button>
+          <button class="btn btn-secondary" id="previewSectionEditorV133" type="button">Ver apartado</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="toast hidden" id="toast"></div>
 
   <script src="js/backend-config.js"></script>
@@ -8175,7 +8242,7 @@
 
 
   <div class="floating-ux-actions-v102" aria-label="Acciones rápidas">
-    <a href="#mapa-web" class="floating-map-v102">Mapa</a>
+    <a href="#camino-cliente" class="floating-map-v102">Guía</a>
     <button type="button" id="backToTopV102" class="back-to-top-v102" aria-label="Volver arriba">↑</button>
   </div>
 
